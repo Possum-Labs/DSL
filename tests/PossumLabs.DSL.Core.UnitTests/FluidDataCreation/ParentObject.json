@@ -1,0 +1,21 @@
+[
+  {
+    "template": {
+      "value": 55
+    }
+  },
+  {
+    "name": "option1",
+    "template": {
+      "category": "Parent Cat one",
+      "value" :  1
+    }
+  },
+  {
+    "name": "option2",
+    "template": {
+      "category": "Parent Cat two",
+      "value": 2
+    }
+  }
+]

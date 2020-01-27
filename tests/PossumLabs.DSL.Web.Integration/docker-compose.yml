@@ -1,0 +1,41 @@
+﻿version: '2'
+
+services:
+  db:
+    image: mongo
+    ports:
+      - "27017:27017"
+    restart: always
+
+  proxy: 
+    image: bashamer/slipka
+    depends_on: 
+      - db
+    links: 
+      - "db:db"
+    ports:
+      - "4445:4445"
+    restart: always
+
+  hub:
+    image: selenium/hub
+    ports:
+      - "4444:4444"
+    environment:
+      TZ: US/Mountain
+    restart: always
+    volumes:
+      - "/dev/shm:/dev/shm" 
+
+  node-chrome:
+    image: selenium/node-chrome
+    depends_on: 
+      - hub
+    links: 
+      - "hub:hub"
+      - "proxy:proxy"
+    restart: always
+    environment:
+      HUB_PORT_4444_TCP_ADDR: hub
+      HUB_PORT_4444_TCP_PORT: 4444
+      TZ: US/Mountain

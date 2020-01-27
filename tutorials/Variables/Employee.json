@@ -1,0 +1,13 @@
+[
+  {
+    "template": {
+      "Role": "Default"
+    }
+  },
+  {
+    "name": "Contractor",
+    "template": {
+      "role": "Contractor"
+    }
+  }
+]

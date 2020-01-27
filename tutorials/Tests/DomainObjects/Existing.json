@@ -1,0 +1,29 @@
+[
+  {
+    "type": "User",
+    "values": [
+      {
+        "key": "User",
+        "value": {
+          "username": "user@phptravels.com",
+          "password": "demouser"
+        }
+      },
+      {
+        "key": "Admin",
+        "value": {
+          "username": "admin@phptravels.com",
+          "password": "demoadmin"
+        }
+      },
+      {
+        "key": "Supplier",
+        "value": {
+          "username": "supplier@phptravels.com",
+          "password": "demosupplier"
+        }
+      }
+
+    ]
+  }
+]

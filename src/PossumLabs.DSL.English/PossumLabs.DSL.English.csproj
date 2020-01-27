@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>Bas Hamer</Authors>
+    <Company>Possum Labs</Company>
+    <PackageTags>DSL, BDD, SpecFlow, gherkin, cucumber, Selenium</PackageTags>
+    <RepositoryUrl>https://github.com/BasHamer/PossumLabs.DSL.Core</RepositoryUrl>
+    <RepositoryType>Git</RepositoryType>
+    <Copyright>MIT</Copyright>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentAssertions" Version="5.10.0" />
+    <PackageReference Include="Selenium.Chrome.WebDriver" Version="79.0.0" />
+    <PackageReference Include="SpecFlow" Version="3.1.76" />
+    <PackageReference Include="System.Text.Encoding.CodePages" Version="4.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PossumLabs.DSL.Core\PossumLabs.DSL.Core.csproj" />
+    <ProjectReference Include="..\PossumLabs.DSL.DataGeneration\PossumLabs.DSL.DataGeneration.csproj" />
+    <ProjectReference Include="..\PossumLabs.DSL.Web\PossumLabs.DSL.Web.csproj" />
+  </ItemGroup>
+
+</Project>

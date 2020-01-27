@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>Bas Hamer</Authors>
+    <Company>Possum Labs</Company>
+    <Product>Possum Lab</Product>
+    <Copyright>MIT</Copyright>
+    <PackageProjectUrl>https://PossumLabs.com</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/BasHamer/PossumLabs.DSL.Core/blob/master/LICENSE</PackageLicenseUrl>
+    <RepositoryUrl>https://github.com/BasHamer/PossumLabs.DSL.Core</RepositoryUrl>
+    <PackageTags>BDD, SpecFlow, gherkin, cucumber</PackageTags>
+    <RepositoryType>Git</RepositoryType>
+    <PackageReleaseNotes>First verions</PackageReleaseNotes>
+    <Description>For examples please see https://github.com/BasHamer/PossumLabs.DSL
+
+This library is intended to be used with Specflow and adds variables and generic validation capabilities to Gherkin.</Description>
+    <Version>1.1.0</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CSharp" Version="4.5.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="3.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="3.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="3.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="3.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="3.1.1" />
+    <PackageReference Include="Microsoft.Extensions.DependencyModel" Version="2.1.0" />
+    <PackageReference Include="Microsoft.Extensions.FileProviders.Abstractions" Version="3.1.1" />
+    <PackageReference Include="Microsoft.Extensions.FileSystemGlobbing" Version="3.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Primitives" Version="3.1.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+    <PackageReference Include="SkiaSharp" Version="1.68.0" />
+    <PackageReference Include="System.Drawing.Common" Version="4.7.0" />
+    <PackageReference Include="YamlDotNet" Version="8.1.0" />
+  </ItemGroup>
+
+</Project>

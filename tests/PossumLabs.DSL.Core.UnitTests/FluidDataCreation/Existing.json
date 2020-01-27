@@ -1,0 +1,14 @@
+[
+  {
+    "type": "ParentObject",
+    "values": [
+      {
+        "key": "OG",
+        "value": {
+          "category": "the OG",
+          "value": 42
+        }
+      }
+    ]
+  }
+]

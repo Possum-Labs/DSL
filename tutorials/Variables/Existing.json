@@ -1,0 +1,13 @@
+[
+  {
+    "type": "Employee",
+    "values": [
+      {
+        "key": "DemoEmployee",
+        "value": {
+          "name": "bob"
+        }
+      }
+    ]
+  }
+]
