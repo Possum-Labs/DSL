@@ -84,16 +84,17 @@ namespace PossumLabs.DSL
         {
             if (Repository.Any())
             {
-                var msg = string.Empty;
-                foreach (var item in Repository.Where(x => x.Value != null))
+                base.Log.Section(this.GetType().Name, new
                 {
-                    var value = (item.Value is IEntity) ? ((IEntity)item.Value).LogFormat() : null;
-                    if (string.IsNullOrWhiteSpace(value))
-                        msg += $"Key:{item.Key} Id:{item.Value}\n";
-                    else
-                        msg += $"Key:{item.Key} Id:{value}\n";
-                }
-                base.Log.Section($"Repository for {typeof(T).Name}", msg);
+                    Elements = Repository
+                    .Where(x => x.Value != null)
+                .OrderBy(x => x.Key)
+                .Select(x => new
+                {
+                    x.Key,
+                    Value = (x.Value is IEntity) ? ((IEntity)x.Value).LogFormat() : null
+                }).ToList()
+                });
             }
         }
 

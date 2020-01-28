@@ -8,15 +8,14 @@ namespace PossumLabs.DSL.Web.Selectors
 {
     public abstract class Selector
     {
-        public void Init(string label, List<Func<string, IEnumerable<SelectorPrefix>, IWebDriver, IEnumerable<Element>>> sequencedByOrder)
+        public void Init(string constructor, List<Func<string, IEnumerable<SelectorPrefix>, IWebDriver, IEnumerable<Element>>> sequencedByOrder)
         {
-            Label = label;
+            Constructor = constructor;
             SequencedByOrder = sequencedByOrder;
         }
 
         public string Constructor { get; private set; }
         private By By { get; set; }
-        private string Label { get; set; }
         private List<Func<string, IEnumerable<SelectorPrefix>, IWebDriver, IEnumerable<Element>>> SequencedByOrder { get; set; }
 
         internal IEnumerable<Searcher> PrioritizedSearchers
@@ -33,8 +32,8 @@ namespace PossumLabs.DSL.Web.Selectors
                 {
                     return SequencedByOrder
                         .Select(By => new Searcher(
-                            () => Label,
-                            (driver, prefixes) => By(Label, prefixes, driver)));
+                            () => Constructor,
+                            (driver, prefixes) => By(Constructor, prefixes, driver)));
                 }
 
             }

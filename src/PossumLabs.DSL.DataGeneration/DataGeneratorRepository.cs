@@ -25,12 +25,14 @@ namespace PossumLabs.DSL.DataGeneration
             DataGenerator.GenerateFemaleFirstNames = stores.First(x => x.Name == DataTypes.FemaleFirstNames);
             DataGenerator.GenerateLastNames = stores.First(x => x.Name == DataTypes.LastNames);
             DataGenerator.GenerateMaleFirstNames = stores.First(x => x.Name == DataTypes.MaleFirstNames);
+            DataGenerator.GenerateSeeds = stores.First(x => x.Name == DataTypes.Seeds);
             return new DataGenerator()
             {
                 Creatures = stores.First(x=>x.Name == DataTypes.Creatures),
                 FemaleFirstNames = stores.First(x => x.Name == DataTypes.FemaleFirstNames),
                 LastNames = stores.First(x => x.Name == DataTypes.LastNames),
-                MaleFirstNames = stores.First(x => x.Name == DataTypes.MaleFirstNames)
+                MaleFirstNames = stores.First(x => x.Name == DataTypes.MaleFirstNames),
+                Seeds = stores.First(x => x.Name == DataTypes.Seeds)
             };
         }
     }

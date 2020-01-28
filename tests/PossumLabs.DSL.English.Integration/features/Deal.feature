@@ -26,8 +26,8 @@ Scenario:  Consolodate companies
 	And the Deal
 	| var | OrganizationName    |
 	| D2  | D1.OrganizationName |
-	When clicking  the element 'D1.Title'
-	And clicking  the element 'D1.OrganizationName'
+	When clicking the element 'D1.Title'
+	And clicking the element 'D1.OrganizationName'
 	Then the page contains the element 'D1.ContactPersonName'
 	And the page contains the element 'D2.ContactPersonName'
 
