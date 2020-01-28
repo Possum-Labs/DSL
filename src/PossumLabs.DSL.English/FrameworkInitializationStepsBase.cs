@@ -63,8 +63,16 @@ namespace PossumLabs.DSL
 
         protected virtual void ErrorScreenLogging()
         {
-            if(WebDriverManager.ActiveDriver && ScenarioContext.TestError != null)
+            if (ScenarioContext.TestError == null)
+                return;
+
+            if(WebDriverManager.ActiveDriver)
             {
+                if(NetworkWatcher.BadUrl == null)
+                {
+                    NetworkWatcher.BadUrl = WebDriver.Url;
+                }
+
                 try
                 {
                     FileManager.PersistFile(WebDriver.GetScreenshots().Last(),  $"final", "bmp");

@@ -21,7 +21,7 @@ namespace PossumLabs.DSL.Web.Diagnostic
         }
 
         public string LastGoodUrl { get; private set; }
-        public string BadUrl { get; private set; }
+        public string BadUrl { get; set; }
 
         public void Log(ILog logger)
         {
