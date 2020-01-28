@@ -54,9 +54,7 @@ namespace PossumLabs.DSL.Web.Selectors
 
         public void Log(ILog logger)
         {
-            logger.Section(this.GetType().Name, new
-            {
-                Elements = WebElementSources.Values
+            logger.Section(this.GetType().Name,  WebElementSources.Values
                 .Where(x => x.By != null && x.SelectorType != null)
                 .OrderBy(x => x.Order)
                 .Select(x => new WebElementLogRecord(
@@ -64,8 +62,7 @@ namespace PossumLabs.DSL.Web.Selectors
                     x.SelectorType,
                     x.SelectorConstructor,
                     x.By.ToString()
-                )).ToArray()
-            });
+                )).ToArray());
         }
     }
 

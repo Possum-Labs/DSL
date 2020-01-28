@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace PossumLabs.DSL.Web.Integration.Features
+namespace PossumLabs.DSL.Web.IntegrationTests.Features
 {
     using TechTalk.SpecFlow;
     using System;
@@ -20,7 +20,7 @@ namespace PossumLabs.DSL.Web.Integration.Features
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.1.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [Microsoft.VisualStudio.TestTools.UnitTesting.TestClassAttribute()]
-    public partial class ScriptBasedClearFeature
+    public partial class ScriptBasedSetFeature
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
@@ -29,7 +29,7 @@ namespace PossumLabs.DSL.Web.Integration.Features
         
         private string[] _featureTags = ((string[])(null));
         
-#line 1 "Script Based Clear.feature"
+#line 1 "Scrip Based Set.feature"
 #line hidden
         
         public virtual Microsoft.VisualStudio.TestTools.UnitTesting.TestContext TestContext
@@ -48,7 +48,7 @@ namespace PossumLabs.DSL.Web.Integration.Features
         public static void FeatureSetup(Microsoft.VisualStudio.TestTools.UnitTesting.TestContext testContext)
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en"), "Script Based Clear", "\tusing javascript driven clear on \'//div[@id=\"sandbox-container\"]/input\'", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en"), "Script based set", "\tusing javascript driven clear on \'//div[@id=\"sandbox-container\"]/input\'", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -63,9 +63,9 @@ namespace PossumLabs.DSL.Web.Integration.Features
         public virtual void TestInitialize()
         {
             if (((testRunner.FeatureContext != null) 
-                        && (testRunner.FeatureContext.FeatureInfo.Title != "Script Based Clear")))
+                        && (testRunner.FeatureContext.FeatureInfo.Title != "Script based set")))
             {
-                global::PossumLabs.DSL.Web.Integration.Features.ScriptBasedClearFeature.FeatureSetup(null);
+                global::PossumLabs.DSL.Web.IntegrationTests.Features.ScriptBasedSetFeature.FeatureSetup(null);
             }
         }
         
@@ -119,19 +119,11 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Given(string.Format("navigated to \'{0}\'", url), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 6
- testRunner.When(string.Format("entering \'{0}\' into element \'//div[@id=\"sandbox-container\"]/input\'", entry), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When(string.Format("using javascript setting \'{0}\' for element \'//div[@id=\"sandbox-container\"]/input\'" +
+                            "", entry), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 7
- testRunner.And("clicking the element \'#sandbox-html\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 8
- testRunner.And("using javascript driven clear on \'//div[@id=\"sandbox-container\"]/input\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 9
- testRunner.And("clicking the element \'#sandbox-html\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 10
- testRunner.Then("the element \'//div[@id=\"sandbox-container\"]/input\' has the value \'\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then(string.Format("the element \'//div[@id=\"sandbox-container\"]/input\' has the value \'{0}\'", entry), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -139,7 +131,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("datepicker external enter and clear: Text input")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Script Based Clear")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Script based set")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Text input")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:name", "Text input")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:entry", "11/11/2000")]
@@ -154,7 +146,7 @@ this.DatepickerExternalEnterAndClear("Text input", "11/11/2000", "//div[@id=\"sa
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("datepicker external enter and clear: Component")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Script Based Clear")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Script based set")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Component")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:name", "Component")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:entry", "11/11/2000")]
@@ -169,7 +161,7 @@ this.DatepickerExternalEnterAndClear("Component", "11/11/2000", "//*[@id=\"sandb
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("datepicker external enter and clear: Text input autoclose")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Script Based Clear")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Script based set")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Text input autoclose")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:name", "Text input autoclose")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:entry", "11/11/2000")]
@@ -184,7 +176,7 @@ this.DatepickerExternalEnterAndClear("Text input autoclose", "11/11/2000", "//di
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("datepicker external enter and clear: Component autoclose")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Script Based Clear")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Script based set")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Component autoclose")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:name", "Component autoclose")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:entry", "11/11/2000")]
@@ -199,7 +191,7 @@ this.DatepickerExternalEnterAndClear("Component autoclose", "11/11/2000", "//*[@
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("datepicker external enter and clear: Text input no forceparse")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Script Based Clear")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Script based set")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Text input no forceparse")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:name", "Text input no forceparse")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:entry", "11/11/2000")]
@@ -214,7 +206,7 @@ this.DatepickerExternalEnterAndClear("Text input no forceparse", "11/11/2000", "
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("datepicker external enter and clear: Component no forceparse")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Script Based Clear")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Script based set")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Component no forceparse")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:name", "Component no forceparse")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:entry", "11/11/2000")]
@@ -227,11 +219,11 @@ this.DatepickerExternalEnterAndClear("Component no forceparse", "11/11/2000", "/
 #line hidden
         }
         
-        public virtual void DatepickerExternalEnterAndClearVersion2(string name, string entry, string xpath, string url, string[] exampleTags)
+        public virtual void DatepickerExternalEnterVersion2(string name, string entry, string xpath, string url, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("datepicker external enter and clear version 2", null, exampleTags);
-#line 20
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("datepicker external enter version 2", null, exampleTags);
+#line 17
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -251,126 +243,118 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 21
+#line 18
  testRunner.Given(string.Format("navigated to \'{0}\'", url), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 22
+#line 19
  testRunner.When("clicking the element \'Switch to Bootstrap 2\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 23
- testRunner.And(string.Format("entering \'{0}\' into element \'//div[@id=\"sandbox-container\"]/input\'", entry), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 20
+ testRunner.And(string.Format("using javascript setting \'{0}\' for element \'//div[@id=\"sandbox-container\"]/input\'" +
+                            "", entry), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 24
- testRunner.And("clicking the element \'#sandbox-html\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 25
- testRunner.And("using javascript driven clear on \'//div[@id=\"sandbox-container\"]/input\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 26
- testRunner.And("clicking the element \'#sandbox-html\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 27
- testRunner.Then("the element \'//div[@id=\"sandbox-container\"]/input\' has the value \'\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 21
+ testRunner.Then(string.Format("the element \'//div[@id=\"sandbox-container\"]/input\' has the value \'{0}\'", entry), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("datepicker external enter and clear version 2: Text input")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Script Based Clear")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("datepicker external enter version 2: Text input")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Script based set")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Text input")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:name", "Text input")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:entry", "11/11/2000")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:xpath", "//div[@id=\"sandbox-container\"]/input")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:url", @"https://uxsolutions.github.io/bootstrap-datepicker/?markup=input&format=&weekStart=&startDate=&endDate=&startView=0&minViewMode=0&maxViewMode=4&todayBtn=false&clearBtn=false&language=en&orientation=auto&multidate=&multidateSeparator=&keyboardNavigation=on&forceParse=on#sandbox")]
-        public virtual void DatepickerExternalEnterAndClearVersion2_TextInput()
+        public virtual void DatepickerExternalEnterVersion2_TextInput()
         {
-#line 20
-this.DatepickerExternalEnterAndClearVersion2("Text input", "11/11/2000", "//div[@id=\"sandbox-container\"]/input", @"https://uxsolutions.github.io/bootstrap-datepicker/?markup=input&format=&weekStart=&startDate=&endDate=&startView=0&minViewMode=0&maxViewMode=4&todayBtn=false&clearBtn=false&language=en&orientation=auto&multidate=&multidateSeparator=&keyboardNavigation=on&forceParse=on#sandbox", ((string[])(null)));
+#line 17
+this.DatepickerExternalEnterVersion2("Text input", "11/11/2000", "//div[@id=\"sandbox-container\"]/input", @"https://uxsolutions.github.io/bootstrap-datepicker/?markup=input&format=&weekStart=&startDate=&endDate=&startView=0&minViewMode=0&maxViewMode=4&todayBtn=false&clearBtn=false&language=en&orientation=auto&multidate=&multidateSeparator=&keyboardNavigation=on&forceParse=on#sandbox", ((string[])(null)));
 #line hidden
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("datepicker external enter and clear version 2: Component")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Script Based Clear")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("datepicker external enter version 2: Component")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Script based set")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Component")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:name", "Component")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:entry", "11/11/2000")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:xpath", "//*[@id=\"sandbox-container\"]/div/input")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:url", @"https://uxsolutions.github.io/bootstrap-datepicker/?markup=component&format=&weekStart=&startDate=&endDate=&startView=0&minViewMode=0&maxViewMode=4&todayBtn=false&clearBtn=false&language=en&orientation=auto&multidate=&multidateSeparator=&keyboardNavigation=on&forceParse=on#sandbox")]
-        public virtual void DatepickerExternalEnterAndClearVersion2_Component()
+        public virtual void DatepickerExternalEnterVersion2_Component()
         {
-#line 20
-this.DatepickerExternalEnterAndClearVersion2("Component", "11/11/2000", "//*[@id=\"sandbox-container\"]/div/input", @"https://uxsolutions.github.io/bootstrap-datepicker/?markup=component&format=&weekStart=&startDate=&endDate=&startView=0&minViewMode=0&maxViewMode=4&todayBtn=false&clearBtn=false&language=en&orientation=auto&multidate=&multidateSeparator=&keyboardNavigation=on&forceParse=on#sandbox", ((string[])(null)));
+#line 17
+this.DatepickerExternalEnterVersion2("Component", "11/11/2000", "//*[@id=\"sandbox-container\"]/div/input", @"https://uxsolutions.github.io/bootstrap-datepicker/?markup=component&format=&weekStart=&startDate=&endDate=&startView=0&minViewMode=0&maxViewMode=4&todayBtn=false&clearBtn=false&language=en&orientation=auto&multidate=&multidateSeparator=&keyboardNavigation=on&forceParse=on#sandbox", ((string[])(null)));
 #line hidden
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("datepicker external enter and clear version 2: Text input autoclose")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Script Based Clear")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("datepicker external enter version 2: Text input autoclose")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Script based set")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Text input autoclose")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:name", "Text input autoclose")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:entry", "11/11/2000")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:xpath", "//div[@id=\"sandbox-container\"]/input")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:url", @"https://uxsolutions.github.io/bootstrap-datepicker/?markup=input&format=&weekStart=&startDate=&endDate=&startView=0&minViewMode=0&maxViewMode=4&todayBtn=false&clearBtn=false&language=en&orientation=auto&multidate=&multidateSeparator=&autoclose=on&KeyboardNavigation=on&forceParse=on#sandbox")]
-        public virtual void DatepickerExternalEnterAndClearVersion2_TextInputAutoclose()
+        public virtual void DatepickerExternalEnterVersion2_TextInputAutoclose()
         {
-#line 20
-this.DatepickerExternalEnterAndClearVersion2("Text input autoclose", "11/11/2000", "//div[@id=\"sandbox-container\"]/input", @"https://uxsolutions.github.io/bootstrap-datepicker/?markup=input&format=&weekStart=&startDate=&endDate=&startView=0&minViewMode=0&maxViewMode=4&todayBtn=false&clearBtn=false&language=en&orientation=auto&multidate=&multidateSeparator=&autoclose=on&KeyboardNavigation=on&forceParse=on#sandbox", ((string[])(null)));
+#line 17
+this.DatepickerExternalEnterVersion2("Text input autoclose", "11/11/2000", "//div[@id=\"sandbox-container\"]/input", @"https://uxsolutions.github.io/bootstrap-datepicker/?markup=input&format=&weekStart=&startDate=&endDate=&startView=0&minViewMode=0&maxViewMode=4&todayBtn=false&clearBtn=false&language=en&orientation=auto&multidate=&multidateSeparator=&autoclose=on&KeyboardNavigation=on&forceParse=on#sandbox", ((string[])(null)));
 #line hidden
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("datepicker external enter and clear version 2: Component autoclose")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Script Based Clear")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("datepicker external enter version 2: Component autoclose")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Script based set")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Component autoclose")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:name", "Component autoclose")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:entry", "11/11/2000")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:xpath", "//*[@id=\"sandbox-container\"]/div/input")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:url", @"https://uxsolutions.github.io/bootstrap-datepicker/?markup=component&format=&weekStart=&startDate=&endDate=&startView=0&minViewMode=0&maxViewMode=4&todayBtn=false&clearBtn=false&language=en&orientation=auto&multidate=&multidateSeparator=&autoclose=on&KeyboardNavigation=on&forceParse=on#sandbox")]
-        public virtual void DatepickerExternalEnterAndClearVersion2_ComponentAutoclose()
+        public virtual void DatepickerExternalEnterVersion2_ComponentAutoclose()
         {
-#line 20
-this.DatepickerExternalEnterAndClearVersion2("Component autoclose", "11/11/2000", "//*[@id=\"sandbox-container\"]/div/input", @"https://uxsolutions.github.io/bootstrap-datepicker/?markup=component&format=&weekStart=&startDate=&endDate=&startView=0&minViewMode=0&maxViewMode=4&todayBtn=false&clearBtn=false&language=en&orientation=auto&multidate=&multidateSeparator=&autoclose=on&KeyboardNavigation=on&forceParse=on#sandbox", ((string[])(null)));
+#line 17
+this.DatepickerExternalEnterVersion2("Component autoclose", "11/11/2000", "//*[@id=\"sandbox-container\"]/div/input", @"https://uxsolutions.github.io/bootstrap-datepicker/?markup=component&format=&weekStart=&startDate=&endDate=&startView=0&minViewMode=0&maxViewMode=4&todayBtn=false&clearBtn=false&language=en&orientation=auto&multidate=&multidateSeparator=&autoclose=on&KeyboardNavigation=on&forceParse=on#sandbox", ((string[])(null)));
 #line hidden
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("datepicker external enter and clear version 2: Text input no forceparse")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Script Based Clear")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("datepicker external enter version 2: Text input no forceparse")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Script based set")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Text input no forceparse")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:name", "Text input no forceparse")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:entry", "11/11/2000")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:xpath", "//div[@id=\"sandbox-container\"]/input")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:url", @"https://uxsolutions.github.io/bootstrap-datepicker/?markup=input&format=&weekStart=&startDate=&endDate=&startView=0&minViewMode=0&maxViewMode=4&todayBtn=false&clearBtn=false&language=en&orientation=auto&multidate=&multidateSeparator=&KeyboardNavigation=on#sandbox")]
-        public virtual void DatepickerExternalEnterAndClearVersion2_TextInputNoForceparse()
+        public virtual void DatepickerExternalEnterVersion2_TextInputNoForceparse()
         {
-#line 20
-this.DatepickerExternalEnterAndClearVersion2("Text input no forceparse", "11/11/2000", "//div[@id=\"sandbox-container\"]/input", @"https://uxsolutions.github.io/bootstrap-datepicker/?markup=input&format=&weekStart=&startDate=&endDate=&startView=0&minViewMode=0&maxViewMode=4&todayBtn=false&clearBtn=false&language=en&orientation=auto&multidate=&multidateSeparator=&KeyboardNavigation=on#sandbox", ((string[])(null)));
+#line 17
+this.DatepickerExternalEnterVersion2("Text input no forceparse", "11/11/2000", "//div[@id=\"sandbox-container\"]/input", @"https://uxsolutions.github.io/bootstrap-datepicker/?markup=input&format=&weekStart=&startDate=&endDate=&startView=0&minViewMode=0&maxViewMode=4&todayBtn=false&clearBtn=false&language=en&orientation=auto&multidate=&multidateSeparator=&KeyboardNavigation=on#sandbox", ((string[])(null)));
 #line hidden
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("datepicker external enter and clear version 2: Component no forceparse")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Script Based Clear")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("datepicker external enter version 2: Component no forceparse")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Script based set")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Component no forceparse")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:name", "Component no forceparse")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:entry", "11/11/2000")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:xpath", "//*[@id=\"sandbox-container\"]/div/input")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:url", @"https://uxsolutions.github.io/bootstrap-datepicker/?markup=component&format=&weekStart=&startDate=&endDate=&startView=0&minViewMode=0&maxViewMode=4&todayBtn=false&clearBtn=false&language=en&orientation=auto&multidate=&multidateSeparator=&KeyboardNavigation=on#sandbox")]
-        public virtual void DatepickerExternalEnterAndClearVersion2_ComponentNoForceparse()
+        public virtual void DatepickerExternalEnterVersion2_ComponentNoForceparse()
         {
-#line 20
-this.DatepickerExternalEnterAndClearVersion2("Component no forceparse", "11/11/2000", "//*[@id=\"sandbox-container\"]/div/input", @"https://uxsolutions.github.io/bootstrap-datepicker/?markup=component&format=&weekStart=&startDate=&endDate=&startView=0&minViewMode=0&maxViewMode=4&todayBtn=false&clearBtn=false&language=en&orientation=auto&multidate=&multidateSeparator=&KeyboardNavigation=on#sandbox", ((string[])(null)));
+#line 17
+this.DatepickerExternalEnterVersion2("Component no forceparse", "11/11/2000", "//*[@id=\"sandbox-container\"]/div/input", @"https://uxsolutions.github.io/bootstrap-datepicker/?markup=component&format=&weekStart=&startDate=&endDate=&startView=0&minViewMode=0&maxViewMode=4&todayBtn=false&clearBtn=false&language=en&orientation=auto&multidate=&multidateSeparator=&KeyboardNavigation=on#sandbox", ((string[])(null)));
 #line hidden
         }
         
-        public virtual void ExternalEnterAndClear(string name, string id, string entry, string[] exampleTags)
+        public virtual void ExternalEnter(string name, string id, string entry, string expected, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("external enter and clear", null, exampleTags);
-#line 37
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("external enter", null, exampleTags);
+#line 31
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -390,299 +374,316 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 38
+#line 32
  testRunner.Given("navigated to \'https://igorescobar.github.io/jQuery-Mask-Plugin/\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 39
- testRunner.When(string.Format("entering \'{0}\' into element \'{1}\'", entry, id), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 33
+ testRunner.When(string.Format("using javascript setting \'{0}\' for element \'{1}\'", entry, id), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 40
- testRunner.When(string.Format("using javascript driven clear on \'{0}\'", id), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 41
- testRunner.Then(string.Format("the element \'{0}\' has the value \'\'", id), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 34
+ testRunner.Then(string.Format("the element \'{0}\' has the value \'{1}\'", id, expected), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("external enter and clear: Date")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Script Based Clear")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("external enter: Date")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Script based set")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Date")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:name", "Date")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:id", "#date")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:entry", "11112000")]
-        public virtual void ExternalEnterAndClear_Date()
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:entry", "11/11/2000")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:expected", "11/11/2000")]
+        public virtual void ExternalEnter_Date()
         {
-#line 37
-this.ExternalEnterAndClear("Date", "#date", "11112000", ((string[])(null)));
+#line 31
+this.ExternalEnter("Date", "#date", "11/11/2000", "11/11/2000", ((string[])(null)));
 #line hidden
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("external enter and clear: Date             zero padded")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Script Based Clear")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("external enter: Date             zero padded")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Script based set")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Date             zero padded")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:name", "Date             zero padded")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:id", "#date")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:entry", "01012000")]
-        public virtual void ExternalEnterAndClear_DateZeroPadded()
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:entry", "01/01/2000")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:expected", "01/01/2000")]
+        public virtual void ExternalEnter_DateZeroPadded()
         {
-#line 37
-this.ExternalEnterAndClear("Date             zero padded", "#date", "01012000", ((string[])(null)));
+#line 31
+this.ExternalEnter("Date             zero padded", "#date", "01/01/2000", "01/01/2000", ((string[])(null)));
 #line hidden
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("external enter and clear: Hour")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Script Based Clear")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("external enter: Hour")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Script based set")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Hour")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:name", "Hour")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:id", "#time")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:entry", "111111")]
-        public virtual void ExternalEnterAndClear_Hour()
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:entry", "11:11:11")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:expected", "11:11:11")]
+        public virtual void ExternalEnter_Hour()
         {
-#line 37
-this.ExternalEnterAndClear("Hour", "#time", "111111", ((string[])(null)));
+#line 31
+this.ExternalEnter("Hour", "#time", "11:11:11", "11:11:11", ((string[])(null)));
 #line hidden
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("external enter and clear: Date & Hour")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Script Based Clear")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("external enter: Date & Hour")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Script based set")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Date & Hour")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:name", "Date & Hour")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:id", "#date_time")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:entry", "11112000111111")]
-        public virtual void ExternalEnterAndClear_DateHour()
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:entry", "11/11/2000 11:11:11")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:expected", "11/11/2000 11:11:11")]
+        public virtual void ExternalEnter_DateHour()
         {
-#line 37
-this.ExternalEnterAndClear("Date & Hour", "#date_time", "11112000111111", ((string[])(null)));
+#line 31
+this.ExternalEnter("Date & Hour", "#date_time", "11/11/2000 11:11:11", "11/11/2000 11:11:11", ((string[])(null)));
 #line hidden
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("external enter and clear: ZIP Code")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Script Based Clear")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("external enter: ZIP Code")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Script based set")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "ZIP Code")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:name", "ZIP Code")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:id", "#cep")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:entry", "80202")]
-        public virtual void ExternalEnterAndClear_ZIPCode()
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:expected", "80202")]
+        public virtual void ExternalEnter_ZIPCode()
         {
-#line 37
-this.ExternalEnterAndClear("ZIP Code", "#cep", "80202", ((string[])(null)));
+#line 31
+this.ExternalEnter("ZIP Code", "#cep", "80202", "80202", ((string[])(null)));
 #line hidden
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("external enter and clear: With Callbacks (open console)")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Script Based Clear")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("external enter: With Callbacks (open console)")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Script based set")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "With Callbacks (open console)")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:name", "With Callbacks (open console)")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:id", "#cep_with_callback")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:entry", "80202")]
-        public virtual void ExternalEnterAndClear_WithCallbacksOpenConsole()
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:expected", "80202")]
+        public virtual void ExternalEnter_WithCallbacksOpenConsole()
         {
-#line 37
-this.ExternalEnterAndClear("With Callbacks (open console)", "#cep_with_callback", "80202", ((string[])(null)));
+#line 31
+this.ExternalEnter("With Callbacks (open console)", "#cep_with_callback", "80202", "80202", ((string[])(null)));
 #line hidden
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("external enter and clear: Crazy Zip Code")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Script Based Clear")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("external enter: Crazy Zip Code")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Script based set")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Crazy Zip Code")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:name", "Crazy Zip Code")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:id", "#crazy_cep")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:entry", "8020211")]
-        public virtual void ExternalEnterAndClear_CrazyZipCode()
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:expected", "8020211")]
+        public virtual void ExternalEnter_CrazyZipCode()
         {
-#line 37
-this.ExternalEnterAndClear("Crazy Zip Code", "#crazy_cep", "8020211", ((string[])(null)));
+#line 31
+this.ExternalEnter("Crazy Zip Code", "#crazy_cep", "8020211", "8020211", ((string[])(null)));
 #line hidden
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("external enter and clear: Money")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Script Based Clear")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("external enter: Money")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Script based set")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Money")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:name", "Money")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:id", "#money")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:entry", "123456")]
-        public virtual void ExternalEnterAndClear_Money()
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:expected", "123456")]
+        public virtual void ExternalEnter_Money()
         {
-#line 37
-this.ExternalEnterAndClear("Money", "#money", "123456", ((string[])(null)));
+#line 31
+this.ExternalEnter("Money", "#money", "123456", "123456", ((string[])(null)));
 #line hidden
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("external enter and clear: Mask placeholder option")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Script Based Clear")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("external enter: Mask placeholder option")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Script based set")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Mask placeholder option")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:name", "Mask placeholder option")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:id", "#placeholder")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:entry", "01012000")]
-        public virtual void ExternalEnterAndClear_MaskPlaceholderOption()
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:expected", "01012000")]
+        public virtual void ExternalEnter_MaskPlaceholderOption()
         {
-#line 37
-this.ExternalEnterAndClear("Mask placeholder option", "#placeholder", "01012000", ((string[])(null)));
+#line 31
+this.ExternalEnter("Mask placeholder option", "#placeholder", "01012000", "01012000", ((string[])(null)));
 #line hidden
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("external enter and clear: Telephone")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Script Based Clear")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("external enter: Telephone")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Script based set")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Telephone")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:name", "Telephone")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:id", "#phone")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:entry", "1234567")]
-        public virtual void ExternalEnterAndClear_Telephone()
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:expected", "1234567")]
+        public virtual void ExternalEnter_Telephone()
         {
-#line 37
-this.ExternalEnterAndClear("Telephone", "#phone", "1234567", ((string[])(null)));
+#line 31
+this.ExternalEnter("Telephone", "#phone", "1234567", "1234567", ((string[])(null)));
 #line hidden
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("external enter and clear: Telephone with Code Area")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Script Based Clear")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("external enter: Telephone with Code Area")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Script based set")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Telephone with Code Area")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:name", "Telephone with Code Area")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:id", "#phone_with_ddd")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:entry", "1234567890")]
-        public virtual void ExternalEnterAndClear_TelephoneWithCodeArea()
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:expected", "1234567890")]
+        public virtual void ExternalEnter_TelephoneWithCodeArea()
         {
-#line 37
-this.ExternalEnterAndClear("Telephone with Code Area", "#phone_with_ddd", "1234567890", ((string[])(null)));
+#line 31
+this.ExternalEnter("Telephone with Code Area", "#phone_with_ddd", "1234567890", "1234567890", ((string[])(null)));
 #line hidden
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("external enter and clear: US Telephone")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Script Based Clear")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("external enter: US Telephone")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Script based set")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "US Telephone")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:name", "US Telephone")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:id", "#phone_us")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:entry", "1234567890")]
-        public virtual void ExternalEnterAndClear_USTelephone()
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:expected", "1234567890")]
+        public virtual void ExternalEnter_USTelephone()
         {
-#line 37
-this.ExternalEnterAndClear("US Telephone", "#phone_us", "1234567890", ((string[])(null)));
+#line 31
+this.ExternalEnter("US Telephone", "#phone_us", "1234567890", "1234567890", ((string[])(null)));
 #line hidden
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("external enter and clear: São Paulo Celphones")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Script Based Clear")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("external enter: São Paulo Celphones")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Script based set")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "São Paulo Celphones")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:name", "São Paulo Celphones")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:id", "#sp_celphones")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:entry", "1234567890")]
-        public virtual void ExternalEnterAndClear_SaoPauloCelphones()
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:expected", "1234567890")]
+        public virtual void ExternalEnter_SaoPauloCelphones()
         {
-#line 37
-this.ExternalEnterAndClear("São Paulo Celphones", "#sp_celphones", "1234567890", ((string[])(null)));
+#line 31
+this.ExternalEnter("São Paulo Celphones", "#sp_celphones", "1234567890", "1234567890", ((string[])(null)));
 #line hidden
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("external enter and clear: Mixed Type Mask")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Script Based Clear")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("external enter: Mixed Type Mask")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Script based set")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Mixed Type Mask")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:name", "Mixed Type Mask")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:id", "#mixed")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:entry", "123456a")]
-        public virtual void ExternalEnterAndClear_MixedTypeMask()
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:expected", "123456a")]
+        public virtual void ExternalEnter_MixedTypeMask()
         {
-#line 37
-this.ExternalEnterAndClear("Mixed Type Mask", "#mixed", "123456a", ((string[])(null)));
+#line 31
+this.ExternalEnter("Mixed Type Mask", "#mixed", "123456a", "123456a", ((string[])(null)));
 #line hidden
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("external enter and clear: CPF")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Script Based Clear")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("external enter: CPF")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Script based set")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "CPF")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:name", "CPF")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:id", "#cpf")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:entry", "1234567890")]
-        public virtual void ExternalEnterAndClear_CPF()
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:expected", "1234567890")]
+        public virtual void ExternalEnter_CPF()
         {
-#line 37
-this.ExternalEnterAndClear("CPF", "#cpf", "1234567890", ((string[])(null)));
+#line 31
+this.ExternalEnter("CPF", "#cpf", "1234567890", "1234567890", ((string[])(null)));
 #line hidden
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("external enter and clear: CNPJ")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Script Based Clear")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("external enter: CNPJ")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Script based set")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "CNPJ")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:name", "CNPJ")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:id", "#cnpj")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:entry", "1234567890")]
-        public virtual void ExternalEnterAndClear_CNPJ()
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:expected", "1234567890")]
+        public virtual void ExternalEnter_CNPJ()
         {
-#line 37
-this.ExternalEnterAndClear("CNPJ", "#cnpj", "1234567890", ((string[])(null)));
+#line 31
+this.ExternalEnter("CNPJ", "#cnpj", "1234567890", "1234567890", ((string[])(null)));
 #line hidden
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("external enter and clear: IP Address")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Script Based Clear")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("external enter: IP Address")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Script based set")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "IP Address")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:name", "IP Address")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:id", "#ip_address")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:entry", "123123123123")]
-        public virtual void ExternalEnterAndClear_IPAddress()
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:expected", "123123123123")]
+        public virtual void ExternalEnter_IPAddress()
         {
-#line 37
-this.ExternalEnterAndClear("IP Address", "#ip_address", "123123123123", ((string[])(null)));
+#line 31
+this.ExternalEnter("IP Address", "#ip_address", "123123123123", "123123123123", ((string[])(null)));
 #line hidden
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("external enter and clear: With Clear If Not Match Option")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Script Based Clear")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("external enter: With Clear If Not Match Option")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Script based set")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "With Clear If Not Match Option")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:name", "With Clear If Not Match Option")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:id", "#clear-if-not-match")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:entry", "01012000")]
-        public virtual void ExternalEnterAndClear_WithClearIfNotMatchOption()
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:expected", "01012000")]
+        public virtual void ExternalEnter_WithClearIfNotMatchOption()
         {
-#line 37
-this.ExternalEnterAndClear("With Clear If Not Match Option", "#clear-if-not-match", "01012000", ((string[])(null)));
+#line 31
+this.ExternalEnter("With Clear If Not Match Option", "#clear-if-not-match", "01012000", "01012000", ((string[])(null)));
 #line hidden
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("external enter and clear: With a fallback digit")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Script Based Clear")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("external enter: With a fallback digit")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Script based set")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "With a fallback digit")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:name", "With a fallback digit")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:id", "#fallback")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:entry", "01012000")]
-        public virtual void ExternalEnterAndClear_WithAFallbackDigit()
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:expected", "01012000")]
+        public virtual void ExternalEnter_WithAFallbackDigit()
         {
-#line 37
-this.ExternalEnterAndClear("With a fallback digit", "#fallback", "01012000", ((string[])(null)));
+#line 31
+this.ExternalEnter("With a fallback digit", "#fallback", "01012000", "01012000", ((string[])(null)));
 #line hidden
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("external enter and clear: With selectOnFocus")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Script Based Clear")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("external enter: With selectOnFocus")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Script based set")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "With selectOnFocus")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:name", "With selectOnFocus")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:id", "#selectonfocus")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:entry", "01012000")]
-        public virtual void ExternalEnterAndClear_WithSelectOnFocus()
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:expected", "01012000")]
+        public virtual void ExternalEnter_WithSelectOnFocus()
         {
-#line 37
-this.ExternalEnterAndClear("With selectOnFocus", "#selectonfocus", "01012000", ((string[])(null)));
+#line 31
+this.ExternalEnter("With selectOnFocus", "#selectonfocus", "01012000", "01012000", ((string[])(null)));
 #line hidden
         }
     }

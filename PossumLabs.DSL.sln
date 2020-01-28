@@ -13,15 +13,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PossumLabs.DSL.Web", "src\P
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{845D75B3-BA03-406C-ACA7-43086CCB864B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PossumLabs.DSL.UnitTests", "tests\PossumLabs.DSL.Core.UnitTests\PossumLabs.DSL.UnitTests.csproj", "{9DF02245-3AA8-4311-B4F5-3EC9F41E7DD6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PossumLabs.DSL.DataGeneration.UnitTests", "tests\PossumLabs.DSL.DataGeneration.UnitTests\PossumLabs.DSL.DataGeneration.UnitTests.csproj", "{97A92635-2000-4D7D-B3A3-66774F6B9660}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PossumLabs.DSL.English.Integration", "tests\PossumLabs.DSL.English.Integration\PossumLabs.DSL.English.Integration.csproj", "{65413E64-033B-4CAA-98BA-DAF206CE2876}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PossumLabs.DSL.Core.UnitTests", "tests\PossumLabs.DSL.Core.UnitTests\PossumLabs.DSL.Core.UnitTests.csproj", "{A20F3A96-A8A9-4FCA-ABD0-8401CD98503D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PossumLabs.DSL.Web.Integration", "tests\PossumLabs.DSL.Web.Integration\PossumLabs.DSL.Web.Integration.csproj", "{2E51E7F6-E2DF-4A95-8E4C-997176EBF12C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PossumLabs.DSL.Web.UnitTest", "tests\PossumLabs.DSL.Web.UnitTest\PossumLabs.DSL.Web.UnitTest.csproj", "{38D85BB5-30E2-46A6-917F-11D1C5CDAC7F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PossumLabs.DSL.Web.Test", "tests\PossumLabs.DSL.Web.Test\PossumLabs.DSL.Web.Test.csproj", "{C29A6154-54ED-412E-AE5A-0767C47DB17B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PossumLabs.DSL.English.IntegrationTests", "tests\PossumLabs.DSL.English.IntegrationTests\PossumLabs.DSL.English.IntegrationTests.csproj", "{4BB71A8A-0B39-406C-B938-65AD1A6AC304}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PossumLabs.DSL.DataGeneration.UnitTests", "tests\PossumLabs.DSL.DataGeneration.UnitTests\PossumLabs.DSL.DataGeneration.UnitTests.csproj", "{97A92635-2000-4D7D-B3A3-66774F6B9660}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PossumLabs.DSL.Web.IntegrationTests", "tests\PossumLabs.DSL.Web.IntegrationTests\PossumLabs.DSL.Web.IntegrationTests.csproj", "{DAABCE43-9584-44DE-97F3-3374C3AB06EE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,36 +45,36 @@ Global
 		{9D700012-53C1-44EB-865E-78DA1523AAF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9D700012-53C1-44EB-865E-78DA1523AAF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9D700012-53C1-44EB-865E-78DA1523AAF6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9DF02245-3AA8-4311-B4F5-3EC9F41E7DD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9DF02245-3AA8-4311-B4F5-3EC9F41E7DD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9DF02245-3AA8-4311-B4F5-3EC9F41E7DD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9DF02245-3AA8-4311-B4F5-3EC9F41E7DD6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{65413E64-033B-4CAA-98BA-DAF206CE2876}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{65413E64-033B-4CAA-98BA-DAF206CE2876}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{65413E64-033B-4CAA-98BA-DAF206CE2876}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{65413E64-033B-4CAA-98BA-DAF206CE2876}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2E51E7F6-E2DF-4A95-8E4C-997176EBF12C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2E51E7F6-E2DF-4A95-8E4C-997176EBF12C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2E51E7F6-E2DF-4A95-8E4C-997176EBF12C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2E51E7F6-E2DF-4A95-8E4C-997176EBF12C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C29A6154-54ED-412E-AE5A-0767C47DB17B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C29A6154-54ED-412E-AE5A-0767C47DB17B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C29A6154-54ED-412E-AE5A-0767C47DB17B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C29A6154-54ED-412E-AE5A-0767C47DB17B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{97A92635-2000-4D7D-B3A3-66774F6B9660}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{97A92635-2000-4D7D-B3A3-66774F6B9660}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{97A92635-2000-4D7D-B3A3-66774F6B9660}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{97A92635-2000-4D7D-B3A3-66774F6B9660}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A20F3A96-A8A9-4FCA-ABD0-8401CD98503D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A20F3A96-A8A9-4FCA-ABD0-8401CD98503D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A20F3A96-A8A9-4FCA-ABD0-8401CD98503D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A20F3A96-A8A9-4FCA-ABD0-8401CD98503D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38D85BB5-30E2-46A6-917F-11D1C5CDAC7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38D85BB5-30E2-46A6-917F-11D1C5CDAC7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38D85BB5-30E2-46A6-917F-11D1C5CDAC7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38D85BB5-30E2-46A6-917F-11D1C5CDAC7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BB71A8A-0B39-406C-B938-65AD1A6AC304}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BB71A8A-0B39-406C-B938-65AD1A6AC304}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BB71A8A-0B39-406C-B938-65AD1A6AC304}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BB71A8A-0B39-406C-B938-65AD1A6AC304}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DAABCE43-9584-44DE-97F3-3374C3AB06EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAABCE43-9584-44DE-97F3-3374C3AB06EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAABCE43-9584-44DE-97F3-3374C3AB06EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAABCE43-9584-44DE-97F3-3374C3AB06EE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{9DF02245-3AA8-4311-B4F5-3EC9F41E7DD6} = {845D75B3-BA03-406C-ACA7-43086CCB864B}
-		{65413E64-033B-4CAA-98BA-DAF206CE2876} = {845D75B3-BA03-406C-ACA7-43086CCB864B}
-		{2E51E7F6-E2DF-4A95-8E4C-997176EBF12C} = {845D75B3-BA03-406C-ACA7-43086CCB864B}
-		{C29A6154-54ED-412E-AE5A-0767C47DB17B} = {845D75B3-BA03-406C-ACA7-43086CCB864B}
 		{97A92635-2000-4D7D-B3A3-66774F6B9660} = {845D75B3-BA03-406C-ACA7-43086CCB864B}
+		{A20F3A96-A8A9-4FCA-ABD0-8401CD98503D} = {845D75B3-BA03-406C-ACA7-43086CCB864B}
+		{38D85BB5-30E2-46A6-917F-11D1C5CDAC7F} = {845D75B3-BA03-406C-ACA7-43086CCB864B}
+		{4BB71A8A-0B39-406C-B938-65AD1A6AC304} = {845D75B3-BA03-406C-ACA7-43086CCB864B}
+		{DAABCE43-9584-44DE-97F3-3374C3AB06EE} = {845D75B3-BA03-406C-ACA7-43086CCB864B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {353EDF79-8122-4FFC-8F8C-15591D83EFDD}

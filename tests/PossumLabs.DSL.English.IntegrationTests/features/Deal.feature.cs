@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace PossumLabs.DSL.Web.Integration.Features
+namespace PossumLabs.DSL.English.IntegrationTests.Features
 {
     using TechTalk.SpecFlow;
     using System;
@@ -20,7 +20,7 @@ namespace PossumLabs.DSL.Web.Integration.Features
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.1.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [Microsoft.VisualStudio.TestTools.UnitTesting.TestClassAttribute()]
-    public partial class WebElementPropertiesFeature
+    public partial class DealFeature
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
@@ -29,7 +29,7 @@ namespace PossumLabs.DSL.Web.Integration.Features
         
         private string[] _featureTags = ((string[])(null));
         
-#line 1 "WebElementProperties.feature"
+#line 1 "Deal.feature"
 #line hidden
         
         public virtual Microsoft.VisualStudio.TestTools.UnitTesting.TestContext TestContext
@@ -48,7 +48,7 @@ namespace PossumLabs.DSL.Web.Integration.Features
         public static void FeatureSetup(Microsoft.VisualStudio.TestTools.UnitTesting.TestContext testContext)
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en"), "Web Element Properties", "\tRigging for Selenium 4 testing.", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en"), "Deal", null, ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -63,9 +63,9 @@ namespace PossumLabs.DSL.Web.Integration.Features
         public virtual void TestInitialize()
         {
             if (((testRunner.FeatureContext != null) 
-                        && (testRunner.FeatureContext.FeatureInfo.Title != "Web Element Properties")))
+                        && (testRunner.FeatureContext.FeatureInfo.Title != "Deal")))
             {
-                global::PossumLabs.DSL.Web.Integration.Features.WebElementPropertiesFeature.FeatureSetup(null);
+                global::PossumLabs.DSL.English.IntegrationTests.Features.DealFeature.FeatureSetup(null);
             }
         }
         
@@ -92,13 +92,13 @@ namespace PossumLabs.DSL.Web.Integration.Features
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Displayed true")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Web Element Properties")]
-        public virtual void DisplayedTrue()
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Create Deal")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Deal")]
+        public virtual void CreateDeal()
         {
             string[] tagsOfScenario = ((string[])(null));
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Displayed true", null, ((string[])(null)));
-#line 5
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create Deal", null, ((string[])(null)));
+#line 3
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -118,78 +118,45 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-                TechTalk.SpecFlow.Table table60 = new TechTalk.SpecFlow.Table(new string[] {
-                            "Html"});
-                table60.AddRow(new string[] {
-                            "<label for=\"linky\">target</label><input id=\"linky\" type=\"text\"></input>"});
+#line 4
+ testRunner.Given("logged in as User \'Admin\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 5
+ testRunner.When("clicking the element \'Add deal\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
 #line 6
- testRunner.Given("injecting browser content", ((string)(null)), table60, "Given ");
+ testRunner.And("entering \'Bob\' into element \'Contact person name\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 7
+ testRunner.And("entering \'Possum Labs\' into element \'Organization name\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 8
+ testRunner.And("entering \'Testing 123\' into element \'Deal title\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 9
- testRunner.When("setting \'bob\' for element \'target\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.And("entering \'42\' into element \'Deal value\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 10
- testRunner.Given("the Settable Element \'E1\' found by \'target\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.And("entering \'1/1/2000\' into element \'Expected close date\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 11
- testRunner.Then("\'E1.Displayed\' has the value \'True\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.And("clicking the element \'Save\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 12
+ testRunner.And("clicking the element \'Testing 123\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Displayed display:none")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Web Element Properties")]
-        public virtual void DisplayedDisplayNone()
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Create Deal Shortcut")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Deal")]
+        public virtual void CreateDealShortcut()
         {
             string[] tagsOfScenario = ((string[])(null));
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Displayed display:none", null, ((string[])(null)));
-#line 13
-this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                this.ScenarioStart();
-                TechTalk.SpecFlow.Table table61 = new TechTalk.SpecFlow.Table(new string[] {
-                            "Html"});
-                table61.AddRow(new string[] {
-                            "<input id=\"target\" type=\"text\" style=\"display:none\"></input>"});
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create Deal Shortcut", null, ((string[])(null)));
 #line 14
- testRunner.Given("injecting browser content", ((string)(null)), table61, "Given ");
-#line hidden
-#line 17
- testRunner.Given("the Settable Element \'E1\' found by \'#target\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-#line 18
- testRunner.Then("\'E1.Displayed\' has the value \'False\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            }
-            this.ScenarioCleanup();
-        }
-        
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Displayed visibility:hidden")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Web Element Properties")]
-        public virtual void DisplayedVisibilityHidden()
-        {
-            string[] tagsOfScenario = ((string[])(null));
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Displayed visibility:hidden", null, ((string[])(null)));
-#line 20
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -209,31 +176,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-                TechTalk.SpecFlow.Table table62 = new TechTalk.SpecFlow.Table(new string[] {
-                            "Html"});
-                table62.AddRow(new string[] {
-                            "<input id=\"target\" type=\"text\" style=\"visibility:hidden\"></input>"});
+#line 15
+ testRunner.Given("logged in as User \'Admin\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+                TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                            "var"});
+                table1.AddRow(new string[] {
+                            "D1"});
+#line 16
+ testRunner.Given("the Deal", ((string)(null)), table1, "Given ");
+#line hidden
+#line 19
+ testRunner.When("clicking the element \'D1.Title\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Consolodate companies")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Deal")]
+        public virtual void ConsolodateCompanies()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Consolodate companies", null, ((string[])(null)));
 #line 21
- testRunner.Given("injecting browser content", ((string)(null)), table62, "Given ");
-#line hidden
-#line 24
- testRunner.Given("the Settable Element \'E1\' found by \'#target\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-#line 25
- testRunner.Then("\'E1.Displayed\' has the value \'False\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            }
-            this.ScenarioCleanup();
-        }
-        
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Tag Name")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Web Element Properties")]
-        public virtual void TagName()
-        {
-            string[] tagsOfScenario = ((string[])(null));
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Tag Name", null, ((string[])(null)));
-#line 27
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -253,30 +220,48 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-                TechTalk.SpecFlow.Table table63 = new TechTalk.SpecFlow.Table(new string[] {
-                            "Html"});
-                table63.AddRow(new string[] {
-                            "<input id=\"target\" type=\"text\" style=\"display:none\"></input>"});
-#line 28
- testRunner.Given("injecting browser content", ((string)(null)), table63, "Given ");
+#line 22
+ testRunner.Given("logged in as User \'Admin\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+                TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                            "var"});
+                table2.AddRow(new string[] {
+                            "D1"});
+#line 23
+ testRunner.Given("the Deal", ((string)(null)), table2, "Given ");
+#line hidden
+                TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                            "var",
+                            "OrganizationName"});
+                table3.AddRow(new string[] {
+                            "D2",
+                            "D1.OrganizationName"});
+#line 26
+ testRunner.And("the Deal", ((string)(null)), table3, "And ");
+#line hidden
+#line 29
+ testRunner.When("clicking the element \'D1.Title\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 30
+ testRunner.And("clicking the element \'D1.OrganizationName\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 31
- testRunner.Given("the Settable Element \'E1\' found by \'#target\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Then("the page contains the element \'D1.ContactPersonName\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 32
- testRunner.Then("\'E1.TagName\' has the value \'input\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.And("the page contains the element \'D2.ContactPersonName\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Unknown Attribute (list)")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Web Element Properties")]
-        public virtual void UnknownAttributeList()
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Create Won Deal Shortcut")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Deal")]
+        public virtual void CreateWonDealShortcut()
         {
             string[] tagsOfScenario = ((string[])(null));
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Unknown Attribute (list)", null, ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create Won Deal Shortcut", null, ((string[])(null)));
 #line 34
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -297,18 +282,56 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-                TechTalk.SpecFlow.Table table64 = new TechTalk.SpecFlow.Table(new string[] {
-                            "Html"});
-                table64.AddRow(new string[] {
-                            "<input id=\"target\" type=\"text\"></input>"});
 #line 35
- testRunner.Given("injecting browser content", ((string)(null)), table64, "Given ");
+ testRunner.Given("logged in as User \'Admin\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 38
- testRunner.Given("the Settable Element \'E1\' found by \'#target\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+                TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+                            "var"});
+                table4.AddRow(new string[] {
+                            "D1"});
+#line 36
+ testRunner.Given("the Deal that is \'Won\'", ((string)(null)), table4, "Given ");
 #line hidden
-#line 39
- testRunner.Then("Element \'E1\' Attribute \'list\' has the value \'null\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Create Lost Deal Shortcut")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Deal")]
+        public virtual void CreateLostDealShortcut()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create Lost Deal Shortcut", null, ((string[])(null)));
+#line 41
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 42
+ testRunner.Given("logged in as User \'Admin\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+                TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+                            "var"});
+                table5.AddRow(new string[] {
+                            "D1"});
+#line 43
+ testRunner.Given("the Deal that is \'Lost\'", ((string)(null)), table5, "Given ");
 #line hidden
             }
             this.ScenarioCleanup();

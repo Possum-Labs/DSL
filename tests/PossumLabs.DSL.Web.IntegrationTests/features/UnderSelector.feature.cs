@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace PossumLabs.DSL.Web.Integration.Features
+namespace PossumLabs.DSL.Web.IntegrationTests.Features
 {
     using TechTalk.SpecFlow;
     using System;
@@ -67,7 +67,7 @@ namespace PossumLabs.DSL.Web.Integration.Features
             if (((testRunner.FeatureContext != null) 
                         && (testRunner.FeatureContext.FeatureInfo.Title != "UnderSelector")))
             {
-                global::PossumLabs.DSL.Web.Integration.Features.UnderSelectorFeature.FeatureSetup(null);
+                global::PossumLabs.DSL.Web.IntegrationTests.Features.UnderSelectorFeature.FeatureSetup(null);
             }
         }
         

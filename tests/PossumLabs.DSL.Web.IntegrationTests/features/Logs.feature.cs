@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace PossumLabs.DSL.Web.Integration.Features
+namespace PossumLabs.DSL.Web.IntegrationTests.Features
 {
     using TechTalk.SpecFlow;
     using System;
@@ -20,16 +20,18 @@ namespace PossumLabs.DSL.Web.Integration.Features
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.1.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [Microsoft.VisualStudio.TestTools.UnitTesting.TestClassAttribute()]
-    public partial class GoogleFeature
+    public partial class LogsFeature
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
         
         private Microsoft.VisualStudio.TestTools.UnitTesting.TestContext _testContext;
         
-        private string[] _featureTags = ((string[])(null));
+        private string[] _featureTags = new string[] {
+                "injected-html",
+                "ignore"};
         
-#line 1 "Google.feature"
+#line 1 "Logs.feature"
 #line hidden
         
         public virtual Microsoft.VisualStudio.TestTools.UnitTesting.TestContext TestContext
@@ -48,7 +50,9 @@ namespace PossumLabs.DSL.Web.Integration.Features
         public static void FeatureSetup(Microsoft.VisualStudio.TestTools.UnitTesting.TestContext testContext)
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en"), "Google", null, ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en"), "Logs", "I don\'t have a solution for this at the moment", ProgrammingLanguage.CSharp, new string[] {
+                        "injected-html",
+                        "ignore"});
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -63,9 +67,9 @@ namespace PossumLabs.DSL.Web.Integration.Features
         public virtual void TestInitialize()
         {
             if (((testRunner.FeatureContext != null) 
-                        && (testRunner.FeatureContext.FeatureInfo.Title != "Google")))
+                        && (testRunner.FeatureContext.FeatureInfo.Title != "Logs")))
             {
-                global::PossumLabs.DSL.Web.Integration.Features.GoogleFeature.FeatureSetup(null);
+                global::PossumLabs.DSL.Web.IntegrationTests.Features.LogsFeature.FeatureSetup(null);
             }
         }
         
@@ -92,15 +96,14 @@ namespace PossumLabs.DSL.Web.Integration.Features
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("google something")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Google")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("scenarioAttribute")]
-        public virtual void GoogleSomething()
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Simple Log Message")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Logs")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("injected-html")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("ignore")]
+        public virtual void SimpleLogMessage()
         {
-            string[] tagsOfScenario = new string[] {
-                    "scenarioAttribute"};
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("google something", null, new string[] {
-                        "scenarioAttribute"});
+            string[] tagsOfScenario = ((string[])(null));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Simple Log Message", null, ((string[])(null)));
 #line 5
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -121,31 +124,34 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
+                TechTalk.SpecFlow.Table table34 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Html"});
+                table34.AddRow(new string[] {
+                            "<button onclick=\"console.log(\'bubbles\')\">target</button>"});
 #line 6
- testRunner.Given("navigated to \'http://google.com\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-#line 7
- testRunner.When("entering \'Possum Labs\' into element \'Search\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 8
- testRunner.And("clicking the element \'Google Search\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Given("injecting browser content", ((string)(null)), table34, "Given ");
 #line hidden
 #line 9
- testRunner.Then("the page contains the element \'About\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.When("clicking the element \'target\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 10
+ testRunner.Then("the Browser Logs has the value \'bubbles\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("google failed")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Google")]
-        public virtual void GoogleFailed()
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Exception Log Message")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Logs")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("injected-html")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("ignore")]
+        public virtual void ExceptionLogMessage()
         {
             string[] tagsOfScenario = ((string[])(null));
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("google failed", null, ((string[])(null)));
-#line 11
-this.ScenarioInitialize(scenarioInfo);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Exception Log Message", null, ((string[])(null)));
+#line 12
+ this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
             bool isFeatureIgnored = default(bool);
@@ -164,21 +170,18 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 12
- testRunner.Given("navigated to \'http://google.com\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
+                TechTalk.SpecFlow.Table table35 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Html"});
+                table35.AddRow(new string[] {
+                            "<button onclick=\"throw \'bubbles\'\">target</button>"});
 #line 13
- testRunner.And("an error is expected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Given("injecting browser content", ((string)(null)), table35, "Given ");
 #line hidden
-#line 14
- testRunner.When("clicking the element \'Bob\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 16
+ testRunner.When("clicking the element \'target\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-                TechTalk.SpecFlow.Table table26 = new TechTalk.SpecFlow.Table(new string[] {
-                            "Message"});
-                table26.AddRow(new string[] {
-                            "/.*Google Search.*/"});
-#line 15
- testRunner.Then("the Error has values", ((string)(null)), table26, "Then ");
+#line 17
+ testRunner.Then("the Browser Logs has the value \'bubbles\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

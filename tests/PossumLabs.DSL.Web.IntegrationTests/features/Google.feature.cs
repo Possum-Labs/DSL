@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace PossumLabs.DSL.English.Integration.Features
+namespace PossumLabs.DSL.Web.IntegrationTests.Features
 {
     using TechTalk.SpecFlow;
     using System;
@@ -65,7 +65,7 @@ namespace PossumLabs.DSL.English.Integration.Features
             if (((testRunner.FeatureContext != null) 
                         && (testRunner.FeatureContext.FeatureInfo.Title != "Google")))
             {
-                global::PossumLabs.DSL.English.Integration.Features.GoogleFeature.FeatureSetup(null);
+                global::PossumLabs.DSL.Web.IntegrationTests.Features.GoogleFeature.FeatureSetup(null);
             }
         }
         
@@ -173,12 +173,12 @@ this.ScenarioInitialize(scenarioInfo);
 #line 14
  testRunner.When("clicking the element \'Bob\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-                TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table26 = new TechTalk.SpecFlow.Table(new string[] {
                             "Message"});
-                table6.AddRow(new string[] {
+                table26.AddRow(new string[] {
                             "/.*Google Search.*/"});
 #line 15
- testRunner.Then("the Error has values", ((string)(null)), table6, "Then ");
+ testRunner.Then("the Error has values", ((string)(null)), table26, "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
