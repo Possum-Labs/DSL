@@ -44,7 +44,7 @@ namespace PossumLabs.DSL.DataGeneration
         {
             var percentile = Percentile < 1 ? 1 : Percentile;
             percentile = percentile > 100 ? 100 : percentile;
-            return Options[this.Random.Next((Length * percentile) / 100)];
+            return Options[this.Random.Next((Length * percentile) / 100)].Trim();
         }
     }
 }

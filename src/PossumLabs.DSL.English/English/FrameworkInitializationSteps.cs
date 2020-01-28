@@ -21,12 +21,12 @@ namespace PossumLabs.DSL.English
             => base.NetworkWatcherHook();
 
         [AfterScenario]
-        public new void LogScreenshots()
-            => base.LogScreenshots();
+        public new void WebDriverStepBasedLogging()
+            => base.WebDriverStepBasedLogging();
 
         [AfterScenario(Order = int.MinValue + 1)]
-        public new void LogHtml()
-            => base.LogHtml();
+        public new void ErrorScreenLogging()
+            => base.ErrorScreenLogging();
 
         [AfterScenario(Order = int.MinValue)]
         public new void CheckForAlerts()

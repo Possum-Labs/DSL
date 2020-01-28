@@ -8,7 +8,7 @@ using TechTalk.SpecFlow;
 
 namespace PossumLabs.DSL.English.Integration
 {
-    public class Deal : IValueObject
+    public class Deal : IEntity
     {
         public Deal()
         {
@@ -25,6 +25,9 @@ namespace PossumLabs.DSL.English.Integration
         public string Value { get; set; }
 
         public DateTime ExpectedCloseDate { get; set; }
+
+        public string LogFormat()
+            => Title;
     }
 
     [Binding]

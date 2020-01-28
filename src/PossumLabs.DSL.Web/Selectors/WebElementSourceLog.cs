@@ -57,14 +57,31 @@ namespace PossumLabs.DSL.Web.Selectors
             logger.Section(this.GetType().Name, new
             {
                 Elements = WebElementSources.Values
-                .Where(x => x.By != null)
+                .Where(x => x.By != null && x.SelectorType != null)
                 .OrderBy(x => x.Order)
-                .Select(x => new { 
-                    x.Page, 
-                    x.SelectorType, 
-                    x.SelectorConstructor, 
-                    x.By })
+                .Select(x => new WebElementLogRecord(
+                    x.Page,
+                    x.SelectorType,
+                    x.SelectorConstructor,
+                    x.By.ToString()
+                )).ToArray()
             });
+        }
+    }
+
+    public class WebElementLogRecord
+    {
+        public string Page { get; }
+        public string SelectorType { get; }
+        public string SelectorConstructor { get; }
+        public string By { get; }
+
+        public WebElementLogRecord(string page, string selectorType, string selectorConstructor, string by)
+        {
+            Page = page;
+            SelectorType = selectorType;
+            SelectorConstructor = selectorConstructor;
+            By = by;
         }
     }
 }

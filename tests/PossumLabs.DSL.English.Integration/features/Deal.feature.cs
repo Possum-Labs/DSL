@@ -240,10 +240,10 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.And("the Deal", ((string)(null)), table3, "And ");
 #line hidden
 #line 29
- testRunner.When("clicking  the element \'D1.Title\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("clicking the element \'D1.Title\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 30
- testRunner.And("clicking  the element \'D1.OrganizationName\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("clicking the element \'D1.OrganizationName\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 31
  testRunner.Then("the page contains the element \'D1.ContactPersonName\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");

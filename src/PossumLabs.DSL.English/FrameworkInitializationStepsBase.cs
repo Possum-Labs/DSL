@@ -19,13 +19,13 @@ using System.IO;
 using System.Reflection;
 using System.Text;
 using TechTalk.SpecFlow;
+using System.Linq;
 
 namespace PossumLabs.DSL
 {
     public abstract class FrameworkInitializationStepsBase : WebDriverStepsBase
     {
         public FrameworkInitializationStepsBase(IObjectContainer objectContainer) : base(objectContainer) { }
-
 
         private ScreenshotProcessor ScreenshotProcessor { get; set; }
         private ImageLogging ImageLogging { get; set; }
@@ -52,7 +52,7 @@ namespace PossumLabs.DSL
                     NetworkWatcher.AddUrl(WebDriver.Url);
         }
 
-        protected virtual void LogScreenshots()
+        protected virtual void WebDriverStepBasedLogging()
         {
             if(MovieLogger.IsEnabled)
                 MovieLogger.ComposeMovie();
@@ -61,12 +61,13 @@ namespace PossumLabs.DSL
 
         }
 
-        protected virtual void LogHtml()
+        protected virtual void ErrorScreenLogging()
         {
-            if (WebDriverManager.ActiveDriver)
+            if(WebDriverManager.ActiveDriver && ScenarioContext.TestError != null)
             {
                 try
                 {
+                    FileManager.PersistFile(WebDriver.GetScreenshots().Last(),  $"final", "bmp");
                     FileManager.PersistFile(Encoding.UTF8.GetBytes(WebDriverManager.Current.PageSource), "source", "html");
                 }
                 catch (UnhandledAlertException) { return; }
