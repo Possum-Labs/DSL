@@ -12,7 +12,6 @@ Scenario: Create Deal
 	And clicking the element 'Save'
 	And clicking the element 'Testing 123'
 
-@Movie-Logger
 Scenario:  Create Deal Shortcut
 	Given logged in as User 'Admin'
 	Given the Deal
