@@ -79,9 +79,9 @@ namespace PossumLabs.DSL
             => WebDriver.Select(selector).Select());
 
         public void WhenEnteringForTheElement(string text, string selector)
-           => WhenEnteringForTheElement(text, SelectorFactory.CreateSelector<ActiveElementSelector>(selector));
+           => WhenEnteringForTheElement(text, SelectorFactory.CreateSelector<SettableElementSelector>(selector));
 
-        protected virtual void WhenEnteringForTheElement(ResolvedString text, ActiveElementSelector selector)
+        protected virtual void WhenEnteringForTheElement(ResolvedString text, SettableElementSelector selector)
             => Executor.Execute(()
             => WebDriver.Select(selector).Enter(text));
 
@@ -106,9 +106,9 @@ namespace PossumLabs.DSL
            => WhenEnteringForTheElementRow(
                SelectorFactory.CreatePrefix<RowSelectorPrefix>(row),
                text,
-               SelectorFactory.CreateSelector<ActiveElementSelector>(selector));
+               SelectorFactory.CreateSelector<SettableElementSelector>(selector));
 
-        protected virtual void WhenEnteringForTheElementRow(RowSelectorPrefix row, ResolvedString text, ActiveElementSelector selector)
+        protected virtual void WhenEnteringForTheElementRow(RowSelectorPrefix row, ResolvedString text, SettableElementSelector selector)
             => Executor.Execute(()
             => WebDriver.ForRow(row).Select(selector).Enter(text));
 
@@ -134,9 +134,9 @@ namespace PossumLabs.DSL
            => WhenEnteringForTheElementUnder(
                SelectorFactory.CreatePrefix<UnderSelectorPrefix>(under),
                text,
-               SelectorFactory.CreateSelector<ActiveElementSelector>(selector));
+               SelectorFactory.CreateSelector<SettableElementSelector>(selector));
 
-        protected virtual void WhenEnteringForTheElementUnder(UnderSelectorPrefix under, ResolvedString text, ActiveElementSelector selector)
+        protected virtual void WhenEnteringForTheElementUnder(UnderSelectorPrefix under, ResolvedString text, SettableElementSelector selector)
             => Executor.Execute(()
             => WebDriver.Under(under).Select(selector).Enter(text));
 

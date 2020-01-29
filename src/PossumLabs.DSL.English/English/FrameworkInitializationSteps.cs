@@ -20,7 +20,7 @@ namespace PossumLabs.DSL.English
         public new void NetworkWatcherHook()
             => base.NetworkWatcherHook();
 
-        [AfterScenario]
+        [AfterScenario(Order = 1)]
         public new void WebDriverStepBasedLogging()
             => base.WebDriverStepBasedLogging();
 
@@ -39,5 +39,13 @@ namespace PossumLabs.DSL.English
         [BeforeScenario(Order = 1)]
         public new void SetupExistingData()
             => base.SetupExistingData();
+
+        [BeforeScenario("Movie-Logger")]
+        public new void EnableMovieLogger()
+            => base.EnableMovieLogger();
+
+        [AfterScenario]
+        public new void CreateMovie()
+            => base.CreateMovie();
     }
 }

@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using TechTalk.SpecFlow;
+using System.Threading;
 
 namespace PossumLabs.DSL.English.Integration
 {
@@ -15,6 +16,8 @@ namespace PossumLabs.DSL.English.Integration
             ContactPersonName = $"{DataGenerator.GenerateMaleFirstNames?[0]} {DataGenerator.GenerateSeeds?[0]}";
             OrganizationName = $"{DataGenerator.GenerateSeeds?[0]} Inc.";
             Title = $"{DataGenerator.GenerateCreatures?[0]}";
+            ExpectedCloseDate = DateTime.Today.AddDays(5);
+            Value = "42";
         }
         public string ContactPersonName { get; set; }
 
@@ -80,6 +83,7 @@ namespace PossumLabs.DSL.English.Integration
             DriverSteps.WhenEnteringForTheElement(deal.ExpectedCloseDate.ToShortDateString(), @"expected_close_date");
             //And clicking the element 'Save'
             DriverSteps.WhenClickingTheElement(@"Save");
+            Thread.Sleep(1000);
         }
 
         private void Lose(Deal deal)

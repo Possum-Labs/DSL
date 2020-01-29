@@ -23,6 +23,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PossumLabs.DSL.English.Inte
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PossumLabs.DSL.Web.IntegrationTests", "tests\PossumLabs.DSL.Web.IntegrationTests\PossumLabs.DSL.Web.IntegrationTests.csproj", "{DAABCE43-9584-44DE-97F3-3374C3AB06EE}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "demo", "demo", "{91B48FAA-8C8E-4137-AC4B-61EA8E29B84D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jan29Demo", "Jan29Demo\Jan29Demo.csproj", "{5681E32A-D7D1-4FF4-9F22-34BFB4ED7646}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -65,6 +69,10 @@ Global
 		{DAABCE43-9584-44DE-97F3-3374C3AB06EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DAABCE43-9584-44DE-97F3-3374C3AB06EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DAABCE43-9584-44DE-97F3-3374C3AB06EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5681E32A-D7D1-4FF4-9F22-34BFB4ED7646}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5681E32A-D7D1-4FF4-9F22-34BFB4ED7646}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5681E32A-D7D1-4FF4-9F22-34BFB4ED7646}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5681E32A-D7D1-4FF4-9F22-34BFB4ED7646}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -75,6 +83,7 @@ Global
 		{38D85BB5-30E2-46A6-917F-11D1C5CDAC7F} = {845D75B3-BA03-406C-ACA7-43086CCB864B}
 		{4BB71A8A-0B39-406C-B938-65AD1A6AC304} = {845D75B3-BA03-406C-ACA7-43086CCB864B}
 		{DAABCE43-9584-44DE-97F3-3374C3AB06EE} = {845D75B3-BA03-406C-ACA7-43086CCB864B}
+		{5681E32A-D7D1-4FF4-9F22-34BFB4ED7646} = {91B48FAA-8C8E-4137-AC4B-61EA8E29B84D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {353EDF79-8122-4FFC-8F8C-15591D83EFDD}

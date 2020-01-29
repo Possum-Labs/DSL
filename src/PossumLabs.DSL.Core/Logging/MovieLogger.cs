@@ -74,7 +74,7 @@ namespace PossumLabs.DSL.Core.Logging
             //https://ffmpeg.org/ffmpeg-formats.html#Metadata-1
             // Metadata keys or values containing special characters(‘=’, ‘;’, ‘#’, ‘\’ and a newline) must be escaped with a backslash ‘\’.
 
-            Func<string, string> metadataEncode = (input) => input
+            Func<string, string> metadataEncode = (input) => input?
                         .Replace(@"\",@"\\")
                         .Replace(@"\n",@"\\n")
                         .Replace("=", @"\=")

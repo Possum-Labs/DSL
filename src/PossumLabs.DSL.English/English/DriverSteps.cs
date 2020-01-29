@@ -77,7 +77,7 @@ namespace PossumLabs.DSL.English
             => base.WhenSelectingTheElement(selector);
 
         [When(@"entering '(.*)' into element '(.*)'")]
-        public new void WhenEnteringForTheElement(ResolvedString text, ActiveElementSelector selector)
+        public new void WhenEnteringForTheElement(ResolvedString text, SettableElementSelector selector)
             => base.WhenEnteringForTheElement(text, selector);
 
         [When(@"for row '(.*)' clicking the element '(.*)'")]
@@ -89,7 +89,7 @@ namespace PossumLabs.DSL.English
             => base.WhenSelectingTheElementRow(row, selector);
 
         [When(@"for row '(.*)' entering '(.*)' into element '(.*)'")]
-        public new void WhenEnteringForTheElementRow(RowSelectorPrefix row, ResolvedString text, ActiveElementSelector selector)
+        public new void WhenEnteringForTheElementRow(RowSelectorPrefix row, ResolvedString text, SettableElementSelector selector)
             => base.WhenEnteringForTheElementRow(row, text, selector);
 
         [When(@"under '(.*)' clicking the element '(.*)'")]
@@ -101,7 +101,7 @@ namespace PossumLabs.DSL.English
             => base.WhenSelectingTheElementUnder(under, selector);
 
         [When(@"under '(.*)' entering '(.*)' into element '(.*)'")]
-        public new void WhenEnteringForTheElementUnder(UnderSelectorPrefix under, ResolvedString text, ActiveElementSelector selector)
+        public new void WhenEnteringForTheElementUnder(UnderSelectorPrefix under, ResolvedString text, SettableElementSelector selector)
             => base.WhenEnteringForTheElementUnder(under, text, selector);
 
         [Given(@"navigated to '(.*)'")]

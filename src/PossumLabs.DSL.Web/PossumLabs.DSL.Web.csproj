@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    
+    
     <Description>For examples please see https://github.com/BasHamer/PossumLabs.DSL
 
 This library is intended to be used with Specflow and adds a wrapper around selenium.</Description>
@@ -15,6 +17,8 @@ This library is intended to be used with Specflow and adds a wrapper around sele
     <RepositoryType>Git</RepositoryType>
     <PackageTags>DSL, BDD, SpecFlow, gherkin, cucumber, Selenium</PackageTags>
     <PackageReleaseNotes>initial version</PackageReleaseNotes>
+    
+    
   </PropertyGroup>
 
   <ItemGroup>

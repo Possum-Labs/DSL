@@ -1,5 +1,6 @@
 ﻿Feature: Deal
 
+
 Scenario: Create Deal
 	Given logged in as User 'Admin'
 	When clicking the element 'Add deal'
@@ -11,6 +12,7 @@ Scenario: Create Deal
 	And clicking the element 'Save'
 	And clicking the element 'Testing 123'
 
+@Movie-Logger
 Scenario:  Create Deal Shortcut
 	Given logged in as User 'Admin'
 	Given the Deal
@@ -18,6 +20,7 @@ Scenario:  Create Deal Shortcut
 	| D1  |
 	When clicking the element 'D1.Title'
 
+@Movie-Logger
 Scenario:  Consolodate companies
 	Given logged in as User 'Admin'
 	Given the Deal

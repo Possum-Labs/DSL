@@ -173,5 +173,14 @@ namespace PossumLabs.DSL
             new PossumLabs.DSL.Core.Variables.ExistingDataManager(this.Interpeter)
                 .Initialize(this.GetType().Assembly);
         }
+
+        protected virtual void EnableMovieLogger()
+            => MovieLogger.IsEnabled = true;
+
+        protected virtual void CreateMovie()
+        {
+            if (MovieLogger.IsEnabled)
+                MovieLogger.ComposeMovie();
+        }
     }
 }

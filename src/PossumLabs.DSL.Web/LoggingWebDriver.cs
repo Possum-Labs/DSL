@@ -146,7 +146,10 @@ var css = new function()
 
     this.insert = function(rule)
     {
-        if(document.styleSheets.length == 0) { addStyleSheet(); }
+        if(document.styleSheets.length == 0) { 
+            addStyleSheet(); }
+        if (!document.styleSheets[document.styleSheets.length - 1].hasOwnProperty('rules')) { 
+            addStyleSheet(); }
 
         let sheet = document.styleSheets[document.styleSheets.length - 1];
         let rules = sheet.rules;
@@ -174,8 +177,10 @@ for (var i=0 ; i<nodesSnapshot.snapshotLength; i++ )
             //remove style
             s_Script = @"
 let sheet = document.styleSheets[document.styleSheets.length - 1];
-let index = sheet.rules.length-1;
-sheet.deleteRule(index);
+if (sheet.hasOwnProperty('rules')) { 
+    let index = sheet.rules.length-1;
+    sheet.deleteRule(index); 
+}
 ";
             ScriptExecutor.ExecuteScript(s_Script, id);
             //unmark

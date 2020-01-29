@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    
     <Authors>Bas Hamer</Authors>
     <Company>Possum Labs</Company>
     <Product>Possum Lab</Product>
@@ -15,7 +16,7 @@
     <Description>For examples please see https://github.com/BasHamer/PossumLabs.DSL
 
 This library is intended to be used with Specflow and adds variables and generic validation capabilities to Gherkin.</Description>
-    <Version>1.1.0</Version>
+    <Version>1.0.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
