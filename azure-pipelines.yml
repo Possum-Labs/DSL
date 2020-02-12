@@ -25,7 +25,7 @@ steps:
     patchVersion: '$(Patch)'
 - task: NuGetAuthenticate@0
   inputs:
-    nuGetServiceConnections: '<Name of the NuGet service connection>'
+    nuGetServiceConnections: 'NuGetPossumLabs'
 - task: NuGetCommand@2
   inputs:
     command: push
