@@ -28,9 +28,6 @@ steps:
     majorVersion: '$(Major)'
     minorVersion: '$(Minor)'
     patchVersion: '$(Patch)'
-- task: NuGetAuthenticate@0
-  inputs:
-    nuGetServiceConnections: 'NuGetPossumLabs'
 - task: NuGetCommand@2
   inputs:
     command: push
