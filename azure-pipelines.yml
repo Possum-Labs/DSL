@@ -35,4 +35,4 @@ steps:
     nuGetFeedType: external
     versioningScheme: byEnvVar
     versionEnvVar: <VersionVariableName>
-    publishFeedCredentials: <>
+    publishFeedCredentials: <NuGetPossumLabs>
