@@ -18,6 +18,16 @@ variables:
 steps:
 - task: NuGetCommand@2
   inputs:
+    command: 'restore'
+    restoreSolution: 'PossumLabs.DSL.sln'
+    feedsToUse: 'select'
+    vstsFeed: '49ee6fba-a138-41ab-a51b-2537a625f0af'
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'build'
+    projects: 'src/*/*.csproj'
+- task: NuGetCommand@2
+  inputs:
     command: pack
     packagesToPack: 'src/*/*.csproj'
     versioningScheme: byPrereleaseNumber
