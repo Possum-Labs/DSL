@@ -2,23 +2,18 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    
-    
-    <Description>For examples please see https://github.com/BasHamer/PossumLabs.DSL
-
-This library is intended to be used with Specflow and adds a wrapper around selenium.</Description>
     <Authors>Bas Hamer</Authors>
     <Company>Possum Labs</Company>
-    <Product>Possum Lab</Product>
+    <Product>Possum Labs DSL</Product>
     <Copyright>MIT</Copyright>
-    <PackageLicenseUrl>https://github.com/BasHamer/PossumLabs.DSL.Core/blob/master/LICENSE</PackageLicenseUrl>
-    <PackageProjectUrl>https://PossumLabs.com</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/BasHamer/PossumLabs.DSL.Core</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/Possum-Labs/DSL</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/Possum-Labs/DSL/blob/master/LICENSE</PackageLicenseUrl>
+    <RepositoryUrl>https://github.com/Possum-Labs/DSL</RepositoryUrl>
+    <PackageTags>DSL, BDD, SpecFlow, gherkin, cucumber</PackageTags>
     <RepositoryType>Git</RepositoryType>
-    <PackageTags>DSL, BDD, SpecFlow, gherkin, cucumber, Selenium</PackageTags>
-    <PackageReleaseNotes>initial version</PackageReleaseNotes>
-    
-    
+    <PackageReleaseNotes></PackageReleaseNotes>
+    <Description>Supports the creation of Domain-Specific Languages for test automation. Selenium support.</Description>
+    <Version>1.0.0</Version>
   </PropertyGroup>
 
   <ItemGroup>

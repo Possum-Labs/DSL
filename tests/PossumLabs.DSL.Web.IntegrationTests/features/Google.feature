@@ -1,7 +1,6 @@
 ﻿
 Feature: Google
 
-@scenarioAttribute
 Scenario: google something
 	Given navigated to 'http://google.com'
 	When entering 'Possum Labs' into element 'Search'

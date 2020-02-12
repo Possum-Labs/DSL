@@ -15,16 +15,14 @@ namespace PossumLabs.DSL.English
 
         [When(@"accepting the alert")]
         public new void WhenAcceptingTheAlert()
-           => Executor.Execute(()
-           => WebDriver.AcceptAlert());
+           => base.WhenAcceptingTheAlert();
 
         [When(@"dismissing the alert")]
         public new void WhenDismissingTheAlert()
-           => Executor.Execute(()
-           => WebDriver.DismissAlert());
+           => base.WhenDismissingTheAlert();
 
         [Then(@"the alert has the value '(.*)'")]
         public new void ThenTheCallHasTheValue(Validation validation)
-            => Executor.Execute(() => WebDriver.AlertText.Validate(validation));
+            => base.ThenTheCallHasTheValue(validation);
     }
 }
