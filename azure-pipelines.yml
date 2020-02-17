@@ -28,12 +28,11 @@ steps:
     majorVersion: '$(Major)'
     minorVersion: '$(Minor)'
     patchVersion: '$(Patch)'
-- task: NuGetAuthenticate@0
-  inputs:
-    nuGetServiceConnections: 'NuGetPossumLabs'
 - task: NuGetCommand@2
   inputs:
     command: push
+    packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
     nuGetFeedType: external
     versioningScheme: byEnvVar
     versionEnvVar: <VersionVariableName>
+    publishFeedCredentials: NuGetPossumLabs
