@@ -100,6 +100,7 @@ namespace PossumLabs.DSL.Web.Selectors
                         ByLabelledBy,
                         ByFollowingMarker(XpathProvider.CheckableElements  ),
                         ByCellBelow(XpathProvider.CheckableElements  ),
+                        ByLabelAncestor(XpathProvider.CheckableElements),
                     }
                 },
             };

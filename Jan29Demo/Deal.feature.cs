@@ -194,14 +194,14 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Consolodate companies")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Consolidate companies")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Deal")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Movie-Logger")]
-        public virtual void ConsolodateCompanies()
+        public virtual void ConsolidateCompanies()
         {
             string[] tagsOfScenario = new string[] {
                     "Movie-Logger"};
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Consolodate companies", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Consolidate companies", null, new string[] {
                         "Movie-Logger"});
 #line 23
 this.ScenarioInitialize(scenarioInfo);

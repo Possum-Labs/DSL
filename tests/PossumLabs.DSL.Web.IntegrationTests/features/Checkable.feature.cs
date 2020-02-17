@@ -211,11 +211,28 @@ this.CheckingInputs("checked", "target", "checked", "<label>target<input type=\"
 #line hidden
         }
         
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("checking inputs: deep nesting")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Checkable selector")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "deep nesting")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:description", "deep nesting")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:target", "target")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:value", "checked")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:html", "<label for=\"myid\"><div><div><p><span><strong>target</strong></span></p></div></di" +
+            "v><div><input id=\"myid\" type=\"checkbox\"></div></label>")]
+        public virtual void CheckingInputs_DeepNesting()
+        {
+#line 3
+this.CheckingInputs("deep nesting", "target", "checked", "<label for=\"myid\"><div><div><p><span><strong>target</strong></span></p></div></di" +
+                    "v><div><input id=\"myid\" type=\"checkbox\"></div></label>", ((string[])(null)));
+#line hidden
+        }
+        
         public virtual void UncheckingInputs(string description, string target, string value, string html, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("unchecking inputs", null, exampleTags);
-#line 18
+#line 19
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -239,13 +256,13 @@ this.ScenarioInitialize(scenarioInfo);
                             "Html"});
                 table20.AddRow(new string[] {
                             string.Format("{0}", html)});
-#line 19
+#line 20
  testRunner.Given("injecting browser content", ((string)(null)), table20, "Given ");
 #line hidden
-#line 22
+#line 23
  testRunner.When(string.Format("unchecking element \'{0}\'", target), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 23
+#line 24
  testRunner.Then(string.Format("the element \'{0}\' has the value \'{1}\'", target, value), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -262,7 +279,7 @@ this.ScenarioInitialize(scenarioInfo);
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:html", "<label>target<input type=\"checkbox\"></input></label>")]
         public virtual void UncheckingInputs_Unchecking()
         {
-#line 18
+#line 19
 this.UncheckingInputs("unchecking", "target", "unchecked", "<label>target<input type=\"checkbox\"></input></label>", ((string[])(null)));
 #line hidden
         }
@@ -277,7 +294,7 @@ this.UncheckingInputs("unchecking", "target", "unchecked", "<label>target<input 
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:html", "<label>target<input type=\"checkbox\" checked></input></label>")]
         public virtual void UncheckingInputs_UncheckingChecked()
         {
-#line 18
+#line 19
 this.UncheckingInputs("unchecking  checked", "target", "unchecked", "<label>target<input type=\"checkbox\" checked></input></label>", ((string[])(null)));
 #line hidden
         }
@@ -286,7 +303,7 @@ this.UncheckingInputs("unchecking  checked", "target", "unchecked", "<label>targ
         {
             string[] tagsOfScenario = exampleTags;
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("error messages checking", null, exampleTags);
-#line 29
+#line 30
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -310,20 +327,20 @@ this.ScenarioInitialize(scenarioInfo);
                             "Html"});
                 table21.AddRow(new string[] {
                             string.Format("{0}", html)});
-#line 30
+#line 31
  testRunner.Given("injecting browser content", ((string)(null)), table21, "Given ");
 #line hidden
-#line 33
+#line 34
  testRunner.Given("an error is expected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 34
+#line 35
  testRunner.When(string.Format("checking element \'{0}\'", target), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
                 TechTalk.SpecFlow.Table table22 = new TechTalk.SpecFlow.Table(new string[] {
                             "Message"});
                 table22.AddRow(new string[] {
                             string.Format("{0}", error)});
-#line 35
+#line 36
  testRunner.Then("the Error has values", ((string)(null)), table22, "Then ");
 #line hidden
             }
@@ -341,7 +358,7 @@ this.ScenarioInitialize(scenarioInfo);
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:error", "/element was not found/")]
         public virtual void ErrorMessagesChecking_Value()
         {
-#line 29
+#line 30
 this.ErrorMessagesChecking("value", "target", "checked", "<label>target<input></label>", "/element was not found/", ((string[])(null)));
 #line hidden
         }
@@ -350,7 +367,7 @@ this.ErrorMessagesChecking("value", "target", "checked", "<label>target<input></
         {
             string[] tagsOfScenario = exampleTags;
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("error messages unchecking", null, exampleTags);
-#line 42
+#line 43
  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -374,20 +391,20 @@ this.ErrorMessagesChecking("value", "target", "checked", "<label>target<input></
                             "Html"});
                 table23.AddRow(new string[] {
                             string.Format("{0}", html)});
-#line 43
+#line 44
  testRunner.Given("injecting browser content", ((string)(null)), table23, "Given ");
 #line hidden
-#line 46
+#line 47
  testRunner.Given("an error is expected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 47
+#line 48
  testRunner.When(string.Format("unchecking element \'{0}\'", target), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
                 TechTalk.SpecFlow.Table table24 = new TechTalk.SpecFlow.Table(new string[] {
                             "Message"});
                 table24.AddRow(new string[] {
                             string.Format("{0}", error)});
-#line 48
+#line 49
  testRunner.Then("the Error has values", ((string)(null)), table24, "Then ");
 #line hidden
             }
@@ -405,7 +422,7 @@ this.ErrorMessagesChecking("value", "target", "checked", "<label>target<input></
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:error", "/element was not found/")]
         public virtual void ErrorMessagesUnchecking_Value()
         {
-#line 42
+#line 43
  this.ErrorMessagesUnchecking("value", "target", "checked", "<label>targe<input>t</label>", "/element was not found/", ((string[])(null)));
 #line hidden
         }
