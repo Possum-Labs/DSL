@@ -170,7 +170,7 @@ namespace PossumLabs.DSL
 
         protected virtual void SetupExistingData()
         {
-            new PossumLabs.DSL.Core.Variables.ExistingDataManager(this.Interpeter)
+            new PossumLabs.DSL.Core.Variables.ExistingDataManager(this.Interpeter, this.TemplateManager)
                 .Initialize(this.GetType().Assembly);
         }
 

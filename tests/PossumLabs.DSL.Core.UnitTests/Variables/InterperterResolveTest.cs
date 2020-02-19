@@ -81,7 +81,6 @@ namespace PossumLabs.DSL.Core.UnitTests.Variables
                 .Should().Be("test");
         }
 
-        //TODO:Bas
         [TestMethod]
         public void SimpleIndexedArray()
         {

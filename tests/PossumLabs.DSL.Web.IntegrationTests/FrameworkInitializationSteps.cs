@@ -172,7 +172,7 @@ namespace PossumLabs.DSL.Web.Integration
         [BeforeScenario(Order = 1)]
         public void SetupExistingData()
         {
-            new PossumLabs.DSL.Core.Variables.ExistingDataManager(this.Interpeter).Initialize(Assembly.GetExecutingAssembly());
+            new PossumLabs.DSL.Core.Variables.ExistingDataManager(this.Interpeter, this.TemplateManager).Initialize(Assembly.GetExecutingAssembly());
         }
     }
 }

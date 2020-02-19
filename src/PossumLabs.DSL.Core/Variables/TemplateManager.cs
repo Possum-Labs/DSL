@@ -23,7 +23,7 @@ namespace PossumLabs.DSL.Core.Variables
         private Dictionary<Type, Dictionary<string, Action<object>>> Templates { get; }
         private string DefaultKey { get; }
 
-        public void Register<T>(Action<T> template, string name = null) where T:IEntity
+        public void Register<T>(Action<T> template, string name = null) where T:IValueObject
         {
             var t = typeof(T);
             Register(name, t, (o)=>template((T)o));
@@ -37,8 +37,9 @@ namespace PossumLabs.DSL.Core.Variables
         }
 
         public T ApplyTemplate<T>(T item, string name = null) where T : IValueObject
+            => (T)ApplyTemplate(typeof(T), item, name);
+        public object ApplyTemplate(Type t, object item, string name = null)
         {
-            var t = typeof(T);
             if (!Templates.ContainsKey(t) && name == null)
                 return item;
             if (!Templates.ContainsKey(t) && name != null)

@@ -11,13 +11,15 @@ namespace PossumLabs.DSL.Core.Variables
 {
     public class ExistingDataManager
     {
-        public ExistingDataManager(Interpeter interpeter)
+        public ExistingDataManager(Interpeter interpeter, TemplateManager templateManager)
         {
             Interpeter = interpeter;
+            TemplateManager = templateManager;
         }
 
         private Interpeter Interpeter { get; }
-        
+        private TemplateManager TemplateManager { get; }
+
         public void Initialize(Assembly assembly)
         {
             var fileInfo = new FileInfo(assembly.Location);
@@ -45,35 +47,53 @@ namespace PossumLabs.DSL.Core.Variables
                                 $"for assembly {assembly.FullName} " +
                                 $"in folder {directoryInfo.FullName}");
 
-                        var expectedMembers = type.GetValueMembers().Where(m => !types.Contains(m.Type));
+                        
 
                         foreach (var keyValue in objectSet.values)
                         {
-                            Interpeter.Add(type, (keyValue.key ?? keyValue.Key).Value, ProcessVariable(file, type, expectedMembers, (keyValue.value ?? keyValue.Value)));
+                            Interpeter.Add(
+                                type, 
+                                (keyValue.key ?? keyValue.Key).Value, 
+                                ProcessVariable(type, (keyValue.value ?? keyValue.Value)));
                         }
                     }
                 }
             }
         }
 
-        private object ProcessVariable(FileInfo file, Type type, IEnumerable<ValueMemberInfo> expectedMembers, dynamic options)
+        public object ProcessVariable(
+            Type type, 
+            dynamic options)
         {
+            var expectedMembers = type.GetValueMembers();
+
             var o = Activator.CreateInstance(type);
             string name = options.Name ?? options.name;
 
-            dynamic template = options.Template ?? options.template ?? options;
+            //apply the template
+            TemplateManager.ApplyTemplate(type, o, options.Template ?? options.template);
 
+            //apply the existing.json
             var existingMembers = new List<string>();
-            foreach (var line in template)
+
+            foreach (var line in options)
                 existingMembers.Add(line.Name);
 
-            var dtypeProps = template.GetType().GetProperties();
             foreach (var member in expectedMembers)
             {
                 var dynamicMemberName = existingMembers.FirstOrDefault(m => String.Equals(m, member.Name, StringComparison.CurrentCultureIgnoreCase));
                 if (dynamicMemberName == null)
                     continue;
-                member.SetValue(o, template[dynamicMemberName].Value);
+                member.SetValue(o, Interpeter.Cast(options[dynamicMemberName].Value, member.Type));
+            }
+
+            //override using environment variables
+            foreach (var valueMember in expectedMembers)
+            {
+                var envVar = Environment.GetEnvironmentVariable($"{name}.{valueMember.Name}");
+                if (envVar == null)
+                    continue;
+                valueMember.SetValue(o, Interpeter.Convert(valueMember.Type, envVar));
             }
             return o;
         }

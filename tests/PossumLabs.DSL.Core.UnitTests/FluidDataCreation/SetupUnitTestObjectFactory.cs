@@ -23,7 +23,7 @@ namespace PossumLabs.DSL.Core.UnitTests.FluidDataCreation
             templateManager.Initialize(Assembly.GetExecutingAssembly());
             Setup = new Setup(DataCreatorFactory, Factory, templateManager, interpeter);
 
-            new PossumLabs.DSL.Core.Variables.ExistingDataManager(interpeter).Initialize(Assembly.GetExecutingAssembly());
+            new PossumLabs.DSL.Core.Variables.ExistingDataManager(interpeter, templateManager).Initialize(Assembly.GetExecutingAssembly());
         }
 
         private Setup Setup { get; set; }
