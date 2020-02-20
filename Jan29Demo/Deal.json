@@ -1,0 +1,18 @@
+﻿[
+  {
+    "template": {
+    }
+  },
+  {
+    "name": "small",
+    "template": {
+      "value": ".25"
+    }
+  },
+  {
+    "name": "international",
+    "template": {
+      "organizationName": "ƑƓƔƕƖƗƘƙƚƛƜƝƞƟ Ltd."
+    }
+  }
+]

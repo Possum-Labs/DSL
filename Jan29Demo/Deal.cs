@@ -1,11 +1,15 @@
-﻿using BoDi;
-using PossumLabs.DSL.DataGeneration;
-using PossumLabs.DSL.Core.Variables;
+﻿// C#
 using System;
 using System.Collections.Generic;
-using System.Text;
-using TechTalk.SpecFlow;
 using System.Threading;
+
+// Possum Labs
+using PossumLabs.DSL.DataGeneration;
+using PossumLabs.DSL.Core.Variables;
+
+// Specflow
+using BoDi;
+using TechTalk.SpecFlow;
 
 namespace PossumLabs.DSL.English.Integration
 {
@@ -44,6 +48,20 @@ namespace PossumLabs.DSL.English.Integration
 
         private DriverSteps DriverSteps { get; }
 
+        /// <summary>
+        /// Given the Deal
+        /// | var |
+        /// |  D1 |
+        /// Given the Deal
+        /// | var | Value |
+        /// |  D2 |   100 | 
+        /// Given the Deal
+        /// |       var |    Title |
+        /// | DNameSake | D2.Title | 
+        /// When entering 'D1.Title' into element 'Search'
+        /// </summary>
+        /// <param name="deals"></param>
+
         [Given(@"the Deals?")]
         public void GivenTheDeals(Dictionary<string, Deal> deals)
         {
@@ -53,8 +71,32 @@ namespace PossumLabs.DSL.English.Integration
                 Add(key, deals[key]);
         }
 
-        [Given(@"the Deal that is '(.*)'")]
-        public void GivenTheDeals(string characterisitcs, Dictionary<string, Deal> deals)
+        /// <summary>
+        /// Given the Deal of type 'small'
+        /// | var |
+        /// |  D1 |
+        /// Given the Deal of type 'international'
+        /// | var | Value |
+        /// |  D2 |   100 | 
+        /// |  D3 |   100 | 
+        /// Given the Deal
+        /// |         var |    Title |
+        /// | DNoTemplate | D2.Title | 
+        /// When entering 'D1.Title' into element 'Search'
+        /// </summary>
+        [Given(@"the Deals? of type '(.*)'")]
+        public void GivenTheDeals(string template, Dictionary<string, Deal> deals)
+        {
+            foreach (var deal in deals.Values)
+                TemplateManager.ApplyTemplate(deal, template);
+            foreach (var deal in deals.Values)
+                UICreate(deal);
+            foreach (var key in deals.Keys)
+                Add(key, deals[key]);
+        }
+
+        [Given(@"the Deals? that (?:is|are) '(.*)'")]
+        public void GivenTheDealsInState(string characteristics, Dictionary<string, Deal> deals)
         {
             foreach (var deal in deals.Values)
             {
