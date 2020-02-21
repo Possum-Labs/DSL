@@ -5,7 +5,7 @@ using System.Text;
 
 namespace PossumLabs.DSL.Core.UnitTests.FluidDataCreation
 {
-    public class ParentObjectSetup : DomainObjectSetupBase<ParentObject, int>
+    public class ParentObjectSetup : EntitySetupBase<ParentObject, int>
     {
         public override void Initialize<C>(ParentObject item, Func<ParentObject, int> creator, SetupBase<C> setupBase)
         {

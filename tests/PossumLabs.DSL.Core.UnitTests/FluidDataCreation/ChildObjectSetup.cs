@@ -5,7 +5,7 @@ using System.Text;
 
 namespace PossumLabs.DSL.Core.UnitTests.FluidDataCreation
 {
-    public class ChildObjectSetup : DomainObjectSetupBase<ChildObject,int>
+    public class ChildObjectSetup : EntitySetupBase<ChildObject,int>
     {
         
 

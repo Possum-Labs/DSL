@@ -1,5 +1,6 @@
 ﻿using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using PossumLabs.DSL.Core.Variables;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -11,18 +12,21 @@ namespace PossumLabs.DSL.Core.UnitTests.FluidDataCreation
     public class SetupUnitTestObjectFactory
     {
         public DataCreatorFactory DataCreatorFactory { get; set; }
-        public PossumLabs.DSL.Core.Variables.ObjectFactory Factory { get; set; }
+        public PossumLabs.DSL.Core.Variables.ObjectFactory factory { get; set; }
 
         [TestInitialize]
         public void Initialize()
         {
             DataCreatorFactory = new DataCreatorFactory();
-            Factory = new PossumLabs.DSL.Core.Variables.ObjectFactory();
-            var interpeter = new PossumLabs.DSL.Core.Variables.Interpeter(Factory);
+            factory = new PossumLabs.DSL.Core.Variables.ObjectFactory();
+            var interpeter = new PossumLabs.DSL.Core.Variables.Interpeter(factory);
             var templateManager = new PossumLabs.DSL.Core.Variables.TemplateManager();
             templateManager.Initialize(Assembly.GetExecutingAssembly());
-            Setup = new Setup(DataCreatorFactory, Factory, templateManager, interpeter);
-
+            Setup = new Setup(DataCreatorFactory, factory, templateManager, interpeter);
+            var myEntityRepository = new RepositoryBase<MyEntity>(interpeter, factory);
+            interpeter.Register(myEntityRepository);
+            var myValueRepository = new RepositoryBase<MyValueObject>(interpeter, factory);
+            interpeter.Register(myValueRepository);
             new PossumLabs.DSL.Core.Variables.ExistingDataManager(interpeter, templateManager).Initialize(Assembly.GetExecutingAssembly());
         }
 
@@ -32,7 +36,7 @@ namespace PossumLabs.DSL.Core.UnitTests.FluidDataCreation
         [TestMethod]
         public void MakeSureExistingDataIsLoaded()
         {
-            Factory.Register<ValueObject>(o => new ValueObject { Name = "special" });
+            factory.Register<ValueObject>(o => new ValueObject { Name = "special" });
 
             Setup.WithParentObject("P1", configurer: p=>p.ComplexValue.Value=42);
 

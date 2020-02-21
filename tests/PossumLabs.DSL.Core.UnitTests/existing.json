@@ -1,0 +1,42 @@
+[
+  {
+    "type": "MyEntity",
+    "values": [
+      {
+        "var": "Entity1",
+        "value": {
+          "MyString": "bubbles",
+          "MyInt": 42
+        }
+      },
+      {
+        "var": "Entity2",
+        "template": "firstObject",
+        "value": {
+          "MyString": "bob",
+          "MyInt": 42
+        }
+      }
+    ]
+  },
+  {
+    "type": "MyValueObject",
+    "values": [
+      {
+        "var": "Value1",
+        "value": {
+          "MyString": "bubbles",
+          "MyInt": 42
+        }
+      },
+      {
+        "var": "Value2",
+        "template": "firstValue",
+        "value": {
+          "MyString": "bobbob",
+          "MyInt": 42
+        }
+      }
+    ]
+  }
+]

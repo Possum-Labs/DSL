@@ -1,0 +1,21 @@
+[
+  {
+    "template": {
+      "MyNullableInt": 40
+    }
+  },
+  {
+    "name": "firstValue",
+    "template": {
+      "MyString": "first value",
+      "MyNullableInt": 41
+    }
+  },
+  {
+    "name": "secondValue",
+    "template": {
+      "MyString": "second value",
+      "MyNullableInt": 43
+    }
+  }
+]

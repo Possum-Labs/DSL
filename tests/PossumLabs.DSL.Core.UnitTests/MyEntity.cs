@@ -5,7 +5,7 @@ using System.Text;
 
 namespace PossumLabs.DSL.Core.UnitTests
 {
-    class MyDomainObject : IEntity
+    public class MyEntity : IEntity
     {
         public string MyString { get; set; }
         public int MyInt { get; set; }
@@ -14,7 +14,7 @@ namespace PossumLabs.DSL.Core.UnitTests
         public int[] MyIntArray { get; set; }
 
         public MyValueObject MyValueObject { get; set; }
-        public MyDomainObject NestedDomainObject { get; set; }
+        public MyEntity NestedEntity { get; set; }
 
         public string LogFormat()
         => "logging";

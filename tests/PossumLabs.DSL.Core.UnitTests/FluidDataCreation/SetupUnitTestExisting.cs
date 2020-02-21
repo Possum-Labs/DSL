@@ -2,6 +2,7 @@
 using System.Reflection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using FluentAssertions;
+using PossumLabs.DSL.Core.Variables;
 
 namespace PossumLabs.DSL.Core.UnitTests.FluidDataCreation
 {
@@ -19,7 +20,10 @@ namespace PossumLabs.DSL.Core.UnitTests.FluidDataCreation
             var templateManager = new PossumLabs.DSL.Core.Variables.TemplateManager();
             templateManager.Initialize(Assembly.GetExecutingAssembly());
             Setup = new Setup(DataCreatorFactory, factory, templateManager, interpeter);
-
+            var myEntityRepository = new RepositoryBase<MyEntity>(interpeter, factory);
+            interpeter.Register(myEntityRepository);
+            var myValueRepository = new RepositoryBase<MyValueObject>(interpeter, factory);
+            interpeter.Register(myValueRepository);
             new PossumLabs.DSL.Core.Variables.ExistingDataManager(interpeter, templateManager).Initialize(Assembly.GetExecutingAssembly());
         }
 

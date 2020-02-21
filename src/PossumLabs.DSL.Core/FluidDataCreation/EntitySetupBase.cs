@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PossumLabs.DSL.Core.FluidDataCreation
 {
-    public abstract class DomainObjectSetupBase<T, Tid> : ValueObjectSetupBase<T>, IDomainObjectSetupBase<T, Tid> where T : IEntity
+    public abstract class EntitySetupBase<T, Tid> : ValueObjectSetupBase<T>, IEntitySetupBase<T, Tid> where T : IEntity
         where Tid : IEquatable<Tid>
     {
         protected override void NotifyChange([System.Runtime.CompilerServices.CallerMemberName] string propertyName = "")

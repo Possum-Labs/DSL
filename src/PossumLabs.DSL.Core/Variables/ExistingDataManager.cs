@@ -53,8 +53,12 @@ namespace PossumLabs.DSL.Core.Variables
                         {
                             Interpeter.Add(
                                 type, 
-                                (keyValue.key ?? keyValue.Key).Value, 
-                                ProcessVariable(type, (keyValue.value ?? keyValue.Value)));
+                                (keyValue.var ?? keyValue.Var).Value, 
+                                ProcessVariable(
+                                    type, 
+                                    (keyValue.var ?? keyValue.Var).Value,
+                                    (keyValue.template ?? keyValue.Template)?.Value,
+                                    (keyValue.value ?? keyValue.Value)));
                         }
                     }
                 }
@@ -63,15 +67,16 @@ namespace PossumLabs.DSL.Core.Variables
 
         public object ProcessVariable(
             Type type, 
+            string name,
+            string template,
             dynamic options)
         {
             var expectedMembers = type.GetValueMembers();
 
             var o = Activator.CreateInstance(type);
-            string name = options.Name ?? options.name;
 
             //apply the template
-            TemplateManager.ApplyTemplate(type, o, options.Template ?? options.template);
+            TemplateManager.ApplyTemplate(type, o, template);
 
             //apply the existing.json
             var existingMembers = new List<string>();
@@ -90,7 +95,7 @@ namespace PossumLabs.DSL.Core.Variables
             //override using environment variables
             foreach (var valueMember in expectedMembers)
             {
-                var envVar = Environment.GetEnvironmentVariable($"{name}.{valueMember.Name}");
+                var envVar = Environment.GetEnvironmentVariable($"{name}_{valueMember.Name}");
                 if (envVar == null)
                     continue;
                 valueMember.SetValue(o, Interpeter.Convert(valueMember.Type, envVar));
