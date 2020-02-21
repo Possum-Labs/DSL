@@ -9,27 +9,51 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		TODO.txt = TODO.txt
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Selenium-Customizing-ElementFactory", "tutorials\Selenium-Customizing-ElementFactory\Selenium-Customizing-ElementFactory.csproj", "{116FE5A8-EF9D-4A6A-B942-025174EC81B5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Selenium-Customizing-ElementFactory", "tutorials\Selenium-Customizing-ElementFactory\Selenium-Customizing-ElementFactory.csproj", "{116FE5A8-EF9D-4A6A-B942-025174EC81B5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Selenium-Customizing-Selectors", "tutorials\Selenium-Customizing-Selectors\Selenium-Customizing-Selectors.csproj", "{9A4F2F44-D750-42EA-8EF1-8F5662239E8E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Selenium-Customizing-Selectors", "tutorials\Selenium-Customizing-Selectors\Selenium-Customizing-Selectors.csproj", "{9A4F2F44-D750-42EA-8EF1-8F5662239E8E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Selenium-MovieLogger", "tutorials\Selenium-MovieLogger\Selenium-MovieLogger.csproj", "{A27D6845-3995-44F7-994B-44704F0D981E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Selenium-MovieLogger", "tutorials\Selenium-MovieLogger\Selenium-MovieLogger.csproj", "{A27D6845-3995-44F7-994B-44704F0D981E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Selenium-Selectors", "tutorials\Selenium-Selectors\Selenium-Selectors.csproj", "{E905BD4E-99E1-4406-A00F-24D849274B07}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Selenium-Selectors", "tutorials\Selenium-Selectors\Selenium-Selectors.csproj", "{E905BD4E-99E1-4406-A00F-24D849274B07}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Selenium-Tables", "tutorials\Selenium-Tables\Selenium-Tables.csproj", "{F9877EB6-F7B1-46E4-B614-575DACC11CBA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Selenium-Tables", "tutorials\Selenium-Tables\Selenium-Tables.csproj", "{F9877EB6-F7B1-46E4-B614-575DACC11CBA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "tutorials\Tests\Test.csproj", "{EC9A91CA-5F0D-4B28-95FF-4AA9092CC349}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test", "tutorials\Tests\Test.csproj", "{EC9A91CA-5F0D-4B28-95FF-4AA9092CC349}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Validations", "tutorials\Validations\Validations.csproj", "{7A7A10AA-524D-4489-987B-43DFA697A4B4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Validations", "tutorials\Validations\Validations.csproj", "{7A7A10AA-524D-4489-987B-43DFA697A4B4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Variables", "tutorials\Variables\Variables.csproj", "{D324EF72-E53C-4101-8C52-A803D46E58A0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Variables", "tutorials\Variables\Variables.csproj", "{D324EF72-E53C-4101-8C52-A803D46E58A0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Variables-ExistingData", "tutorials\Variables-ExistingData\Variables-ExistingData.csproj", "{5DD2E118-A135-4D7C-AB80-752AEAD8F7D2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Variables-ExistingData", "tutorials\Variables-ExistingData\Variables-ExistingData.csproj", "{5DD2E118-A135-4D7C-AB80-752AEAD8F7D2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Variables-ObjectFactory", "tutorials\Variables-ObjectFactory\Variables-ObjectFactory.csproj", "{B357B719-C574-45FE-B5B6-7C58F4D2B806}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Variables-ObjectFactory", "tutorials\Variables-ObjectFactory\Variables-ObjectFactory.csproj", "{B357B719-C574-45FE-B5B6-7C58F4D2B806}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Variables-Templates", "tutorials\Variables-Templates\Variables-Templates.csproj", "{B3B77014-9E38-4F99-AA99-3EAD06109DD2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Variables-Templates", "tutorials\Variables-Templates\Variables-Templates.csproj", "{B3B77014-9E38-4F99-AA99-3EAD06109DD2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DSLCoreVersion", "tutorials\DSLCoreVersion\DSLCoreVersion.csproj", "{47F0C849-B0D6-421B-9F50-F7541FE3C9AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DSLEnglishVersion", "tutorials\DSLEnglishVersion\DSLEnglishVersion.csproj", "{4EAF80CE-4090-480B-9C4E-3933BBC5CD55}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 Existing Data", "1 Existing Data", "{041D1AD0-555E-46E3-8BCC-3846899537FA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 Creating New Data", "2 Creating New Data", "{20EE89F5-4CFF-4338-8D00-4B2326D61F31}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 Using Templates", "3 Using Templates", "{11924AF8-A95C-491C-ABDD-EAF0DC7F1E95}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 Using Characteristics", "4 Using Characteristics", "{4A79AF1E-6BA7-40E4-BFA8-7CC18D80F232}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DSLCoreVersion.ExistingData", "tutorials\1 Existing Data\DSLCoreVersion\DSLCoreVersion.ExistingData.csproj", "{82E6C4F9-A934-42EF-8DC7-ECD8FA800828}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DSLEnglishVersion.ExistingData", "tutorials\1 Existing Data\DSLEnglishVersion\DSLEnglishVersion.ExistingData.csproj", "{86267A13-5A43-4D32-AB21-885295436109}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DSLCoreVersion.NewData", "tutorials\2 Creating New Data\DSLCoreVersion\DSLCoreVersion.NewData.csproj", "{7DE8DD76-36F5-4B80-B9B0-91575ACE159F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DSLEnglishVersion.NewData", "tutorials\2 Creating New Data\DSLEnglishVersion\DSLEnglishVersion.NewData.csproj", "{40EC7642-5A57-48B2-B451-D13A54D95A32}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DSLCoreVersion.Templates", "tutorials\3 Using Templates\DSLCoreVersion\DSLCoreVersion.Templates.csproj", "{8579958D-5DD9-4850-B202-C251B1758634}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DSLEnglishVersion.Templates", "tutorials\3 Using Templates\DSLEnglishVersion\DSLEnglishVersion.Templates.csproj", "{B6450AE9-EE3E-49EA-BD5D-EF683FF70EEE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,9 +105,49 @@ Global
 		{B3B77014-9E38-4F99-AA99-3EAD06109DD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B3B77014-9E38-4F99-AA99-3EAD06109DD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B3B77014-9E38-4F99-AA99-3EAD06109DD2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47F0C849-B0D6-421B-9F50-F7541FE3C9AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47F0C849-B0D6-421B-9F50-F7541FE3C9AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47F0C849-B0D6-421B-9F50-F7541FE3C9AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47F0C849-B0D6-421B-9F50-F7541FE3C9AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4EAF80CE-4090-480B-9C4E-3933BBC5CD55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EAF80CE-4090-480B-9C4E-3933BBC5CD55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EAF80CE-4090-480B-9C4E-3933BBC5CD55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EAF80CE-4090-480B-9C4E-3933BBC5CD55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82E6C4F9-A934-42EF-8DC7-ECD8FA800828}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82E6C4F9-A934-42EF-8DC7-ECD8FA800828}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82E6C4F9-A934-42EF-8DC7-ECD8FA800828}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82E6C4F9-A934-42EF-8DC7-ECD8FA800828}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86267A13-5A43-4D32-AB21-885295436109}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86267A13-5A43-4D32-AB21-885295436109}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86267A13-5A43-4D32-AB21-885295436109}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86267A13-5A43-4D32-AB21-885295436109}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7DE8DD76-36F5-4B80-B9B0-91575ACE159F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DE8DD76-36F5-4B80-B9B0-91575ACE159F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DE8DD76-36F5-4B80-B9B0-91575ACE159F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DE8DD76-36F5-4B80-B9B0-91575ACE159F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40EC7642-5A57-48B2-B451-D13A54D95A32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40EC7642-5A57-48B2-B451-D13A54D95A32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40EC7642-5A57-48B2-B451-D13A54D95A32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40EC7642-5A57-48B2-B451-D13A54D95A32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8579958D-5DD9-4850-B202-C251B1758634}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8579958D-5DD9-4850-B202-C251B1758634}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8579958D-5DD9-4850-B202-C251B1758634}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8579958D-5DD9-4850-B202-C251B1758634}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6450AE9-EE3E-49EA-BD5D-EF683FF70EEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6450AE9-EE3E-49EA-BD5D-EF683FF70EEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6450AE9-EE3E-49EA-BD5D-EF683FF70EEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6450AE9-EE3E-49EA-BD5D-EF683FF70EEE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{82E6C4F9-A934-42EF-8DC7-ECD8FA800828} = {041D1AD0-555E-46E3-8BCC-3846899537FA}
+		{86267A13-5A43-4D32-AB21-885295436109} = {041D1AD0-555E-46E3-8BCC-3846899537FA}
+		{7DE8DD76-36F5-4B80-B9B0-91575ACE159F} = {20EE89F5-4CFF-4338-8D00-4B2326D61F31}
+		{40EC7642-5A57-48B2-B451-D13A54D95A32} = {20EE89F5-4CFF-4338-8D00-4B2326D61F31}
+		{8579958D-5DD9-4850-B202-C251B1758634} = {11924AF8-A95C-491C-ABDD-EAF0DC7F1E95}
+		{B6450AE9-EE3E-49EA-BD5D-EF683FF70EEE} = {11924AF8-A95C-491C-ABDD-EAF0DC7F1E95}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {39ACC678-3F6C-4958-BBC2-D8CBBE13A6E1}
