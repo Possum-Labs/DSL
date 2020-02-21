@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace DSLCoreVersion.Templates.Features
+namespace DSLCoreVersion.Templates
 {
     using TechTalk.SpecFlow;
     using System;
@@ -65,7 +65,7 @@ namespace DSLCoreVersion.Templates.Features
             if (((testRunner.FeatureContext != null) 
                         && (testRunner.FeatureContext.FeatureInfo.Title != "Utilizing Templates")))
             {
-                global::DSLCoreVersion.Templates.Features.UtilizingTemplatesFeature.FeatureSetup(null);
+                global::DSLCoreVersion.Templates.UtilizingTemplatesFeature.FeatureSetup(null);
             }
         }
         

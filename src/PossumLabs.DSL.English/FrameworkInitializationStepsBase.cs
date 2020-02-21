@@ -130,7 +130,10 @@ namespace PossumLabs.DSL
             templateManager.Initialize(Assembly.GetExecutingAssembly());
             Register(templateManager);
 
-            Log.Message($"feature: {FeatureContext.FeatureInfo.Title} scenario: {ScenarioContext.ScenarioInfo.Title} \n" +
+            new PossumLabs.DSL.Core.Variables.ExistingDataManager(this.Interpeter, this.TemplateManager)
+                .Initialize(this.GetType().Assembly);
+
+            Log.Message($"Feature: {FeatureContext.FeatureInfo.Title} Scenario: {ScenarioContext.ScenarioInfo.Title} \n" +
                 $"Tags: {FeatureContext.FeatureInfo.Tags.LogFormat()} {ScenarioContext.ScenarioInfo.Tags.LogFormat()}");
 
             System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
@@ -168,11 +171,6 @@ namespace PossumLabs.DSL
                 ObjectContainer.Resolve<MovieLogger>(), 
                 WebElementSourceLog);
 
-        protected virtual void SetupExistingData()
-        {
-            new PossumLabs.DSL.Core.Variables.ExistingDataManager(this.Interpeter, this.TemplateManager)
-                .Initialize(this.GetType().Assembly);
-        }
 
         protected virtual void EnableMovieLogger()
             => MovieLogger.IsEnabled = true;

@@ -11,9 +11,5 @@ namespace DSL.Documentation.Example.English
         [BeforeScenario(Order = int.MinValue+1)]
         public new void SetupInfrastructure()
             => base.SetupInfrastructure();
-
-        [BeforeScenario(Order = 1)]
-        public new void SetupExistingData()
-            => base.SetupExistingData();
     }
 }
