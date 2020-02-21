@@ -6,30 +6,37 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6E7C5617-566F-41FC-8499-E949A86BADAF}"
 	ProjectSection(SolutionItems) = preProject
 		docker-compose.yml = docker-compose.yml
+		Documentation.txt = Documentation.txt
 		TODO.txt = TODO.txt
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Selenium-Customizing-ElementFactory", "tutorials\Selenium-Customizing-ElementFactory\Selenium-Customizing-ElementFactory.csproj", "{116FE5A8-EF9D-4A6A-B942-025174EC81B5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Selenium-Customizing-ElementFactory", "tutorials\Selenium-Customizing-ElementFactory\Selenium-Customizing-ElementFactory.csproj", "{116FE5A8-EF9D-4A6A-B942-025174EC81B5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Selenium-Customizing-Selectors", "tutorials\Selenium-Customizing-Selectors\Selenium-Customizing-Selectors.csproj", "{9A4F2F44-D750-42EA-8EF1-8F5662239E8E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Selenium-Customizing-Selectors", "tutorials\Selenium-Customizing-Selectors\Selenium-Customizing-Selectors.csproj", "{9A4F2F44-D750-42EA-8EF1-8F5662239E8E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Selenium-MovieLogger", "tutorials\Selenium-MovieLogger\Selenium-MovieLogger.csproj", "{A27D6845-3995-44F7-994B-44704F0D981E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Selenium-MovieLogger", "tutorials\Selenium-MovieLogger\Selenium-MovieLogger.csproj", "{A27D6845-3995-44F7-994B-44704F0D981E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Selenium-Selectors", "tutorials\Selenium-Selectors\Selenium-Selectors.csproj", "{E905BD4E-99E1-4406-A00F-24D849274B07}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Selenium-Selectors", "tutorials\Selenium-Selectors\Selenium-Selectors.csproj", "{E905BD4E-99E1-4406-A00F-24D849274B07}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Selenium-Tables", "tutorials\Selenium-Tables\Selenium-Tables.csproj", "{F9877EB6-F7B1-46E4-B614-575DACC11CBA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Selenium-Tables", "tutorials\Selenium-Tables\Selenium-Tables.csproj", "{F9877EB6-F7B1-46E4-B614-575DACC11CBA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "tutorials\Tests\Test.csproj", "{EC9A91CA-5F0D-4B28-95FF-4AA9092CC349}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test", "tutorials\Tests\Test.csproj", "{EC9A91CA-5F0D-4B28-95FF-4AA9092CC349}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Validations", "tutorials\Validations\Validations.csproj", "{7A7A10AA-524D-4489-987B-43DFA697A4B4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Validations", "tutorials\Validations\Validations.csproj", "{7A7A10AA-524D-4489-987B-43DFA697A4B4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Variables", "tutorials\Variables\Variables.csproj", "{D324EF72-E53C-4101-8C52-A803D46E58A0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Variables", "tutorials\Variables\Variables.csproj", "{D324EF72-E53C-4101-8C52-A803D46E58A0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Variables-ExistingData", "tutorials\Variables-ExistingData\Variables-ExistingData.csproj", "{5DD2E118-A135-4D7C-AB80-752AEAD8F7D2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Variables-ExistingData", "tutorials\Variables-ExistingData\Variables-ExistingData.csproj", "{5DD2E118-A135-4D7C-AB80-752AEAD8F7D2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Variables-ObjectFactory", "tutorials\Variables-ObjectFactory\Variables-ObjectFactory.csproj", "{B357B719-C574-45FE-B5B6-7C58F4D2B806}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Variables-ObjectFactory", "tutorials\Variables-ObjectFactory\Variables-ObjectFactory.csproj", "{B357B719-C574-45FE-B5B6-7C58F4D2B806}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Variables-Templates", "tutorials\Variables-Templates\Variables-Templates.csproj", "{B3B77014-9E38-4F99-AA99-3EAD06109DD2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Variables-Templates", "tutorials\Variables-Templates\Variables-Templates.csproj", "{B3B77014-9E38-4F99-AA99-3EAD06109DD2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 Langauge", "1 Langauge", "{59CF914E-0797-401A-BBA7-57BBE7E9779F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 Entities", "2 Entities", "{F7C76534-B74E-4826-852D-5C4AED190350}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 Web", "3 Web", "{728E3EB4-F4D1-4C18-A74B-8D8BFC8D3AC9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
