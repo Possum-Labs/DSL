@@ -10,26 +10,15 @@ namespace PossumLabs.DSL.Core.Variables
     [AttributeUsage(AttributeTargets.Property)]
     public class NullCoalesceWithDefaultAttribute : Attribute, INullCoalesceWithDefaultAttribute
     {
-        public NullCoalesceWithDefaultAttribute()
+        public NullCoalesceWithDefaultAttribute() : this(null, null)
         {
-            Characteristics = Characteristics.None;
-        }
-        public NullCoalesceWithDefaultAttribute(Characteristics characteristics)
-        {
-            Characteristics = characteristics;
-        }
-        public NullCoalesceWithDefaultAttribute(string template)
-        {
-            Template = template;
-            Characteristics = Characteristics.None;
         }
 
-        public NullCoalesceWithDefaultAttribute(Characteristics characteristics, string template)
+        public NullCoalesceWithDefaultAttribute(Characteristics characteristics = null, string template = null)
         {
             Template = template;
-            Characteristics = characteristics;
+            Characteristics = characteristics ?? Characteristics.None;
         }
-
 
         public Characteristics Characteristics { get; }
         public string Template { get; set; }
@@ -41,28 +30,15 @@ namespace PossumLabs.DSL.Core.Variables
     /// [AttributeUsage(AttributeTargets.Property)]
     public class DefaultToRepositoryDefaultAttribute : Attribute, INullCoalesceWithDefaultAttribute
     {
-        public DefaultToRepositoryDefaultAttribute()
+        public DefaultToRepositoryDefaultAttribute():this(null,null)
         {
-            Characteristics = Characteristics.None;
         }
 
-        public DefaultToRepositoryDefaultAttribute(Characteristics characteristics)
-        {
-            Characteristics = characteristics;
-        }
-
-        public DefaultToRepositoryDefaultAttribute(string template)
+        public DefaultToRepositoryDefaultAttribute(Characteristics characteristics = null, string template = null)
         {
             Template = template;
-            Characteristics = Characteristics.None;
+            Characteristics = characteristics ?? Characteristics.None;
         }
-
-        public DefaultToRepositoryDefaultAttribute(Characteristics characteristics, string template)
-        {
-            Template = template;
-            Characteristics = characteristics;
-        }
-
 
         public Characteristics Characteristics { get; }
         public string Template { get; set; }
