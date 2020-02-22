@@ -64,11 +64,11 @@ namespace PossumLabs.DSL.Core.Variables
             DecorateNewItem(ret);
             return ret;
         }
-        private bool DefaultInitialized { get; set; }
 
+        private bool DefaultInitialized { get; set; }
         public void InitializeDefault(Func<T> defaultFactory)
-            => InitializeDefault(defaultFactory, Characteristics.None);
-        public void InitializeDefault(Func<T> defaultFactory, Characteristics characteristics)
+            => InitializeDefault(Characteristics.None, defaultFactory);
+        public void InitializeDefault(Characteristics characteristics, Func<T> defaultFactory)
         {
             if (DefaultInitialized)
                 throw new InvalidOperationException("default factory is already set");
@@ -76,13 +76,10 @@ namespace PossumLabs.DSL.Core.Variables
             DefaultCharacteristics = characteristics;
             Default = new Lazy<T>(defaultFactory);
         }
-
         object IRepository.GetDefault()
             => GetDefault();
-
         public T GetDefault()
             => GetDefault(DefaultCharacteristics);
-
         public T GetDefault(Characteristics characteristics)
         {
             if (characteristics == null)
@@ -110,9 +107,17 @@ namespace PossumLabs.DSL.Core.Variables
             else
                 throw new InvalidOperationException("un understood set to characteristics, no factory method found");
         }
+
+        public void InitializeFactory(Characteristics characteristics, Func<T,T>[] args )
+        {
+            if (args.None())
+                FactoryMethods.Add(characteristics, (x) => x);
+            else
+                FactoryMethods.Add(characteristics, args.Aggregate((chain, next) => (x) => next(chain(x))));
+        }
         #endregion
 
-        
+
 
         public Type Type => typeof(T);
         public IEnumerable<TypeConverter> RegisteredConversions => conversions;

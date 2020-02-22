@@ -49,14 +49,7 @@ namespace DSL.Documentation.Example
 
         [Given(@"the Users?")]
         public void GivenTheUsers(Dictionary<string, User> Users)
-        {
-            foreach (var User in Users.Values)
-                TemplateManager.ApplyTemplate(User);
-            foreach (var User in Users.Values)
-                CreateUser(User);
-            foreach (var key in Users.Keys)
-                Add(key, Users[key]);
-        }
+            => GivenTheUsers(null, Users);
 
         /// <summary>
         /// Given the User of type 'short'
