@@ -5,11 +5,6 @@ using System.Text;
 
 namespace DSL.Documentation.Example
 {
-    public class FrameworkInitializationSteps : PossumLabs.DSL.English.FrameworkInitializationSteps
-    {
-        public FrameworkInitializationSteps(IObjectContainer objectContainer) : base(objectContainer) { }
-    }
-
     public class AlertSteps : PossumLabs.DSL.English.AlertSteps
     {
         public AlertSteps(IObjectContainer objectContainer) : base(objectContainer) { }

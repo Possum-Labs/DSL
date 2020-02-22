@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace DSL.Documentation.Example.Features
+namespace DSL.Documentation.Example
 {
     using TechTalk.SpecFlow;
     using System;

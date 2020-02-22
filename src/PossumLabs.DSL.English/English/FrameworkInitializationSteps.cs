@@ -33,7 +33,7 @@ namespace PossumLabs.DSL.English
             => base.CheckForAlerts();
 
         [BeforeScenario(Order = int.MinValue+1)]
-        public new void SetupInfrastructure()
+        public new virtual void SetupInfrastructure()
             => base.SetupInfrastructure();
 
         [BeforeScenario("Movie-Logger")]
