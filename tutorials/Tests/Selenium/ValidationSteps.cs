@@ -1,8 +1,8 @@
 ﻿using BoDi;
 using FluentAssertions;
-using PossumLabs.Specflow.Core.Validations;
-using PossumLabs.Specflow.Selenium;
-using PossumLabs.Specflow.Selenium.Selectors;
+using PossumLabs.DSL.Core.Validations;
+using PossumLabs.DSL.Web;
+using PossumLabs.DSL.Web.Selectors;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TechTalk.SpecFlow;
 
-namespace Shim.Selenium
+namespace DSL.Documentation.Example
 {
     [Binding]
     public class ValidationSteps : WebDriverStepBase

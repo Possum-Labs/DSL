@@ -21,7 +21,7 @@ namespace PossumLabs.DSL.Core.UnitTests.Variables
 
         [TestMethod]
         public void ReturnNullWhenObjectNull()
-            =>Interpeter.Convert(typeof(MyDomainObject), null)
+            =>Interpeter.Convert(typeof(MyEntity), null)
                 .Should().BeNull("nulls should stay null if possible");
 
         [TestMethod]

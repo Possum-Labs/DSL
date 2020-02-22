@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using TechTalk.SpecFlow;
 
-namespace LegacyTest.Steps
+namespace DSL.Documentation.Example
 {
     [Binding]
     public sealed class WaitSteps

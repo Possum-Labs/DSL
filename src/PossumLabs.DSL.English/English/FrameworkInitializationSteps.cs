@@ -36,10 +36,6 @@ namespace PossumLabs.DSL.English
         public new void SetupInfrastructure()
             => base.SetupInfrastructure();
 
-        [BeforeScenario(Order = 1)]
-        public new void SetupExistingData()
-            => base.SetupExistingData();
-
         [BeforeScenario("Movie-Logger")]
         public new void EnableMovieLogger()
             => base.EnableMovieLogger();

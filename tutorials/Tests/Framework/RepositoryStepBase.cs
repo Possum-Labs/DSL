@@ -1,7 +1,7 @@
 ﻿using BoDi;
 using LegacyTest.Framework;
-using PossumLabs.Specflow.Core;
-using PossumLabs.Specflow.Core.Variables;
+using PossumLabs.DSL.Core;
+using PossumLabs.DSL.Core.Variables;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TechTalk.SpecFlow;
 
-namespace LegacyTest
+namespace DSL.Documentation.Example
 {
     public abstract class RepositoryStepBase<T> : StepBase
         where T : IValueObject
@@ -92,7 +92,7 @@ namespace LegacyTest
                 var msg = string.Empty;
                 foreach (var item in Repository.Where(x => x.Value != null))
                 {
-                    var value = (item.Value is IDomainObject) ? ((IDomainObject)item.Value).LogFormat(): null;
+                    var value = (item.Value is IEntity) ? ((IEntity)item.Value).LogFormat(): null;
                     if(string.IsNullOrWhiteSpace(value))
                         msg += $"Key:{item.Key} Id:{item.Value}\n";
                     else

@@ -1,0 +1,25 @@
+﻿[
+  {
+    "type": "User",
+    "values": [
+      {
+        "var": "Admin",
+        "value": {
+          "Email": "admin@possumlabs.com",
+          "Password": "ShouldComeFromEnvVar"
+        }
+      },
+      {
+        "var": "Guest",
+        "template": "short",
+        "value": {
+          "Email": "guest@possumlabs.com",
+          "Password": "P@ssw0rd"
+        }
+      }
+    ]
+  }
+]
+
+//you have to run SetEnvironmentVariable.cmd to set the envirunment variable
+

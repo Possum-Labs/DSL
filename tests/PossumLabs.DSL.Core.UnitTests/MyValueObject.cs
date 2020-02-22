@@ -5,7 +5,7 @@ using System.Text;
 
 namespace PossumLabs.DSL.Core.UnitTests
 {
-    class MyValueObject : IValueObject
+    public class MyValueObject : IValueObject
     {
         public string MyString { get; set; }
         public int MyInt { get; set; }

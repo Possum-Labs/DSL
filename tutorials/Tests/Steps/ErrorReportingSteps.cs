@@ -1,4 +1,4 @@
-﻿//using PossumLabs.Specflow.Core;
+﻿//using PossumLabs.DSL.Core;
 //using System;
 //using System.Collections.Generic;
 //using System.Linq;
@@ -6,7 +6,7 @@
 //using System.Threading.Tasks;
 //using TechTalk.SpecFlow;
 
-//namespace Shim.Steps
+//namespace DSL.Documentation.Example
 //{
 //    [Binding]
 //    public class ErrorReportingSteps : StepBase

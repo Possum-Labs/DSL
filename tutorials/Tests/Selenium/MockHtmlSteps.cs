@@ -1,6 +1,6 @@
 ﻿using BoDi;
 using FluentAssertions;
-using LegacyTest.DomainObjects;
+using LegacyTest.Entitys;
 using Shim.Selenium;
 using System;
 using System.Collections.Generic;
@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TechTalk.SpecFlow;
 
-namespace LegacyTest.Selenium
+namespace DSL.Documentation.Example
 {
     [Binding]
     public class MockHtmlSteps : WebDriverStepBase

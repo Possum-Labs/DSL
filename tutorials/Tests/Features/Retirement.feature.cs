@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace LegacyTest.Features
+namespace DSL.Documentation.Example
 {
     using TechTalk.SpecFlow;
     

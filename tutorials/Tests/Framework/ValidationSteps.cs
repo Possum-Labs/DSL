@@ -1,13 +1,13 @@
 ﻿using BoDi;
 using FluentAssertions;
-using PossumLabs.Specflow.Core;
-using PossumLabs.Specflow.Core.Validations;
+using PossumLabs.DSL.Core;
+using PossumLabs.DSL.Core.Validations;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using TechTalk.SpecFlow;
 
-namespace LegacyTest.Framework
+namespace DSL.Documentation.Example
 {
     [Binding]
     public class ValidationSteps: StepBase

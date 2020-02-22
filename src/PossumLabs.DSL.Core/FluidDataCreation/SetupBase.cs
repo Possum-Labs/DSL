@@ -32,7 +32,7 @@ namespace PossumLabs.DSL.Core.FluidDataCreation
             Action<S> configurer = null)
 
             where T : IEntity
-            where S : DomainObjectSetupBase<T, Tid>
+            where S : EntitySetupBase<T, Tid>
             where Tid : IEquatable<Tid>
         {
             var item = ObjectFactory.CreateInstance<T>();
@@ -57,7 +57,7 @@ namespace PossumLabs.DSL.Core.FluidDataCreation
             Action<S> configurer = null)
 
             where T : IEntity
-            where S : DomainObjectSetupBase<T, Tid>
+            where S : EntitySetupBase<T, Tid>
             where Tid : IEquatable<Tid>
         {
             var max = GetMaxNumber(repository);

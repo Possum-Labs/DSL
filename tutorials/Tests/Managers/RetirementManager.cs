@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using LegacyTest.DomainObjects;
+using LegacyTest.Entitys;
 
-namespace LegacyTest.Managers
+namespace DSL.Documentation.Example
 {
     public class RetirementManager
     {

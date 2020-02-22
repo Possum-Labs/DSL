@@ -1,5 +1,5 @@
 ﻿using BoDi;
-using LegacyTest.DomainObjects;
+using LegacyTest.Entitys;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TechTalk.SpecFlow;
 
-namespace LegacyTest.Steps
+namespace DSL.Documentation.Example
 {
     [Binding]
     public class HtmlInjectionSteps : RepositoryStepBase<HtmlInjection>

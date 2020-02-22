@@ -1,6 +1,7 @@
 ﻿using Castle.Components.DictionaryAdapter;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using PossumLabs.DSL.Core.UnitTests.FluidDataCreation;
 using PossumLabs.DSL.Core.Variables;
 using System;
 using System.Collections;
@@ -125,8 +126,7 @@ namespace PossumLabs.DSL.Core.UnitTests.Variables
         {
             dynamic source = new NullingExpandoObject();
             source.AString = "bubbles";
-            source.name = "bob";
-            var result = ExistingDataManager.ProcessVariable(typeof(Helper), source);
+            var result = ExistingDataManager.ProcessVariable(typeof(Helper), "bob", null, source);
             var r = result as Helper;
             r.AString.Should().Be("bubbles");
         }
@@ -137,8 +137,7 @@ namespace PossumLabs.DSL.Core.UnitTests.Variables
             TemplateManager.Register<Helper>((x) => { x.BInt = 42; });
             dynamic source = new NullingExpandoObject();
             source.AString = "bubbles";
-            source.Name = "bob";
-            var result = ExistingDataManager.ProcessVariable(typeof(Helper), source);
+            var result = ExistingDataManager.ProcessVariable(typeof(Helper), "bob", null, source);
             var r = result as Helper;
             r.AString.Should().Be("bubbles");
             r.BInt.Should().Be(42);
@@ -150,9 +149,7 @@ namespace PossumLabs.DSL.Core.UnitTests.Variables
             TemplateManager.Register<Helper>((x) => { x.BString = "bobber"; }, "someTemplate");
             dynamic source = new NullingExpandoObject();
             source.AString = "bubbles";
-            source.Name = "bob";
-            source.template = "someTemplate";
-            var result = ExistingDataManager.ProcessVariable(typeof(Helper), source);
+            var result = ExistingDataManager.ProcessVariable(typeof(Helper), "bob", "someTemplate", source);
             var r = result as Helper;
             r.AString.Should().Be("bubbles");
             r.BString.Should().Be("bobber");
@@ -164,8 +161,7 @@ namespace PossumLabs.DSL.Core.UnitTests.Variables
             TemplateManager.Register<Helper>((x) => { x.BString = "bobber"; }, "someTemplate");
             dynamic source = new NullingExpandoObject();
             source.AString = "bubbles";
-            source.Name = "bob";
-            var result = ExistingDataManager.ProcessVariable(typeof(Helper), source);
+            var result = ExistingDataManager.ProcessVariable(typeof(Helper), "bob", null, source);
             var r = result as Helper;
             r.AString.Should().Be("bubbles");
             r.BString.Should().BeNull();
@@ -179,8 +175,7 @@ namespace PossumLabs.DSL.Core.UnitTests.Variables
             {
                 dynamic source = new NullingExpandoObject();
                 source.AString = "bubbles";
-                source.Name = "bob";
-                var result = ExistingDataManager.ProcessVariable(typeof(Helper), source);
+                var result = ExistingDataManager.ProcessVariable(typeof(Helper), "bob", null, source);
                 var r = result as Helper;
                 r.AString.Should().Be("Value1");
             }
@@ -197,8 +192,7 @@ namespace PossumLabs.DSL.Core.UnitTests.Variables
             try
             {
                 dynamic source = new NullingExpandoObject();
-                source.Name = "bob";
-                var result = ExistingDataManager.ProcessVariable(typeof(Helper), source);
+                var result = ExistingDataManager.ProcessVariable(typeof(Helper), "bob", null, source);
                 var r = result as Helper;
                 r.AInt.Should().Be(42);
             }
@@ -206,6 +200,78 @@ namespace PossumLabs.DSL.Core.UnitTests.Variables
             {
                 Environment.SetEnvironmentVariable("bob.AInt", null);
             }
+        }
+
+        [TestMethod]
+        public void LoadFromJsonExistingEntities()
+        {
+            var myEntityRepository = new RepositoryBase<MyEntity>(Interpeter, ObjectFactory);
+            Interpeter.Register(myEntityRepository);
+            var myValueRepository = new RepositoryBase<MyValueObject>(Interpeter, ObjectFactory);
+            Interpeter.Register(myValueRepository);
+            var parentObjectRepository = new RepositoryBase<ParentObject>(Interpeter, ObjectFactory);
+            Interpeter.Register(parentObjectRepository);
+
+            TemplateManager.Initialize(this.GetType().Assembly);
+            ExistingDataManager.Initialize(this.GetType().Assembly);
+
+            myEntityRepository["Entity1"].MyInt.Should().Be(42);
+            myEntityRepository["Entity1"].MyString.Should().Be("bubbles");
+            myEntityRepository["Entity1"].MyNullableInt.Should().Be(40);
+        }
+
+        [TestMethod]
+        public void LoadFromJsonExistingValues()
+        {
+            var myEntityRepository = new RepositoryBase<MyEntity>(Interpeter, ObjectFactory);
+            Interpeter.Register(myEntityRepository);
+            var myValueRepository = new RepositoryBase<MyValueObject>(Interpeter, ObjectFactory);
+            Interpeter.Register(myValueRepository);
+            var parentObjectRepository = new RepositoryBase<ParentObject>(Interpeter, ObjectFactory);
+            Interpeter.Register(parentObjectRepository);
+
+            TemplateManager.Initialize(this.GetType().Assembly);
+            ExistingDataManager.Initialize(this.GetType().Assembly);
+
+            myValueRepository["Value1"].MyInt.Should().Be(42);
+            myValueRepository["Value1"].MyString.Should().Be("bubbles");
+            myValueRepository["Value1"].MyNullableInt.Should().Be(40);
+        }
+
+        [TestMethod]
+        public void LoadFromJsonExistingEntitiesTemplate()
+        {
+            var myEntityRepository = new RepositoryBase<MyEntity>(Interpeter, ObjectFactory);
+            Interpeter.Register(myEntityRepository);
+            var myValueRepository = new RepositoryBase<MyValueObject>(Interpeter, ObjectFactory);
+            Interpeter.Register(myValueRepository);
+            var parentObjectRepository = new RepositoryBase<ParentObject>(Interpeter, ObjectFactory);
+            Interpeter.Register(parentObjectRepository);
+
+            TemplateManager.Initialize(this.GetType().Assembly);
+            ExistingDataManager.Initialize(this.GetType().Assembly);
+
+            myEntityRepository["Entity2"].MyInt.Should().Be(42);
+            myEntityRepository["Entity2"].MyString.Should().Be("bob");
+            myEntityRepository["Entity2"].MyNullableInt.Should().Be(41);
+        }
+
+        [TestMethod]
+        public void LoadFromJsonExistingValuesTemplate()
+        {
+            var myEntityRepository = new RepositoryBase<MyEntity>(Interpeter, ObjectFactory);
+            Interpeter.Register(myEntityRepository);
+            var myValueRepository = new RepositoryBase<MyValueObject>(Interpeter, ObjectFactory);
+            Interpeter.Register(myValueRepository);
+            var parentObjectRepository = new RepositoryBase<ParentObject>(Interpeter, ObjectFactory);
+            Interpeter.Register(parentObjectRepository);
+
+            TemplateManager.Initialize(this.GetType().Assembly);
+            ExistingDataManager.Initialize(this.GetType().Assembly);
+
+            myValueRepository["Value2"].MyInt.Should().Be(42);
+            myValueRepository["Value2"].MyString.Should().Be("bobbob");
+            myValueRepository["Value2"].MyNullableInt.Should().Be(41);
         }
     }
 }

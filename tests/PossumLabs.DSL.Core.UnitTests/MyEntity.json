@@ -1,0 +1,21 @@
+[
+  {
+    "template": {
+      "MyNullableInt": 40
+    }
+  },
+  {
+    "name": "firstObject",
+    "template": {
+      "MyString": "first object",
+      "MyNullableInt": 41
+    }
+  },
+  {
+    "name": "secondObject",
+    "template": {
+      "MyString": "second object",
+      "MyNullableInt": 43
+    }
+  }
+]

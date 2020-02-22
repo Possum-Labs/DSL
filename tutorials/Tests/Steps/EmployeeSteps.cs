@@ -1,10 +1,10 @@
 ﻿using BoDi;
-using LegacyTest.DomainObjects;
+using LegacyTest.Entitys;
 using System.Collections.Generic;
 using System.Linq;
 using TechTalk.SpecFlow;
 
-namespace LegacyTest.Steps
+namespace DSL.Documentation.Example
 {
     [Binding]
     sealed public class EmployeeSteps : RepositoryStepBase<Employee>

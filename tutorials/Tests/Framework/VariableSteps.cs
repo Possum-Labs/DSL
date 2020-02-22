@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 using BoDi;
 using FluentAssertions;
 using TechTalk.SpecFlow;
-using PossumLabs.Specflow.Core.Variables;
-using PossumLabs.Specflow.Core;
+using PossumLabs.DSL.Core.Variables;
+using PossumLabs.DSL.Core;
 
-namespace LegacyTest.Framework
+namespace DSL.Documentation.Example
 {
     [Binding]
     public class VariableSteps : StepBase

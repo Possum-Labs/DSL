@@ -3,7 +3,7 @@
     "type": "ParentObject",
     "values": [
       {
-        "key": "OG",
+        "var": "OG",
         "value": {
           "category": "the OG",
           "value": 42
