@@ -12,7 +12,7 @@
     <PackageReference Include="MSTest.TestAdapter" Version="2.0.0" />
     <PackageReference Include="MSTest.TestFramework" Version="2.0.0" />
     <PackageReference Include="coverlet.collector" Version="1.0.1" />
-    <PackageReference Include="PossumLabs.DSL.English" Version="1.0.0-CI-20200221-034746" />
+    <PackageReference Include="PossumLabs.DSL.English" Version="1.0.0-CI-20200224-215341" />
   </ItemGroup>
 
   <ItemGroup>

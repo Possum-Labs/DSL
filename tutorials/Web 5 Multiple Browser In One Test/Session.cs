@@ -1,6 +1,7 @@
 ﻿using BoDi;
 using FluentAssertions;
 using PossumLabs.DSL;
+using PossumLabs.DSL.Core;
 using PossumLabs.DSL.Core.Exceptions;
 using PossumLabs.DSL.Core.Logging;
 using PossumLabs.DSL.Web;

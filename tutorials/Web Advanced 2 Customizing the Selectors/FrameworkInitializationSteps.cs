@@ -1,12 +1,15 @@
 ﻿using BoDi;
 using Microsoft.Extensions.Configuration;
+using PossumLabs.DSL.Core;
 using PossumLabs.DSL.Core.Configuration;
 using PossumLabs.DSL.Core.Files;
 using PossumLabs.DSL.Core.Logging;
 using PossumLabs.DSL.DataGeneration;
+using PossumLabs.DSL.Web.Configuration;
 using PossumLabs.DSL.Web.Diagnostic;
 using PossumLabs.DSL.Web.Selectors;
 using System.IO;
+using System.Reflection;
 using TechTalk.SpecFlow;
 
 namespace DSL.Documentation.Example
@@ -17,7 +20,7 @@ namespace DSL.Documentation.Example
         public FrameworkInitializationSteps(IObjectContainer objectContainer) : base(objectContainer) { }
 
         [BeforeScenario(Order = int.MinValue + 1)]
-        protected override void SetupInfrastructure()
+        public override void SetupInfrastructure()
         {
             IConfiguration config = new ConfigurationBuilder()
               .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
