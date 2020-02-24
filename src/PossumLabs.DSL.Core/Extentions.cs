@@ -97,5 +97,10 @@ namespace PossumLabs.DSL.Core
             }
             return value;
         }
+
+        public static void OnErrorContinue(this Action a)
+        {
+            try { a.Invoke(); } catch { }
+        }
     }
 }
