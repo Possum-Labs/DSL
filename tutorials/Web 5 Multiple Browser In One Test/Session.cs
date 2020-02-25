@@ -22,6 +22,7 @@ namespace DSL.Documentation.Example
         public WebDriver Driver { get; set; }
     }
 
+    [Binding]
     public class SessionSteps : RepositoryStepBase<Session>
     {
         public SessionSteps(IObjectContainer objectContainer) : base(objectContainer)

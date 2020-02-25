@@ -8,6 +8,7 @@ using PossumLabs.DSL.DataGeneration;
 using PossumLabs.DSL.Web.Configuration;
 using PossumLabs.DSL.Web.Diagnostic;
 using PossumLabs.DSL.Web.Selectors;
+using System;
 using System.IO;
 using System.Reflection;
 using TechTalk.SpecFlow;
