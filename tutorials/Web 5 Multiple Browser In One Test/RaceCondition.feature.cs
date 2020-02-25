@@ -189,10 +189,10 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Given("navigated to \'http://bing.com\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 33
- testRunner.Then("\'session1.Driver.Url\' has the value \'/https://google.com.*/\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("\'session1.Driver.Url\' has the value \'/https://.*google.com.*/\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 34
- testRunner.Then("\'session2.Driver.Url\' has the value \'/https://www.bing.com/.*/\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("\'session2.Driver.Url\' has the value \'/https://.*www.bing.com/.*/\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

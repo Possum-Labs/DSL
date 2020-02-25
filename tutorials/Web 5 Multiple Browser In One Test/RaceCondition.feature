@@ -30,5 +30,5 @@ this validates the functionality
 	Given navigated to 'http://google.com'
 	Given the Session 'session2'
 	Given navigated to 'http://bing.com'
-	Then 'session1.Driver.Url' has the value '/https://google.com.*/'
-	Then 'session2.Driver.Url' has the value '/https://www.bing.com/.*/'
+	Then 'session1.Driver.Url' has the value '/https://.*google.com.*/'
+	Then 'session2.Driver.Url' has the value '/https://.*www.bing.com/.*/'

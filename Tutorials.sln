@@ -12,8 +12,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test", "tutorials\Tests\Test.csproj", "{EC9A91CA-5F0D-4B28-95FF-4AA9092CC349}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Validations", "tutorials\Validations\Validations.csproj", "{7A7A10AA-524D-4489-987B-43DFA697A4B4}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DSLCoreVersion", "tutorials\DSLCoreVersion\DSLCoreVersion.csproj", "{47F0C849-B0D6-421B-9F50-F7541FE3C9AD}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DSLEnglishVersion", "tutorials\DSLEnglishVersion\DSLEnglishVersion.csproj", "{4EAF80CE-4090-480B-9C4E-3933BBC5CD55}"
@@ -40,9 +38,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DSLCoreVersion.Templates", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DSLEnglishVersion.Templates", "tutorials\Core 3 Using Templates\DSLEnglishVersion\DSLEnglishVersion.Templates.csproj", "{91FBFB52-D644-4B31-B645-D5EF4F6F8BBE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DSLCoreVersion", "tutorials\Core 4 Using Characteristics\DSLCoreVersion\DSLCoreVersion.csproj", "{ADA39FBF-78D5-424A-B732-DEF01515C116}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DSLCoreVersion.Characteristics", "tutorials\Core 4 Using Characteristics\DSLCoreVersion\DSLCoreVersion.Characteristics.csproj", "{ADA39FBF-78D5-424A-B732-DEF01515C116}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DSLEnglishVersion", "tutorials\Core 4 Using Characteristics\DSLEnglishVersion\DSLEnglishVersion.csproj", "{859A12BD-68FF-4E4B-8603-867ADA64CDDE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DSLEnglishVersion.Characteristics", "tutorials\Core 4 Using Characteristics\DSLEnglishVersion\DSLEnglishVersion.Characteristics.csproj", "{859A12BD-68FF-4E4B-8603-867ADA64CDDE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{4A44114E-450F-43B6-B1CA-30171C15A3B6}"
 EndProject
@@ -88,8 +86,17 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "7 Complex Data Hierarchy", "7 Complex Data Hierarchy", "{D744D75B-DC81-493A-A571-8CC592312199}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 Using Slipka", "4 Using Slipka", "{64E215B4-D6DB-40A2-B80F-8FB3CD1B9E94}"
+	ProjectSection(SolutionItems) = preProject
+		tutorials\Web 1 Using Selectors\ImportedSteps.cs = tutorials\Web 1 Using Selectors\ImportedSteps.cs
+	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "6 Comparers", "6 Comparers", "{9D8E8A0D-E542-4ADE-B7DD-787BC4910CC9}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "6 Validators", "6 Validators", "{9D8E8A0D-E542-4ADE-B7DD-787BC4910CC9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UsingSlipka", "tutorials\Web Advanced 4 Using Slipka\UsingSlipka.csproj", "{CAC8D33F-98D5-47F5-B81A-C49B1F707AFB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DSLCoreVersion.Validators", "tutorials\Core 6 Validators\DSLCoreVersion\DSLCoreVersion.Validators.csproj", "{A514CC90-516E-4DB6-911B-EB31B144CE33}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DSLEnglishVersion.Validators", "tutorials\Core 6 Validators\DSLEnglishVersion\DSLEnglishVersion.Validators.csproj", "{346CADE4-66EF-4D1C-A7F2-EB3297B0F4AB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -101,10 +108,6 @@ Global
 		{EC9A91CA-5F0D-4B28-95FF-4AA9092CC349}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EC9A91CA-5F0D-4B28-95FF-4AA9092CC349}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EC9A91CA-5F0D-4B28-95FF-4AA9092CC349}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7A7A10AA-524D-4489-987B-43DFA697A4B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7A7A10AA-524D-4489-987B-43DFA697A4B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7A7A10AA-524D-4489-987B-43DFA697A4B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7A7A10AA-524D-4489-987B-43DFA697A4B4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{47F0C849-B0D6-421B-9F50-F7541FE3C9AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{47F0C849-B0D6-421B-9F50-F7541FE3C9AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{47F0C849-B0D6-421B-9F50-F7541FE3C9AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -177,6 +180,18 @@ Global
 		{BA6500C1-5BBA-44D6-A9C7-CB2E3FFDFCAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA6500C1-5BBA-44D6-A9C7-CB2E3FFDFCAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BA6500C1-5BBA-44D6-A9C7-CB2E3FFDFCAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CAC8D33F-98D5-47F5-B81A-C49B1F707AFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAC8D33F-98D5-47F5-B81A-C49B1F707AFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAC8D33F-98D5-47F5-B81A-C49B1F707AFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAC8D33F-98D5-47F5-B81A-C49B1F707AFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A514CC90-516E-4DB6-911B-EB31B144CE33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A514CC90-516E-4DB6-911B-EB31B144CE33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A514CC90-516E-4DB6-911B-EB31B144CE33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A514CC90-516E-4DB6-911B-EB31B144CE33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{346CADE4-66EF-4D1C-A7F2-EB3297B0F4AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{346CADE4-66EF-4D1C-A7F2-EB3297B0F4AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{346CADE4-66EF-4D1C-A7F2-EB3297B0F4AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{346CADE4-66EF-4D1C-A7F2-EB3297B0F4AB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -215,6 +230,9 @@ Global
 		{D744D75B-DC81-493A-A571-8CC592312199} = {B44D2D02-CA9D-4994-A8FC-CCDF38FF09DD}
 		{64E215B4-D6DB-40A2-B80F-8FB3CD1B9E94} = {1A0C08AF-69A5-4F37-93DE-66796CA04290}
 		{9D8E8A0D-E542-4ADE-B7DD-787BC4910CC9} = {B44D2D02-CA9D-4994-A8FC-CCDF38FF09DD}
+		{CAC8D33F-98D5-47F5-B81A-C49B1F707AFB} = {64E215B4-D6DB-40A2-B80F-8FB3CD1B9E94}
+		{A514CC90-516E-4DB6-911B-EB31B144CE33} = {9D8E8A0D-E542-4ADE-B7DD-787BC4910CC9}
+		{346CADE4-66EF-4D1C-A7F2-EB3297B0F4AB} = {9D8E8A0D-E542-4ADE-B7DD-787BC4910CC9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {39ACC678-3F6C-4958-BBC2-D8CBBE13A6E1}

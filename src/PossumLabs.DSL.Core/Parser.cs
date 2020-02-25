@@ -24,7 +24,7 @@ namespace PossumLabs.DSL.Core
         // 'litteral'
         // "litteral"
         public static Regex IsLitteral = new Regex(@"^['""](.*)['""]$", RegexOptions.Compiled);
-        public static Regex FindLitterals = new Regex(@"{[\w\.]+}", RegexOptions.Compiled);
+        public static Regex FindLitterals = new Regex(@"{([\w\.]+)}", RegexOptions.Compiled);
 
         // `stuff${variable}stuff`
         public static Regex IsSubstituted = new Regex(@"^`(.*)`$", RegexOptions.Compiled);

@@ -1,0 +1,23 @@
+﻿[
+  {
+    "type": "TestObject",
+    "values": [
+      {
+        "var": "Existing",
+        "value": {
+          "ExistingName": "Existing"
+        }
+      },
+      {
+        "var": "OtherExisting",
+        "template": "templateA",
+        "value": {
+          "ExistingName": "Other"
+        }
+      }
+    ]
+  }
+]
+
+//you have to run SetEnvironmentVariable.cmd to set the envirunment variable
+

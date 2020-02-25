@@ -1,0 +1,29 @@
+version: '3.4'
+
+services:
+  db:
+    image: mongo
+    ports:
+      - "27017:27017"
+
+  hub:
+    image: selenium/hub
+    ports:
+      - "4444:4444"
+    environment:
+      TZ: US/Mountain
+    restart: always
+    volumes:
+      - "/dev/shm:/dev/shm" 
+
+  node-chrome:
+    image: selenium/node-chrome
+    depends_on: 
+      - hub
+    links: 
+      - "hub:hub"
+    restart: always
+    environment:
+      HUB_PORT_4444_TCP_ADDR: hub
+      HUB_PORT_4444_TCP_PORT: 4444
+      TZ: US/Mountain
