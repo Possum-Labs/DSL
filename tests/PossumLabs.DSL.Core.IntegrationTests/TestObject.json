@@ -1,0 +1,13 @@
+[
+  {
+    "template": {
+      "templateName": "default"
+    }
+  },
+  {
+    "name": "templateA",
+    "template": {
+      "templateName": "A"
+    }
+  }
+]

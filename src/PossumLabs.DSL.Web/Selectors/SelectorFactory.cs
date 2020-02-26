@@ -173,6 +173,8 @@ namespace PossumLabs.DSL.Web.Selectors
                 t.Init(constructor, $"//{Parser.IsElement.Match(constructor).Groups[1].Value}");
             else if (Parser.IsClass.IsMatch(constructor))
                 t.Init(constructor, $"//*[contains(concat(' ', normalize-space(@class), ' '), ' {Parser.IsClass.Match(constructor).Groups[1].Value} ')]");
+            else if (Parser.IsXPath.IsMatch(constructor))
+                t.Init(constructor, Parser.IsClass.Match(constructor).Groups[1].Value);
             else if (Prefixes.ContainsKey(t.Type) && Prefixes[t.Type].Any())
                 t.Init(constructor, Prefixes[t.Type]);
             else

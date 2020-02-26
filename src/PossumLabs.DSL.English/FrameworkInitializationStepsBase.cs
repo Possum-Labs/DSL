@@ -27,13 +27,13 @@ namespace PossumLabs.DSL
     {
         public FrameworkInitializationStepsBase(IObjectContainer objectContainer) : base(objectContainer) { }
 
-        private ScreenshotProcessor ScreenshotProcessor { get; set; }
-        private ImageLogging ImageLogging { get; set; }
-        private MovieLogger MovieLogger { get; set; }
-        private WebElementSourceLog WebElementSourceLog { get; set; }
-        private NetworkWatcher NetworkWatcher { get; set; }
+        protected ScreenshotProcessor ScreenshotProcessor { get; set; }
+        protected ImageLogging ImageLogging { get; set; }
+        protected MovieLogger MovieLogger { get; set; }
+        protected WebElementSourceLog WebElementSourceLog { get; set; }
+        protected NetworkWatcher NetworkWatcher { get; set; }
 
-        private DefaultLogger Logger { get; set; }
+        protected DefaultLogger Logger { get; set; }
 
         protected virtual void Setup()
         {

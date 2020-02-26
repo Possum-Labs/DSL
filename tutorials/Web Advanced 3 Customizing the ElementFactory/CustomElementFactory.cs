@@ -19,6 +19,10 @@ namespace DSL.Documentation.Example
         {
         }
 
+        /// <summary>
+        /// here you specify when to use your specialized element vs. the default element. This one requires a select
+        /// or an input that has the list attribute.
+        /// </summary>
         override public Element Create(IWebDriver driver, IWebElement e)
         {
             var list = e.GetAttribute("list");
