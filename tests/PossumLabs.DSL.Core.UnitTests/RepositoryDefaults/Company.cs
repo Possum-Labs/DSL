@@ -11,7 +11,7 @@ namespace PossumLabs.DSL.Core.UnitTests.RepositoryDefaults
 
     public class CompanyRepository : RepositoryBase<Company>
     {
-        public CompanyRepository(Interpeter interpeter, ObjectFactory objectFactory) : base(interpeter, objectFactory)
+        public CompanyRepository(Interpeter interpeter, ObjectFactory objectFactory, TemplateManager templateManager) : base(interpeter, objectFactory, templateManager)
         {
 
         }

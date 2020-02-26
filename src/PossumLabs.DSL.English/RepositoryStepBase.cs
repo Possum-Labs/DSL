@@ -55,7 +55,7 @@ namespace PossumLabs.DSL
                 r => Repository.Map(table.Header.ToDictionary(
                            x => x.ToUpper(),
                            x => new KeyValuePair<string, string>(x, r[x])
-                       ).Augment(Repository.Defaults))).ToList();
+                       ).Augment(Repository.PropertyDefaults))).ToList();
         }
 
         [StepArgumentTransformation]
@@ -73,7 +73,7 @@ namespace PossumLabs.DSL
                 r => Repository.Map(table.Header.Except(new[] { "var" }).ToDictionary(
                            x => x.ToUpper(),
                            x => new KeyValuePair<string, string>(x, r[x])
-                       ).Augment(Repository.Defaults)));
+                       ).Augment(Repository.PropertyDefaults)));
         }
 
         [StepArgumentTransformation]
@@ -99,6 +99,6 @@ namespace PossumLabs.DSL
         }
 
         public void AddDefault(string key, string value)
-            => Repository.Defaults.Add(key, value);
+            => Repository.PropertyDefaults.Add(key, value);
     }
 }

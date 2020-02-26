@@ -14,7 +14,7 @@ namespace PossumLabs.DSL.Core.Variables
         {
         }
 
-        public NullCoalesceWithDefaultAttribute(Characteristics characteristics = null, string template = null)
+        public NullCoalesceWithDefaultAttribute(string characteristics = null, string template = null)
         {
             Template = template;
             Characteristics = characteristics ?? Characteristics.None;
@@ -34,7 +34,7 @@ namespace PossumLabs.DSL.Core.Variables
         {
         }
 
-        public DefaultToRepositoryDefaultAttribute(Characteristics characteristics = null, string template = null)
+        public DefaultToRepositoryDefaultAttribute(string characteristics = null, string template = null)
         {
             Template = template;
             Characteristics = characteristics ?? Characteristics.None;

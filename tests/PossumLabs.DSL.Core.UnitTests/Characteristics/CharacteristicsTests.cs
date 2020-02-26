@@ -112,5 +112,15 @@ namespace PossumLabs.DSL.Core.UnitTests.Characteristics
             var d = new Core.Variables.Characteristics("a");
             target.ContainsKey(d).Should().BeFalse();
         }
+
+        [TestMethod]
+        public void ImplicitConversions()
+        {
+            Dictionary<Core.Variables.Characteristics, string> target = new Dictionary<Core.Variables.Characteristics, string>();
+            Core.Variables.Characteristics c = "a, b";
+            target.Add(c, "bubbles");
+            Core.Variables.Characteristics d = "b, a";
+            target[d].Should().Be("bubbles");
+        }
     }
 }

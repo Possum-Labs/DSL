@@ -62,5 +62,11 @@ namespace PossumLabs.DSL.Core.Variables
 
         public static bool operator !=(Characteristics a, Characteristics b)
             => !(a?.Equals(b)??b!=null);
+
+        public static implicit operator string(Characteristics d) 
+            => d.LogFormat();
+
+        public static implicit operator Characteristics(string b)
+            => new Characteristics(b.Split(',').Select(x => x.Trim()).ToArray());
     }
 }

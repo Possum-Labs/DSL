@@ -13,7 +13,7 @@ namespace PossumLabs.DSL.Core.UnitTests.RepositoryDefaults
 
     public class DivisionRepository : RepositoryBase<Division>
     {
-        public DivisionRepository(Interpeter interpeter, ObjectFactory objectFactory) : base(interpeter, objectFactory)
+        public DivisionRepository(Interpeter interpeter, ObjectFactory objectFactory, TemplateManager templateManager) : base(interpeter, objectFactory, templateManager)
         {
 
         }

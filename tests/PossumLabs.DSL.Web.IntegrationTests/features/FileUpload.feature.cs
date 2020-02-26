@@ -48,7 +48,7 @@ namespace PossumLabs.DSL.Web.IntegrationTests.Features
         public static void FeatureSetup(Microsoft.VisualStudio.TestTools.UnitTesting.TestContext testContext)
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en"), "File Upload tests", null, ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en"), "File Upload tests", "this test will fail nless you have a file at c:\\temp\\temp.txt", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -95,7 +95,7 @@ namespace PossumLabs.DSL.Web.IntegrationTests.Features
         {
             string[] tagsOfScenario = exampleTags;
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("simple file control", null, exampleTags);
-#line 3
+#line 4
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -119,13 +119,13 @@ this.ScenarioInitialize(scenarioInfo);
                             "Html"});
                 table25.AddRow(new string[] {
                             string.Format("{0}", html)});
-#line 4
+#line 5
  testRunner.Given("injecting browser content", ((string)(null)), table25, "Given ");
 #line hidden
-#line 7
+#line 8
  testRunner.When(string.Format("entering \'{0}\' into element \'{1}\'", value, target), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 8
+#line 9
  testRunner.Then(string.Format("the element \'{0}\' has the value \'{1}\'", target, newValue), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -143,7 +143,7 @@ this.ScenarioInitialize(scenarioInfo);
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:html", "<label for=\"linky\">target</label><input id=\"linky\" type=\"file\"></input>")]
         public virtual void SimpleFileControl_InputFor()
         {
-#line 3
+#line 4
 this.SimpleFileControl("input for", "target", "c:\\temp\\temp.txt", "C:\\fakepath\\temp.txt", "<label for=\"linky\">target</label><input id=\"linky\" type=\"file\"></input>", ((string[])(null)));
 #line hidden
         }

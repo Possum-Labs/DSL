@@ -1,0 +1,19 @@
+[
+  {
+    "template": {
+      "title": "default"
+    }
+  },
+  {
+    "name": "option1",
+    "template": {
+      "title": "from option1"
+    }
+  },
+  {
+    "name": "option2",
+    "template": {
+      "title": "from option2"
+    }
+  }
+]
