@@ -86,9 +86,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "7 Complex Data Hierarchy", "7 Complex Data Hierarchy", "{D744D75B-DC81-493A-A571-8CC592312199}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 Using Slipka", "4 Using Slipka", "{64E215B4-D6DB-40A2-B80F-8FB3CD1B9E94}"
-	ProjectSection(SolutionItems) = preProject
-		tutorials\Web 1 Using Selectors\ImportedSteps.cs = tutorials\Web 1 Using Selectors\ImportedSteps.cs
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "6 Validators", "6 Validators", "{9D8E8A0D-E542-4ADE-B7DD-787BC4910CC9}"
 EndProject
