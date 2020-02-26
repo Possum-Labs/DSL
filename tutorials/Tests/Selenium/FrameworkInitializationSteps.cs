@@ -5,15 +5,15 @@ using LegacyTest.Framework;
 using LegacyTest.ValueObjects;
 using Microsoft.Extensions.Configuration;
 using OpenQA.Selenium;
-using PossumLabs.Specflow.Core;
-using PossumLabs.Specflow.Core.Configuration;
-using PossumLabs.Specflow.Core.Exceptions;
-using PossumLabs.Specflow.Core.Files;
-using PossumLabs.Specflow.Core.Logging;
-using PossumLabs.Specflow.Selenium;
-using PossumLabs.Specflow.Selenium.Configuration;
-using PossumLabs.Specflow.Selenium.Diagnostic;
-using PossumLabs.Specflow.Selenium.Selectors;
+using PossumLabs.DSL.Core;
+using PossumLabs.DSL.Core.Configuration;
+using PossumLabs.DSL.Core.Exceptions;
+using PossumLabs.DSL.Core.Files;
+using PossumLabs.DSL.Core.Logging;
+using PossumLabs.DSL.Web;
+using PossumLabs.DSL.Web.Configuration;
+using PossumLabs.DSL.Web.Diagnostic;
+using PossumLabs.DSL.Web.Selectors;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -23,7 +23,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TechTalk.SpecFlow;
 
-namespace Shim.Selenium
+namespace DSL.Documentation.Example
 {
     [Binding]
     public class FrameworkInitializationSteps : WebDriverStepBase
@@ -97,10 +97,10 @@ namespace Shim.Selenium
             Register<XpathProvider>(new XpathProvider());
             Register<SelectorFactory>(new SpecializedSelectorFactory(ElementFactory, XpathProvider).UseBootstrap());
 
-            Register(new PossumLabs.Specflow.Selenium.WebDriverManager(
+            Register(new PossumLabs.DSL.Web.WebDriverManager(
                 this.Interpeter,
                 this.ObjectFactory,
-                new PossumLabs.Specflow.Selenium.Configuration.SeleniumGridConfiguration()));
+                new PossumLabs.DSL.Web.Configuration.SeleniumGridConfiguration()));
 
             Log.Message($"feature: {FeatureContext.FeatureInfo.Title} scenario: {ScenarioContext.ScenarioInfo.Title} \n" +
                 $"Tags: {FeatureContext.FeatureInfo.Tags.LogFormat()} {ScenarioContext.ScenarioInfo.Tags.LogFormat()}");
@@ -122,7 +122,7 @@ namespace Shim.Selenium
         [BeforeScenario(Order = 1)]
         public void SetupExistingData()
         {
-            new PossumLabs.Specflow.Core.Variables.ExistingDataManager(this.Interpeter).Initialize(Assembly.GetExecutingAssembly());
+            new PossumLabs.DSL.Core.Variables.ExistingDataManager(this.Interpeter).Initialize(Assembly.GetExecutingAssembly());
         }
     }
 }

@@ -12,6 +12,7 @@ namespace PossumLabs.DSL.Core.UnitTests.RepositoryDefaults
     {
         public ObjectFactory ObjectFactory { get; set; }
         public Interpeter Interpeter { get; set; }
+        public TemplateManager TemplateManager { get; set; }
         public SubDivisionRepository SubDivisionRepository { get; set; }
         public DivisionRepository DivisionRepository { get; set; }
         public CompanyRepository CompanyRepository { get; set; }
@@ -28,6 +29,7 @@ namespace PossumLabs.DSL.Core.UnitTests.RepositoryDefaults
         {
             ObjectFactory = new ObjectFactory();
             Interpeter = new Interpeter(ObjectFactory);
+            TemplateManager = new TemplateManager();
 
             Company = new Company();
             Division = new Division();
@@ -36,22 +38,28 @@ namespace PossumLabs.DSL.Core.UnitTests.RepositoryDefaults
             ObjectFactory.Register<Company>(x => { 
                 CompanyCount++; 
                 return Company; });
-            CompanyRepository = new CompanyRepository(Interpeter, ObjectFactory);
-            CompanyRepository.FactoryMethods.Add(PossumLabs.DSL.Core.Variables.Characteristics.None, (x) => x);
+            CompanyRepository = new CompanyRepository(Interpeter, ObjectFactory, TemplateManager);
+            CompanyRepository.InitializeCharacteristicsTransition(
+                (x) => x,
+                PossumLabs.DSL.Core.Variables.Characteristics.None);
             Interpeter.Register(CompanyRepository);
 
             ObjectFactory.Register<Division>(x => { 
                 DivisionCount++; 
                 return Division; });
-            DivisionRepository = new DivisionRepository(Interpeter, ObjectFactory);
-            DivisionRepository.FactoryMethods.Add(PossumLabs.DSL.Core.Variables.Characteristics.None, (x) => x);
+            DivisionRepository = new DivisionRepository(Interpeter, ObjectFactory, TemplateManager);
+            DivisionRepository.InitializeCharacteristicsTransition(
+                 (x) => x,
+                PossumLabs.DSL.Core.Variables.Characteristics.None);
             Interpeter.Register(DivisionRepository);
 
             ObjectFactory.Register<SubDivision>(x => { 
                 SubDivisionCount++; 
                 return SubDivision; });
-            SubDivisionRepository = new SubDivisionRepository(Interpeter, ObjectFactory);
-            SubDivisionRepository.FactoryMethods.Add(PossumLabs.DSL.Core.Variables.Characteristics.None, (x) => x);
+            SubDivisionRepository = new SubDivisionRepository(Interpeter, ObjectFactory, TemplateManager);
+            SubDivisionRepository.InitializeCharacteristicsTransition(
+                 (x) => x,
+                PossumLabs.DSL.Core.Variables.Characteristics.None);
             Interpeter.Register(SubDivisionRepository);
         }
 

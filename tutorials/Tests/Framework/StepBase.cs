@@ -1,9 +1,9 @@
 ﻿using BoDi;
-using PossumLabs.Specflow.Core;
-using PossumLabs.Specflow.Core.Exceptions;
-using PossumLabs.Specflow.Core.Files;
-using PossumLabs.Specflow.Core.Logging;
-using PossumLabs.Specflow.Core.Variables;
+using PossumLabs.DSL.Core;
+using PossumLabs.DSL.Core.Exceptions;
+using PossumLabs.DSL.Core.Files;
+using PossumLabs.DSL.Core.Logging;
+using PossumLabs.DSL.Core.Variables;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TechTalk.SpecFlow;
 
-namespace LegacyTest.Framework
+namespace DSL.Documentation.Example
 {
     public abstract class StepBase
     {

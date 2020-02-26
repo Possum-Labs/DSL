@@ -139,24 +139,26 @@ namespace PossumLabs.DSL
             System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
 
             WebDriverManager.Initialize(BuildDriver);
-            WebDriverManager.WebDriverFactory = () =>
+            WebDriverManager.WebDriverFactory = WebdriverFactory;
+        }
+
+        protected virtual RemoteWebDriver WebdriverFactory()
+        {
+            var options = new ChromeOptions();
+
+            //grid
+            options.AddAdditionalCapability("username", WebDriverManager.SeleniumGridConfiguration.Username, true);
+            options.AddAdditionalCapability("accessKey", WebDriverManager.SeleniumGridConfiguration.AccessKey, true);
+
+            var driver = new RemoteWebDriver(new Uri(WebDriverManager.SeleniumGridConfiguration.Url), options.ToCapabilities(), TimeSpan.FromSeconds(180));
+            //do not change this, the site is a bloody nightmare with overlaying buttons etc.
+            driver.Manage().Window.Size = WebDriverManager.DefaultSize;
+            var allowsDetection = driver as IAllowsFileDetection;
+            if (allowsDetection != null)
             {
-                var options = new ChromeOptions();
-
-                //grid
-                options.AddAdditionalCapability("username", WebDriverManager.SeleniumGridConfiguration.Username, true);
-                options.AddAdditionalCapability("accessKey", WebDriverManager.SeleniumGridConfiguration.AccessKey, true);
-
-                var driver = new RemoteWebDriver(new Uri(WebDriverManager.SeleniumGridConfiguration.Url), options.ToCapabilities(), TimeSpan.FromSeconds(180));
-                //do not change this, the site is a bloody nightmare with overlaying buttons etc.
-                driver.Manage().Window.Size = WebDriverManager.DefaultSize;
-                var allowsDetection = driver as IAllowsFileDetection;
-                if (allowsDetection != null)
-                {
-                    allowsDetection.FileDetector = new LocalFileDetector();
-                }
-                return driver;
-            };
+                allowsDetection.FileDetector = new LocalFileDetector();
+            }
+            return driver;
         }
 
         protected virtual WebDriver BuildDriver()

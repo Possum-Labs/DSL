@@ -1,13 +1,13 @@
 ﻿using OpenQA.Selenium;
-using PossumLabs.Specflow.Selenium;
-using PossumLabs.Specflow.Selenium.Selectors;
+using PossumLabs.DSL.Web;
+using PossumLabs.DSL.Web.Selectors;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LegacyTest.Framework
+namespace DSL.Documentation.Example
 {
     public class SpecializedSelectorFactory : SelectorFactory
     {

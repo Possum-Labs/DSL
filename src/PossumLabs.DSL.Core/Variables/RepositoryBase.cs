@@ -11,28 +11,42 @@ namespace PossumLabs.DSL.Core.Variables
     public class RepositoryBase<T> : IRepository, IEnumerable<KeyValuePair<string, T>>
         where T : IValueObject
     {
-        public RepositoryBase(Interpeter interpeter, ObjectFactory objectFactory)
+        public RepositoryBase(
+            Interpeter interpeter, 
+            ObjectFactory objectFactory, 
+            TemplateManager templateManager = null)
         {
-            SetupDefaultConversions();
-            Defaults = new Dictionary<string, string>();
+  
             Interpeter = interpeter;
             ObjectFactory = objectFactory;
-            DefaultInitialized = false;
-            FactoryMethods = new Dictionary<Characteristics, Func<T, T>>();
-            DefaultCharacteristics = Characteristics.None;
+            TemplateManager = templateManager;
+            CharacteristicsTransitionMethods = new Dictionary<Characteristics, Func<T, T>>(); 
+            PropertyDefaults = new Dictionary<string, string>();
+            Defaults = new Dictionary<Characteristics, Dictionary<string, Lazy<T>>>();
+            Conversions = new List<TypeConverter>();
+            Dictionary = new Dictionary<string, IValueObject>();
 
+            SetupDefaultConversions();
         }
 
-        private Dictionary<string, IValueObject> dictionary = new Dictionary<string, IValueObject>();
-        private List<TypeConverter> conversions = new List<TypeConverter>();
+        public static string DefaultTemplateName => "default";
+
         private Interpeter Interpeter { get; }
         private ObjectFactory ObjectFactory { get; }
-        //public List<Action<T>> Decorators {get;}
-        //IEnumerable<Action<object>> IRepository.Decorators => this.Decorators.Select(x => DetypeAction(x)).ToList();
-        //private Action<object> DetypeAction(Action<T> a) => (x) => a((T)x);
+        private TemplateManager TemplateManager { get; }
 
-        public T this[string key] => (T)dictionary[key];
-        IValueObject IRepository.this[string key] => dictionary[key];
+        private List<TypeConverter> Conversions { get; }
+
+        private Dictionary<string, IValueObject> Dictionary { get; }
+
+
+        public Dictionary<Characteristics, Dictionary<string, Lazy<T>>> Defaults { get; private set; }
+        public Dictionary<Characteristics, Func<T, T>> CharacteristicsTransitionMethods { get; private set; }
+        public Type Type => typeof(T);
+        public IEnumerable<TypeConverter> RegisteredConversions => Conversions;
+        public Dictionary<string, string> PropertyDefaults { get; private set; }
+        public T this[string key] => (T)Dictionary[key];
+        IValueObject IRepository.this[string key] => Dictionary[key];
 
 
         #region defaults & factory methods
@@ -45,96 +59,109 @@ namespace PossumLabs.DSL.Core.Variables
             {
                 if (prop.GetValue(target) != null)
                     continue;
+                var attr = prop.CustomAttributes.Where(y =>
+                    y.AttributeType == typeof(NullCoalesceWithDefaultAttribute) ||
+                    y.AttributeType == typeof(DefaultToRepositoryDefaultAttribute))
+                    .Select(x=>prop.GetCustomAttribute(x.AttributeType) as INullCoalesceWithDefaultAttribute)
+                    .First();
+
                 var ret = Interpeter.RegisteredRepositories.Where(x => prop.PropertyType == x.Type);
                 if (ret.None())
                     throw new Exception($"Unable to set the default for {target.GetType().Name}.{prop.Name} as " +
                         $"there is no repository for {prop.PropertyType.Name}");
                 if (ret.One())
+                {
                     prop.SetValue(target, ret.First().GetDefault());
+                }
                 else
                     throw new Exception($"Too many repositories for type {prop.PropertyType.Name}");
             }
         }
 
-        public Dictionary<Characteristics, Func<T,T>> FactoryMethods { get; }
-        public Lazy<T> Default { get; private set; }
-        public Characteristics DefaultCharacteristics { get; private set;}
-        protected virtual T Factory() {
-            var ret = ObjectFactory.CreateInstance<T>();
-            DecorateNewItem(ret);
-            return ret;
+        public void InitializeCharacteristicsTransition(Func<T,T> defaultFactory)
+            => InitializeCharacteristicsTransition(defaultFactory, Characteristics.None);
+
+        public void InitializeCharacteristicsTransition(Func<T,T> defaultFactory, Characteristics characteristics)
+        {
+            if (!CharacteristicsTransitionMethods.ContainsKey(characteristics))
+                CharacteristicsTransitionMethods.Add(characteristics, defaultFactory);
+            else
+                throw new Exception($"there is already a default for characteristics:{characteristics}");
         }
 
-        private bool DefaultInitialized { get; set; }
         public void InitializeDefault(Func<T> defaultFactory)
-            => InitializeDefault(Characteristics.None, defaultFactory);
-        public void InitializeDefault(Characteristics characteristics, Func<T> defaultFactory)
+            => InitializeDefault(defaultFactory, Characteristics.None, null);
+
+        public void InitializeDefault(Func<T> defaultFactory, Characteristics characteristics, string template = null)
         {
-            if (DefaultInitialized)
-                throw new InvalidOperationException("default factory is already set");
-            DefaultInitialized = true;
-            DefaultCharacteristics = characteristics;
-            Default = new Lazy<T>(defaultFactory);
+            template = template ?? DefaultTemplateName;
+
+            if (!Defaults.ContainsKey(characteristics))
+                Defaults.Add(characteristics, new Dictionary<string, Lazy<T>>());
+
+            if (!Defaults[characteristics].ContainsKey(template))
+                Defaults[characteristics].Add(template, new Lazy<T>(defaultFactory));
+            else
+                throw new Exception($"there is already a default for characteristics:{characteristics}");
         }
+
         object IRepository.GetDefault()
             => GetDefault();
+
         public T GetDefault()
-            => GetDefault(DefaultCharacteristics);
-        public T GetDefault(Characteristics characteristics)
+            => GetDefault(Characteristics.None);
+
+        public T GetDefault(Characteristics characteristics, string template = null)
         {
+            template = template ?? DefaultTemplateName;
+
             if (characteristics == null)
                 throw new InvalidOperationException("Can't have a null characteristics; use Characteristics.None");
 
-            //default exitst
-            if (DefaultInitialized && Default.IsValueCreated)
-            {
-                if (DefaultCharacteristics == characteristics)
-                    return Default.Value;
+            //check for characteristics
+            if (!CharacteristicsTransitionMethods.ContainsKey(characteristics))
+                throw new Exception($"unknown characteristics:{characteristics}");
 
-                throw new InvalidOperationException("unmatched Default Characteristics for existing default");
+            if (!Defaults.ContainsKey(characteristics))
+                Defaults.Add(characteristics, new Dictionary<string, Lazy<T>>());
+
+            if (!Defaults[characteristics].ContainsKey(template))
+            {
+                //initialize
+                Func<T> factory = () =>
+                   {
+                       var ret = ObjectFactory.CreateInstance<T>();
+                       if (TemplateManager == null && template != null)
+                           throw new NullReferenceException("No template manager was provided");
+
+                       if (template == DefaultTemplateName)
+                           TemplateManager?.ApplyTemplate(ret);
+                       else
+                           TemplateManager?.ApplyTemplate(ret, template);
+
+                       DecorateNewItem(ret);
+                       CharacteristicsTransitionMethods[characteristics](ret);
+                       return ret;
+                   };
+                Defaults[characteristics].Add(template, new Lazy<T>(factory));
             }
 
-            //default is prepped
-            if (DefaultCharacteristics == characteristics && Default != null)
-                return Default.Value;
-
-            //initialize
-            if(FactoryMethods.ContainsKey(characteristics))
-            {
-                InitializeDefault(() =>  FactoryMethods[characteristics](Factory()));
-                return Default.Value;
-            }
-            else
-                throw new InvalidOperationException("un understood set to characteristics, no factory method found");
-        }
-
-        public void InitializeFactory(Characteristics characteristics, Func<T,T>[] args )
-        {
-            if (args.None())
-                FactoryMethods.Add(characteristics, (x) => x);
-            else
-                FactoryMethods.Add(characteristics, args.Aggregate((chain, next) => (x) => next(chain(x))));
+            return Defaults[characteristics][template].Value;
         }
         #endregion
 
-
-
-        public Type Type => typeof(T);
-        public IEnumerable<TypeConverter> RegisteredConversions => conversions;
-        public Dictionary<string, string> Defaults { get; }
-
-        public void Add(string key, IValueObject item) => dictionary.Add(key, item);
-        public void Add(Dictionary<string, T> d) => d.Keys.ToList().ForEach(key => dictionary.Add(key, d[key]));
-        public bool ContainsKey(string root) => dictionary.ContainsKey(root);
+        public void Add(string key, IValueObject item) => Dictionary.Add(key, item);
+        public void Add(Dictionary<string, T> d) => d.Keys.ToList().ForEach(key => Dictionary.Add(key, d[key]));
+        public bool ContainsKey(string root) => Dictionary.ContainsKey(root);
 
         public IEnumerator<KeyValuePair<string, T>> GetEnumerator()
-            => dictionary.ToDictionary(x => x.Key, x => (T)x.Value).ToList().GetEnumerator();
+            => Dictionary.ToDictionary(x => x.Key, x => (T)x.Value).ToList().GetEnumerator();
 
         IEnumerator IEnumerable.GetEnumerator()
-            => dictionary.ToDictionary(x => x.Key, x => (T)x.Value).ToList().GetEnumerator();
+            => Dictionary.ToDictionary(x => x.Key, x => (T)x.Value).ToList().GetEnumerator();
 
         public void RegisterConversion<C>(Func<C, T> conversion, Predicate<C> test) =>
-            conversions.Add(new TypeConverter((x) => conversion.Invoke((C)x), x => test.Invoke((C)x)));
+            Conversions.Add(new TypeConverter((x) => conversion.Invoke((C)x), x => test.Invoke((C)x)));
 
         protected virtual void SetupDefaultConversions()
         {
@@ -149,18 +176,18 @@ namespace PossumLabs.DSL.Core.Variables
 
         public T Map(Dictionary<string, KeyValuePair<string, string>> values)
         {
-            foreach (var key in Defaults.Keys)
+            foreach (var key in PropertyDefaults.Keys)
             {
                 if (!values.ContainsKey(key.ToUpper()))
                 {
-                    values.Add(key.ToUpper(), new KeyValuePair<string, string>($"default/{key}", Defaults[key]));
+                    values.Add(key.ToUpper(), new KeyValuePair<string, string>($"default/{key}", PropertyDefaults[key]));
                 }
             }
             return values.MapTo<T>(Interpeter, ObjectFactory);
         }
 
         public Dictionary<string, object> AsDictionary()
-            => dictionary.ToDictionary(
+            => Dictionary.ToDictionary(
                 x => x.Key,
                 x => (object)x.Value);
     }

@@ -4,6 +4,7 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
 
     <IsPackable>false</IsPackable>
+    <RootNamespace>DSL.Documentation.Example</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

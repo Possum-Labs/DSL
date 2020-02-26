@@ -1,9 +1,9 @@
-﻿using PossumLabs.Specflow.Core.Variables;
+﻿using PossumLabs.DSL.Core.Variables;
 using System.Collections.Generic;
 
-namespace LegacyTest.DomainObjects
+namespace DSL.Documentation.Example
 {
-    public class Employee : IDomainObject
+    public class Employee : IEntity
     {
         public Employee()
         {

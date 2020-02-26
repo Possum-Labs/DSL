@@ -1,13 +1,13 @@
 ﻿using BoDi;
-using LegacyTest.DomainObjects;
+using LegacyTest.Entitys;
 using LegacyTest.Managers;
 using System;
 using System.Threading;
 using TechTalk.SpecFlow;
-using PossumLabs.Specflow.Core;
+using PossumLabs.DSL.Core;
 using LegacyTest.Framework;
 
-namespace LegacyTest.Steps
+namespace DSL.Documentation.Example
 {
     [Binding]
     public class RetirementManagerSteps : StepBase

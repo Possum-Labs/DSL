@@ -6,10 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TechTalk.SpecFlow;
-using PossumLabs.Specflow.Core;
-using PossumLabs.Specflow.Selenium;
+using PossumLabs.DSL.Core;
+using PossumLabs.DSL.Web;
 
-namespace LegacyTest.Selenium
+namespace DSL.Documentation.Example
 {
     [Binding]
     public class TableSteps : WebDriverStepBase

@@ -2,10 +2,10 @@
 using LegacyTest.Framework;
 using LegacyTest.ValueObjects;
 using Microsoft.Extensions.Configuration;
-using PossumLabs.Specflow.Core;
-using PossumLabs.Specflow.Core.Files;
-using PossumLabs.Specflow.Core.Logging;
-using PossumLabs.Specflow.Selenium.Diagnostic;
+using PossumLabs.DSL.Core;
+using PossumLabs.DSL.Core.Files;
+using PossumLabs.DSL.Core.Logging;
+using PossumLabs.DSL.Web.Diagnostic;
 using System;
 using System.IO;
 using System.Linq;
@@ -14,7 +14,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TechTalk.SpecFlow;
 
-namespace LegacyTest.Steps
+namespace DSL.Documentation.Example
 {
     [Binding]
     public class FrameworkInitializationSteps : StepBase
@@ -45,16 +45,16 @@ namespace LegacyTest.Steps
             };
             Register(metadata);
 
-            var factory = new PossumLabs.Specflow.Core.Variables.ObjectFactory();
+            var factory = new PossumLabs.DSL.Core.Variables.ObjectFactory();
             Register(factory);
-            Register(new PossumLabs.Specflow.Core.Variables.Interpeter(factory));
+            Register(new PossumLabs.DSL.Core.Variables.Interpeter(factory));
             var logger = new DefaultLogger(new DirectoryInfo(Environment.CurrentDirectory));
-            Register((PossumLabs.Specflow.Core.Logging.ILog)logger);
-            Register(new PossumLabs.Specflow.Core.Exceptions.ActionExecutor(logger));
+            Register((PossumLabs.DSL.Core.Logging.ILog)logger);
+            Register(new PossumLabs.DSL.Core.Exceptions.ActionExecutor(logger));
 
             Register(new FileManager(new DatetimeManager() { Now = () => DateTime.Now }));
             FileManager.Initialize(FeatureContext.FeatureInfo.Title, ScenarioContext.ScenarioInfo.Title, null /*Specflow limitation*/);
-            var templateManager = new PossumLabs.Specflow.Core.Variables.TemplateManager();
+            var templateManager = new PossumLabs.DSL.Core.Variables.TemplateManager();
             templateManager.Initialize(Assembly.GetExecutingAssembly());
             Register(templateManager);
 

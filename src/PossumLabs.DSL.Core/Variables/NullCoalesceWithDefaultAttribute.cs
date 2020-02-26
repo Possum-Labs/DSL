@@ -8,15 +8,39 @@ namespace PossumLabs.DSL.Core.Variables
     /// Same as DefaultToRepositoryDefault, acurate C# vocabulary
     /// </summary>
     [AttributeUsage(AttributeTargets.Property)]
-    public class NullCoalesceWithDefaultAttribute : Attribute
+    public class NullCoalesceWithDefaultAttribute : Attribute, INullCoalesceWithDefaultAttribute
     {
+        public NullCoalesceWithDefaultAttribute() : this(null, null)
+        {
+        }
+
+        public NullCoalesceWithDefaultAttribute(string characteristics = null, string template = null)
+        {
+            Template = template;
+            Characteristics = characteristics ?? Characteristics.None;
+        }
+
+        public Characteristics Characteristics { get; }
+        public string Template { get; set; }
     }
 
     /// <summary>
-    /// Same as NullCoalesceWithDefault, better English Version
+    /// Same as NullCoalesceWithDefault, less academic while still descriptive
     /// </summary>
     /// [AttributeUsage(AttributeTargets.Property)]
-    public class DefaultToRepositoryDefaultAttribute : Attribute
+    public class DefaultToRepositoryDefaultAttribute : Attribute, INullCoalesceWithDefaultAttribute
     {
+        public DefaultToRepositoryDefaultAttribute():this(null,null)
+        {
+        }
+
+        public DefaultToRepositoryDefaultAttribute(string characteristics = null, string template = null)
+        {
+            Template = template;
+            Characteristics = characteristics ?? Characteristics.None;
+        }
+
+        public Characteristics Characteristics { get; }
+        public string Template { get; set; }
     }
 }

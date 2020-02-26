@@ -170,7 +170,7 @@ namespace PossumLabs.DSL.Core.UnitTests.Variables
         [TestMethod]
         public void EnvironmentVariableOverride()
         {
-            Environment.SetEnvironmentVariable("bob.AString", "Value1");
+            Environment.SetEnvironmentVariable("bob_AString", "Value1");
             try
             {
                 dynamic source = new NullingExpandoObject();
@@ -181,14 +181,14 @@ namespace PossumLabs.DSL.Core.UnitTests.Variables
             }
             finally
             {
-                Environment.SetEnvironmentVariable("bob.AString", null);
+                Environment.SetEnvironmentVariable("bob_AString", null);
             }
         }
 
         [TestMethod]
         public void EnvironmentVariableOverrideTypeConversion()
         {
-            Environment.SetEnvironmentVariable("bob.AInt", "42");
+            Environment.SetEnvironmentVariable("bob_AInt", "42");
             try
             {
                 dynamic source = new NullingExpandoObject();
@@ -198,7 +198,7 @@ namespace PossumLabs.DSL.Core.UnitTests.Variables
             }
             finally
             {
-                Environment.SetEnvironmentVariable("bob.AInt", null);
+                Environment.SetEnvironmentVariable("bob_AInt", null);
             }
         }
 

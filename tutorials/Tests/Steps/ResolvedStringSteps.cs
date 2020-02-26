@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 using BoDi;
 using LegacyTest.Framework;
 using LegacyTest.ValueObjects;
-using PossumLabs.Specflow.Core;
+using PossumLabs.DSL.Core;
 using TechTalk.SpecFlow;
 
-namespace LegacyTest.Steps
+namespace DSL.Documentation.Example
 {
     [Binding]
     public class ResolvedStringSteps : StepBase

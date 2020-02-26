@@ -1,11 +1,11 @@
 ﻿using BoDi;
 using LegacyTest.ValueObjects;
-using PossumLabs.Specflow.Core;
-using PossumLabs.Specflow.Selenium;
-using PossumLabs.Specflow.Selenium.Selectors;
+using PossumLabs.DSL.Core;
+using PossumLabs.DSL.Web;
+using PossumLabs.DSL.Web.Selectors;
 using TechTalk.SpecFlow;
 
-namespace Shim.Selenium
+namespace DSL.Documentation.Example
 {
     [Binding]
     public class DriverSteps: WebDriverStepBase
