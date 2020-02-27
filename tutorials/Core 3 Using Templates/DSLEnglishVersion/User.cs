@@ -35,10 +35,11 @@ namespace DSL.Documentation.Example
         {
         }
 
+        //TODO: errr.... this is a mess
         [BeforeScenario]
         public void Setup()
         {
-            Repository.InitializeFactory(this.CreateUser);
+            Repository.InitializeDefault(()=>this.CreateUser(new User()));
         }
 
         /// <summary>

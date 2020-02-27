@@ -1,33 +1,49 @@
-﻿using PossumLabs.DSL;
+﻿using BoDi;
+using DSL.Documentation.Example;
+using FluentAssertions;
+using PossumLabs.DSL;
+using PossumLabs.DSL.Core;
+using PossumLabs.DSL.Core.Variables;
+using PossumLabs.DSL.Slipka;
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using System.Text;
 using TechTalk.SpecFlow;
 
-namespace UsingSlipka
+namespace DSL.Documentation.Example
 {
+    public class ProxyFile : IEntity
+    {
+        public MemoryStream Stream { get; internal set; }
+
+        public string LogFormat()
+        {
+            throw new NotImplementedException();
+        }
+    }
+
     [Binding]
     public class SlipkaSteps : RepositoryStepBase<ProxyFile>
     {
-        public SlipkaSteps(IObjectContainer objectContainer) :
-base(objectContainer)
+        public SlipkaSteps(IObjectContainer objectContainer, Pages pages) : base(objectContainer)
         {
-            _fileSteps = ObjectContainer.Resolve<FileSteps>();
-            var proxy = new Uri(Config.Proxy);
-            var webIz = new Uri(Config.Url);
+            Pages = pages;
+            var proxy = new Uri("slipka");
+            var target = new Uri("http://possumlabs.com");
             Proxy = new Lazy<ProxyWrapper>(() => new ProxyWrapper(
                 new Uri($"http://{proxy.Host}:{proxy.Port}"),
-                new Uri($"http://{webIz.Host}:{webIz.Port}")));
-            _excelSteps = ObjectContainer.Resolve<ExcelSteps>();
+                new Uri($"http://{target.Host}:{target.Port}")));
         }
 
         public Lazy<ProxyWrapper> Proxy { get; }
+        public Pages Pages { get; }
 
         [BeforeScenario("proxy", Order = -400)]
         [Given("Using a proxy")]
         public void GivenUsingAProxy()
-            => Pages.Override(host: this.Config.ProxyHost, port:
-Proxy.Value.Port);
+            => Pages.Override(Proxy.Value.ProxyUri);
 
         [Given("proxy logs responses of type '(.*)' with value '(.*)'")]
         public void GivenProxyLogsResponsesOfType(string type, string value)
@@ -35,8 +51,7 @@ Proxy.Value.Port);
             {
                 Response = new Message
                 {
-                    Headers = new List<Header>() { new
-Header(type, value) }
+                    Headers = new List<Header>() { new Header(type, new List<string>{ value }) }
                 }
             });
 
@@ -51,18 +66,13 @@ Header(type, value) }
 
             var calls = Proxy.Value.GetCalls().ToList();
             var potentials = calls.Where(x => x.StatusCode != "302");
-            potentials.Where(x =>
-x.Recorded).Should().HaveCountGreaterThan(0, "no where recorded, there
-is likely some error.");
-            potentials.Where(x => x.Recorded).Should().HaveCount(1,
-"multiple calls where recorded, there is likely some error.");
+            potentials.Where(x => x.Recorded).Should().HaveCountGreaterThan(0, "no where recorded, there is likely some error.");
+            potentials.Where(x => x.Recorded).Should().HaveCount(1, "multiple calls where recorded, there is likely some error.");
             var call = potentials.FirstOrDefault(x => x.Recorded);
 
-            call.Should().NotBeNull("There was no recorded call
-returned from the proxy");
+            call.Should().NotBeNull("There was no recorded call returned from the proxy");
 
-            file.Stream = new
-MemoryStream(Proxy.Value.DownloadResponse(calls.IndexOf(call)));
+            file.Stream = new MemoryStream(Proxy.Value.DownloadResponse(calls.IndexOf(call)));
 
             base.Repository.Add(name, file);
         }
@@ -71,16 +81,6 @@ MemoryStream(Proxy.Value.DownloadResponse(calls.IndexOf(call)));
         public void LogFilesAndCleanUp()
             => OnError.Continue(() =>
             {
-                if (MovieLogger.IsEnabled || ScenarioContext.TestError != null)
-                {
-                    foreach (var item in
-Repository.AsDictionary().Values.Cast<ProxyFile>())
-                    {
-                        item.Stream.Position = 0;
-                        FileManager.PersistFile(item, "ProxyFile", "file");
-                    }
-                }
-
                 foreach (var f in base.Repository)
                 {
                     try
@@ -101,36 +101,9 @@ Repository.AsDictionary().Values.Cast<ProxyFile>())
         [BeforeScenario("report")]
         public void ReportAttribute()
         {
-            GivenProxyLogsCallsTo("/Reports/.*/View.aspx");
             GivenProxyLogsResponsesOfType("Content-Type", "application/pdf");
-            GivenProxyLogsResponsesOfType("Content-Type",
-"application/vnd.ms-excel");
-            GivenProxyLogsResponsesOfType("Content-Type",
-"application/vnd.openxml");
-        }
-
-        [Then(@"the report contains")]
-        public void ThenTheReportContains(Table table)
-        {
-            string id = $"Report{IdGenerator.Alpha(10)}";
-            WhenClosingTheProxy();
-            WhenRetrievingTheFileFromProxyAs(id);
-            _excelSteps.ThenTheFileContains(Interpeter.Get<IFile>(id), table);
-        }
-
-        [Then(@"the no header CSV report contains")]
-        public void VerifyCsvReportContains(Table table)
-        {
-            string id = $"Report{IdGenerator.Alpha(10)}";
-            WhenClosingTheProxy();
-            WhenRetrievingTheFileFromProxyAs(id);
-            _excelSteps.VerifyCsvFileContains(Interpeter.Get<IFile>(id), table);
-        }
-
-
-
-        protected override void UICreate(ProxyFile item)
-        {
+            GivenProxyLogsResponsesOfType("Content-Type", "application/vnd.ms-excel");
+            GivenProxyLogsResponsesOfType("Content-Type", "application/vnd.openxml");
         }
     }
 

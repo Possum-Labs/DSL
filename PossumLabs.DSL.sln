@@ -27,11 +27,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "demo", "demo", "{91B48FAA-8
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jan29Demo", "Jan29Demo\Jan29Demo.csproj", "{5681E32A-D7D1-4FF4-9F22-34BFB4ED7646}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PossumLabs.DSL.Core.IntegrationTests", "tests\PossumLabs.DSL.Core.IntegrationTests\PossumLabs.DSL.Core.IntegrationTests.csproj", "{5F81FCC7-123F-4978-8BD1-31EB934279EC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PossumLabs.DSL.Core.IntegrationTests", "tests\PossumLabs.DSL.Core.IntegrationTests\PossumLabs.DSL.Core.IntegrationTests.csproj", "{5F81FCC7-123F-4978-8BD1-31EB934279EC}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PossumLabs.DSL.Slipka", "src\PossumLabs.DSL.Slipka\PossumLabs.DSL.Slipka.csproj", "{52B1EEB9-E24B-4B1D-BFF6-8FD765E74E07}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PossumLabs.DSL.Slipka.IntegrationTests", "tests\PossumLabs.DSL.Slipka.IntegrationTests\PossumLabs.DSL.Slipka.IntegrationTests.csproj", "{FB165A21-B484-4EAA-95BA-CBF8ED69CCE9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PossumLabs.DSL.Slipka.IntegrationTests", "tests\PossumLabs.DSL.Slipka.IntegrationTests\PossumLabs.DSL.Slipka.IntegrationTests.csproj", "{FB165A21-B484-4EAA-95BA-CBF8ED69CCE9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{359D4506-ED5D-4501-BF55-82B5FA58E935}"
+	ProjectSection(SolutionItems) = preProject
+		TODO.txt = TODO.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,0 +1,63 @@
+Add tests for Defaults
+-- resolve empty string to default
+-- default with registered instance
+-- default with factory instance
+-- default with factory template
+
+Illustrate Defaults
+Background:
+	Given the Dealer
+	| var   |
+	| DEALER1 |
+	And the Store
+	| var   | Dealer |
+	| STORE1 | DEALER1    |
+	And the new User
+	| var  | Store | Functions      | 
+	| USR1 | STORE1  | [['Sales']] | 
+	And the Inventory Location
+	| var  | Dealer |
+	| LOC1 | DEALER1    |
+	And Inventory Location 'LOC1' is associated to Store 'STORE1'
+
+Scenario: Sell a Spatula
+	Given the new Item of type 'Spatula' 
+	| var   | Location |
+	| ITEM1 | LOC1     |
+	
+	### go sell a spatula
+
+With Defaults:
+
+Background:
+	Given the new User
+	| var  |  Functions   | 
+	| USR1 |  ['Sales'] |
+	And Inventory Location '' is associated to Store ''
+
+Scenario: Sell a Spatula
+	Given the new Item of type 'Spatula' 
+	| var   | 
+	| ITEM1 | 
+	
+	### go sell a spatula
+
+Why use templates, states and defaults 
+
+Tests require data, and depending on the system the data you might want to work with has it's own dependenceis. 
+These dependencies can be multiple levels deep, for instance in the example we want to sell an item; this requires a
+User and an item. But the user requires a Store, and the item an Inventory Location.  Both the Store and Inventory Loation
+Require a Dealer wich is the root object in this case. As Stores and Inventory Locations have a many to many relationship we 
+will need to descibe that as well.
+
+the scenario in question does nothing special with the dealer, nor the store or the Inventory location. this means that
+our tests starts out with noise, and the test is less clear.
+
+In practice it is actually worse, as we require quite a bit of data setup this Gherkin / code is prone to
+being copy pasted into new scenarios. These will end up with Inventory Locations even when not needed.
+
+The implementaiton of defaults into DSL libraries is intended to help remove this problem, and provide a few side benefits
+For instance, as the tests no longer specify how the data is to be setup we can vary the implementation. Think of the example of a 
+"sold" Item. This used to always require actions on the website, but now it can also be acomplished suing the mobile client.
+As the tests would specify "Given the Item that is 'sold'" we can vary how this transition happened. Letting us run our tests, without 
+chaning the gherkin, to verify if the downstream workflows of the 'sold' characteristic work for both web as mobile sales.

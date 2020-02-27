@@ -45,6 +45,11 @@ namespace PossumLabs.DSL.Core.Variables
         public Type Type => typeof(T);
         public IEnumerable<TypeConverter> RegisteredConversions => Conversions;
         public Dictionary<string, string> PropertyDefaults { get; private set; }
+
+        Type IRepository.Type => throw new NotImplementedException();
+
+        IEnumerable<TypeConverter> IRepository.RegisteredConversions => throw new NotImplementedException();
+
         public T this[string key] => (T)Dictionary[key];
         IValueObject IRepository.this[string key] => Dictionary[key];
 
@@ -190,5 +195,17 @@ namespace PossumLabs.DSL.Core.Variables
             => Dictionary.ToDictionary(
                 x => x.Key,
                 x => (object)x.Value);
+
+        object IRepository.GetOnlyInstance()
+        {
+            if (Defaults.SelectMany(x => x.Value).Many())
+                throw new Exception($"There are multiple {typeof(T).Name} in repository, " +
+                    $"this prevents the usage of defaults");
+            if (Defaults.SelectMany(x => x.Value).One(x => x.Value.IsValueCreated))
+                return Defaults.SelectMany(x => x.Value).First().Value.Value;
+            if (Defaults.ContainsKey(Characteristics.None))
+                return Defaults[Characteristics.None][DefaultTemplateName].Value;
+            throw new Exception("Unable tot Get the default, nothing is registred");
+        }
     }
 }

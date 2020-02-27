@@ -60,14 +60,24 @@ namespace PossumLabs.DSL.Core.Variables
             prop.SetValue(target, value);
         }
 
-        private object Resolve(string path) 
-            => (path.Last() == '.')? path : Walker(path.Split('.'));
+        private object Resolve(string path)
+            => Walker(path.Split('.'));
 
-        public object Get(Type t, string path) 
-            => IsVarialbe(path) ? Convert(t, Resolve(path)) : Convert(t, path);
+        public object Get(Type t, string path)
+        {
+            if (path == string.Empty && Repositories.One(x => x.Type == t))
+                return Repositories.First(x => x.Type == t).GetOnlyInstance();
 
-        public X Get<X>(string path) 
-            => IsVarialbe(path) ? Convert<X>(Resolve(path)) : Convert<X>(path);
+            return IsVarialbe(path) ? Convert(t, Resolve(path)) : Convert(t, path);
+        }
+
+        public X Get<X>(string path)
+        {
+            if (path == string.Empty && Repositories.One(x => x.Type == typeof(X)))
+                return (X)Repositories.First(x => x.Type == typeof(X)).GetOnlyInstance();
+
+            return IsVarialbe(path) ? Convert<X>(Resolve(path)) : Convert<X>(path);
+        }
 
         private Func<object, object> ResolveIndexFactory(string rawRoot, out string root, IEnumerable<string> path)
         {
