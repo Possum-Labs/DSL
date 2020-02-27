@@ -48,8 +48,8 @@ namespace DSL.Documentation.Example
         /// | User1 |
         /// </summary>
         [Given(@"the Users?")]
-        public void GivenTheUsers(Dictionary<string, User> Users)
-            => GivenTheUsers(null, Characteristics.None, Users);
+        public void GivenTheUsers(Dictionary<string, User> users)
+            => GivenTheUsers(null, Characteristics.None, users);
 
         /// <summary>
         /// Given the User that (?:is|are) 'locked out'
@@ -57,37 +57,37 @@ namespace DSL.Documentation.Example
         /// | User1 |
         /// </summary>
         [Given(@"the Users?")]
-        public void GivenTheUsersWithCharacterisitics(Characteristics characteristics, Dictionary<string, User> Users)
-            => GivenTheUsers(null, characteristics,  Users);
+        public void GivenTheUsersWithCharacterisitics(Characteristics characteristics, Dictionary<string, User> users)
+            => GivenTheUsers(null, characteristics,  users);
 
         /// <summary>
         /// Given the User of type 'short'
         /// |   var |
         /// | User1 |
         /// </summary>
-        [Given(@"the Users? of type '(.*)'")]
-        public void GivenTheUsers(string template, Dictionary<string, User> Users)
-            => GivenTheUsers(template, Characteristics.None, Users);
+        [Given(@"the Users? of type '([^']*)'")]
+        public void GivenTheUsers(string template, Dictionary<string, User> users)
+            => GivenTheUsers(template, Characteristics.None, users);
 
         /// <summary>
         /// Given the User of type 'short' that (?:is|are) 'locked out'
         /// |   var |
         /// | User1 |
         /// </summary>
-        [Given(@"the Users? of type '(.*)'")]
-        public void GivenTheUsers(string template, Characteristics characteristics, Dictionary<string, User> Users)
+        [Given(@"the Users? of type '([^']*)'")]
+        public void GivenTheUsers(string template, Characteristics characteristics, Dictionary<string, User> users)
         {
             //apply template
-            foreach (var User in Users.Values)
-                TemplateManager.ApplyTemplate(User, template);
+            foreach (var user in users.Values)
+                TemplateManager.ApplyTemplate(user, template);
 
             //Set characterisitcs
-            foreach (var User in Users.Values)
-                TemplateManager.ApplyTemplate(User, template);
+            foreach (var user in users.Values)
+                TemplateManager.ApplyTemplate(user, template);
 
             //Add to repository
-            foreach (var key in Users.Keys)
-                Add(key, Users[key]);
+            foreach (var key in users.Keys)
+                Add(key, users[key]);
         }
 
         private User CreateUser(User user)

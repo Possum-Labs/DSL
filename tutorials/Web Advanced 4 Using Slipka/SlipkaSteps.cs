@@ -59,7 +59,7 @@ namespace DSL.Documentation.Example
         public void GivenProxyLogsCallsTo(string url)
             => Proxy.Value.RegisterRecording(new CallTemplate { Uri = url });
 
-        [When("retrieving the file from proxy as '(.*)'")]
+        [When("retrieving the file from proxy as '([^']*)'")]
         public void WhenRetrievingTheFileFromProxyAs(string name)
         {
             var file = new ProxyFile();

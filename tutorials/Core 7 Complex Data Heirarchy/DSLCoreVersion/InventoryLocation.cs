@@ -66,7 +66,7 @@ namespace DSL.Documentation.Example
         /// | UNoTemplate | D2.Title | 
         /// When entering 'D1.Title' into element 'Search'
         /// </summary>
-        [Given(@"the InventoryLocations? of type '(.*)'")]
+        [Given(@"the InventoryLocations? of type '([^']*)'")]
         public void GivenTheInventoryLocations(string template, Dictionary<string, InventoryLocation> InventoryLocations)
         {
             foreach (var InventoryLocation in InventoryLocations.Values)

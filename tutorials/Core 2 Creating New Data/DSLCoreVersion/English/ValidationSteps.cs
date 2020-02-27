@@ -27,19 +27,19 @@ namespace DSL.Documentation.Example
         [StepArgumentTransformation]
         public new object Transform(string id) => Interpeter.Get<object>(id);
 
-        [Then(@"'(.*)' has the values")]
+        [Then(@"'([^']*)' has the values")]
         public new void ThenTheCallHasTheValues(object o, IEnumerable<Validation> validations)
             => base.ThenTheCallHasTheValues(o, validations);
 
-        [Then(@"'(.*)' has the value '(.*)'")]
+        [Then(@"'([^']*)' has the value '(.*)'")]
         public new void ThenTheCallHasTheValue(object o, Validation validation)
             => base.ThenTheCallHasTheValue(o, validation);
 
-        [Then(@"'(.*)' contains the values?")]
+        [Then(@"'([^']*)' contains the values?")]
         public new void ThenTheCallContainsTheValues(object o, IEnumerable<IEnumerable<Validation>> validations)
             => base.ThenTheCallContainsTheValues(o, validations);
 
-        [Then(@"'(.*)' contains the value '(.*)'")]
+        [Then(@"'([^']*)' contains the value '(.*)'")]
         public new void ThenTheCallContainsTheValue(object o, Validation validation)
             => base.ThenTheCallContainsTheValue(o, validation);
     }

@@ -48,14 +48,14 @@ namespace DSL.Documentation.Example
         /// </summary>
 
         [Given(@"the Users?")]
-        public void GivenTheUsers(Dictionary<string, User> Users)
+        public void GivenTheUsers(Dictionary<string, User> users)
         {
-            foreach (var User in Users.Values)
-                TemplateManager.ApplyTemplate(User);
-            foreach (var User in Users.Values)
-                CreateUser(User);
-            foreach (var key in Users.Keys)
-                Add(key, Users[key]);
+            foreach (var user in users.Values)
+                TemplateManager.ApplyTemplate(user);
+            foreach (var user in users.Values)
+                CreateUser(user);
+            foreach (var key in users.Keys)
+                Add(key, users[key]);
         }
 
         private void CreateUser(User user)

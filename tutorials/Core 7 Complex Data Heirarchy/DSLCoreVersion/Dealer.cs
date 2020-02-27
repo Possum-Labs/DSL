@@ -26,19 +26,6 @@ namespace DSL.Documentation.Example
         {
         }
 
-        /// <summary>
-        /// Given the Dealer
-        /// |   var |
-        /// | Dealer1 |
-        /// Given the Dealer
-        /// |       var | Height |
-        /// |  TallDealer |    100 | 
-        /// Given the Dealer
-        /// |           var |       Title |
-        /// | SameTitleDealer | Dealer1.Title | 
-        /// When entering 'Dealer1.Title' into element 'Search'
-        /// </summary>
-
         [Given(@"the Dealers?")]
         public void GivenTheDealers(Dictionary<string, Dealer> Dealers)
         {
@@ -50,20 +37,7 @@ namespace DSL.Documentation.Example
                 Add(key, Dealers[key]);
         }
 
-        /// <summary>
-        /// Given the Dealer of type 'short'
-        /// | var |
-        /// |  U1 |
-        /// Given the Dealer of type 'tall'
-        /// | var |              Title |
-        /// |  U2 |      Benalish Hero | 
-        /// |  U3 | Roc of Kher Ridges | 
-        /// Given the Dealer
-        /// |         var |    Title |
-        /// | UNoTemplate | D2.Title | 
-        /// When entering 'D1.Title' into element 'Search'
-        /// </summary>
-        [Given(@"the Dealers? of type '(.*)'")]
+        [Given(@"the Dealers? of type '([^']*)'")]
         public void GivenTheDealers(string template, Dictionary<string, Dealer> Dealers)
         {
             foreach (var Dealer in Dealers.Values)

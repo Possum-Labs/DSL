@@ -34,50 +34,44 @@ namespace DSL.Documentation.Example
         {
         }
 
-        /// <summary>
-        /// Given the User
-        /// |   var |
-        /// | User1 |
-        /// Given the User
-        /// |       var | Height |
-        /// |  TallUser |    100 | 
-        /// Given the User
-        /// |           var |       Title |
-        /// | SameTitleUser | User1.Title | 
-        /// When entering 'User1.Title' into element 'Search'
-        /// </summary>
-
         [Given(@"the Users?")]
-        public void GivenTheUsers(Dictionary<string, User> Users)
-            => GivenTheUsers(null, Users);
+        public void GivenTheUsers(Dictionary<string, User> users)
+            => GivenTheUsers(null, Characteristics.None, users);
 
-        /// <summary>
-        /// Given the User of type 'short'
-        /// | var |
-        /// |  U1 |
-        /// Given the User of type 'tall'
-        /// | var |              Title |
-        /// |  U2 |      Benalish Hero | 
-        /// |  U3 | Roc of Kher Ridges | 
-        /// Given the User
-        /// |         var |    Title |
-        /// | UNoTemplate | D2.Title | 
-        /// When entering 'D1.Title' into element 'Search'
-        /// </summary>
-        [Given(@"the Users? of type '(.*)'")]
-        public void GivenTheUsers(string template, Dictionary<string, User> Users)
+        [Given(@"the Users? of type '([^']*)'")]
+        public void GivenTheUsers(string template, Dictionary<string, User> users)
+            => GivenTheUsers(template, Characteristics.None, users);
+
+        [Given(@"the Users? that (?:is|are) '([^']*)")]
+        public void GivenTheUsers(Characteristics characteristics, Dictionary<string, User> users) 
+            => GivenTheUsers(null, characteristics, users);
+
+        [Given(@"the Users? of type '([^']*)' that (?:is|are) '([^']*)")]
+        public void GivenTheUsers(
+            string template, 
+            Characteristics characteristics, 
+            Dictionary<string, User> users)
         {
-            foreach (var User in Users.Values)
-                TemplateManager.ApplyTemplate(User, template);
-            foreach (var User in Users.Values)
-                CreateUser(User);
-            foreach (var key in Users.Keys)
-                Add(key, Users[key]);
+            foreach (var user in users.Values)
+            {
+                TemplateManager.ApplyTemplate(user, template);
+                base.Repository.DecorateNewItem(user);
+                base.Repository.CharacteristicsTransitionMethods[characteristics](user);
+            }
+            foreach (var key in users.Keys)
+                Add(key, users[key]);
         }
 
-        private void CreateUser(User user)
+        [BeforeScenario]
+        public void RegisterCharacteristicsTransitionMethods()
+        {
+            base.Repository.InitializeCharacteristicsTransition(CreateUser, Characteristics.None);
+        }
+
+        private User CreateUser(User user)
         {
             //depends on your system on how you can or want to create a user.
+            return user;
         }
     }
 }

@@ -71,7 +71,7 @@ namespace DSL.Documentation.Example
         /// | UNoTemplate | D2.Title | 
         /// When entering 'D1.Title' into element 'Search'
         /// </summary>
-        [Given(@"the Items? of type '(.*)'")]
+        [Given(@"the Items? of type '([^']*)'")]
         public void GivenTheItems(string template, Dictionary<string, Item> Items)
         {
             foreach (var Item in Items.Values)
