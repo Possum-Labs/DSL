@@ -13,116 +13,116 @@ namespace PossumLabs.DSL.English
 
         //selectors
         [StepArgumentTransformation]
-        public new ActiveElementSelector TransformActiveElementSelector(string Constructor)
+        public  ActiveElementSelector TransformActiveElementSelectorEnglish(string Constructor)
             => base.TransformActiveElementSelector(Constructor);
 
         [StepArgumentTransformation]
-        public new ContentSelector TransformContentSelector(string Constructor)
+        public  ContentSelector TransformContentSelectorEnglish(string Constructor)
             => base.TransformContentSelector(Constructor);
 
         [StepArgumentTransformation]
-        public new CheckableElementSelector TransformCheckableElementSelector(string Constructor)
+        public  CheckableElementSelector TransformCheckableElementSelectorEnglish(string Constructor)
             => base.TransformCheckableElementSelector(Constructor);
 
         [StepArgumentTransformation]
-        public new ClickableElementSelector TransformClickableElementSelector(string Constructor)
+        public  ClickableElementSelector TransformClickableElementSelectorEnglish(string Constructor)
             => base.TransformClickableElementSelector(Constructor);
 
         [StepArgumentTransformation]
-        public new SelectableElementSelector TransformSelectableElementSelectorr(string Constructor)
+        public  SelectableElementSelector TransformSelectableElementSelectorrEnglish(string Constructor)
             => base.TransformSelectableElementSelectorr(Constructor);
 
         [StepArgumentTransformation]
-        public new SettableElementSelector TransformSettableElementSelector(string Constructor)
+        public  SettableElementSelector TransformSettableElementSelectorEnglish(string Constructor)
             => base.TransformSettableElementSelector(Constructor);
 
 
         //prefixes
         [StepArgumentTransformation]
-        public new UnderSelectorPrefix TransformUnderSearcherPrefix(string Constructor)
+        public  UnderSelectorPrefix TransformUnderSearcherPrefixEnglish(string Constructor)
             => base.TransformUnderSearcherPrefix(Constructor);
 
         [StepArgumentTransformation]
-        public new RowSelectorPrefix TransformRowSearcherPrefix(string Constructor)
+        public  RowSelectorPrefix TransformRowSearcherPrefixEnglish(string Constructor)
             => base.TransformRowSearcherPrefix(Constructor);
 
         [StepArgumentTransformation]
-        public new WarningSelectorPrefix TransformWarningSearcherPrefix(string Constructor)
+        public  WarningSelectorPrefix TransformWarningSearcherPrefixEnglish(string Constructor)
             => base.TransformWarningSearcherPrefix(Constructor);
 
         [StepArgumentTransformation]
-        public new ErrorSelectorPrefix TransformErrorSearcherPrefix(string Constructor)
+        public  ErrorSelectorPrefix TransformErrorSearcherPrefixEnglish(string Constructor)
             => base.TransformErrorSearcherPrefix(Constructor);
 
 
 
         [AfterStep]
-        public new void Cleanup()
+        public  void CleanupEnglish()
             => base.Cleanup();
 
         [When(@"clicking the element '(.*)'")]
-        public new void WhenClickingTheElement(ActiveElementSelector selector)
+        public  void WhenClickingTheElementEnglish(ActiveElementSelector selector)
             => base.WhenClickingTheElement(selector);
 
         [When(@"using javascript driven clear on '(.*)'")]
-        public new void WhenScriptClearing(ActiveElementSelector selector)
+        public  void WhenScriptClearingEnglish(ActiveElementSelector selector)
             => base.WhenScriptClearing(selector);
 
         [When(@"using javascript setting '(.*)' for element '(.*)'")]
-        public new void WhenScriptSetting(ResolvedString text, ActiveElementSelector selector)
+        public  void WhenScriptSettingEnglish(ResolvedString text, ActiveElementSelector selector)
             => base.WhenScriptSetting(text, selector);
 
         [When(@"selecting the element '(.*)'")]
-        public new void WhenSelectingTheElement(ActiveElementSelector selector)
+        public  void WhenSelectingTheElementEnglish(ActiveElementSelector selector)
             => base.WhenSelectingTheElement(selector);
 
         [When(@"entering '(.*)' into element '(.*)'")]
-        public new void WhenEnteringForTheElement(ResolvedString text, SettableElementSelector selector)
+        public  void WhenEnteringForTheElementEnglish(ResolvedString text, SettableElementSelector selector)
             => base.WhenEnteringForTheElement(text, selector);
 
         [When(@"for row '(.*)' clicking the element '(.*)'")]
-        public new void WhenClickingTheElementRow(RowSelectorPrefix row, ActiveElementSelector selector)
+        public  void WhenClickingTheElementRowEnglish(RowSelectorPrefix row, ActiveElementSelector selector)
             => base.WhenClickingTheElementRow(row, selector);
 
         [When(@"for row '(.*)' selecting the element '(.*)'")]
-        public new void WhenSelectingTheElementRow(RowSelectorPrefix row, ActiveElementSelector selector)
+        public  void WhenSelectingTheElementRowEnglish(RowSelectorPrefix row, ActiveElementSelector selector)
             => base.WhenSelectingTheElementRow(row, selector);
 
         [When(@"for row '(.*)' entering '(.*)' into element '(.*)'")]
-        public new void WhenEnteringForTheElementRow(RowSelectorPrefix row, ResolvedString text, SettableElementSelector selector)
+        public  void WhenEnteringForTheElementRowEnglish(RowSelectorPrefix row, ResolvedString text, SettableElementSelector selector)
             => base.WhenEnteringForTheElementRow(row, text, selector);
 
         [When(@"under '(.*)' clicking the element '(.*)'")]
-        public new void WhenClickingTheElementUnder(UnderSelectorPrefix under, ActiveElementSelector selector)
+        public  void WhenClickingTheElementUnderEnglish(UnderSelectorPrefix under, ActiveElementSelector selector)
             => base.WhenClickingTheElementUnder(under, selector);
 
         [When(@"under '(.*)' selecting the element '(.*)'")]
-        public new void WhenSelectingTheElementUnder(UnderSelectorPrefix under, ActiveElementSelector selector)
+        public  void WhenSelectingTheElementUnderEnglish(UnderSelectorPrefix under, ActiveElementSelector selector)
             => base.WhenSelectingTheElementUnder(under, selector);
 
         [When(@"under '(.*)' entering '(.*)' into element '(.*)'")]
-        public new void WhenEnteringForTheElementUnder(UnderSelectorPrefix under, ResolvedString text, SettableElementSelector selector)
+        public  void WhenEnteringForTheElementUnderEnglish(UnderSelectorPrefix under, ResolvedString text, SettableElementSelector selector)
             => base.WhenEnteringForTheElementUnder(under, text, selector);
 
         [Given(@"navigated to '(.*)'")]
-        public new void GivenNavigatedTo(string page)
+        public  void GivenNavigatedToEnglish(string page)
             => base.GivenNavigatedTo(page);
 
 
         [When(@"selecting '(.*)' for element '(.*)'")]
-        public new void WhenSelectingForElement(ResolvedString text, SelectableElementSelector selector)
+        public  void WhenSelectingForElementEnglish(ResolvedString text, SelectableElementSelector selector)
             => base.WhenSelectingForElement(text, selector);
 
         [When(@"setting '(.*)' for element '(.*)'")]
-        public new void WhenSettingTheElement(ResolvedString text, SettableElementSelector selector)
+        public  void WhenSettingTheElementEnglish(ResolvedString text, SettableElementSelector selector)
             => base.WhenSettingTheElement(text, selector);
 
         [When(@"checking element '(.*)'")]
-        public new void WhenCheckingElement(CheckableElementSelector selector)
+        public  void WhenCheckingElementEnglish(CheckableElementSelector selector)
             => base.WhenCheckingElement(selector);
 
         [When(@"unchecking element '(.*)'")]
-        public new void WhenUncheckingElement(CheckableElementSelector selector)
+        public  void WhenUncheckingElementEnglish(CheckableElementSelector selector)
            => base.WhenUncheckingElement(selector);
     }
 }

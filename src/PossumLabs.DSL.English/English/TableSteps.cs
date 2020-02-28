@@ -12,13 +12,13 @@ namespace PossumLabs.DSL.English
         }
 
         [When(@"entering into Table")]
-        public new void WhenEnteringIntoTable(Table table)
+        public  void WhenEnteringIntoTableEnglish(Table table)
             => base.WhenEnteringIntoTable(table);
 
         //TODO:pick one
         [Then(@"the table contains")]
         [Then(@"the Table has values")]
-        public new void ThenTheTableHasValues(TableValidation table)
+        public  void ThenTheTableHasValuesEnglish(TableValidation table)
             => base.ThenTheTableHasValues(table);
     }
 }

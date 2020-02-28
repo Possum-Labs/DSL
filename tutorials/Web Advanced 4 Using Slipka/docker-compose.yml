@@ -6,10 +6,7 @@ services:
     ports:
       - "27017:27017"
   slipka: 
-    image: slipka
-    build:
-      context: .
-      dockerfile: Slipka/Dockerfile
+    image: bashamer/slipka
     depends_on: 
       - db
     links: 

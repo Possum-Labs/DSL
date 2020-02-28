@@ -14,15 +14,15 @@ namespace PossumLabs.DSL.English
 
 
         [When(@"accepting the alert")]
-        public new void WhenAcceptingTheAlert()
+        public  void WhenAcceptingTheAlertEnglish()
            => base.WhenAcceptingTheAlert();
 
         [When(@"dismissing the alert")]
-        public new void WhenDismissingTheAlert()
+        public  void WhenDismissingTheAlertEnglish()
            => base.WhenDismissingTheAlert();
 
         [Then(@"the alert has the value '(.*)'")]
-        public new void ThenTheCallHasTheValue(Validation validation)
+        public  void ThenTheCallHasTheValueEnglish(Validation validation)
             => base.ThenTheCallHasTheValue(validation);
     }
 }

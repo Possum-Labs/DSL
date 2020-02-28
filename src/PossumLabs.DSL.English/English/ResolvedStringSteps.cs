@@ -12,7 +12,7 @@ namespace PossumLabs.DSL.English
         }
 
         [StepArgumentTransformation]
-        public new ResolvedString Transform(string id) 
+        public  ResolvedString TransformEnglish(string id) 
             => base.Transform(id);
     }
 }

@@ -15,11 +15,6 @@ namespace DSL.Documentation.Example
         public AlertSteps(IObjectContainer objectContainer) : base(objectContainer) { }
     }
 
-    public class DriverSteps : PossumLabs.DSL.English.DriverSteps
-    {
-        public DriverSteps(IObjectContainer objectContainer) : base(objectContainer) { }
-    }
-
     public class ErrorSteps : PossumLabs.DSL.English.ErrorSteps
     {
         public ErrorSteps(IObjectContainer objectContainer) : base(objectContainer) { }

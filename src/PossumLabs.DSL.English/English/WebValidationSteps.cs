@@ -12,31 +12,31 @@ namespace PossumLabs.DSL.English
         { }
 
         [StepArgumentTransformation]
-        public new WebValidation TransformWebValidation(string Constructor) 
+        public  WebValidation TransformWebValidationEnglish(string Constructor) 
             => base.TransformWebValidation(Constructor);
 
         [StepArgumentTransformation]
-        public new TableValidation TransformForHas(Table table) 
+        public  TableValidation TransformForHasEnglish(Table table) 
             => base.TransformForHas(table);
 
         [Then(@"the element '(.*)' has the value '(.*)'")]
-        public new void ThenTheElementHasTheValue(ActiveElementSelector selector, WebValidation validation)
+        public  void ThenTheElementHasTheValueEnglish(ActiveElementSelector selector, WebValidation validation)
             => base.ThenTheElementHasTheValue(selector, validation);
 
         [Then(@"under '(.*)' the element '(.*)' has the value '(.*)'")]
-        public new void ThenUnderTheElementHasTheValue(UnderSelectorPrefix prefix, ActiveElementSelector selector, WebValidation validation)
+        public  void ThenUnderTheElementHasTheValueEnglish(UnderSelectorPrefix prefix, ActiveElementSelector selector, WebValidation validation)
             => base.ThenUnderTheElementHasTheValue(prefix, selector, validation);
 
         [Then(@"for row '(.*)' the element '(.*)' has the value '(.*)'")]
-        public new void ThenForRowTheElementHasTheValue(RowSelectorPrefix prefix, ActiveElementSelector selector, WebValidation validation)
+        public  void ThenForRowTheElementHasTheValueEnglish(RowSelectorPrefix prefix, ActiveElementSelector selector, WebValidation validation)
             => base.ThenForRowTheElementHasTheValue(prefix, selector, validation);
 
         [Then(@"the page contains the element '(.*)'")]
-        public new void ThenThePageContains(ActiveElementSelector selector)
+        public  void ThenThePageContainsEnglish(ActiveElementSelector selector)
             => base.ThenThePageContains(selector);
 
         [Then(@"the element '(.*)' is '(.*)'")]
-        public new void ThenTheElementIs(ActiveElementSelector selector, WebValidation validation)
+        public  void ThenTheElementIsEnglish(ActiveElementSelector selector, WebValidation validation)
             => base.ThenTheElementIs(selector,validation);
     }
 }

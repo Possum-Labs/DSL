@@ -13,34 +13,34 @@ namespace PossumLabs.DSL.English
         }
 
         [StepArgumentTransformation]
-        public new IEnumerable<IEnumerable<Validation>> TransformForContains(Table table)
+        public  IEnumerable<IEnumerable<Validation>> TransformForContainsEnglish(Table table)
             => base.TransformForContains(table);
 
         [StepArgumentTransformation]
-        public new IEnumerable<Validation> TransformForHas(Table table)
+        public  IEnumerable<Validation> TransformForHasEnglish(Table table)
             => base.TransformForHas(table);
 
         [StepArgumentTransformation]
-        public new Validation TransformValidation(string Constructor) 
+        public  Validation TransformValidationEnglish(string Constructor) 
             => base.TransformValidation(Constructor);
 
         [StepArgumentTransformation]
-        public new object Transform(string id) => Interpeter.Get<object>(id);
+        public  object TransformEnglish(string id) => Interpeter.Get<object>(id);
 
         [Then(@"'(.*)' has the values")]
-        public new void ThenTheCallHasTheValues(object o, IEnumerable<Validation> validations)
+        public  void ThenTheCallHasTheValuesEnglish(object o, IEnumerable<Validation> validations)
             => base.ThenTheCallHasTheValues(o, validations);
 
         [Then(@"'(.*)' has the value '(.*)'")]
-        public new void ThenTheCallHasTheValue(object o, Validation validation)
+        public  void ThenTheCallHasTheValueEnglish(object o, Validation validation)
             => base.ThenTheCallHasTheValue(o, validation);
 
         [Then(@"'(.*)' contains the values?")]
-        public new void ThenTheCallContainsTheValues(object o, IEnumerable<IEnumerable<Validation>> validations)
+        public  void ThenTheCallContainsTheValuesEnglish(object o, IEnumerable<IEnumerable<Validation>> validations)
             => base.ThenTheCallContainsTheValues(o, validations);
 
         [Then(@"'(.*)' contains the value '(.*)'")]
-        public new void ThenTheCallContainsTheValue(object o, Validation validation)
+        public  void ThenTheCallContainsTheValueEnglish(object o, Validation validation)
             => base.ThenTheCallContainsTheValue(o, validation);
     }
 }

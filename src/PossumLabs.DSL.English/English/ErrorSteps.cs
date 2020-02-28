@@ -14,11 +14,11 @@ namespace PossumLabs.DSL.English
         }
 
         [Given(@"an error is expected")]
-        public new void GivenAnErrorIsExpected()
+        public  void GivenAnErrorIsExpectedEnglish()
             => base.GivenAnErrorIsExpected();
 
         [Then(@"the Error has values")]
-        public new void ThenTheErrorHasValues(IEnumerable<Validation> validations)
+        public  void ThenTheErrorHasValuesEnglish(IEnumerable<Validation> validations)
             => base.ThenTheErrorHasValues(validations);
     }
 }

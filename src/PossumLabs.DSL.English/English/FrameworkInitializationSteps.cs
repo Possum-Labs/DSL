@@ -9,39 +9,39 @@ namespace PossumLabs.DSL.English
         public FrameworkInitializationSteps(IObjectContainer objectContainer) : base(objectContainer) { }
 
         [BeforeScenario(Order = int.MinValue + 1)]
-        public new void Setup()
+        public  void SetupEnglish()
             => base.Setup();
 
         [AfterStep]
-        public new void LogStep()
+        public  void LogStepEnglish()
             => base.LogStep();
 
         [BeforeStep]
-        public new void NetworkWatcherHook()
+        public  void NetworkWatcherHookEnglish()
             => base.NetworkWatcherHook();
 
         [AfterScenario(Order = 1)]
-        public new void WebDriverStepBasedLogging()
+        public  void WebDriverStepBasedLoggingEnglish()
             => base.WebDriverStepBasedLogging();
 
         [AfterScenario(Order = int.MinValue + 1)]
-        public new void ErrorScreenLogging()
+        public  void ErrorScreenLoggingEnglish()
             => base.ErrorScreenLogging();
 
         [AfterScenario(Order = int.MinValue)]
-        public new void CheckForAlerts()
+        public  void CheckForAlertsEnglish()
             => base.CheckForAlerts();
 
         [BeforeScenario(Order = int.MinValue+1)]
-        public new virtual void SetupInfrastructure()
+        public  virtual void SetupInfrastructureEnglish()
             => base.SetupInfrastructure();
 
         [BeforeScenario("Movie-Logger")]
-        public new void EnableMovieLogger()
+        public  void EnableMovieLoggerEnglish()
             => base.EnableMovieLogger();
 
         [AfterScenario]
-        public new void CreateMovie()
+        public  void CreateMovieEnglish()
             => base.CreateMovie();
     }
 }

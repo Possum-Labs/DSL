@@ -12,7 +12,7 @@ namespace PossumLabs.DSL.English
 
 
         [Then(@"the Browser Logs has the value '(.*)'")]
-        public new void ThenTheBrowserLogsHasTheValue(Validation validation)
+        public  void ThenTheBrowserLogsHasTheValueEnglish(Validation validation)
             => base.ThenTheBrowserLogsHasTheValue(validation);
 
     }

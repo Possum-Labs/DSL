@@ -41,7 +41,7 @@ namespace DSL.Documentation.Example
         public Pages Pages { get; }
 
         [BeforeScenario("proxy", Order = -400)]
-        [Given("Using a proxy")]
+        [Given("using a Proxy")]
         public void GivenUsingAProxy()
             => Pages.Override(Proxy.Value.ProxyUri);
 
@@ -99,6 +99,8 @@ namespace DSL.Documentation.Example
             });
 
         [BeforeScenario("report")]
+
+        [Given("configure Proxy to look for reports")]
         public void ReportAttribute()
         {
             GivenProxyLogsResponsesOfType("Content-Type", "application/pdf");
