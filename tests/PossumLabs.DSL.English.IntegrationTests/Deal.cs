@@ -67,7 +67,7 @@ namespace PossumLabs.DSL.English.Integration
 
         private void UICreate(Deal deal)
         {
-            DriverSteps.GivenNavigatedTo(@"https://possumlabs.pipedrive.com/pipeline");
+            DriverSteps.GivenNavigatedToEnglish(@"https://possumlabs.pipedrive.com/pipeline");
 
             //When clicking the element 'Add deal'
             DriverSteps.WhenClickingTheElement(@"Add deal");

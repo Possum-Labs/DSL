@@ -130,9 +130,6 @@ namespace PossumLabs.DSL
             templateManager.Initialize(Assembly.GetExecutingAssembly());
             Register(templateManager);
 
-            new PossumLabs.DSL.Core.Variables.ExistingDataManager(this.Interpeter, this.TemplateManager)
-                .Initialize(this.GetType().Assembly);
-
             Log.Message($"Feature: {FeatureContext.FeatureInfo.Title} Scenario: {ScenarioContext.ScenarioInfo.Title} \n" +
                 $"Tags: {FeatureContext.FeatureInfo.Tags.LogFormat()} {ScenarioContext.ScenarioInfo.Tags.LogFormat()}");
 
@@ -140,6 +137,13 @@ namespace PossumLabs.DSL
 
             WebDriverManager.Initialize(BuildDriver);
             WebDriverManager.WebDriverFactory = WebdriverFactory;
+        }
+
+        protected void LoadExistingData()
+        {
+            new PossumLabs.DSL.Core.Variables.ExistingDataManager(this.Interpeter, this.TemplateManager)
+                .Initialize(this.GetType().Assembly);
+
         }
 
         protected virtual RemoteWebDriver WebdriverFactory()

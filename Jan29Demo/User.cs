@@ -32,7 +32,7 @@ namespace PossumLabs.DSL.English.Integration
         public void GivenLoggedInAs(User user)
         {
             //Given navigated to 'https://possumlabs.pipedrive.com/'
-            DriverSteps.GivenNavigatedTo(@"https://possumlabs.pipedrive.com/");
+            DriverSteps.GivenNavigatedToEnglish(@"https://possumlabs.pipedrive.com/");
             //When entering 'Admin.Email' into element 'Email'
             DriverSteps.WhenEnteringForTheElement(user.Email, @"Email");
             //And entering 'Admin.Password' into element 'Password'

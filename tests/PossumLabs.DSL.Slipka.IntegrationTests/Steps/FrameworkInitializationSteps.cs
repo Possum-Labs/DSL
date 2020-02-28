@@ -23,7 +23,7 @@ namespace PossumLabs.DSL.Slipka.IntegrationTests
     {
         public FrameworkInitializationSteps(IObjectContainer objectContainer) : base(objectContainer) { }
 
-        
+        protected DefaultLogger Logger { get; set; }
 
         [BeforeScenario(Order = int.MinValue+1)]
         protected virtual void SetupInfrastructure()
@@ -34,6 +34,9 @@ namespace PossumLabs.DSL.Slipka.IntegrationTests
               .Build();
 
             var configFactory = new ConfigurationFactory(config);
+
+            Logger = new DefaultLogger(new DirectoryInfo(Environment.CurrentDirectory), new YamlLogFormatter());
+            Register((PossumLabs.DSL.Core.Logging.ILog)Logger);
 
             var templateManager = new PossumLabs.DSL.Core.Variables.TemplateManager();
             templateManager.Initialize(Assembly.GetExecutingAssembly());

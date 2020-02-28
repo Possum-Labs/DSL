@@ -45,11 +45,6 @@ namespace PossumLabs.DSL.Core.Variables
         public Type Type => typeof(T);
         public IEnumerable<TypeConverter> RegisteredConversions => Conversions;
         public Dictionary<string, string> PropertyDefaults { get; private set; }
-
-        Type IRepository.Type => throw new NotImplementedException();
-
-        IEnumerable<TypeConverter> IRepository.RegisteredConversions => throw new NotImplementedException();
-
         public T this[string key] => (T)Dictionary[key];
         IValueObject IRepository.this[string key] => Dictionary[key];
 
