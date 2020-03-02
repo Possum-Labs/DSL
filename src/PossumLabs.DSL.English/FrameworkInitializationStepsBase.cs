@@ -35,11 +35,6 @@ namespace PossumLabs.DSL
 
         protected DefaultLogger Logger { get; set; }
 
-        protected virtual void Setup()
-        {
-            ScreenshotProcessor = ObjectContainer.Resolve<ScreenshotProcessor>();
-        }
-
         protected virtual void LogStep()
         {
             MovieLogger.StepEnd($"{ScenarioContext.StepContext.StepInfo.StepDefinitionType} {ScenarioContext.StepContext.StepInfo.Text}");
@@ -98,6 +93,8 @@ namespace PossumLabs.DSL
 
             NetworkWatcher = new NetworkWatcher();
 
+            ScreenshotProcessor = ObjectContainer.Resolve<ScreenshotProcessor>();
+
             var configFactory = new ConfigurationFactory(config);
 
             ObjectContainer.RegisterInstanceAs(configFactory.Create<MovieLoggerConfig>());
@@ -125,11 +122,6 @@ namespace PossumLabs.DSL
             var dataGeneratorRepository = new DataGeneratorRepository(Interpeter, ObjectFactory);
             Register<DataGenerator>(dataGeneratorRepository.BuildGenerator());
 
-
-            var templateManager = new PossumLabs.DSL.Core.Variables.TemplateManager();
-            templateManager.Initialize(Assembly.GetExecutingAssembly());
-            Register(templateManager);
-
             Log.Message($"Feature: {FeatureContext.FeatureInfo.Title} Scenario: {ScenarioContext.ScenarioInfo.Title} \n" +
                 $"Tags: {FeatureContext.FeatureInfo.Tags.LogFormat()} {ScenarioContext.ScenarioInfo.Tags.LogFormat()}");
 
@@ -137,6 +129,13 @@ namespace PossumLabs.DSL
 
             WebDriverManager.Initialize(BuildDriver);
             WebDriverManager.WebDriverFactory = WebdriverFactory;
+        }
+
+        protected void LoadTemplates()
+        {
+            var templateManager = new PossumLabs.DSL.Core.Variables.TemplateManager();
+            templateManager.Initialize(Assembly.GetExecutingAssembly());
+            Register(templateManager);
         }
 
         protected void LoadExistingData()

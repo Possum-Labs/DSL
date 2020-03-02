@@ -9,7 +9,11 @@ namespace DSL.Documentation.Example
         public FrameworkInitializationSteps(IObjectContainer objectContainer) : base(objectContainer) { }
 
         [BeforeScenario(Order = int.MinValue+1)]
-        public new void SetupInfrastructure()
+        public virtual void SetupInfrastructureEnglish()
             => base.SetupInfrastructure();
+
+        [BeforeScenario(Order = 0)]
+        public virtual void LoadExistingDataEnglish()
+            => LoadExistingData();
     }
 }

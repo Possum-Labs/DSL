@@ -43,7 +43,7 @@ namespace DSL.Documentation.Example
             System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
         }
 
-        protected virtual void SetupExistingData()
+        protected void LoadExistingData()
         {
             new PossumLabs.DSL.Core.Variables.ExistingDataManager(this.Interpeter, this.TemplateManager)
                 .Initialize(this.GetType().Assembly);

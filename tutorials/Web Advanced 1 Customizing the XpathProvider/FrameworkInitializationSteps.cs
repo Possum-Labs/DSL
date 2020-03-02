@@ -20,8 +20,7 @@ namespace DSL.Documentation.Example
     {
         public FrameworkInitializationSteps(IObjectContainer objectContainer) : base(objectContainer) { }
 
-        [BeforeScenario(Order = int.MinValue + 1)]
-        public override void SetupInfrastructure()
+        protected override void SetupInfrastructure()
         {
             IConfiguration config = new ConfigurationBuilder()
               .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)

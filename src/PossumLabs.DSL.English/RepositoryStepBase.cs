@@ -34,7 +34,7 @@ namespace PossumLabs.DSL
             throw new NotImplementedException("Create is not supported for this repository.");
         }
 
-        [BeforeScenario(Order = int.MinValue + 1)]
+        [BeforeScenario(Order = int.MinValue + 2)]
         public void RegisterRepositoryWithInterpeter()
         {
             var r = new RepositoryBase<T>(base.Interpeter, base.ObjectFactory);

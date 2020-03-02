@@ -8,10 +8,6 @@ namespace PossumLabs.DSL.English
     {
         public FrameworkInitializationSteps(IObjectContainer objectContainer) : base(objectContainer) { }
 
-        [BeforeScenario(Order = int.MinValue + 1)]
-        public  void SetupEnglish()
-            => base.Setup();
-
         [AfterStep]
         public  void LogStepEnglish()
             => base.LogStep();
@@ -36,7 +32,12 @@ namespace PossumLabs.DSL.English
         public  virtual void SetupInfrastructureEnglish()
             => base.SetupInfrastructure();
 
-        [BeforeScenario(Order = 0)]
+        [BeforeScenario(Order = 1)]
+        public virtual void LoadTemplatesEnglish()
+        => LoadTemplates();
+        
+
+        [BeforeScenario(Order = 2)]
         public virtual void LoadExistingDataEnglish()
             => LoadExistingData();
 

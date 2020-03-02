@@ -1,0 +1,14 @@
+[BeforeScenario]
+  FrameworkInitializationSteps
+    Order = int.MinValue + 1
+      SetupInfrastructure();
+
+    Order = 1
+      LoadTemplates();
+
+    Order = 2
+      LoadExistingData();
+
+  RepositoryStepBase
+    Order = int.MinValue + 2
+      RegisterRepositoryWithInterpeter()
