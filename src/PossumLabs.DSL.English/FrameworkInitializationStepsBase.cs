@@ -20,6 +20,7 @@ using System.Reflection;
 using System.Text;
 using TechTalk.SpecFlow;
 using System.Linq;
+using PossumLabs.DSL.Core.Variables;
 
 namespace PossumLabs.DSL
 {
@@ -135,9 +136,11 @@ namespace PossumLabs.DSL
         protected void LoadTemplates()
         {
             var templateManager = new PossumLabs.DSL.Core.Variables.TemplateManager();
-            templateManager.Initialize(Assembly.GetExecutingAssembly());
+            templateManager.Initialize(this.GetType().Assembly);
             Register(templateManager);
         }
+
+        protected virtual Characteristics Transform(string id) => id;
 
         protected void LoadExistingData()
         {

@@ -5,8 +5,16 @@
       {
         "var": "Admin",
         "value": {
-          "Email": "pipedrive@possumlabs.com",
-          "Password": "nbojSPYy@84m"
+          "Email": "admin@possumlabs.com",
+          "Password": "ShouldComeFromEnvVar"
+        }
+      },
+      {
+        "var": "Guest",
+        "template": "short",
+        "value": {
+          "Email": "guest@possumlabs.com",
+          "Password": "P@ssw0rd"
         }
       }
     ]

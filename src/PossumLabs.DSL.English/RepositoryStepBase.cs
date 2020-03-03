@@ -7,9 +7,9 @@ using System.Linq;
 using TechTalk.SpecFlow;
 
 namespace PossumLabs.DSL
-{
+{ 
     public abstract class RepositoryStepBase<T> : StepsBase
-         where T : IValueObject
+        where T : IValueObject
     {
         public RepositoryStepBase(IObjectContainer objectContainer) : base(objectContainer)
         {

@@ -99,7 +99,7 @@ namespace DSL.Documentation.Example
         private User LockOut(User user)
         {
             //depends on your system on how you can or want to Lock Out a user.
-            user.SupportPriority = user.SupportPriority + 1;
+            user.SupportPriority += 1;
             return user;
         }
 

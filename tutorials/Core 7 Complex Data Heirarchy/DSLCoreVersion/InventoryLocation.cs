@@ -1,4 +1,5 @@
 ﻿using BoDi;
+using DSL.Documentation.Example;
 using PossumLabs.DSL.Core.Variables;
 using System;
 using System.Collections.Generic;
@@ -29,57 +30,62 @@ namespace DSL.Documentation.Example
         {
         }
 
-        /// <summary>
-        /// Given the InventoryLocation
-        /// |   var |
-        /// | InventoryLocation1 |
-        /// Given the InventoryLocation
-        /// |       var | Height |
-        /// |  TallInventoryLocation |    100 | 
-        /// Given the InventoryLocation
-        /// |           var |       Title |
-        /// | SameTitleInventoryLocation | InventoryLocation1.Title | 
-        /// When entering 'InventoryLocation1.Title' into element 'Search'
-        /// </summary>
-
-        [Given(@"the InventoryLocations?")]
-        public void GivenTheInventoryLocations(Dictionary<string, InventoryLocation> InventoryLocations)
+        [BeforeScenario(Order = int.MinValue + 2)]
+        public void InitializeDefault()
         {
-            foreach (var InventoryLocation in InventoryLocations.Values)
-                TemplateManager.ApplyTemplate(InventoryLocation);
-            foreach (var InventoryLocation in InventoryLocations.Values)
-                CreateInventoryLocation(InventoryLocation);
-            foreach (var key in InventoryLocations.Keys)
-                Add(key, InventoryLocations[key]);
+            Repository.InitializeDefault(() =>
+            {
+                var inventoryLocation = new InventoryLocation();
+                CreateInventoryLocation(inventoryLocation);
+                return inventoryLocation;
+            });
+            Repository.InitializeCharacteristicsTransition((x) =>
+            {
+                CreateInventoryLocation(x);
+                return x;
+            }, Characteristics.None);
+            Repository.InitializeCharacteristicsTransition((x) =>
+            {
+                Repository.CharacteristicsTransitionMethods[Characteristics.None](x);
+                //MakeSpecial(x);
+                return x;
+            }, "special");
         }
 
-        /// <summary>
-        /// Given the InventoryLocation of type 'short'
-        /// | var |
-        /// |  U1 |
-        /// Given the InventoryLocation of type 'tall'
-        /// | var |              Title |
-        /// |  U2 |      Benalish Hero | 
-        /// |  U3 | Roc of Kher Ridges | 
-        /// Given the InventoryLocation
-        /// |         var |    Title |
-        /// | UNoTemplate | D2.Title | 
-        /// When entering 'D1.Title' into element 'Search'
-        /// </summary>
-        [Given(@"the InventoryLocations? of type '([^']*)'")]
-        public void GivenTheInventoryLocations(string template, Dictionary<string, InventoryLocation> InventoryLocations)
-        {
-            foreach (var InventoryLocation in InventoryLocations.Values)
-                TemplateManager.ApplyTemplate(InventoryLocation, template);
-            foreach (var InventoryLocation in InventoryLocations.Values)
-                CreateInventoryLocation(InventoryLocation);
-            foreach (var key in InventoryLocations.Keys)
-                Add(key, InventoryLocations[key]);
-        }
+        [Given(@"the Inventory Locations?")]
+        public void GivenTheInventoryLocations(Dictionary<string, InventoryLocation> inventoryLocations)
+     => GivenTheInventoryLocations(null, Characteristics.None, inventoryLocations);
 
+        [Given(@"the Inventory Locations? of type '([\w ]*)'")]
+        public void GivenTheInventoryLocations(string template, Dictionary<string, InventoryLocation> inventoryLocations)
+            => GivenTheInventoryLocations(template, Characteristics.None, inventoryLocations);
+
+        [Given(@"the Inventory Locations? that (?:is|are) '([\w ,]*)'")]
+        public void GivenTheInventoryLocations(Characteristics characteristics, Dictionary<string, InventoryLocation> inventoryLocations)
+            => GivenTheInventoryLocations(null, characteristics, inventoryLocations);
+
+        [Given(@"the Inventory Locations? of type '([\w ]*)' that (?:is|are) '([\w ,]*)'")]
+        public void GivenTheInventoryLocations(
+            string template = null,
+            Characteristics characteristics = null,
+            Dictionary<string, InventoryLocation> inventoryLocations = null)
+        {
+            foreach (var inventoryLocation in inventoryLocations.Values)
+                TemplateManager.ApplyTemplate(inventoryLocation, template);
+            foreach (var inventoryLocation in inventoryLocations.Values)
+                base.Repository.CharacteristicsTransitionMethods[characteristics](inventoryLocation);
+            foreach (var key in inventoryLocations.Keys)
+                Add(key, inventoryLocations[key]);
+        }
         private void CreateInventoryLocation(InventoryLocation InventoryLocation)
         {
             //depends on your system on how you can or want to create a InventoryLocation.
+        }
+
+        [Given(@"Inventory Location '(\w*)' is associated to Store '(\w*)'")]
+        public void GivenInventoryLocationIsAssociatedToStore(InventoryLocation loc, Store store)
+        {
+            // system specific logic here
         }
     }
 }

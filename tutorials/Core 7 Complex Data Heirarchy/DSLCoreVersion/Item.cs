@@ -34,55 +34,61 @@ namespace DSL.Documentation.Example
         {
         }
 
-        /// <summary>
-        /// Given the Item
-        /// |   var |
-        /// | Item1 |
-        /// Given the Item
-        /// |       var | Height |
-        /// |  TallItem |    100 | 
-        /// Given the Item
-        /// |           var |       Title |
-        /// | SameTitleItem | Item1.Title | 
-        /// When entering 'Item1.Title' into element 'Search'
-        /// </summary>
-
-        [Given(@"the Items?")]
-        public void GivenTheItems(Dictionary<string, Item> Items)
+        [BeforeScenario(Order = int.MinValue + 2)]
+        public void InitializeDefault()
         {
-            foreach (var Item in Items.Values)
-                TemplateManager.ApplyTemplate(Item);
-            foreach (var Item in Items.Values)
-                CreateItem(Item);
-            foreach (var key in Items.Keys)
-                Add(key, Items[key]);
+            Repository.InitializeDefault(() =>
+            {
+                var item = new Item();
+                CreateItem(item);
+                return item;
+            });
+            Repository.InitializeCharacteristicsTransition((x) =>
+            {
+                CreateItem(x);
+                return x;
+            }, Characteristics.None);
+            Repository.InitializeCharacteristicsTransition((x) =>
+            {
+                Repository.CharacteristicsTransitionMethods[Characteristics.None](x);
+                MarkAsDamaged(x);
+                return x;
+            }, "damaged");
         }
 
-        /// <summary>
-        /// Given the Item of type 'short'
-        /// | var |
-        /// |  U1 |
-        /// Given the Item of type 'tall'
-        /// | var |              Title |
-        /// |  U2 |      Benalish Hero | 
-        /// |  U3 | Roc of Kher Ridges | 
-        /// Given the Item
-        /// |         var |    Title |
-        /// | UNoTemplate | D2.Title | 
-        /// When entering 'D1.Title' into element 'Search'
-        /// </summary>
-        [Given(@"the Items? of type '([^']*)'")]
-        public void GivenTheItems(string template, Dictionary<string, Item> Items)
+        [Given(@"the Items?")]
+        public void GivenTheItems(Dictionary<string, Item> items)
+    => GivenTheItems(null, Characteristics.None, items);
+
+        [Given(@"the Items? of type '([\w ]*)'")]
+        public void GivenTheItems(string template, Dictionary<string, Item> items)
+            => GivenTheItems(template, Characteristics.None, items);
+
+        [Given(@"the Items? that (?:is|are) '([\w ,]*)'")]
+        public void GivenTheItems(Characteristics characteristics, Dictionary<string, Item> items)
+            => GivenTheItems(null, characteristics, items);
+
+        [Given(@"the Items? of type '([\w ]*)' that (?:is|are) '([\w ,]*)'")]
+        public void GivenTheItems(
+            string template = null,
+            Characteristics characteristics = null,
+            Dictionary<string, Item> items = null)
         {
-            foreach (var Item in Items.Values)
-                TemplateManager.ApplyTemplate(Item, template);
-            foreach (var Item in Items.Values)
-                CreateItem(Item);
-            foreach (var key in Items.Keys)
-                Add(key, Items[key]);
+            foreach (var item in items.Values)
+                TemplateManager.ApplyTemplate(item, template);
+            foreach (var item in items.Values)
+                base.Repository.CharacteristicsTransitionMethods[characteristics](item);
+            foreach (var key in items.Keys)
+                Add(key, items[key]);
         }
 
         private void CreateItem(Item Item)
+        {
+            //depends on your system on how you can or want to create a Item.
+        }
+
+        [Given("the Item '(.*)' has been damaged")]
+        public void MarkAsDamaged(Item Item)
         {
             //depends on your system on how you can or want to create a Item.
         }

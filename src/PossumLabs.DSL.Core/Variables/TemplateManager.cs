@@ -57,7 +57,7 @@ namespace PossumLabs.DSL.Core.Variables
             var fileInfo = new FileInfo(assembly.Location);
             var directoryInfo = fileInfo.Directory;
             var dlls = GetAllFiles(directoryInfo, "dll").Select(f=>f.Name).ToList();
-            var types = GetAllTypesOf<IEntity>(dlls, assembly).Where(t=>!t.IsAbstract && !t.IsInterface).ToList();
+            var types = GetAllTypesOf<IValueObject>(dlls, assembly).Where(t=>!t.IsAbstract && !t.IsInterface).ToList();
             var simplenames = types.Select(t => t.Name);
 
             var files = GetAllFiles(directoryInfo, "json").Where(f => simplenames.Contains(Path.GetFileNameWithoutExtension(f.Name)));

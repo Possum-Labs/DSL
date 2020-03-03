@@ -118,12 +118,12 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-                TechTalk.SpecFlow.Table table23 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table42 = new TechTalk.SpecFlow.Table(new string[] {
                             "var"});
-                table23.AddRow(new string[] {
+                table42.AddRow(new string[] {
                             "TO"});
 #line 4
- testRunner.Given("the Test Object", ((string)(null)), table23, "Given ");
+ testRunner.Given("the Test Object", ((string)(null)), table42, "Given ");
 #line hidden
 #line 7
  testRunner.Then("\'TO.TemplateName\' has the value \'default\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -159,12 +159,12 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-                TechTalk.SpecFlow.Table table24 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table43 = new TechTalk.SpecFlow.Table(new string[] {
                             "var"});
-                table24.AddRow(new string[] {
+                table43.AddRow(new string[] {
                             "TO"});
 #line 10
- testRunner.Given("the Test Object of type \'templateA\'", ((string)(null)), table24, "Given ");
+ testRunner.Given("the Test Object of type \'templateA\'", ((string)(null)), table43, "Given ");
 #line hidden
 #line 13
  testRunner.Then("\'TO.TemplateName\' has the value \'A\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");

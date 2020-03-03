@@ -26,26 +26,52 @@ namespace DSL.Documentation.Example
         {
         }
 
-        [Given(@"the Dealers?")]
-        public void GivenTheDealers(Dictionary<string, Dealer> Dealers)
+        [BeforeScenario(Order = int.MinValue + 2)]
+        public void InitializeDefault()
         {
-            foreach (var Dealer in Dealers.Values)
-                TemplateManager.ApplyTemplate(Dealer);
-            foreach (var Dealer in Dealers.Values)
-                CreateDealer(Dealer);
-            foreach (var key in Dealers.Keys)
-                Add(key, Dealers[key]);
+            Repository.InitializeDefault(() =>
+            {
+                var dealer = new Dealer();
+                CreateDealer(dealer);
+                return dealer;
+            });
+            Repository.InitializeCharacteristicsTransition((x) =>
+            {
+                CreateDealer(x);
+                return x;
+            }, Characteristics.None);
+            Repository.InitializeCharacteristicsTransition((x) =>
+            {
+                Repository.CharacteristicsTransitionMethods[Characteristics.None](x);
+                //MakeSpecial(x);
+                return x;
+            }, "special");
         }
 
-        [Given(@"the Dealers? of type '([^']*)'")]
-        public void GivenTheDealers(string template, Dictionary<string, Dealer> Dealers)
+        [Given(@"the Dealers?")]
+        public void GivenTheDealers(Dictionary<string, Dealer> dealers)
+    => GivenTheDealers(null, Characteristics.None, dealers);
+
+        [Given(@"the Dealers? of type '([\w ]*)'")]
+        public void GivenTheDealers(string template, Dictionary<string, Dealer> dealers)
+            => GivenTheDealers(template, Characteristics.None, dealers);
+
+        [Given(@"the Dealers? that (?:is|are) '([\w ,]*)'")]
+        public void GivenTheDealers(Characteristics characteristics, Dictionary<string, Dealer> dealers)
+            => GivenTheDealers(null, characteristics, dealers);
+
+        [Given(@"the Dealers? of type '([\w ]*)' that (?:is|are) '([\w ,]*)'")]
+        public void GivenTheDealers(
+            string template = null,
+            Characteristics characteristics = null,
+            Dictionary<string, Dealer> dealers = null)
         {
-            foreach (var Dealer in Dealers.Values)
-                TemplateManager.ApplyTemplate(Dealer, template);
-            foreach (var Dealer in Dealers.Values)
-                CreateDealer(Dealer);
-            foreach (var key in Dealers.Keys)
-                Add(key, Dealers[key]);
+            foreach (var dealer in dealers.Values)
+                TemplateManager.ApplyTemplate(dealer, template);
+            foreach (var dealer in dealers.Values)
+                base.Repository.CharacteristicsTransitionMethods[characteristics](dealer);
+            foreach (var key in dealers.Keys)
+                Add(key, dealers[key]);
         }
 
         private void CreateDealer(Dealer Dealer)

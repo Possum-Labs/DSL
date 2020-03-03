@@ -29,54 +29,53 @@ namespace DSL.Documentation.Example
         {
         }
 
-        /// <summary>
-        /// Given the Store
-        /// |   var |
-        /// | Store1 |
-        /// Given the Store
-        /// |       var | Height |
-        /// |  TallStore |    100 | 
-        /// Given the Store
-        /// |           var |       Title |
-        /// | SameTitleStore | Store1.Title | 
-        /// When entering 'Store1.Title' into element 'Search'
-        /// </summary>
+        [BeforeScenario(Order = int.MinValue + 2)]
+        public void InitializeDefault()
+        {
+            Repository.InitializeDefault(() =>
+            {
+                var store = new Store();
+                CreateStore(store);
+                return store;
+            });
+            Repository.InitializeCharacteristicsTransition((x) =>
+            {
+                CreateStore(x);
+                return x;
+            }, Characteristics.None);
+            Repository.InitializeCharacteristicsTransition((x) =>
+            {
+                Repository.CharacteristicsTransitionMethods[Characteristics.None](x);
+                //MakeSpecial(x);
+                return x;
+            }, "special");
+        }
 
         [Given(@"the Stores?")]
-        public void GivenTheStores(Dictionary<string, Store> Stores)
-        {
-            foreach (var Store in Stores.Values)
-                TemplateManager.ApplyTemplate(Store);
-            foreach (var Store in Stores.Values)
-                CreateStore(Store);
-            foreach (var key in Stores.Keys)
-                Add(key, Stores[key]);
-        }
+        public void GivenTheStores(Dictionary<string, Store> stores)
+     => GivenTheStores(null, Characteristics.None, stores);
 
-        /// <summary>
-        /// Given the Store of type 'short'
-        /// | var |
-        /// |  U1 |
-        /// Given the Store of type 'tall'
-        /// | var |              Title |
-        /// |  U2 |      Benalish Hero | 
-        /// |  U3 | Roc of Kher Ridges | 
-        /// Given the Store
-        /// |         var |    Title |
-        /// | UNoTemplate | D2.Title | 
-        /// When entering 'D1.Title' into element 'Search'
-        /// </summary>
-        [Given(@"the Stores? of type '([^']*)'")]
-        public void GivenTheStores(string template, Dictionary<string, Store> Stores)
-        {
-            foreach (var Store in Stores.Values)
-                TemplateManager.ApplyTemplate(Store, template);
-            foreach (var Store in Stores.Values)
-                CreateStore(Store);
-            foreach (var key in Stores.Keys)
-                Add(key, Stores[key]);
-        }
+        [Given(@"the Stores? of type '([\w ]*)'")]
+        public void GivenTheStores(string template, Dictionary<string, Store> stores)
+            => GivenTheStores(template, Characteristics.None, stores);
 
+        [Given(@"the Stores? that (?:is|are) '([\w ,]*)'")]
+        public void GivenTheStores(Characteristics characteristics, Dictionary<string, Store> stores)
+            => GivenTheStores(null, characteristics, stores);
+
+        [Given(@"the Stores? of type '([\w ]*)' that (?:is|are) '([\w ,]*)'")]
+        public void GivenTheStores(
+            string template = null,
+            Characteristics characteristics = null,
+            Dictionary<string, Store> stores = null)
+        {
+            foreach (var store in stores.Values)
+                TemplateManager.ApplyTemplate(store, template);
+            foreach (var store in stores.Values)
+                base.Repository.CharacteristicsTransitionMethods[characteristics](store);
+            foreach (var key in stores.Keys)
+                Add(key, stores[key]);
+        }
         private void CreateStore(Store Store)
         {
             //depends on your system on how you can or want to create a Store.
