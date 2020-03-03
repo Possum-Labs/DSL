@@ -11,7 +11,7 @@
       },
       {
         "var": "Guest",
-        //"template": "short",
+        "template": "short",
         "value": {
           "Email": "guest@possumlabs.com",
           "Password": "P@ssw0rd"

@@ -49,24 +49,28 @@ namespace PossumLabs.DSL.Core.IntegrationTests
                 CreateTestObject(testObject);
                 return testObject;
             });
-            //Repository.InitializeDefault(() =>
-            //{
-            //    var testObject = new TestObject();
-            //    CreateTestObject(testObject);
-            //    MakeSpecial(testObject);
-            //    return testObject;
-            //}, new Characteristics("special"));
+            Repository.InitializeCharacteristicsTransition((x) =>
+            {
+                CreateTestObject(x);
+                return x;
+            }, Characteristics.None);
+            Repository.InitializeCharacteristicsTransition((x) =>
+            {
+                CreateTestObject(x);
+                MakeSpecial(x);
+                return x;
+            }, "special");
         }
 
         [Given(@"the Test Objects?")]
         public void GivenThetestObjects(Dictionary<string, TestObject> testObjects)
             => GivenThetestObjects(null, Characteristics.None, testObjects);
 
-        [Given(@"the Test Objects? of type '(.*)'")]
+        [Given(@"the Test Objects? of type '([\w ]*)'")]
         public void GivenThetestObjects(string template, Dictionary<string, TestObject> testObjects)
             => GivenThetestObjects(template, Characteristics.None, testObjects);
 
-        [Given(@"the Test Objects? that (?:is|are) '(.*)'")]
+        [Given(@"the Test Objects? that (?:is|are) '([\w ,]*)'")]
         public void GivenThetestObjects(Characteristics characteristics, Dictionary<string, TestObject> testObjects)
             => GivenThetestObjects(null, characteristics, testObjects);
 
@@ -79,7 +83,7 @@ namespace PossumLabs.DSL.Core.IntegrationTests
             foreach (var testObject in testObjects.Values)
                 TemplateManager.ApplyTemplate(testObject, template);
             foreach (var testObject in testObjects.Values)
-                CreateTestObject(testObject);
+                base.Repository.CharacteristicsTransitionMethods[characteristics](testObject);
             foreach (var key in testObjects.Keys)
                 Add(key, testObjects[key]);
         }

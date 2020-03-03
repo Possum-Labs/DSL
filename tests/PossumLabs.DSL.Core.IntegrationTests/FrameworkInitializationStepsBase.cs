@@ -11,6 +11,7 @@ using System.Reflection;
 using System.Text;
 using TechTalk.SpecFlow;
 using System.Linq;
+using PossumLabs.DSL.Core.Variables;
 
 namespace PossumLabs.DSL.Core.IntegrationTests
 {
@@ -20,7 +21,9 @@ namespace PossumLabs.DSL.Core.IntegrationTests
 
         private DefaultLogger Logger { get; set; }
 
-        
+
+        protected virtual Characteristics Transform(string id) => id;
+
         protected virtual void SetupInfrastructure()
         {
             IConfiguration config = new ConfigurationBuilder()
@@ -29,6 +32,8 @@ namespace PossumLabs.DSL.Core.IntegrationTests
               .Build();
 
             var configFactory = new ConfigurationFactory(config);
+
+            ObjectContainer.RegisterInstanceAs(new ScenarioMetadata(() => ScenarioContext.TestError != null));
 
             Logger = new DefaultLogger(new DirectoryInfo(Environment.CurrentDirectory), new YamlLogFormatter());
             Register((PossumLabs.DSL.Core.Logging.ILog)Logger);

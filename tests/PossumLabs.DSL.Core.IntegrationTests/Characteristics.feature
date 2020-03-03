@@ -1,11 +1,25 @@
 ﻿Feature: Characteristics
-	In order to avoid silly mistakes
-	As a math idiot
-	I want to be told the sum of two numbers
 
-@mytag
-Scenario: Add two numbers
-	Given I have entered 50 into the calculator
-	And I have entered 70 into the calculator
-	When I press add
-	Then the result should be 120 on the screen
+Scenario: no template
+	Given the Test Object
+		| var |
+		| TO  |
+	Then 'TO.IsSpecial' has the value 'False'
+	And 'TO.Created' has the value 'True'
+
+Scenario: just template
+	Given the Test Object that is 'special'
+		| var |
+		| TO  |
+	Then 'TO.TemplateName' has the value 'default'
+	And 'TO.Created' has the value 'True'
+	And 'TO.IsSpecial' has the value 'True'
+
+Scenario: pecific template
+	Given the Test Object of type 'templateA' that is 'special'
+		| var |
+		| TO  |
+	Then 'TO.TemplateName' has the value 'A'
+	And 'TO.Created' has the value 'True'
+	And 'TO.IsSpecial' has the value 'True'
+

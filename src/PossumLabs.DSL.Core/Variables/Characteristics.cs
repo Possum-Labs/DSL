@@ -68,5 +68,8 @@ namespace PossumLabs.DSL.Core.Variables
 
         public static implicit operator Characteristics(string b)
             => new Characteristics(b.Split(',').Select(x => x.Trim()).ToArray());
+
+        public override string ToString()
+            => this.LogFormat();
     }
 }

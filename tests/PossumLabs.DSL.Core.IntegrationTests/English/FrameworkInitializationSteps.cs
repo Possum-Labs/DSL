@@ -1,4 +1,5 @@
 ﻿using BoDi;
+using PossumLabs.DSL.Core.Variables;
 using TechTalk.SpecFlow;
 
 namespace PossumLabs.DSL.Core.IntegrationTests
@@ -8,8 +9,11 @@ namespace PossumLabs.DSL.Core.IntegrationTests
     {
         public FrameworkInitializationSteps(IObjectContainer objectContainer) : base(objectContainer) { }
 
+        [StepArgumentTransformation]
+        public Characteristics TransformEnglish(string id) => base.Transform(id);
+
         [BeforeScenario(Order = int.MinValue+1)]
-        public new void SetupInfrastructure()
+        public void SetupInfrastructureEnglish()
             => base.SetupInfrastructure();
     }
 }

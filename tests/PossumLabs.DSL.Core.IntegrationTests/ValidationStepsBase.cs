@@ -33,7 +33,8 @@ namespace PossumLabs.DSL.Core.IntegrationTests
         protected virtual Validation TransformValidation(string Constructor) => 
             ValidationFactory.Create(Constructor);
 
-        protected virtual object Transform(string id) => Interpeter.Get<object>(id);
+        protected virtual object Transform(string id) => 
+            Executor.ReturnNullWhenErrorOccured(() => Interpeter.Get<object>(id));
 
         protected virtual void ThenTheCallHasTheValues(object o, IEnumerable<Validation> validations)
             => Executor.Execute(() => o.Validate(validations));

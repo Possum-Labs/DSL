@@ -97,6 +97,7 @@ namespace PossumLabs.DSL
 
             var configFactory = new ConfigurationFactory(config);
 
+            ObjectContainer.RegisterInstanceAs(new ScenarioMetadata(() => ScenarioContext.TestError != null));
             ObjectContainer.RegisterInstanceAs(configFactory.Create<MovieLoggerConfig>());
             ObjectContainer.RegisterInstanceAs(configFactory.Create<ImageLoggingConfig>());
             WebElementSourceLog = new WebElementSourceLog();

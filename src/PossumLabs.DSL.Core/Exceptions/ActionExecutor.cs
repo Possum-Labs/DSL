@@ -7,11 +7,13 @@ namespace PossumLabs.DSL.Core.Exceptions
 {
     public class ActionExecutor
     {
-        public ActionExecutor(ILog logger)
+        public ActionExecutor(ILog logger, ScenarioMetadata metadata)
         {
-            Logger = logger; 
+            Logger = logger;
+            Metadata = metadata;
             IgnoredExceptions = new List<Exception>();
         }
+        private ScenarioMetadata Metadata { get; }
         private ILog Logger { get; }
         public void Execute(Action action)
         {
@@ -47,6 +49,13 @@ namespace PossumLabs.DSL.Core.Exceptions
                 Exception = e;
                 IgnoredExceptions.Add(e);
             }
+        }
+
+        public T ReturnNullWhenErrorOccured<T>(Func<T> func)
+        {
+            if (Metadata.IsErrorPresent())
+                return default(T);
+            return func();
         }
 
         public List<Exception> IgnoredExceptions { get; }

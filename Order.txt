@@ -10,5 +10,5 @@
       LoadExistingData();
 
   RepositoryStepBase
-    Order = int.MinValue + 2
+    Order = int.MinValue
       RegisterRepositoryWithInterpeter()

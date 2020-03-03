@@ -101,6 +101,7 @@ namespace PossumLabs.DSL.Web.Integration
             NetworkWatcher = new NetworkWatcher();
 
             var configFactory = new ConfigurationFactory(config);
+            ObjectContainer.RegisterInstanceAs(new ScenarioMetadata(() => ScenarioContext.TestError != null));
 
             ObjectContainer.RegisterInstanceAs(configFactory.Create<MovieLoggerConfig>());
             ObjectContainer.RegisterInstanceAs(configFactory.Create<ImageLoggingConfig>());

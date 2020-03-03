@@ -12,6 +12,8 @@ namespace PossumLabs.DSL.English.Integration
         public string Email { get; set; }
         public string Password { get; set; }
 
+        public int Height { get; set; }
+
         public string LogFormat()
             => $"email:{Email}";
     }

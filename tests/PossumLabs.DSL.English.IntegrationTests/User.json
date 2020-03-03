@@ -1,0 +1,19 @@
+﻿[
+  {
+    "template": {
+      "height": "2"
+    }
+  },
+  {
+    "name": "short",
+    "template": {
+      "height": "1"
+    }
+  },
+  {
+    "name": "tall",
+    "template": {
+      "height": "3"
+    }
+  }
+]

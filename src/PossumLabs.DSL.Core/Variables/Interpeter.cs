@@ -63,9 +63,11 @@ namespace PossumLabs.DSL.Core.Variables
         private object Resolve(string path)
             => Walker(path.Split('.'));
 
+        protected virtual string DefaultKey => "default";
+
         public object Get(Type t, string path)
         {
-            if (path == string.Empty && Repositories.One(x => x.Type == t))
+            if ((path == string.Empty || path == DefaultKey) && Repositories.One(x => x.Type == t))
                 return Repositories.First(x => x.Type == t).GetOnlyInstance();
 
             return IsVarialbe(path) ? Convert(t, Resolve(path)) : Convert(t, path);
@@ -73,7 +75,7 @@ namespace PossumLabs.DSL.Core.Variables
 
         public X Get<X>(string path)
         {
-            if (path == string.Empty && Repositories.One(x => x.Type == typeof(X)))
+            if ((path == string.Empty || path == DefaultKey) && Repositories.One(x => x.Type == typeof(X)))
                 return (X)Repositories.First(x => x.Type == typeof(X)).GetOnlyInstance();
 
             return IsVarialbe(path) ? Convert<X>(Resolve(path)) : Convert<X>(path);

@@ -34,6 +34,7 @@ namespace PossumLabs.DSL.Slipka.IntegrationTests
               .Build();
 
             var configFactory = new ConfigurationFactory(config);
+            ObjectContainer.RegisterInstanceAs(new ScenarioMetadata(() => ScenarioContext.TestError != null));
 
             Logger = new DefaultLogger(new DirectoryInfo(Environment.CurrentDirectory), new YamlLogFormatter());
             Register((PossumLabs.DSL.Core.Logging.ILog)Logger);

@@ -1,0 +1,10 @@
+[
+  {
+    "name": "Spatula",
+    "template": {
+      "Title": "Spatula",
+      "upc": "123-456-789-0-0",
+      "Price": 42
+    }
+  }
+]

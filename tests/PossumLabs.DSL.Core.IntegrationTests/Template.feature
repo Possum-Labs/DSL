@@ -1,11 +1,14 @@
 ﻿Feature: Template
-	In order to avoid silly mistakes
-	As a math idiot
-	I want to be told the sum of two numbers
+	
+Scenario: default template
+	Given the Test Object
+		| var |
+		| TO  |
+	Then 'TO.TemplateName' has the value 'default'
 
-@mytag
-Scenario: Add two numbers
-	Given I have entered 50 into the calculator
-	And I have entered 70 into the calculator
-	When I press add
-	Then the result should be 120 on the screen
+Scenario: pecific template
+	Given the Test Object of type 'templateA'
+		| var |
+		| TO  |
+	Then 'TO.TemplateName' has the value 'A'
+
