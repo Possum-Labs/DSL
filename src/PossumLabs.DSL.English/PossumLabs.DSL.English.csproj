@@ -31,43 +31,24 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="content\appsettings.json" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="content\appsettings.json">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Content>
-    <Content Include="content\English\AlertSteps.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="content\English\DriverSteps.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="content\English\ErrorSteps.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="content\English\FrameworkInitializationSteps.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="content\English\LogSteps.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="content\English\ResolvedStringSteps.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="content\English\TableSteps.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="content\English\ValidationSteps.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="content\English\WebValidationSteps.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <None Include="content\Entities\User.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <None Pack="true" PackagePath=".\English" Include="content\appsettings.json"/>
+    <None Pack="true" PackagePath=".\English" Include="content\English\AlertSteps.cs"/>
+    <None Pack="true" PackagePath=".\English" Include="content\English\DriverSteps.cs"/>
+    <None Pack="true" PackagePath=".\English" Include="content\English\ErrorSteps.cs"/>
+    <None Pack="true" PackagePath=".\English" Include="content\English\FrameworkInitializationSteps.cs"/>
+    <None Pack="true" PackagePath=".\English" Include="content\English\LogSteps.cs"/>
+    <None Pack="true" PackagePath=".\English" Include="content\English\ResolvedStringSteps.cs"/>
+    <None Pack="true" PackagePath=".\English" Include="content\English\TableSteps.cs"/>
+    <None Pack="true" PackagePath=".\English" Include="content\English\ValidationSteps.cs"/>
+    <None Pack="true" PackagePath=".\English" Include="content\English\WebValidationSteps.cs"/>
+    
+    <None Pack="true" PackagePath=".\Entities" Include="content\Entities\User.cs"/>
+    <None Pack="true" PackagePath=".\Entities" Include="content\Entities\Existing.json"/>
+    <None Pack="true" PackagePath=".\Entities" Include="content\Entities\User.json"/>
+  
+    <None Pack="true" PackagePath=".\Features" Include="content\Features\Google.feature" />
+  
+    <None Pack="true" PackagePath="." Include="content\appsettings.json" />
   </ItemGroup>
 
   <ItemGroup>
@@ -81,18 +62,6 @@
     <ProjectReference Include="..\PossumLabs.DSL.Core\PossumLabs.DSL.Core.csproj" />
     <ProjectReference Include="..\PossumLabs.DSL.DataGeneration\PossumLabs.DSL.DataGeneration.csproj" />
     <ProjectReference Include="..\PossumLabs.DSL.Web\PossumLabs.DSL.Web.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="content\Entities\Existing.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="content\Entities\User.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="content\Features\Google.feature">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
 
 </Project>
