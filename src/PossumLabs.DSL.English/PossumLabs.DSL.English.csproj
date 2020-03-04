@@ -31,71 +31,26 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="content\appsettings.json">
-      <Pack>true</Pack>
-      <PackagePath>\Samples\English</PackagePath>
-    </Content>
-    <Content Include="content\English\AlertSteps.cs">
-      <Pack>true</Pack>
-      <PackagePath>\Samples\English</PackagePath>
-    </Content>
-    <Content Include="content\English\DriverSteps.cs">
-      <Pack>\Samples\English</Pack>
-      <PackagePath>\</PackagePath>
-    </Content>
-    <Content Include="content\English\ErrorSteps.cs">
-      <Pack>\Samples\English</Pack>
-      <PackagePath>\</PackagePath>
-    </Content>
-    <Content Include="content\English\FrameworkInitializationSteps.cs">
-      <Pack>true</Pack>
-      <PackagePath>\Samples\English</PackagePath>
-    </Content>
-    <Content Include="content\English\LogSteps.cs">
-      <Pack>true</Pack>
-      <PackagePath>\Samples\English</PackagePath>
-    </Content>
-    <Content Include="content\English\ResolvedStringSteps.cs">
-      <Pack>true</Pack>
-      <PackagePath>\Samples\English</PackagePath>
-    </Content>
-    <Content Include="content\English\TableSteps.cs">
-      <Pack>true</Pack>
-      <PackagePath>\Samples\English</PackagePath>
-    </Content>
-    <Content Include="content\English\ValidationSteps.cs">
-      <Pack>true</Pack>
-      <PackagePath>\Samples\English</PackagePath>
-    </Content>
-    <Content Include="content\English\WebValidationSteps.cs">
-      <Pack>true</Pack>
-      <PackagePath>\Samples\English</PackagePath>
-    </Content>
+    <Content Include="content\appsettings.json" />
+    <Content Include="content\English\AlertSteps.cs"/>
+    <Content Include="content\English\DriverSteps.cs"/>
+    <Content Include="content\English\ErrorSteps.cs"/>
+    <Content Include="content\English\FrameworkInitializationSteps.cs"/>
+    <Content Include="content\English\LogSteps.cs"/>
+    <Content Include="content\English\ResolvedStringSteps.cs"/>
+    <Content Include="content\English\TableSteps.cs"/>
+    <Content Include="content\English\ValidationSteps.cs"/>
+    <Content Include="content\English\WebValidationSteps.cs"/>
 
-    <Content Include="content\Entities\User.cs">
-      <Pack>true</Pack>
-      <PackagePath>\Samples\Entities</PackagePath>
-    </Content>
-    <Content Include="content\Entities\Existing.json">
-      <Pack>true</Pack>
-      <PackagePath>\Samples\Entities</PackagePath>
-    </Content>
-    <Content Include="content\Entities\User.json">
-      <Pack>true</Pack>
-      <PackagePath>\Samples\Entities</PackagePath>
-    </Content>
+    <Content Include="content\Entities\User.cs"/>
+    <Content Include="content\Entities\Existing.json"/>
+    <Content Include="content\Entities\User.json"/>
 
-    <Content Include="content\Features\Google.feature" >
-      <Pack>true</Pack>
-      <PackagePath>\Samples\Features</PackagePath>
-    </Content>
+    <Content Include="content\Features\Google.feature"/>
 
-    <Content Include="content\appsettings.json" >
-      <Pack>true</Pack>
-      <PackagePath>\Samples</PackagePath>
-    </Content>
+    <Content Include="content\appsettings.json"/>
   
-  <Content Include="content\README.txt" >
+    <Content Include="content\README.txt" >
       <Pack>true</Pack>
       <PackagePath>\</PackagePath>
     </Content>
