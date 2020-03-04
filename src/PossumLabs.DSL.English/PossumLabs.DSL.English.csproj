@@ -32,7 +32,7 @@
 
   <ItemGroup>
     <Content Include="build\PossumLabs.DSL.English.targets" >
-      <PackagePath>build\PossumLabs.DSL.English.targets</PackagePath>
+      <PackagePath>buildTransitive\PossumLabs.DSL.English.targets</PackagePath>
     </Content>
     
     <Content Include="content\appsettings.json" >
