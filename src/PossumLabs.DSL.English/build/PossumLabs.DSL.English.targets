@@ -1,0 +1,16 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <ItemGroup>
+        <TemplateProjectFiles Include="$(MSBuildThisFileDirectory)..\content\*.json" />
+        <TemplateEnglishFiles Include="$(MSBuildThisFileDirectory)..\content\English\*.cs" />
+        <TemplateEntitiesFiles1 Include="$(MSBuildThisFileDirectory)..\content\Entities\*.cs" />
+        <TemplateEntitiesFiles2 Include="$(MSBuildThisFileDirectory)..\content\content\Entities\*.json" />
+        <TemplateFeaturesFiles Include="$(MSBuildThisFileDirectory)..\content\Features\*.feature" />
+    </ItemGroup>
+    <Target Name="CopySamplesToProject" BeforeTargets="Build" Condition="!Exists('$(ProjectDir)\appsettings.json')" >
+        <Copy SourceFiles="@(TemplateProjectFiles)" DestinationFolder="$(ProjectDir)\" />
+        <Copy SourceFiles="@(TemplateEnglishFiles)" DestinationFolder="$(ProjectDir)\English\" />
+        <Copy SourceFiles="@(TemplateEntitiesFiles1)" DestinationFolder="$(ProjectDir)\Entities\" />
+        <Copy SourceFiles="@(TemplateEntitiesFiles2)" DestinationFolder="$(ProjectDir)\Entities\" />
+        <Copy SourceFiles="@(TemplateFeaturesFiles)" DestinationFolder="$(ProjectDir)\Features\" />
+    </Target>
+</Project>

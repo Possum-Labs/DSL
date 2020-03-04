@@ -1,45 +1,3 @@
-Add tests for Defaults
--- resolve empty string to default
--- default with registered instance
--- default with factory instance
--- default with factory template
-
-Illustrate Defaults
-Background:
-	Given the Dealer
-	| var   |
-	| DEALER1 |
-	And the Store
-	| var   | Dealer |
-	| STORE1 | DEALER1    |
-	And the new User
-	| var  | Store | Functions      | 
-	| USR1 | STORE1  | [['Sales']] | 
-	And the Inventory Location
-	| var  | Dealer |
-	| LOC1 | DEALER1    |
-	And Inventory Location 'LOC1' is associated to Store 'STORE1'
-
-Scenario: Sell a Spatula
-	Given the new Item of type 'Spatula' 
-	| var   | Location |
-	| ITEM1 | LOC1     |
-	
-	### go sell a spatula
-
-With Defaults:
-
-Background:
-	Given the new User
-	| var  |  Functions   | 
-	| USR1 |  ['Sales'] |
-	And Inventory Location '' is associated to Store ''
-
-Scenario: Sell a Spatula
-	Given the new Item of type 'Spatula' 
-	| var   | 
-	| ITEM1 | 
-	
 	### go sell a spatula
 
 Why use templates, states and defaults 
@@ -61,3 +19,7 @@ For instance, as the tests no longer specify how the data is to be setup we can 
 "sold" Item. This used to always require actions on the website, but now it can also be acomplished suing the mobile client.
 As the tests would specify "Given the Item that is 'sold'" we can vary how this transition happened. Letting us run our tests, without 
 chaning the gherkin, to verify if the downstream workflows of the 'sold' characteristic work for both web as mobile sales.
+
+
+copy files
+https://github.com/tiagoavila/NugetGeneratingFilesInDestinationProject/blob/master/NugetGeneratingFilesInDestinationProject/PackageToGenerateFile/PackageToGenerateFile.csproj
