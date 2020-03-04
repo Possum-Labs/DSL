@@ -28,6 +28,7 @@
     <Compile Remove="content\English\WebValidationSteps.cs" />
     <Compile Remove="content\Entities\User.cs" />
     <Compile Remove="content\User.cs" />
+    <Compile Remove="English\Class1.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -58,6 +59,7 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Content>
     <Content Include="content\Features\Google.feature" />
+    <Content Include="English\Class1.cs" />
   </ItemGroup>
 
   <ItemGroup>
