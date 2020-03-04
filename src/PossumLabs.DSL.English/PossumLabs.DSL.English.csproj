@@ -31,24 +31,74 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Pack="true" PackagePath=".\English" Include="content\appsettings.json"/>
-    <None Pack="true" PackagePath=".\English" Include="content\English\AlertSteps.cs"/>
-    <None Pack="true" PackagePath=".\English" Include="content\English\DriverSteps.cs"/>
-    <None Pack="true" PackagePath=".\English" Include="content\English\ErrorSteps.cs"/>
-    <None Pack="true" PackagePath=".\English" Include="content\English\FrameworkInitializationSteps.cs"/>
-    <None Pack="true" PackagePath=".\English" Include="content\English\LogSteps.cs"/>
-    <None Pack="true" PackagePath=".\English" Include="content\English\ResolvedStringSteps.cs"/>
-    <None Pack="true" PackagePath=".\English" Include="content\English\TableSteps.cs"/>
-    <None Pack="true" PackagePath=".\English" Include="content\English\ValidationSteps.cs"/>
-    <None Pack="true" PackagePath=".\English" Include="content\English\WebValidationSteps.cs"/>
-    
-    <None Pack="true" PackagePath=".\Entities" Include="content\Entities\User.cs"/>
-    <None Pack="true" PackagePath=".\Entities" Include="content\Entities\Existing.json"/>
-    <None Pack="true" PackagePath=".\Entities" Include="content\Entities\User.json"/>
+    <Content Include="content\appsettings.json">
+      <Pack>true</Pack>
+      <PackagePath>\Samples\English</PackagePath>
+    </Content>
+    <Content Include="content\English\AlertSteps.cs">
+      <Pack>true</Pack>
+      <PackagePath>\Samples\English</PackagePath>
+    </Content>
+    <Content Include="content\English\DriverSteps.cs">
+      <Pack>\Samples\English</Pack>
+      <PackagePath>\</PackagePath>
+    </Content>
+    <Content Include="content\English\ErrorSteps.cs">
+      <Pack>\Samples\English</Pack>
+      <PackagePath>\</PackagePath>
+    </Content>
+    <Content Include="content\English\FrameworkInitializationSteps.cs">
+      <Pack>true</Pack>
+      <PackagePath>\Samples\English</PackagePath>
+    </Content>
+    <Content Include="content\English\LogSteps.cs">
+      <Pack>true</Pack>
+      <PackagePath>\Samples\English</PackagePath>
+    </Content>
+    <Content Include="content\English\ResolvedStringSteps.cs">
+      <Pack>true</Pack>
+      <PackagePath>\Samples\English</PackagePath>
+    </Content>
+    <Content Include="content\English\TableSteps.cs">
+      <Pack>true</Pack>
+      <PackagePath>\Samples\English</PackagePath>
+    </Content>
+    <Content Include="content\English\ValidationSteps.cs">
+      <Pack>true</Pack>
+      <PackagePath>\Samples\English</PackagePath>
+    </Content>
+    <Content Include="content\English\WebValidationSteps.cs">
+      <Pack>true</Pack>
+      <PackagePath>\Samples\English</PackagePath>
+    </Content>
+
+    <Content Include="content\Entities\User.cs">
+      <Pack>true</Pack>
+      <PackagePath>\Samples\Entities</PackagePath>
+    </Content>
+    <Content Include="content\Entities\Existing.json">
+      <Pack>true</Pack>
+      <PackagePath>\Samples\Entities</PackagePath>
+    </Content>
+    <Content Include="content\Entities\User.json">
+      <Pack>true</Pack>
+      <PackagePath>\Samples\Entities</PackagePath>
+    </Content>
+
+    <Content Include="content\Features\Google.feature" >
+      <Pack>true</Pack>
+      <PackagePath>\Samples\Features</PackagePath>
+    </Content>
+
+    <Content Include="content\appsettings.json" >
+      <Pack>true</Pack>
+      <PackagePath>\Samples</PackagePath>
+    </Content>
   
-    <None Pack="true" PackagePath=".\Features" Include="content\Features\Google.feature" />
-  
-    <None Pack="true" PackagePath="." Include="content\appsettings.json" />
+  <Content Include="content\README.txt" >
+      <Pack>true</Pack>
+      <PackagePath>\</PackagePath>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
