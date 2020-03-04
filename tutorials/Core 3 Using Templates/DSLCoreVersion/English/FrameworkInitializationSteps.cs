@@ -1,4 +1,5 @@
 ﻿using BoDi;
+using PossumLabs.DSL.Core.Variables;
 using TechTalk.SpecFlow;
 
 namespace DSL.Documentation.Example
@@ -8,12 +9,11 @@ namespace DSL.Documentation.Example
     {
         public FrameworkInitializationSteps(IObjectContainer objectContainer) : base(objectContainer) { }
 
-        [BeforeScenario(Order = int.MinValue + 1)]
-        public virtual void SetupInfrastructureEnglish()
-            => base.SetupInfrastructure();
+        [StepArgumentTransformation]
+        public Characteristics TransformEnglish(string id) => base.Transform(id);
 
-        [BeforeScenario(Order = 0)]
-        public virtual void LoadExistingDataEnglish()
-            => LoadExistingData();
+        [BeforeScenario(Order = int.MinValue + 1)]
+        public void SetupInfrastructureEnglish()
+            => base.SetupInfrastructure();
     }
 }

@@ -8,31 +8,38 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <SpecFlowObsoleteCodeBehindFiles Remove="Validations.feature.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.2.0" />
     <PackageReference Include="MSTest.TestAdapter" Version="2.0.0" />
     <PackageReference Include="MSTest.TestFramework" Version="2.0.0" />
     <PackageReference Include="coverlet.collector" Version="1.0.1" />
-    <PackageReference Include="PossumLabs.DSL.Core" Version="1.0.0-CI-20200303-065244" />
-    <PackageReference Include="PossumLabs.DSL.DataGeneration" Version="1.0.0-CI-20200303-065244" />
+    <PackageReference Include="PossumLabs.DSL.Core" Version="1.0.0-CI-20200303-174156" />
+    <PackageReference Include="PossumLabs.DSL.DataGeneration" Version="1.0.0-CI-20200303-174156" />
     <PackageReference Include="SpecFlow" Version="3.1.82" />
     <PackageReference Include="SpecFlow.MsTest" Version="3.1.82" />
     <PackageReference Include="SpecFlow.Tools.MsBuild.Generation" Version="3.1.82" />
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Validations.feature.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="appsettings.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Existing.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="User.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="features\" />
+    <SpecFlowFeatureFiles Update="Validations.feature">
+      <Visible>$(UsingMicrosoftNETSdk)</Visible>
+      <CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>
+    </SpecFlowFeatureFiles>
   </ItemGroup>
 
 </Project>

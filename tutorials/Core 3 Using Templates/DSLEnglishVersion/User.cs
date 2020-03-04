@@ -1,7 +1,6 @@
 ﻿using BoDi;
 using PossumLabs.DSL;
 using PossumLabs.DSL.Core.Variables;
-using PossumLabs.DSL.DataGeneration;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -13,18 +12,20 @@ namespace DSL.Documentation.Example
     {
         public User()
         {
-            Title = $"{DataGenerator.GenerateCreatures?[0]}";
-            SupportPriority = 0;
+            Id = Guid.NewGuid();
+            Functions = new List<string>();
         }
-
-        public string Title { get; set; }
-        public string Email { get; set; }
+        public Guid Id { get; set; }
         public string Password { get; set; }
+        public string Email { get; set; }
+        public string Title { get; set; }
         public int Height { get; set; }
-        public int SupportPriority { get; set; }
-
         public string LogFormat()
-            => $"email:{Email}";
+            => $"Id:{Id}";
+
+
+        public List<string> Functions { get; set; }
+
     }
 
     [Binding]
@@ -35,79 +36,62 @@ namespace DSL.Documentation.Example
         {
         }
 
-        //TODO: errr.... this is a mess
-        [BeforeScenario]
-        public void Setup()
+        [BeforeScenario(Order = int.MinValue + 2)]
+        public void InitializeDefault()
         {
-            Repository.InitializeDefault(()=>this.CreateUser(new User()));
+            Repository.InitializeDefault(() =>
+            {
+                var user = new User();
+                CreateUser(user);
+                return user;
+            });
+            Repository.InitializeCharacteristicsTransition((x) =>
+            {
+                CreateUser(x);
+                return x;
+            }, Characteristics.None);
+            Repository.InitializeCharacteristicsTransition((x) =>
+            {
+                Repository.CharacteristicsTransitionMethods[Characteristics.None](x);
+                //MakeSpecial(x);
+                return x;
+            }, "special");
         }
 
-        /// <summary>
-        /// Given the User
-        /// |   var |
-        /// | User1 |
-        /// </summary>
         [Given(@"the Users?")]
         public void GivenTheUsers(Dictionary<string, User> users)
-            => GivenTheUsers(null, Characteristics.None, users);
+     => GivenTheUsers(null, Characteristics.None, users);
 
-        /// <summary>
-        /// Given the User that (?:is|are) 'locked out'
-        /// |   var |
-        /// | User1 |
-        /// </summary>
-        [Given(@"the Users?")]
-        public void GivenTheUsersWithCharacterisitics(Characteristics characteristics, Dictionary<string, User> users)
-            => GivenTheUsers(null, characteristics,  users);
-
-        /// <summary>
-        /// Given the User of type 'short'
-        /// |   var |
-        /// | User1 |
-        /// </summary>
-        [Given(@"the Users? of type '([^']*)'")]
+        [Given(@"the Users? of type '([\w ]*)'")]
         public void GivenTheUsers(string template, Dictionary<string, User> users)
             => GivenTheUsers(template, Characteristics.None, users);
 
-        /// <summary>
-        /// Given the User of type 'short' that (?:is|are) 'locked out'
-        /// |   var |
-        /// | User1 |
-        /// </summary>
-        [Given(@"the Users? of type '([^']*)'")]
-        public void GivenTheUsers(string template, Characteristics characteristics, Dictionary<string, User> users)
+        [Given(@"the Users? that (?:is|are) '([\w ,]*)'")]
+        public void GivenTheUsers(Characteristics characteristics, Dictionary<string, User> users)
+            => GivenTheUsers(null, characteristics, users);
+
+        [Given(@"the Users? of type '([\w ]*)' that (?:is|are) '([\w ,]*)'")]
+        public void GivenTheUsers(
+            string template = null,
+            Characteristics characteristics = null,
+            Dictionary<string, User> users = null)
         {
-            //apply template
             foreach (var user in users.Values)
                 TemplateManager.ApplyTemplate(user, template);
-
-            //Set characterisitcs
             foreach (var user in users.Values)
-                TemplateManager.ApplyTemplate(user, template);
-
-            //Add to repository
+                base.Repository.CharacteristicsTransitionMethods[characteristics](user);
             foreach (var key in users.Keys)
                 Add(key, users[key]);
         }
-
-        private User CreateUser(User user)
+        private void CreateUser(User User)
         {
-            //depends on your system on how you can or want to create a user.
-            return user;
+            //depends on your system on how you can or want to create a User.
         }
 
-        private User LockOut(User user)
+        [Given(@"Logged in as User '(\w*)'")]
+        public void GivenLoggedInAsUser(User user)
         {
-            //depends on your system on how you can or want to Lock Out a user.
-            user.SupportPriority += 1;
-            return user;
-        }
-
-        private User MakeVip(User user)
-        {
-            //depends on your system on how you can or want to Make Vip a user.
-            user.SupportPriority = user.SupportPriority + 2;
-            return user;
+            // system specific logic here
         }
     }
 }

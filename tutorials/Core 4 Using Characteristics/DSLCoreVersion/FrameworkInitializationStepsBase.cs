@@ -11,6 +11,7 @@ using System.Reflection;
 using System.Text;
 using TechTalk.SpecFlow;
 using System.Linq;
+using PossumLabs.DSL.Core.Variables;
 
 namespace DSL.Documentation.Example
 {
@@ -20,7 +21,9 @@ namespace DSL.Documentation.Example
 
         private DefaultLogger Logger { get; set; }
 
-        
+
+        protected virtual Characteristics Transform(string id) => id;
+
         protected virtual void SetupInfrastructure()
         {
             IConfiguration config = new ConfigurationBuilder()
@@ -30,6 +33,8 @@ namespace DSL.Documentation.Example
 
             var configFactory = new ConfigurationFactory(config);
 
+            ObjectContainer.RegisterInstanceAs(new ScenarioMetadata(() => ScenarioContext.TestError != null));
+
             Logger = new DefaultLogger(new DirectoryInfo(Environment.CurrentDirectory), new YamlLogFormatter());
             Register((PossumLabs.DSL.Core.Logging.ILog)Logger);
 
@@ -37,16 +42,13 @@ namespace DSL.Documentation.Example
             templateManager.Initialize(Assembly.GetExecutingAssembly());
             Register(templateManager);
 
-            Log.Message($"feature: {FeatureContext.FeatureInfo.Title} scenario: {ScenarioContext.ScenarioInfo.Title} \n" +
+            new PossumLabs.DSL.Core.Variables.ExistingDataManager(this.Interpeter, this.TemplateManager)
+                .Initialize(this.GetType().Assembly);
+
+            Log.Message($"Feature: {FeatureContext.FeatureInfo.Title} Scenario: {ScenarioContext.ScenarioInfo.Title} \n" +
                 $"Tags: {FeatureContext.FeatureInfo.Tags.LogFormat()} {ScenarioContext.ScenarioInfo.Tags.LogFormat()}");
 
             System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
-        }
-
-        protected void LoadExistingData()
-        {
-            new PossumLabs.DSL.Core.Variables.ExistingDataManager(this.Interpeter, this.TemplateManager)
-                .Initialize(this.GetType().Assembly);
         }
     }
 }

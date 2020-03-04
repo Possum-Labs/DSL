@@ -73,9 +73,6 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomizingElementFactory", "tutorials\Web Advanced 3 Customizing the ElementFactory\CustomizingElementFactory.csproj", "{BA6500C1-5BBA-44D6-A9C7-CB2E3FFDFCAE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 Using Defaults", "5 Using Defaults", "{53357139-6F18-41DE-8E7D-47E4B38B408A}"
-	ProjectSection(SolutionItems) = preProject
-		Defaults.txt = Defaults.txt
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "7 Complex Data Hierarchy", "7 Complex Data Hierarchy", "{D744D75B-DC81-493A-A571-8CC592312199}"
 EndProject

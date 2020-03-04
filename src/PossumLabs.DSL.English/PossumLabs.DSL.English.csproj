@@ -17,6 +17,47 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="content\English\AlertSteps.cs" />
+    <Compile Remove="content\English\DriverSteps.cs" />
+    <Compile Remove="content\English\ErrorSteps.cs" />
+    <Compile Remove="content\English\FrameworkInitializationSteps.cs" />
+    <Compile Remove="content\English\LogSteps.cs" />
+    <Compile Remove="content\English\ResolvedStringSteps.cs" />
+    <Compile Remove="content\English\TableSteps.cs" />
+    <Compile Remove="content\English\ValidationSteps.cs" />
+    <Compile Remove="content\English\WebValidationSteps.cs" />
+    <Compile Remove="content\User.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="content\appsettings.json" />
+    <None Remove="content\Existing.json" />
+    <None Remove="content\User.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="content\appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\English\AlertSteps.cs" />
+    <Content Include="content\English\DriverSteps.cs" />
+    <Content Include="content\English\ErrorSteps.cs" />
+    <Content Include="content\English\FrameworkInitializationSteps.cs" />
+    <Content Include="content\English\LogSteps.cs" />
+    <Content Include="content\English\ResolvedStringSteps.cs" />
+    <Content Include="content\English\TableSteps.cs" />
+    <Content Include="content\English\ValidationSteps.cs" />
+    <Content Include="content\English\WebValidationSteps.cs" />
+    <Content Include="content\Existing.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\User.cs" />
+    <Content Include="content\User.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="FluentAssertions" Version="5.10.0" />
     <PackageReference Include="Selenium.Chrome.WebDriver" Version="79.0.0" />
     <PackageReference Include="SpecFlow" Version="3.1.76" />

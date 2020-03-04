@@ -12,14 +12,13 @@ namespace DSL.Documentation.Example
     {
         public int Id { get; set; }
 
-        //[DefaultToRepositoryDefault(characteristics= "vip, short")]
-        //[NullCoalesceWithDefault]
+        //you can use either attribute
+        //[DefaultToRepositoryDefault()]
+        [NullCoalesceWithDefault]
         public User User { get; set; }
 
         public string LogFormat()
-        {
-            throw new NotImplementedException();
-        }
+            => $"{Id}";
     }
 
     [Binding]
@@ -30,30 +29,58 @@ namespace DSL.Documentation.Example
         {
         }
 
-        /// <summary>
-        /// Given the Ticket
-        /// |     var |
-        /// | Ticket1 |
-        /// Given the Ticket
-        /// |      var | 
-        /// |  Ticket2 | 
-        /// Then the value of 'Ticket1.User' is 'Ticket2.User'
-        /// Given the User
-        /// |   var |
-        /// | User1 |
-        /// Given the Ticket
-        /// |      var |  User |
-        /// |  Ticket3 | User1 |
-        /// Then the value of 'Ticket1.User' is not 'Ticket3.User'
-        /// </summary>
+        [BeforeScenario(Order = int.MinValue + 2)]
+        public void InitializeDefault()
+        {
+            Repository.InitializeDefault(() =>
+            {
+                var ticket = new Ticket();
+                CreateTicket(ticket);
+                return ticket;
+            });
+            Repository.InitializeCharacteristicsTransition((x) =>
+            {
+                CreateTicket(x);
+                return x;
+            }, Characteristics.None);
+            Repository.InitializeCharacteristicsTransition((x) =>
+            {
+                Repository.CharacteristicsTransitionMethods[Characteristics.None](x);
+                // something to make it special
+                return x;
+            }, "special");
+        }
 
         [Given(@"the Tickets?")]
-        public void GivenTheTickets(Dictionary<string, Ticket> Tickets)
+        public void GivenTheTickets(Dictionary<string, Ticket> tickets)
+     => GivenTheTickets(null, Characteristics.None, tickets);
+
+        [Given(@"the Tickets? of type '([\w ]*)'")]
+        public void GivenTheTickets(string template, Dictionary<string, Ticket> tickets)
+            => GivenTheTickets(template, Characteristics.None, tickets);
+
+        [Given(@"the Tickets? that (?:is|are) '([\w ,]*)'")]
+        public void GivenTheTickets(Characteristics characteristics, Dictionary<string, Ticket> tickets)
+            => GivenTheTickets(null, characteristics, tickets);
+
+        [Given(@"the Tickets? of type '([\w ]*)' that (?:is|are) '([\w ,]*)'")]
+        public void GivenTheTickets(
+            string template = null,
+            Characteristics characteristics = null,
+            Dictionary<string, Ticket> tickets = null)
         {
-            foreach (var Ticket in Tickets.Values)
-                TemplateManager.ApplyTemplate(Ticket);
-            foreach (var key in Tickets.Keys)
-                Add(key, Tickets[key]);
+            foreach (var ticket in tickets.Values)
+            {
+                TemplateManager.ApplyTemplate(ticket, template);
+                base.Repository.DecorateNewItem(ticket);
+                base.Repository.CharacteristicsTransitionMethods[characteristics](ticket);
+            }
+            foreach (var key in tickets.Keys)
+                Add(key, tickets[key]);
+        }
+        private void CreateTicket(Ticket Ticket)
+        {
+            //depends on your system on how you can or want to create a Ticket.
         }
     }
 }
