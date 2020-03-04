@@ -17,17 +17,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="content\English\AlertSteps.cs" />
-    <Compile Remove="content\English\DriverSteps.cs" />
-    <Compile Remove="content\English\ErrorSteps.cs" />
-    <Compile Remove="content\English\FrameworkInitializationSteps.cs" />
-    <Compile Remove="content\English\LogSteps.cs" />
-    <Compile Remove="content\English\ResolvedStringSteps.cs" />
-    <Compile Remove="content\English\TableSteps.cs" />
-    <Compile Remove="content\English\ValidationSteps.cs" />
-    <Compile Remove="content\English\WebValidationSteps.cs" />
-    <Compile Remove="content\Entities\User.cs" />
-    <Compile Remove="content\User.cs" />
+    <Compile Remove="tools\English\AlertSteps.cs" />
+    <Compile Remove="tools\English\DriverSteps.cs" />
+    <Compile Remove="tools\English\ErrorSteps.cs" />
+    <Compile Remove="tools\English\FrameworkInitializationSteps.cs" />
+    <Compile Remove="tools\English\LogSteps.cs" />
+    <Compile Remove="tools\English\ResolvedStringSteps.cs" />
+    <Compile Remove="tools\English\TableSteps.cs" />
+    <Compile Remove="tools\English\ValidationSteps.cs" />
+    <Compile Remove="tools\English\WebValidationSteps.cs" />
+    <Compile Remove="tools\Entities\User.cs" />
+    <Compile Remove="tools\User.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -35,56 +35,71 @@
       <PackagePath>buildTransitive\PossumLabs.DSL.English.targets</PackagePath>
     </Content>
     
-    <Content Include="content\appsettings.json" >
+    <Content Include="tools\appsettings.json" >
       <Pack>true</Pack>
+      <PackagePath>\tools\</PackagePath>
     </Content>
-    <Content Include="content\English\AlertSteps.cs" >
+    <Content Include="tools\English\AlertSteps.cs" >
       <Pack>true</Pack>
+      <PackagePath>\tools\</PackagePath>
     </Content>
-    <Content Include="content\English\DriverSteps.cs" >
+    <Content Include="tools\English\DriverSteps.cs" >
       <Pack>true</Pack>
+      <PackagePath>\tools\</PackagePath>
     </Content>
-    <Content Include="content\English\ErrorSteps.cs" >
+    <Content Include="tools\English\ErrorSteps.cs" >
       <Pack>true</Pack>
+      <PackagePath>\tools\</PackagePath>
     </Content>
-    <Content Include="content\English\FrameworkInitializationSteps.cs" >
+    <Content Include="tools\English\FrameworkInitializationSteps.cs" >
       <Pack>true</Pack>
+      <PackagePath>\tools\</PackagePath>
     </Content>
-    <Content Include="content\English\LogSteps.cs" >
+    <Content Include="tools\English\LogSteps.cs" >
       <Pack>true</Pack>
+      <PackagePath>\tools\</PackagePath>
     </Content>
-    <Content Include="content\English\ResolvedStringSteps.cs" >
+    <Content Include="tools\English\ResolvedStringSteps.cs" >
       <Pack>true</Pack>
+      <PackagePath>\tools\</PackagePath>
     </Content>
-    <Content Include="content\English\TableSteps.cs" >
+    <Content Include="tools\English\TableSteps.cs" >
       <Pack>true</Pack>
+      <PackagePath>\tools\</PackagePath>
     </Content>
-    <Content Include="content\English\ValidationSteps.cs" >
+    <Content Include="tools\English\ValidationSteps.cs" >
       <Pack>true</Pack>
+      <PackagePath>\tools\</PackagePath>
     </Content>
-    <Content Include="content\English\WebValidationSteps.cs" >
+    <Content Include="tools\English\WebValidationSteps.cs" >
       <Pack>true</Pack>
-    </Content>
-
-    <Content Include="content\Entities\User.cs" >
-      <Pack>true</Pack>
-    </Content>
-    <Content Include="content\Entities\Existing.json" >
-      <Pack>true</Pack>
-    </Content>
-    <Content Include="content\Entities\User.json" >
-      <Pack>true</Pack>
-    </Content>
-
-    <Content Include="content\Features\Google.feature" >
-      <Pack>true</Pack>
+      <PackagePath>\tools\</PackagePath>
     </Content>
 
-    <Content Include="content\appsettings.json" >
+    <Content Include="tools\Entities\User.cs" >
       <Pack>true</Pack>
+      <PackagePath>\tools\</PackagePath>
+    </Content>
+    <Content Include="tools\Entities\Existing.json" >
+      <Pack>true</Pack>
+      <PackagePath>\tools\</PackagePath>
+    </Content>
+    <Content Include="tools\Entities\User.json" >
+      <Pack>true</Pack>
+      <PackagePath>\tools\</PackagePath>
+    </Content>
+
+    <Content Include="tools\Features\Google.feature" >
+      <Pack>true</Pack>
+      <PackagePath>\tools\</PackagePath>
+    </Content>
+
+    <Content Include="tools\appsettings.json" >
+      <Pack>true</Pack>
+      <PackagePath>\tools\</PackagePath>
     </Content>
   
-    <Content Include="content\README.txt">
+    <Content Include="tools\README.txt">
       <Pack>true</Pack>
       <PackagePath>\</PackagePath>
     </Content>
