@@ -41,57 +41,57 @@
     </Content>
     <Content Include="tools\English\AlertSteps.cs" >
       <Pack>true</Pack>
-      <PackagePath>\tools\</PackagePath>
+      <PackagePath>\tools\English\</PackagePath>
     </Content>
     <Content Include="tools\English\DriverSteps.cs" >
       <Pack>true</Pack>
-      <PackagePath>\tools\</PackagePath>
+      <PackagePath>\tools\English\</PackagePath>
     </Content>
     <Content Include="tools\English\ErrorSteps.cs" >
       <Pack>true</Pack>
-      <PackagePath>\tools\</PackagePath>
+      <PackagePath>\tools\English\</PackagePath>
     </Content>
     <Content Include="tools\English\FrameworkInitializationSteps.cs" >
       <Pack>true</Pack>
-      <PackagePath>\tools\</PackagePath>
+      <PackagePath>\tools\English\</PackagePath>
     </Content>
     <Content Include="tools\English\LogSteps.cs" >
       <Pack>true</Pack>
-      <PackagePath>\tools\</PackagePath>
+      <PackagePath>\tools\English\</PackagePath>
     </Content>
     <Content Include="tools\English\ResolvedStringSteps.cs" >
       <Pack>true</Pack>
-      <PackagePath>\tools\</PackagePath>
+      <PackagePath>\tools\English\</PackagePath>
     </Content>
     <Content Include="tools\English\TableSteps.cs" >
       <Pack>true</Pack>
-      <PackagePath>\tools\</PackagePath>
+      <PackagePath>\tools\English\</PackagePath>
     </Content>
     <Content Include="tools\English\ValidationSteps.cs" >
       <Pack>true</Pack>
-      <PackagePath>\tools\</PackagePath>
+      <PackagePath>\tools\English\</PackagePath>
     </Content>
     <Content Include="tools\English\WebValidationSteps.cs" >
       <Pack>true</Pack>
-      <PackagePath>\tools\</PackagePath>
+      <PackagePath>\tools\English\</PackagePath>
     </Content>
 
     <Content Include="tools\Entities\User.cs" >
       <Pack>true</Pack>
-      <PackagePath>\tools\</PackagePath>
+      <PackagePath>\tools\Entities\</PackagePath>
     </Content>
     <Content Include="tools\Entities\Existing.json" >
       <Pack>true</Pack>
-      <PackagePath>\tools\</PackagePath>
+      <PackagePath>\tools\Entities\</PackagePath>
     </Content>
     <Content Include="tools\Entities\User.json" >
       <Pack>true</Pack>
-      <PackagePath>\tools\</PackagePath>
+      <PackagePath>\tools\Entities\</PackagePath>
     </Content>
 
     <Content Include="tools\Features\Google.feature" >
       <Pack>true</Pack>
-      <PackagePath>\tools\</PackagePath>
+      <PackagePath>\tools\Features\</PackagePath>
     </Content>
 
     <Content Include="tools\appsettings.json" >
