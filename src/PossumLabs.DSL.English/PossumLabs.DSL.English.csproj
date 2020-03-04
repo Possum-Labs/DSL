@@ -31,16 +31,33 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="content\English\AlertSteps.cs" />
-    <None Include="content\English\DriverSteps.cs" />
-    <None Include="content\English\ErrorSteps.cs" />
-    <None Include="content\English\FrameworkInitializationSteps.cs" />
-    <None Include="content\English\LogSteps.cs" />
-    <None Include="content\English\ResolvedStringSteps.cs" />
-    <None Include="content\English\TableSteps.cs" />
-    <None Include="content\English\ValidationSteps.cs" />
-    <None Include="content\English\WebValidationSteps.cs" />
-    <None Include="content\Entities\User.cs" />
+    <None Remove="content\appsettings.json" />
+    <None Remove="content\Entities\Existing.json" />
+    <None Remove="content\Entities\User.json" />
+    <None Remove="content\Features\Google.feature" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="content\appsettings.json">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\English\AlertSteps.cs" />
+    <Content Include="content\English\DriverSteps.cs" />
+    <Content Include="content\English\ErrorSteps.cs" />
+    <Content Include="content\English\FrameworkInitializationSteps.cs" />
+    <Content Include="content\English\LogSteps.cs" />
+    <Content Include="content\English\ResolvedStringSteps.cs" />
+    <Content Include="content\English\TableSteps.cs" />
+    <Content Include="content\English\ValidationSteps.cs" />
+    <Content Include="content\English\WebValidationSteps.cs" />
+    <Content Include="content\Entities\Existing.json">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\Entities\User.cs" />
+    <Content Include="content\Entities\User.json">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\Features\Google.feature" />
   </ItemGroup>
 
   <ItemGroup>
@@ -57,15 +74,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="content\appsettings.json">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </None>
-    <None Update="content\Entities\Existing.json">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </None>
-    <None Update="content\Entities\User.json">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </None>
     <None Update="content\Features\Google.feature">
     </None>
   </ItemGroup>
