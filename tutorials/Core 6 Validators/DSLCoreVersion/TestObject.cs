@@ -42,7 +42,7 @@ namespace DSL.Documentation.Example
 
         [BeforeScenario(Order = int.MinValue + 2)]
         public void InitializeDefault()
-        { 
+        {
             Repository.InitializeDefault(() =>
             {
                 var testObject = new TestObject();
@@ -76,8 +76,8 @@ namespace DSL.Documentation.Example
 
         [Given(@"the Test Objects? of type '([\w ]*)' that (?:is|are) '(.*)'")]
         public void GivenThetestObjects(
-            string template = null, 
-            Characteristics characteristics = null, 
+            string template = null,
+            Characteristics characteristics = null,
             Dictionary<string, TestObject> testObjects = null)
         {
             foreach (var testObject in testObjects.Values)
@@ -88,11 +88,11 @@ namespace DSL.Documentation.Example
                 Add(key, testObjects[key]);
         }
 
-        private void CreateTestObject(TestObject testObject) 
+        private void CreateTestObject(TestObject testObject)
         {
             testObject.Created = true;
         }
-        private void MakeSpecial(TestObject testObject) 
+        private void MakeSpecial(TestObject testObject)
         {
             testObject.IsSpecial = true;
         }

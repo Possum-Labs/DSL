@@ -27,6 +27,7 @@
     <ProjectReference Include="..\..\src\PossumLabs.DSL.Web\PossumLabs.DSL.Web.csproj" />
     <ProjectReference Include="..\..\src\PossumLabs.DSL.DataGeneration\PossumLabs.DSL.DataGeneration.csproj" />
     <ProjectReference Include="..\..\src\PossumLabs.DSL.English\PossumLabs.DSL.English.csproj" />
+    <ProjectReference Include="..\..\src\PossumLabs.DSL.Gherkin\PossumLabs.DSL.Gherkin.csproj" />
   </ItemGroup>
 
   <ItemGroup>

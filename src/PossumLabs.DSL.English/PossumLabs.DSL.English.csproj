@@ -12,7 +12,7 @@
     <PackageTags>DSL, BDD, SpecFlow, gherkin, cucumber</PackageTags>
     <RepositoryType>Git</RepositoryType>
     <PackageReleaseNotes></PackageReleaseNotes>
-    <Description>Supports the creation of Domain-Specific Languages for test automation. Default implementation.</Description>
+    <Description>Only intended for new projects. Supports the creation of Domain-Specific Languages for test automation. Default english implementation.</Description>
     <Version>1.0.0</Version>
   </PropertyGroup>
 
@@ -116,6 +116,7 @@
     <ProjectReference Include="..\PossumLabs.DSL.Core\PossumLabs.DSL.Core.csproj" />
     <ProjectReference Include="..\PossumLabs.DSL.DataGeneration\PossumLabs.DSL.DataGeneration.csproj" />
     <ProjectReference Include="..\PossumLabs.DSL.Web\PossumLabs.DSL.Web.csproj" />
+    <ProjectReference Include="..\PossumLabs.DSL.Gherkin\PossumLabs.DSL.Gherkin.csproj" />
   </ItemGroup>
 
 </Project>

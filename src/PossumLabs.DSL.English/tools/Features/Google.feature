@@ -7,10 +7,4 @@ Scenario: google something
 	And clicking the element 'Google Search'
 	Then the page contains the element 'About'
 
-Scenario: using error steps
-	Given navigated to 'http://google.com'
-	And an error is expected
-	When clicking the element 'Bob'
-	Then the Error has values
-         | Message             |
-         | /.*Google Search.*/ |
+

@@ -12,7 +12,7 @@
     <PackageTags>DSL, BDD, SpecFlow, gherkin, cucumber</PackageTags>
     <RepositoryType>Git</RepositoryType>
     <PackageReleaseNotes></PackageReleaseNotes>
-    <Description>Supports the creation of Domain-Specific Languages for test automation. Supports human friendly data generation</Description>
+    <Description>Supports the creation of Domain-Specific Languages for test automation. Supports human friendly random data generation</Description>
     <Version>1.0.0</Version>
   </PropertyGroup>
 
