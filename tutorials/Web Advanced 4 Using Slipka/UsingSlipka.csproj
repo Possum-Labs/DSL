@@ -13,8 +13,8 @@
     <PackageReference Include="MSTest.TestAdapter" Version="2.0.0" />
     <PackageReference Include="MSTest.TestFramework" Version="2.0.0" />
     <PackageReference Include="coverlet.collector" Version="1.0.1" />
-    <PackageReference Include="PossumLabs.DSL.English" Version="1.0.0-CI-20200303-174156" />
-    <PackageReference Include="PossumLabs.DSL.Slipka" Version="1.0.0-CI-20200303-174156" />
+    <PackageReference Include="PossumLabs.DSL.English" Version="1.0.0-CI-20200305-222401" />
+    <PackageReference Include="PossumLabs.DSL.Slipka" Version="1.0.0-CI-20200305-222401" />
   </ItemGroup>
 
   <ItemGroup>
@@ -25,10 +25,7 @@
     <None Update="appsettings.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="appsettings.json">
+    <None Update="Entities\*.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

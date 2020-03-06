@@ -16,7 +16,7 @@
     <PackageReference Include="MSTest.TestAdapter" Version="2.0.0" />
     <PackageReference Include="MSTest.TestFramework" Version="2.0.0" />
     <PackageReference Include="coverlet.collector" Version="1.0.1" />
-    <PackageReference Include="PossumLabs.DSL.English" Version="1.0.0-CI-20200303-174156" />
+    <PackageReference Include="PossumLabs.DSL.English" Version="1.0.0-CI-20200305-222401" />
     <PackageReference Include="SpecFlow" Version="3.1.82" />
     <PackageReference Include="SpecFlow.MsTest" Version="3.1.82" />
     <PackageReference Include="SpecFlow.Tools.MsBuild.Generation" Version="3.1.82" />
@@ -32,7 +32,7 @@
     <None Update="appsettings.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="User.json">
+    <None Update="Entities\*.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
@@ -42,6 +42,10 @@
       <Visible>$(UsingMicrosoftNETSdk)</Visible>
       <CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>
     </SpecFlowFeatureFiles>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Features\" />
   </ItemGroup>
 
 </Project>
