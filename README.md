@@ -2,6 +2,8 @@
 
 [![Build Status](https://dev.azure.com/Possum-Labs/DSL/_apis/build/status/Possum-Labs.DSL?branchName=master)](https://dev.azure.com/Possum-Labs/DSL/_build/latest?definitionId=1&branchName=master)
 
+[![Live Support](https://possumlabs.com/assests/Twitch-Support.png)](https://www.twitch.tv/possumlabs)
+
 Effective Software test automation your organization can stick with.
 
 1. test automation
