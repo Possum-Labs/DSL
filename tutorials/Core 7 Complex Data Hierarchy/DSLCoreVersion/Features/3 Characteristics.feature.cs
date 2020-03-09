@@ -178,6 +178,18 @@ this.FeatureBackground();
 #line 20
  testRunner.Given("the Item of type \'Spatula\' that is \'damaged\'", ((string)(null)), table15, "Given ");
 #line hidden
+#line 25
+ testRunner.Then("\'ITEM1.InventoryLocation.Defaulted\' has the value \'False\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 26
+ testRunner.And("\'ITEM1.InventoryLocation.Dealer.Defaulted\' has the value \'False\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 27
+ testRunner.And("\'USR1.Store.Defaulted\' has the value \'False\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 28
+ testRunner.And("\'USR1.Store.Dealer.Defaulted\' has the value \'False\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
             }
             this.ScenarioCleanup();
         }

@@ -12,3 +12,8 @@ Scenario: Sell a Spatula
 	| var   | 
 	| ITEM1 | 
 	### do the selling
+
+	Then 'ITEM1.InventoryLocation.Defaulted' has the value 'True'
+	And 'ITEM1.InventoryLocation.Dealer.Defaulted' has the value 'True'
+	And 'USR1.Store.Defaulted' has the value 'True'
+	And 'USR1.Store.Dealer.Defaulted' has the value 'True'

@@ -22,3 +22,8 @@ Scenario: Sell a Spatula
 	| ITEM1 | LOC1              | Spatula | 123-456-789-0-0 | 42    |
 	And the Item 'ITEM1' has been damaged
 	### do the selling
+
+	Then 'ITEM1.InventoryLocation.Defaulted' has the value 'False'
+	And 'ITEM1.InventoryLocation.Dealer.Defaulted' has the value 'False'
+	And 'USR1.Store.Defaulted' has the value 'False'
+	And 'USR1.Store.Dealer.Defaulted' has the value 'False'

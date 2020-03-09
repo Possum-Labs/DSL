@@ -15,6 +15,7 @@ namespace DSL.Documentation.Example
             Id = Guid.NewGuid();
         }
         public Guid Id { get; set; }
+        public bool Defaulted { get; set; }
         public string LogFormat()
             => $"Id:{Id}";
 
@@ -37,6 +38,8 @@ namespace DSL.Documentation.Example
             {
                 var inventoryLocation = new InventoryLocation();
                 CreateInventoryLocation(inventoryLocation);
+                inventoryLocation.Defaulted = true;
+                Repository.DecorateNewItem(inventoryLocation);
                 return inventoryLocation;
             });
             Repository.InitializeCharacteristicsTransition((x) =>

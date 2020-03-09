@@ -15,6 +15,7 @@ namespace DSL.Documentation.Example
             Id = Guid.NewGuid();
         }
         public Guid Id { get; set; }
+        public bool Defaulted { get; set; }
         public string LogFormat()
             => $"Id:{Id}";
     }
@@ -34,6 +35,8 @@ namespace DSL.Documentation.Example
             {
                 var dealer = new Dealer();
                 CreateDealer(dealer);
+                dealer.Defaulted = true;
+                Repository.DecorateNewItem(dealer);
                 return dealer;
             });
             Repository.InitializeCharacteristicsTransition((x) =>

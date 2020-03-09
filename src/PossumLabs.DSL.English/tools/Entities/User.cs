@@ -37,6 +37,7 @@ namespace DSL.Documentation.Example
                     // you could return a user that comes from existing data here
                     var user = new User();
                     CreateUser(user);
+                    Repository.DecorateNewItem(user);
                     return user;
                 });
 

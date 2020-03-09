@@ -187,6 +187,18 @@ this.FeatureBackground();
 #line 23
  testRunner.And("the Item \'ITEM1\' has been damaged", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
+#line 26
+ testRunner.Then("\'ITEM1.InventoryLocation.Defaulted\' has the value \'False\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 27
+ testRunner.And("\'ITEM1.InventoryLocation.Dealer.Defaulted\' has the value \'False\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 28
+ testRunner.And("\'USR1.Store.Defaulted\' has the value \'False\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 29
+ testRunner.And("\'USR1.Store.Dealer.Defaulted\' has the value \'False\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
             }
             this.ScenarioCleanup();
         }
