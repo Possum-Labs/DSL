@@ -6,6 +6,9 @@
 pool:
   vmImage: 'ubuntu-latest'
 
+trigger:
+- master
+
 variables:
   buildConfiguration: 'Release'
   Major: '1'
