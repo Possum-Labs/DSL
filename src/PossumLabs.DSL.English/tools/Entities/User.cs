@@ -15,6 +15,8 @@ namespace DSL.Documentation.Example
             Id = Guid.NewGuid();
         }
         public Guid Id { get; set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
         public int Height { get; set; }
         public string LogFormat()
             => $"Id:{Id}";
