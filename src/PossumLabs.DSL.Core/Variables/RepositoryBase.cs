@@ -193,13 +193,15 @@ namespace PossumLabs.DSL.Core.Variables
 
         object IRepository.GetOnlyInstance()
         {
-            if (Defaults.SelectMany(x => x.Value).Many())
-                throw new Exception($"There are multiple {typeof(T).Name} in repository, " +
-                    $"this prevents the usage of defaults");
-            if (Defaults.SelectMany(x => x.Value).One(x => x.Value.IsValueCreated))
-                return Defaults.SelectMany(x => x.Value).First().Value.Value;
             if (Defaults.ContainsKey(Characteristics.None))
                 return Defaults[Characteristics.None][DefaultTemplateName].Value;
+
+            if (Defaults.SelectMany(x => x.Value).One(x => x.Value.IsValueCreated))
+                return Defaults.SelectMany(x => x.Value).First().Value.Value;
+            else
+                throw new Exception($"There are multiple {typeof(T).Name} in repository, " +
+                    $"this prevents the usage of defaults");
+
             throw new Exception("Unable tot Get the default, nothing is registred");
         }
     }

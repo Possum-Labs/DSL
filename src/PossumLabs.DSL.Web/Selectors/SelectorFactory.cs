@@ -266,6 +266,7 @@ namespace PossumLabs.DSL.Web.Selectors
                     $"((@type='button' or @type='submit' or @type='reset') and @value={target.XpathEncode()}) or " +
                     $"@name={target.XpathEncode()} or " +
                     $"@aria-label={target.XpathEncode()} or " +
+                    $"@placeholder={target.XpathEncode()} or " +
                     $"(@type='radio' and @value={target.XpathEncode()})" +
                 $")]");
 

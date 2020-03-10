@@ -1,0 +1,7 @@
+﻿the goal of this project is to simulate  a new install of the package PossumLabs.DSL.English. 
+
+this means that there is a Unittest1.cs file.
+
+when you fix things in here it will just get overwritten, so make the changes in PossumLabs.DSL.English
+
+Lastly visual studio will not properly detect changes so expect to rebuild all on occasion.

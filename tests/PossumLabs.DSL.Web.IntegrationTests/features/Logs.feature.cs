@@ -124,12 +124,12 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-                TechTalk.SpecFlow.Table table34 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table33 = new TechTalk.SpecFlow.Table(new string[] {
                             "Html"});
-                table34.AddRow(new string[] {
+                table33.AddRow(new string[] {
                             "<button onclick=\"console.log(\'bubbles\')\">target</button>"});
 #line 6
- testRunner.Given("injecting browser content", ((string)(null)), table34, "Given ");
+ testRunner.Given("injecting browser content", ((string)(null)), table33, "Given ");
 #line hidden
 #line 9
  testRunner.When("clicking the element \'target\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
@@ -170,12 +170,12 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-                TechTalk.SpecFlow.Table table35 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table34 = new TechTalk.SpecFlow.Table(new string[] {
                             "Html"});
-                table35.AddRow(new string[] {
+                table34.AddRow(new string[] {
                             "<button onclick=\"throw \'bubbles\'\">target</button>"});
 #line 13
- testRunner.Given("injecting browser content", ((string)(null)), table35, "Given ");
+ testRunner.Given("injecting browser content", ((string)(null)), table34, "Given ");
 #line hidden
 #line 16
  testRunner.When("clicking the element \'target\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");

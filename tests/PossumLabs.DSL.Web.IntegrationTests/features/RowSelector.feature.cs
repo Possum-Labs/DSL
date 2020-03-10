@@ -117,12 +117,12 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-                TechTalk.SpecFlow.Table table36 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table35 = new TechTalk.SpecFlow.Table(new string[] {
                             "TableRow"});
-                table36.AddRow(new string[] {
+                table35.AddRow(new string[] {
                             string.Format("{0}", html)});
 #line 5
- testRunner.Given("injecting browser content", ((string)(null)), table36, "Given ");
+ testRunner.Given("injecting browser content", ((string)(null)), table35, "Given ");
 #line hidden
 #line 8
  testRunner.When(string.Format("for row \'{0}\' entering \'{1}\' into element \'{2}\'", row, value, target), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
@@ -351,12 +351,12 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-                TechTalk.SpecFlow.Table table37 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table36 = new TechTalk.SpecFlow.Table(new string[] {
                             "Html"});
-                table37.AddRow(new string[] {
+                table36.AddRow(new string[] {
                             string.Format("{0}", html)});
 #line 26
- testRunner.Given("injecting browser content", ((string)(null)), table37, "Given ");
+ testRunner.Given("injecting browser content", ((string)(null)), table36, "Given ");
 #line hidden
 #line 29
  testRunner.When(string.Format("for row \'{0}\' entering \'{1}\' into element \'{2}\'", row, value, target), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
