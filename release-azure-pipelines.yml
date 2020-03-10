@@ -14,20 +14,21 @@ variables:
   Major: '1'
   Minor: '1'
   Patch: '0'
+  VersionVariableName: '$(Major).$(Minor).$(Patch)'
 
 steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: 'build'
     projects: 'src/*/*.csproj'
+
 - task: DotNetCoreCLI@2
   inputs:
-    command: pack
+    command: 'pack'
     packagesToPack: 'src/*/*.csproj'
-    versioningScheme: byPrereleaseNumber
-    majorVersion: '$(Major)'
-    minorVersion: '$(Minor)'
-    patchVersion: '$(Patch)'
+    versioningScheme: 'byEnvVar'
+    versionEnvVar: <VersionVariableName>
+
 - task: NuGetCommand@2
   inputs:
     command: push
