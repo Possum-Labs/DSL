@@ -27,7 +27,7 @@ steps:
     command: 'pack'
     packagesToPack: 'src/*/*.csproj'
     versioningScheme: 'byEnvVar'
-    versionEnvVar: <VersionVariableName>
+    versionEnvVar: 'VersionVariableName'
 
 - task: NuGetCommand@2
   inputs:
@@ -35,5 +35,5 @@ steps:
     packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
     nuGetFeedType: external
     versioningScheme: byEnvVar
-    versionEnvVar: <VersionVariableName>
+    versionEnvVar: 'VersionVariableName'
     publishFeedCredentials: NuGetPossumLabs
