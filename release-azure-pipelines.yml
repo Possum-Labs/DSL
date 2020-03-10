@@ -24,6 +24,7 @@ steps:
   inputs:
     command: pack
     packagesToPack: 'src/*/*.csproj'
+    versioningScheme: byPrereleaseNumber
     majorVersion: '$(Major)'
     minorVersion: '$(Minor)'
     patchVersion: '$(Patch)'
