@@ -1,4 +1,5 @@
 ﻿using BoDi;
+using PossumLabs.DSL;
 using PossumLabs.DSL.Core.Validations;
 using System.Collections.Generic;
 using TechTalk.SpecFlow;

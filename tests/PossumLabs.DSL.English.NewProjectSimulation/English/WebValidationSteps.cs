@@ -1,4 +1,5 @@
 ﻿using BoDi;
+using PossumLabs.DSL;
 using PossumLabs.DSL.Web;
 using PossumLabs.DSL.Web.Selectors;
 using TechTalk.SpecFlow;

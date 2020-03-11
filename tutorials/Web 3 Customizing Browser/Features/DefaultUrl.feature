@@ -1,7 +1,9 @@
 ﻿Feature: Default Url
 
 Scenario: using the default url from FrameworkInitializationSteps
-	Given navigated to '/'
-	When entering 'Possum Labs' into element 'Search'
-	And clicking the element 'Google Search'
-	Then the page contains the element 'About'
+	Given navigated to 'testsite'
+	When entering 'possum' into element 'User Name'
+	And entering 'possum' into element 'Password'
+	And clicking the element 'Login'
+
+	Then the page contains the element 'Add Dealer'

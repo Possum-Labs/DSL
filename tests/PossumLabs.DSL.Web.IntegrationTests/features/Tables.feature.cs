@@ -272,6 +272,26 @@ this.FindingPropperCellsInTables("th noise text input", "target", "Bob", "<tr><t
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Finding propper cells in tables: make sure incorrect columns are skipped")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Table Selectors")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("injected-html")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "make sure incorrect columns are skipped")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:description", "make sure incorrect columns are skipped")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:target", "target")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:value", "Bob")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:table", "<tr><th>Other</th><th>Key</th><th>Col1</th></tr><tr><td>target</td><td>ignore</td" +
+            "><td>Bad</td></tr><tr><td>ignore</td><td>target</td><td><input type=\"text\"/></td" +
+            "></tr>")]
+        public virtual void FindingPropperCellsInTables_MakeSureIncorrectColumnsAreSkipped()
+        {
+#line 19
+this.FindingPropperCellsInTables("make sure incorrect columns are skipped", "target", "Bob", "<tr><th>Other</th><th>Key</th><th>Col1</th></tr><tr><td>target</td><td>ignore</td" +
+                    "><td>Bad</td></tr><tr><td>ignore</td><td>target</td><td><input type=\"text\"/></td" +
+                    "></tr>", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Failed match")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Table Selectors")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("injected-html")]
@@ -279,7 +299,7 @@ this.FindingPropperCellsInTables("th noise text input", "target", "Bob", "<tr><t
         {
             string[] tagsOfScenario = ((string[])(null));
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Failed match", null, ((string[])(null)));
-#line 34
+#line 36
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -304,7 +324,7 @@ this.ScenarioInitialize(scenarioInfo);
                 table53.AddRow(new string[] {
                             "<tr><th>Key</th><th>Col1</th></tr><tr><td>target</td><td><input type=\"text\"/></td" +
                                 "></tr>"});
-#line 35
+#line 37
  testRunner.Given("injecting browser content", ((string)(null)), table53, "Given ");
 #line hidden
                 TechTalk.SpecFlow.Table table54 = new TechTalk.SpecFlow.Table(new string[] {
@@ -313,10 +333,10 @@ this.ScenarioInitialize(scenarioInfo);
                 table54.AddRow(new string[] {
                             "target",
                             "Bob"});
-#line 38
+#line 40
  testRunner.When("entering into Table", ((string)(null)), table54, "When ");
 #line hidden
-#line 41
+#line 43
  testRunner.Given("an error is expected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
                 TechTalk.SpecFlow.Table table55 = new TechTalk.SpecFlow.Table(new string[] {
@@ -325,14 +345,14 @@ this.ScenarioInitialize(scenarioInfo);
                 table55.AddRow(new string[] {
                             "target",
                             "Marry"});
-#line 42
+#line 44
  testRunner.Then("the Table has values", ((string)(null)), table55, "Then ");
 #line hidden
                 TechTalk.SpecFlow.Table table56 = new TechTalk.SpecFlow.Table(new string[] {
                             "Message"});
                 table56.AddRow(new string[] {
                             "/the value was \'Bob\' wich was not \'Marry\'/"});
-#line 45
+#line 47
  testRunner.Then("the Error has values", ((string)(null)), table56, "Then ");
 #line hidden
             }

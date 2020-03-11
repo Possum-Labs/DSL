@@ -20,7 +20,7 @@ namespace PossumLabs.DSL.English
         /// </summary>
         [BeforeScenario]
         public void SetDefaultUrl()
-            => WebDriverManager.BaseUrl = new Uri(@"https://www.google.com/");
+            => WebDriverManager.BaseUrl = new Uri(@"http://www.PossumLabs.com/");
 
         /// <summary>
         /// you can swap this to return any other kind of RemoteWebDriver

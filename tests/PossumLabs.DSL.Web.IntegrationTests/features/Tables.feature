@@ -27,9 +27,11 @@ Scenario Outline: Finding propper cells in tables
 	| Key      | Col1    |
 	| <target> | <value> |
 Examples: 
-	| description          | target | value | table                                                                                                              |
-	| th simple text input | target | Bob   | <tr><th>Key</th><th>Col1</th></tr><tr><td>target</td><td><input type="text"/></td></tr>                            |
-	| th noise text input  | target | Bob   | <tr><th>stuff</th><th>Key</th><th>Col1</th></tr><tr><td>junk</td><td>target</td><td><input type="text"/></td></tr> |
+	| description                             | target | value | table                                                                                                                                                                   |
+	| th simple text input                    | target | Bob   | <tr><th>Key</th><th>Col1</th></tr><tr><td>target</td><td><input type="text"/></td></tr>                                                                                 |
+	| th noise text input                     | target | Bob   | <tr><th>stuff</th><th>Key</th><th>Col1</th></tr><tr><td>junk</td><td>target</td><td><input type="text"/></td></tr>                                                      |
+	| make sure incorrect columns are skipped | target | Bob   | <tr><th>Other</th><th>Key</th><th>Col1</th></tr><tr><td>target</td><td>ignore</td><td>Bad</td></tr><tr><td>ignore</td><td>target</td><td><input type="text"/></td></tr> |
+
 
 Scenario: Failed match
 	Given injecting browser content

@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
+using OpenQA.Selenium.Support.UI;
 using PossumLabs.DSL.Core;
 using PossumLabs.DSL.Core.Exceptions;
 using PossumLabs.DSL.Core.Logging;
@@ -13,6 +14,7 @@ using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace PossumLabs.DSL.Web
@@ -158,12 +160,22 @@ namespace PossumLabs.DSL.Web
         private List<WebDriver> Children { get; set; }
 
         //TODO: check this form
+        // I suspect this is an Async call, and there is no way to await :/
         public void NavigateTo(string url)
         {
             if (Uri.TryCreate(url, UriKind.Absolute, out var absolute))
                 SeleniumDriver.Navigate().GoToUrl(url);
             else
                 SeleniumDriver.Navigate().GoToUrl(RootUrl().AbsoluteUri + url);
+
+            //safety, it is not it's job to catch this error
+            try
+            {
+                Thread.Sleep(1000);
+                WebDriverWait wait = new WebDriverWait(SeleniumDriver, new TimeSpan(0, 0, 5));
+                wait.Until(x => x.FindElement(By.XPath("//body")));
+            }
+            catch { }
         }
 
         public void Close()
@@ -569,6 +581,7 @@ namespace PossumLabs.DSL.Web
                 return formatted;
             }
         }
+
     }
 }
 
