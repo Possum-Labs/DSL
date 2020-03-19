@@ -60,7 +60,7 @@ namespace DSL.Documentation.Example
 
         [Given(@"the Users?")]
         public void GivenTheUsers(Dictionary<string, User> users)
-     => GivenTheUsers(null, Characteristics.None, users);
+            => GivenTheUsers(null, Characteristics.None, users);
 
         [Given(@"the Users? of type '([\w ]*)'")]
         public void GivenTheUsers(string template, Dictionary<string, User> users)

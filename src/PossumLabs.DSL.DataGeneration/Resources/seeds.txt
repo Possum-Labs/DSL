@@ -7,7 +7,6 @@ American-Beachgrass
 Angletongrass
 Annual-Bluegrass
 Annual-Fescue
-Annual-Rape
 Annual-Ryegrass
 Arrowleaf-Clover
 Bahiagrass
@@ -130,7 +129,6 @@ Polish-Wheat
 Pop-Corn
 Poulard-Wheat
 Proso-Millet
-Rape
 Red-Clover
 Red-Fescue
 Redtop
@@ -185,7 +183,6 @@ Timothy
 Tobacco
 Trefoil
 Triticale
-Turnip-Rape
 Veldtgrass
 Velvet-Bentgrass
 Velvetbean
@@ -201,7 +198,6 @@ White-Mustard
 White-Sweetclover
 Wildrye
 Wimmera-Ryegrass
-Winter-Rape
 Wood-Bluegrass
 Woollypod-Vetch
 Yellow-Bluestem
