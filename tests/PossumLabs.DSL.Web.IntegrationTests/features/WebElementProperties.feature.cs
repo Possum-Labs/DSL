@@ -118,12 +118,12 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-                TechTalk.SpecFlow.Table table59 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table63 = new TechTalk.SpecFlow.Table(new string[] {
                             "Html"});
-                table59.AddRow(new string[] {
+                table63.AddRow(new string[] {
                             "<label for=\"linky\">target</label><input id=\"linky\" type=\"text\"></input>"});
 #line 6
- testRunner.Given("injecting browser content", ((string)(null)), table59, "Given ");
+ testRunner.Given("injecting browser content", ((string)(null)), table63, "Given ");
 #line hidden
 #line 9
  testRunner.When("setting \'bob\' for element \'target\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
@@ -165,12 +165,12 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-                TechTalk.SpecFlow.Table table60 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table64 = new TechTalk.SpecFlow.Table(new string[] {
                             "Html"});
-                table60.AddRow(new string[] {
+                table64.AddRow(new string[] {
                             "<input id=\"target\" type=\"text\" style=\"display:none\"></input>"});
 #line 14
- testRunner.Given("injecting browser content", ((string)(null)), table60, "Given ");
+ testRunner.Given("injecting browser content", ((string)(null)), table64, "Given ");
 #line hidden
 #line 17
  testRunner.Given("the Settable Element \'E1\' found by \'#target\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
@@ -209,12 +209,12 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-                TechTalk.SpecFlow.Table table61 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table65 = new TechTalk.SpecFlow.Table(new string[] {
                             "Html"});
-                table61.AddRow(new string[] {
+                table65.AddRow(new string[] {
                             "<input id=\"target\" type=\"text\" style=\"visibility:hidden\"></input>"});
 #line 21
- testRunner.Given("injecting browser content", ((string)(null)), table61, "Given ");
+ testRunner.Given("injecting browser content", ((string)(null)), table65, "Given ");
 #line hidden
 #line 24
  testRunner.Given("the Settable Element \'E1\' found by \'#target\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
@@ -253,12 +253,12 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-                TechTalk.SpecFlow.Table table62 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table66 = new TechTalk.SpecFlow.Table(new string[] {
                             "Html"});
-                table62.AddRow(new string[] {
+                table66.AddRow(new string[] {
                             "<input id=\"target\" type=\"text\" style=\"display:none\"></input>"});
 #line 28
- testRunner.Given("injecting browser content", ((string)(null)), table62, "Given ");
+ testRunner.Given("injecting browser content", ((string)(null)), table66, "Given ");
 #line hidden
 #line 31
  testRunner.Given("the Settable Element \'E1\' found by \'#target\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
@@ -297,12 +297,12 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-                TechTalk.SpecFlow.Table table63 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table67 = new TechTalk.SpecFlow.Table(new string[] {
                             "Html"});
-                table63.AddRow(new string[] {
+                table67.AddRow(new string[] {
                             "<input id=\"target\" type=\"text\"></input>"});
 #line 35
- testRunner.Given("injecting browser content", ((string)(null)), table63, "Given ");
+ testRunner.Given("injecting browser content", ((string)(null)), table67, "Given ");
 #line hidden
 #line 38
  testRunner.Given("the Settable Element \'E1\' found by \'#target\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");

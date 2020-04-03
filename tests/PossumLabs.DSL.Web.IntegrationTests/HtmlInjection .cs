@@ -83,6 +83,118 @@ namespace PossumLabs.DSL.Web.Integration
             }
         }
 
+        public string TinyMCE5
+        {
+            set
+            {
+                Content =
+                    @"
+<!DOCTYPE html>
+<html lang=""en"">
+  <head>
+    <meta charset = ""utf-8"">
+    <meta name = ""viewport"" content = ""width=device-width, initial-scale=1"">
+    <script src = ""https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js"" referrerpolicy = ""origin""></script>
+    <script>
+      tinymce.init({
+        selector: ""#myeditor""
+        });
+    </script>
+  </head>
+  <body>" +
+$"{value}" +
+   @"      
+  </body>
+</html>";
+            }
+        }
+
+        public string TinyMCE4
+        {
+            set
+            {
+                Content =
+                    @"
+<!DOCTYPE html>
+<html lang=""en"">
+  <head>
+    <meta charset = ""utf-8"">
+    <meta name = ""viewport"" content = ""width=device-width, initial-scale=1"">
+    <script src = ""https://cdnjs.cloudflare.com/ajax/libs/tinymce/4.5.5/tinymce.min.js"" referrerpolicy = ""origin""></script>
+    <script>
+      tinymce.init({
+        selector: ""#myeditor""
+        });
+    </script>
+  </head>
+  <body>
+    <form>" +
+$"{value}" +
+   @"      
+    </form>
+  </body>
+</html>";
+            }
+        }
+
+        public string CKEditor4
+        {
+            set
+            {
+                Content =
+                    @"
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset=""utf - 8"">
+    <title> CKEditor </title>
+    <script src = ""https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js""></script>
+  </head>
+   
+  <body>" +
+$"{value}" +
+   @"   
+    <script>
+      CKEDITOR.replace('myeditor');
+    </script>
+  </body>
+</html>
+";
+                    }
+        }
+        public string CKEditor5
+        {
+            set
+            {
+                Content =
+                    @"
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset=""utf - 8"">
+    <title> CKEditor </title>
+    <script src = ""https://cdn.ckeditor.com/ckeditor5/18.0.0/classic/ckeditor.js""></script>
+  </head>
+   
+  <body>" +
+$"{value}" +
+   @"   
+    <script>
+      ClassicEditor
+        .create( document.querySelector( '#myeditor' ) )
+        .then( editor => {
+                console.log( editor );
+        } )
+        .catch( error => {
+                console.error( error );
+        } );
+    </script>
+  </body>
+</html>
+";
+            }
+        }
+
         public static string XmlEscapeAttribute(string unescaped)
             => unescaped.Replace("\"", "&quot;");
     }

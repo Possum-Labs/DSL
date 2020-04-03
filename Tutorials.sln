@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.779
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6E7C5617-566F-41FC-8499-E949A86BADAF}"
 	ProjectSection(SolutionItems) = preProject
@@ -52,7 +52,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Advanced", "Advanced", "{1A
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 Customizing the XpathProvider", "1 Customizing the XpathProvider", "{F5EF075F-3A5F-4B02-ACC5-874F85F9B44C}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 Customizing the Selectors", "2 Customizing the Selectors", "{427D6031-39E8-492B-9707-C94E51844017}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 Customizing the Selector Factory", "2 Customizing the Selector Factory", "{427D6031-39E8-492B-9707-C94E51844017}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 Customizing the ElementFactory", "3 Customizing the ElementFactory", "{3F3AAEE8-690E-41D0-BD9E-9050E1EB2453}"
 EndProject
@@ -68,7 +68,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UsingMultipleBrowsersInOneT
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomizingXpathProvider", "tutorials\Web Advanced 1 Customizing the XpathProvider\CustomizingXpathProvider.csproj", "{33921B6A-7545-458B-8E48-76EAF7E05D81}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomizingSelectors", "tutorials\Web Advanced 2 Customizing the Selectors\CustomizingSelectors.csproj", "{B87A75EB-8828-4486-B7C1-16DEF28AB295}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomizingSelectorFactory", "tutorials\Web Advanced 2 Customizing the Selectors\CustomizingSelectorFactory.csproj", "{B87A75EB-8828-4486-B7C1-16DEF28AB295}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomizingElementFactory", "tutorials\Web Advanced 3 Customizing the ElementFactory\CustomizingElementFactory.csproj", "{BA6500C1-5BBA-44D6-A9C7-CB2E3FFDFCAE}"
 EndProject

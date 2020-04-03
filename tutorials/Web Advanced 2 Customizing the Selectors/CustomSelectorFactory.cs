@@ -49,6 +49,9 @@ namespace DSL.Documentation.Example
                 ByCellBelow(XpathProvider.SettableElements),
                 ByLabelAncestor(XpathProvider.ActiveElements),
             });
+
+            /// DO NOT ASSUME THAT THE SELECTOR AT POSITION 4 WILL STAY AT POSITION 4
+            /// so clear and add them, don't try and snipe one or two from the list.
         }
 
         /// <summary>

@@ -119,8 +119,8 @@ namespace PossumLabs.DSL.Web.Selectors
                     PrefixNames.Under,
                     new List<Func<string, IEnumerable<string>>>
                     {
-                        ParrentDiv,
-                        ParrentDivWithRowRole,
+                        ParentDiv,
+                        ParentDivWithRowRole,
                         FollowingRow,
                         Legend
                     }
@@ -140,7 +140,12 @@ namespace PossumLabs.DSL.Web.Selectors
             (x.Location == y.Location  && x.TagName == y.TagName));
 
         virtual protected bool Filter(IWebElement e)
-        => e is RemoteWebElement && ((RemoteWebElement)e).Displayed && ((RemoteWebElement)e).Enabled;
+        => e is RemoteWebElement && 
+            (
+                (e.Displayed && e.Enabled)
+                ||
+                (!e.Displayed && e.TagName=="textarea") //rich text editors hide textareas
+            );
             
         public T CreateSelector<T>(string constructor) where T : Selector, new()
         {
@@ -390,7 +395,7 @@ namespace PossumLabs.DSL.Web.Selectors
                 $"//div[{XpathProvider.TextMatch(target)}]/ancestor-or-self::div[@role='row'][1]"
             };
 
-        virtual protected Func<string, IEnumerable<string>> ParrentDiv =>
+        virtual protected Func<string, IEnumerable<string>> ParentDiv =>
             (target) => new List<string>() { $"//div[" +
                     $"{XpathProvider.TextMatch(target)} or " +
                     $"*[{XpathProvider.MarkerElements} and {XpathProvider.TextMatch(target)}] or " +
@@ -399,7 +404,7 @@ namespace PossumLabs.DSL.Web.Selectors
                     $"@aria-label={target.XpathEncode()}" +
                 $"]" };
 
-        virtual protected Func<string, IEnumerable<string>> ParrentDivWithRowRole =>
+        virtual protected Func<string, IEnumerable<string>> ParentDivWithRowRole =>
             (target) => new List<string>() {
                 $"//*[{XpathProvider.MarkerElements} and {XpathProvider.TextMatch(target)}]/ancestor::div[@role='row'][1]",
                 $"//*[@value = {target.XpathEncode()}]/ancestor::div[@role='row'][1]",

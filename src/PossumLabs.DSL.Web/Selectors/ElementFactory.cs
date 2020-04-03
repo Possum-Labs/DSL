@@ -10,6 +10,8 @@ namespace PossumLabs.DSL.Web.Selectors
     {
         virtual public Element Create(IWebDriver driver, IWebElement e)
         {
+            if(e.TagName == "textarea" && !e.Displayed)
+                return new RichTextEditorElement(e, driver);
             if (e.TagName == "select" || (e.TagName == "input" && !string.IsNullOrEmpty(e.GetAttribute("list"))))
                 return new SelectElement(e, driver);
             if (e.TagName == "input" && e.GetAttribute("type") == "radio")

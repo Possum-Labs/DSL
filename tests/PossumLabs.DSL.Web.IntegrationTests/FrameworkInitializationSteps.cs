@@ -70,12 +70,21 @@ namespace PossumLabs.DSL.Web.Integration
         }
 
         [AfterScenario(Order = int.MinValue + 1)]
-        public void LogHtml()
+        public void ErrorScreenLogging()
         {
+            if (ScenarioContext.TestError == null)
+                return;
+
             if (WebDriverManager.ActiveDriver)
             {
+                if (NetworkWatcher.BadUrl == null)
+                {
+                    NetworkWatcher.BadUrl = WebDriver.Url;
+                }
+
                 try
                 {
+                    FileManager.PersistFile(WebDriver.GetScreenshots().Last(), $"final", "bmp");
                     FileManager.PersistFile(Encoding.UTF8.GetBytes(WebDriverManager.Current.PageSource), "source", "html");
                 }
                 catch (UnhandledAlertException) { return; }

@@ -16,6 +16,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace PossumLabs.DSL.Web
 {
@@ -188,7 +189,9 @@ namespace PossumLabs.DSL.Web
             => new Actions(SeleniumDriver);
 
         public void LoadPage(string html)
-            => SeleniumDriver.Navigate().GoToUrl("data:text/html;charset=utf-8," + html);
+            => SeleniumDriver.Navigate().GoToUrl(
+                "data:text/html;base64," +
+                Convert.ToBase64String(Encoding.UTF8.GetBytes(html)));
 
         public void SwitchToWindow(string window)
             => SeleniumDriver.SwitchTo().Window(window);
