@@ -8,7 +8,7 @@ Scenario: Using Slipka Explicit
 	When retrieving the file from proxy as 'F1'
 
 @report
-@slipka
+@proxy
 Scenario: Using Slipka
 	Given navigated to 'home'
 	And clicking the element 'download'

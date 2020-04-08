@@ -44,19 +44,25 @@ namespace PossumLabs.DSL.Web.Selectors
             "self::span or self::p or self::div or self::option or self::legend or self::td or self::li or " +
             "self::em or self::strong or self::code or self::samp)";
 
+        virtual public string FilterHidden
+            => "(" +
+                    " not(@type='hidden') or " +
+                    "(" +
+                        "(self::textarea or self::input) and " +
+                        "(" +
+                            "following-sibling::*[self::div and @role='application'] or " +
+                            "preceding-sibling::*[self::div and @role='application']" +
+                        ")" +
+                     ")" +
+                " )";
+
         virtual public string ActiveElements
-           => "((" +
-                " not(@type='hidden') or " +
-                " (self::textarea and following-sibling::div[@role='application'])" +
-            " ) and " +
+           => $"({FilterHidden} and " +
             " ( self::a or self::button or self::input or self::select or self::textarea or " +
             "@role='button' or @role='link' or @role='menuitem'))";
 
         virtual public string SettableElements
-          => "((" +
-                " not(@type='hidden') or " +
-                " (self::textarea and following-sibling::div[@role='application'])" +
-            " ) and " +
+          => $"({FilterHidden} and " +
             "(self::input or self::select or self::textarea))";
 
 
