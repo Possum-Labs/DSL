@@ -96,7 +96,7 @@ namespace PossumLabs.DSL.Web
             if (elements != null && elements.Any())
             {
                 var url = SeleniumDriver.Url;
-                if (by.ToString().StartsWith("By.XPath: "))
+                if (by.IsXpath())
                     VisualLog(by);
                 foreach (var e in elements)
                     WebElementSourceLog.Add(e, url, by);
@@ -108,7 +108,7 @@ namespace PossumLabs.DSL.Web
         {
             if (MovieLogger.IsEnabled)
             {
-                var xpath = by.ToString().Substring("By.XPath: ".Length);
+                var xpath = by.Xpath();
                 var img = Preview(xpath);
                 MovieLogger.AddScreenShot(img.AsByteArray);
                 Screenshots.Add(img);

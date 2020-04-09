@@ -2,7 +2,8 @@
 
 Scenario: Basic Login
 	Given navigated to 'http://possumlabs.com/testsite/'
-	When entering 'possum' into element 'User Name'
+	When clicking the element 'Login'
+	And entering 'possum' into element 'User Name'
 	And entering 'possum' into element 'Password'
 	And clicking the element 'Login'
 
@@ -10,7 +11,8 @@ Scenario: Basic Login
 
 Scenario: Existing data
 	Given navigated to 'http://possumlabs.com/testsite/'
-	When entering 'Admin.Username' into element 'User Name'
+	When clicking the element 'Login'
+	And entering 'Admin.Username' into element 'User Name'
 	And entering 'Admin.Password' into element 'Password'
 	And clicking the element 'Login'
 

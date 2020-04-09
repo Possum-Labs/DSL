@@ -17,5 +17,10 @@ namespace PossumLabs.DSL.Web
             else
                 return "concat('" + value.Replace("'", "',\"'\",'") + "')";
         }
+
+        public static bool IsXpath(this OpenQA.Selenium.By by)
+            => by != null && by.ToString().StartsWith("By.XPath: ");
+        public static string Xpath(this OpenQA.Selenium.By by)
+            => by.ToString().Substring("By.XPath: ".Length);
     }
 }

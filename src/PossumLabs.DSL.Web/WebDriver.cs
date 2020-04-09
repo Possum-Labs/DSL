@@ -312,27 +312,32 @@ namespace PossumLabs.DSL.Web
                 }
                 else if (results.Many())
                 {
-                    //lets make sure none are hidden
-                    var filterHidden = results
-                        .Select(e => new { e, o = loggingWebdriver.GetElementFromPoint(e.Location.X + 1, e.Location.Y + 1) })
-                        .Where(p => p.e.Tag == p.o?.TagName && p.e.Location == p.o?.Location);
-                    if (filterHidden.One())
+                    var by = WebElementSourceLog.Get(results.First().WebElement).By;
+                    if (by.IsXpath())
                     {
-                        SuccessfulSearchers.Add(searcher);
-                        loopState.Break();
-                        wrapper.Element = results.First();
-                        return;
+                        //lets find the only clickable one,
+                        //if two are precisely on top of each other it will not filter that
+                        //but that is unlikely to happen in real applications
+                        var el = FindOnlyClickable(by.Xpath());
+                        if (el != null)
+                        {
+                            var pos = el.Location;
+                            var rpos = results.Select(x => new { x.Location, x }).ToList();
+
+                            var filterHidden = rpos
+                                .Where(e => e.Location == pos)
+                                .Select(x => x.x);
+
+                            if (filterHidden.One())
+                            {
+                                SuccessfulSearchers.Add(searcher);
+                                loopState.Break();
+                                wrapper.Element = filterHidden.First();
+                                return;
+                            }
+                        }
                     }
-                    //check if they are logical duplicates.
-                    if (results.GroupBy(e => e.Id).One())
-                    {
-                        SuccessfulSearchers.Add(searcher);
-                        loopState.Break();
-                        wrapper.Element = results.First();
-                        return;
-                    }
-                    //scroll up ?
-                    //WebDriver.ExecuteScript("window.scrollTo(0,1)");
+
                     var items = results.Select(e => $"{e.Tag}@{e.Location.X},{e.Location.Y}").LogFormat();
                     loopState.Break();
                     wrapper.Exception = new Exception($"Multiple results were found using {searcher.LogFormat()}");
@@ -353,6 +358,46 @@ namespace PossumLabs.DSL.Web
                 wrapperIndex++;
             }
             return null;
+        }
+
+        private OpenQA.Selenium.IWebElement FindOnlyClickable(string xpath)
+        {
+            var script = @"
+            var xpath = arguments[0]; //""//*[text()='Login']"";
+            var elements = document.evaluate(xpath, document, null, XPathResult.ANY_TYPE, null);
+            var thisElement = elements.iterateNext();
+            var index = 0;
+            var count = 0;
+            var lastFind = -1;
+            var debugging = ""elements are:\n"";
+            var elementsList = [];
+
+            while (thisElement)
+            {
+                elementsList.push(thisElement);
+                var rect = thisElement.getBoundingClientRect();
+                var pointElement = document.elementFromPoint(rect.x + 1, rect.y + 1);
+                var clickable = thisElement === pointElement || thisElement.contains(pointElement);
+                if (clickable)
+                {
+                    count++;
+                    lastFind = index;
+                }
+                debugging += ""element:"" + thisElement.tagName +
+                    ""\n"" + ""element from point:"" + pointElement.tagName +
+                    ""\n"" + "" clickable at point? "" + clickable +
+                    ""\n"";
+                thisElement = elements.iterateNext();
+                index++;
+            }
+            if (count === 1)
+                return elementsList[lastFind];
+            else
+                return debugging;";
+            // ret could be a string, this is mostly for debugging help. 
+            // no need tho throw errors as that is not it's responsibility.
+            var ret = ScriptExecutor.ExecuteScript(script, xpath);
+            return ret as OpenQA.Selenium.IWebElement;
         }
 
         private void AugmentWebElementSources(Selector selector, IWebElement e)

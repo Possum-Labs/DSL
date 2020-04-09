@@ -16,7 +16,7 @@ namespace PossumLabs.DSL.Web.Selectors
         public Func<IWebDriver, IEnumerable<SelectorPrefix>, IEnumerable<Element>> Search { get; }
         private Func<string> Messages { get; }
 
-        internal IEnumerable<Element> SearchIn(IWebDriver driver, IEnumerable<SelectorPrefix> pefixes)
+        public IEnumerable<Element> SearchIn(IWebDriver driver, IEnumerable<SelectorPrefix> pefixes)
             => Search(driver, pefixes);
 
         public string LogFormat()

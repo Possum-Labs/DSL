@@ -96,6 +96,7 @@ namespace DSL.Documentation.Example
         public void GivenLoggedInAsUser(User user)
         {
             DriverSteps.GivenNavigatedToEnglish("http://possumlabs.com/testsite/");
+            DriverSteps.WhenClickingTheElement("Login");
             DriverSteps.WhenEnteringForTheElement(user.Username, "User Name");
             DriverSteps.WhenEnteringForTheElement(user.Password, "Password");
             DriverSteps.WhenClickingTheElement("Login");
