@@ -1,9 +1,9 @@
 ﻿using OpenQA.Selenium;
 using System.Text.RegularExpressions;
 
-namespace PossumLabs.DSL.Web
+namespace PossumLabs.DSL.Web.ApplicationElements
 {
-    public class TinyMCE5Commands : IRichTextEditorCommandSet
+    public class TinyMCE5Commands : IApplicationCommandSet
     {
         /// TinyMCE 5
         /// <div role="application" class="tox tox-tinymce"

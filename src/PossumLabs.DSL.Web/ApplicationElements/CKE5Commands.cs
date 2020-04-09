@@ -1,9 +1,11 @@
 ﻿using OpenQA.Selenium;
 using System.Text.RegularExpressions;
 
-namespace PossumLabs.DSL.Web
+namespace PossumLabs.DSL.Web.ApplicationElements
 {
-    public class CKE5Commands : IRichTextEditorCommandSet
+    // not supported untill we resolve 
+    // https://github.com/ckeditor/ckeditor5/issues/6554
+    public class CKE5Commands : IApplicationCommandSet
     {
         /// CKE 5
         /// <div class="ck ck-reset ck-editor ck-rounded-corners"

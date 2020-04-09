@@ -1,8 +1,8 @@
 ﻿using OpenQA.Selenium;
 
-namespace PossumLabs.DSL.Web
+namespace PossumLabs.DSL.Web.ApplicationElements
 {
-    public interface IRichTextEditorCommandSet
+    public interface IApplicationCommandSet
     {
         bool IsClassMatch(string s);
         void Set(string textareaId, IWebDriver driver, string s);

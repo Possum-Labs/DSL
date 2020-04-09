@@ -42,7 +42,7 @@ Examples:
 | With Callbacks (open console)  | #cep_with_callback  | 80202               | 80202               |
 | Crazy Zip Code                 | #crazy_cep          | 8020211             | 8020211             |
 | Money                          | #money              | 123456              | 123456              |
-| Mask placeholder option        | #placeholder        | 01012000            | 01012000            |
+#| Mask placeholder option        | #placeholder        | 01012000            | 01012000            |
 | Telephone                      | #phone              | 1234567             | 1234567             |
 | Telephone with Code Area       | #phone_with_ddd     | 1234567890          | 1234567890          |
 | US Telephone                   | #phone_us           | 1234567890          | 1234567890          |

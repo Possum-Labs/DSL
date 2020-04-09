@@ -1,9 +1,9 @@
 ﻿using OpenQA.Selenium;
 using System.Text.RegularExpressions;
 
-namespace PossumLabs.DSL.Web
+namespace PossumLabs.DSL.Web.ApplicationElements
 {
-    public class TinyMCE4Commands : IRichTextEditorCommandSet
+    public class TinyMCE4Commands : IApplicationCommandSet
     {
         /// TinyMCE 4.5.5 (2017-03-07)
         ///<div id="mceu_11" 

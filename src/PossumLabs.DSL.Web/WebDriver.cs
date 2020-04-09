@@ -377,16 +377,19 @@ namespace PossumLabs.DSL.Web
                 elementsList.push(thisElement);
                 var rect = thisElement.getBoundingClientRect();
                 var pointElement = document.elementFromPoint(rect.x + 1, rect.y + 1);
-                var clickable = thisElement === pointElement || thisElement.contains(pointElement);
-                if (clickable)
+                if (pointElement)
                 {
-                    count++;
-                    lastFind = index;
+                    var clickable = thisElement === pointElement || thisElement.contains(pointElement);
+                    if (clickable)
+                    {
+                        count++;
+                        lastFind = index;
+                    }
+                    debugging += ""element:"" + thisElement.tagName +
+                        ""\n"" + ""element from point:"" + pointElement.tagName +
+                        ""\n"" + "" clickable at point? "" + clickable +
+                        ""\n"";
                 }
-                debugging += ""element:"" + thisElement.tagName +
-                    ""\n"" + ""element from point:"" + pointElement.tagName +
-                    ""\n"" + "" clickable at point? "" + clickable +
-                    ""\n"";
                 thisElement = elements.iterateNext();
                 index++;
             }

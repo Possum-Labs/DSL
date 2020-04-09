@@ -10,14 +10,14 @@ Scenario: Displayed true
 	Given the Settable Element 'E1' found by 'target'
 	Then 'E1.Displayed' has the value 'True'
 
-Scenario: Displayed display:none
+Scenario: Displayed display: none
 	Given injecting browser content
 	| Html														   |
 	| <input id="target" type="text" style="display:none"></input> |
 	Given the Settable Element 'E1' found by '#target'
 	Then 'E1.Displayed' has the value 'False'
 
-Scenario: Displayed visibility:hidden
+Scenario: Displayed visibility: hidden
 	Given injecting browser content
 	| Html																|
 	| <input id="target" type="text" style="visibility:hidden"></input> |

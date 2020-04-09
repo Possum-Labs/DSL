@@ -1,9 +1,9 @@
 ﻿using OpenQA.Selenium;
 using System.Text.RegularExpressions;
 
-namespace PossumLabs.DSL.Web
+namespace PossumLabs.DSL.Web.ApplicationElements
 {
-    public class CKE4Commands : IRichTextEditorCommandSet
+    public class CKE4Commands : IApplicationCommandSet
     {
         /// CKE 4
         ///<div id = "cke_editor1"

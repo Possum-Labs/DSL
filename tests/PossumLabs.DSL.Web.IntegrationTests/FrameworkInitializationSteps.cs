@@ -126,7 +126,7 @@ namespace PossumLabs.DSL.Web.Integration
 
             Logger = new DefaultLogger(new DirectoryInfo(Environment.CurrentDirectory), new YamlLogFormatter());
             Register((PossumLabs.DSL.Core.Logging.ILog)Logger);
-            Register<ElementFactory>(new ElementFactory());
+            Register<ElementFactory>(new ElementFactory(new Web.ApplicationElements.ApplicationElementRegistry()));
             Register<XpathProvider>(new XpathProvider());
             Register<SelectorFactory>(new SelectorFactory(ElementFactory, XpathProvider).UseBootstrap());
             Register(new PossumLabs.DSL.Web.WebDriverManager(
