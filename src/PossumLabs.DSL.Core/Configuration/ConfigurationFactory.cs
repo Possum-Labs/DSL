@@ -6,7 +6,7 @@ using System.Text;
 
 namespace PossumLabs.DSL.Core.Configuration
 {
-    public class ConfigurationFactory
+    public class ConfigurationFactory : IConfigurationFactory
     {
         public ConfigurationFactory(IConfiguration configuration)
         {
@@ -38,7 +38,7 @@ namespace PossumLabs.DSL.Core.Configuration
                 string valueOverride = null;
                 try
                 {
-                    valueOverride = Configuration.GetSection($"{environmentVarName??type.Name}:{environmentPropName??property.Name}").Value;
+                    valueOverride = Configuration.GetSection($"{environmentVarName ?? type.Name}:{environmentPropName ?? property.Name}").Value;
                 }
                 catch
                 { }

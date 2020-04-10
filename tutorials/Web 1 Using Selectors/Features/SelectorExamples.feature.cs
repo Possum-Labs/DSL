@@ -119,15 +119,18 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Given("navigated to \'http://possumlabs.com/testsite/\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 5
- testRunner.When("entering \'possum\' into element \'User Name\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("clicking the element \'Login\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 6
- testRunner.And("entering \'possum\' into element \'Password\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("entering \'possum\' into element \'User Name\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 7
+ testRunner.And("entering \'possum\' into element \'Password\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 8
  testRunner.And(string.Format("clicking the element \'{0}\'", selector), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 9
+#line 10
  testRunner.Then("the page contains the element \'Add Dealer\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

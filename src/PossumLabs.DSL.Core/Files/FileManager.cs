@@ -6,7 +6,7 @@ using System.Text;
 
 namespace PossumLabs.DSL.Core.Files
 {
-    public class FileManager
+    public class FileManager : IFileManager
     {
         public FileManager(DatetimeManager datetimeManager)
         {
@@ -18,7 +18,7 @@ namespace PossumLabs.DSL.Core.Files
 
             ConfigFodler = config["logFolder"] ?? "logs";
 
-            if(!Path.IsPathRooted(ConfigFodler))
+            if (!Path.IsPathRooted(ConfigFodler))
                 ConfigFodler = Path.Combine(
                         new FileInfo(this.GetType().Assembly.Location).DirectoryName,
                         ConfigFodler);

@@ -35,7 +35,7 @@ namespace DSL.Documentation.Example
 
         public Characteristics LoggedIn { get; }
 
-        [BeforeScenario(Order = int.MinValue + 2)]
+        [BeforeScenario(Order = int.MinValue + 12)]
         public void InitializeDefault()
         {
             Repository.InitializeDefault(() => base.Repository["Admin"]);

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace PossumLabs.DSL.Web.Selectors
 {
-    public class XpathProvider
+    public class XpathProvider : IXpathProvider
     {
         public XpathProvider()
         {

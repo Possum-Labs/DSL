@@ -8,12 +8,12 @@ using System.Text;
 
 namespace PossumLabs.DSL.Core.Logging
 {
-    public class ImageLogging
+    public class ImageLogging : IImageLogging
     {
-        public ImageLogging(ImageLoggingConfig config )
+        public ImageLogging(ImageLoggingConfig config)
         {
             FontPercentage = config.SizePercentage;
-            
+
             var fields = typeof(SKColors).GetFields();
             if (fields.Any(p => p.Name == config.Color))
                 Color = (SKColor)fields.First(p => p.Name == config.Color).GetValue(null);

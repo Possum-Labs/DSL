@@ -63,10 +63,10 @@ namespace PossumLabs.DSL.Core.Variables
             return true;
         }
 
-        public static T MapTo<T>(this Dictionary<string, KeyValuePair<string, string>> values, Interpeter interpeter, ObjectFactory f)
+        public static T MapTo<T>(this Dictionary<string, KeyValuePair<string, string>> values, IInterpeter interpeter, IObjectFactory f)
             => (T)values.MapTo(typeof(T), interpeter, f);
 
-        public static object MapTo(this Dictionary<string, KeyValuePair<string, string>> values, Type desiredType, Interpeter interpeter, ObjectFactory f)
+        public static object MapTo(this Dictionary<string, KeyValuePair<string, string>> values, Type desiredType, IInterpeter interpeter, IObjectFactory f)
         {
             var members = desiredType.GetValueMembers();
             var constructors = desiredType.CachedGetConstructors();

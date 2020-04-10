@@ -6,7 +6,7 @@ namespace PossumLabs.DSL.Web.Selectors
 {
     public static class BootstrapExtensions
     {
-        public static SelectorFactory UseBootstrap(this SelectorFactory factory)
+        public static ISelectorFactory UseBootstrap(this ISelectorFactory factory)
         {
             factory.Prefixes[PrefixNames.Warning].Add(Warning);
             factory.Prefixes[PrefixNames.Error].Add(Alert);

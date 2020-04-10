@@ -11,7 +11,7 @@ namespace PossumLabs.DSL.Core.Validations
 {
     public class ValidationFactory
     {
-        public ValidationFactory(Interpeter interpeter)
+        public ValidationFactory(IInterpeter interpeter)
         {
             Interpeter = interpeter;
         }
@@ -26,7 +26,7 @@ namespace PossumLabs.DSL.Core.Validations
                 return null;
              }, constructor);
 
-        private Interpeter Interpeter { get; }
+        private IInterpeter Interpeter { get; }
 
         public virtual Predicate<object> MakePredicate(string predicate)
         {

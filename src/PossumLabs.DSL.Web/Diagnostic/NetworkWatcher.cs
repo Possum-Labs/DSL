@@ -5,7 +5,7 @@ using System.Text;
 
 namespace PossumLabs.DSL.Web.Diagnostic
 {
-    public class NetworkWatcher
+    public class NetworkWatcher : INetworkWatcher
     {
         public Predicate<string> UrlErrorTester { get; set; }
         public void AddUrl(string url)

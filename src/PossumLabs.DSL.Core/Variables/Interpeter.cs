@@ -11,9 +11,9 @@ using System.Text.RegularExpressions;
 
 namespace PossumLabs.DSL.Core.Variables
 {
-    public class Interpeter
+    public class Interpeter : IInterpeter
     {
-        public Interpeter(ObjectFactory objectFactory)
+        public Interpeter(IObjectFactory objectFactory)
         {
             Repositories = new List<IRepository>();
             HasIndexer = new Regex(@"\[([0-9]+)\]", RegexOptions.Compiled);
@@ -26,23 +26,23 @@ namespace PossumLabs.DSL.Core.Variables
         private const char Sepetator = '.';
         private Regex HasIndexer { get; }
         private Regex MatchVariable { get; }
-        private ObjectFactory ObjectFactory { get; }
+        private IObjectFactory ObjectFactory { get; }
 
         public RepositoryView GenerateView()
         {
             return new RepositoryView
             {
                 Types = Repositories
-                .Select(r=>new { repository = r , properties = r.Type.GetValueMembers().Where(m => m.CanRead).OrderBy(m => m.Name).ToList() })
+                .Select(r => new { repository = r, properties = r.Type.GetValueMembers().Where(m => m.CanRead).OrderBy(m => m.Name).ToList() })
                 .Select(r => new TypeView
                 {
                     Name = r.repository.Type.Name,
                     Properties = r.properties.Select(m => m.Name).ToList(),
-                    Objects = r.repository.AsDictionary().Select(kv=>new ObjectView
+                    Objects = r.repository.AsDictionary().Select(kv => new ObjectView
                     {
                         var = kv.Key,
-                        LogFormat = (kv.Value is IEntity) ? ((IEntity)kv.Value).LogFormat():null, 
-                        Values = r.properties.Select(p=>p.GetValue(kv.Value)?.ToString()).ToList()
+                        LogFormat = (kv.Value is IEntity) ? ((IEntity)kv.Value).LogFormat() : null,
+                        Values = r.properties.Select(p => p.GetValue(kv.Value)?.ToString()).ToList()
                     }).ToList()
                 }).ToList()
             };
@@ -103,7 +103,7 @@ namespace PossumLabs.DSL.Core.Variables
                             }
                             catch (IndexOutOfRangeException)
                             {
-                                 throw new GherkinException($"Index [{ index }] of { path.Aggregate((x, y) => x + '.' + y)} is out of range, there are not enough elements");
+                                throw new GherkinException($"Index [{ index }] of { path.Aggregate((x, y) => x + '.' + y)} is out of range, there are not enough elements");
                             }
                         }
                         throw new GherkinException($"The type of {source.GetType()} does not support [{ index }] of { path.Aggregate((x, y) => x + '.' + y)}");
@@ -129,10 +129,10 @@ namespace PossumLabs.DSL.Core.Variables
             }
         }
 
-        public void Add(Type t, string name, Object item) 
+        public void Add(Type t, string name, Object item)
             => Repositories.First(x => x.Type == t).Add(name, (IValueObject)item);
 
-        public void Add<T>(string name, T item) where T:IValueObject
+        public void Add<T>(string name, T item) where T : IValueObject
             => Repositories.First(x => x.Type == typeof(T)).Add(name, item);
 
         private object Walker(IEnumerable<string> path, int leave = 0)
@@ -157,19 +157,19 @@ namespace PossumLabs.DSL.Core.Variables
                 try
                 {
                     indexResolver = ResolveIndexFactory(parts.First(), out string part, path);
-                    if (current.GetType().GetInterfaces().Any(i=>i == typeof(IDictionary)))
+                    if (current.GetType().GetInterfaces().Any(i => i == typeof(IDictionary)))
                     {
                         var d = (IDictionary)current;
                         if (d.Contains(part))
                             current = d[part];
                         else
                             throw new GherkinException($"The key {part} does not exist in dictionary " +
-                                $"please choose one of these {d.Keys.AsObjectArray().Select(k=>k.ToString()).LogFormat()}");
+                                $"please choose one of these {d.Keys.AsObjectArray().Select(k => k.ToString()).LogFormat()}");
                     }
                     else
                     {
                         var prop = current.GetType().GetValueMember(part, StringComparison.InvariantCultureIgnoreCase);
-                        if(prop == null)
+                        if (prop == null)
                             throw new GherkinException($"The property {part} does not exist on {current.GetType().Name} " +
                                 $"please choose one of these {current.GetType().GetValueMembers().LogFormat(m => m.Name)}");
                         current = prop.GetValue(current);
@@ -222,8 +222,8 @@ namespace PossumLabs.DSL.Core.Variables
 
             if (targetType.IsAssignableFrom(sourceType))
             {
-                if(targetType.GetInterfaces().Contains(typeof(IConvertible)))
-                        return System.Convert.ChangeType(o, targetType);
+                if (targetType.GetInterfaces().Contains(typeof(IConvertible)))
+                    return System.Convert.ChangeType(o, targetType);
                 return o;
             }
 
@@ -232,9 +232,9 @@ namespace PossumLabs.DSL.Core.Variables
                 return conversions.First().Conversion.Invoke(o);
 
             var convertConversions = typeof(System.Convert).CachedGetMethods()
-                .Where(x => 
-                    x.ReturnType == targetType && 
-                    x.Name.StartsWith("To") && 
+                .Where(x =>
+                    x.ReturnType == targetType &&
+                    x.Name.StartsWith("To") &&
                     x.GetParameters().Any(p => p.ParameterType == sourceType) &&
                     x.GetParameters().One());
 
@@ -248,7 +248,7 @@ namespace PossumLabs.DSL.Core.Variables
                 .Any(x => x.One() && x.First().ParameterType == sourceType))
                 return Activator.CreateInstance(targetType, o);
 
-            var parseMethod = targetType.CachedGetMethods().Where(m=>m.IsStatic && m.IsPublic)
+            var parseMethod = targetType.CachedGetMethods().Where(m => m.IsStatic && m.IsPublic)
                 .Where(m => m.Name == "Parse" && m.GetParameters().One() && m.GetParameters().First().ParameterType == sourceType);
 
             if (parseMethod.Any())
@@ -257,7 +257,7 @@ namespace PossumLabs.DSL.Core.Variables
             if (targetType == typeof(string))
                 return o.ToString();
 
-            if(sourceType == typeof(string) && ((string)o).IsValidJson())
+            if (sourceType == typeof(string) && ((string)o).IsValidJson())
                 return JsonConvert.DeserializeObject((string)o, targetType);
 
             // generic lists
@@ -274,7 +274,7 @@ namespace PossumLabs.DSL.Core.Variables
             }
             if (genericType != null)
             {
-                var collection = (IList) Activator.CreateInstance(targetType);
+                var collection = (IList)Activator.CreateInstance(targetType);
                 if (sourceType == genericType || sourceType.IsInstanceOfType(genericType))
                     collection.Add(o);
                 else if (sourceType == typeof(string))

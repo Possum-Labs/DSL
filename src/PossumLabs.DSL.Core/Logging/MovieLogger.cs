@@ -9,11 +9,11 @@ using PossumLabs.DSL.Core.Files;
 
 namespace PossumLabs.DSL.Core.Logging
 {
-    public class MovieLogger
+    public class MovieLogger : IMovieLogger
     {
         public MovieLogger(
-            FileManager fileManager,
-            MovieLoggerConfig movieLoggerConfig, 
+            IFileManager fileManager,
+            MovieLoggerConfig movieLoggerConfig,
             ScenarioMetadata scenarioMetadata)
         {
             FileManager = fileManager;
@@ -26,7 +26,7 @@ namespace PossumLabs.DSL.Core.Logging
             Images = new List<Tuple<TimeSpan, byte[]>>();
         }
 
-        private FileManager FileManager { get; }
+        private IFileManager FileManager { get; }
         private SrtLogger StepLogger { get; }
         private SrtLogger OtherLogger { get; }
         private Stopwatch Stopwatch { get; }
@@ -75,8 +75,8 @@ namespace PossumLabs.DSL.Core.Logging
             // Metadata keys or values containing special characters(‘=’, ‘;’, ‘#’, ‘\’ and a newline) must be escaped with a backslash ‘\’.
 
             Func<string, string> metadataEncode = (input) => input?
-                        .Replace(@"\",@"\\")
-                        .Replace(@"\n",@"\\n")
+                        .Replace(@"\", @"\\")
+                        .Replace(@"\n", @"\\n")
                         .Replace("=", @"\=")
                         .Replace(";", @"\;")
                         .Replace("#", @"\#");
@@ -94,7 +94,7 @@ namespace PossumLabs.DSL.Core.Logging
             log.AppendLine($"description=Feature:{metadataEncode(ScenarioMetadata.FeatureName)} \\");
             log.AppendLine($"Scenario:{metadataEncode(ScenarioMetadata.ScenarioName)} \\");
             log.AppendLine($"Created:{metadataEncode(DateTime.Now.ToString())} \\");
-            foreach(var item in ScenarioMetadata.MetaData)
+            foreach (var item in ScenarioMetadata.MetaData)
                 log.AppendLine($"{metadataEncode(item.Key)}:{metadataEncode(item.Value)} \\");
 
             log.AppendLine();
@@ -126,8 +126,8 @@ namespace PossumLabs.DSL.Core.Logging
 
         public void ComposeMovie()
         {
-            
-            string tempDirName = Guid.NewGuid().ToString().Replace("-","");
+
+            string tempDirName = Guid.NewGuid().ToString().Replace("-", "");
             var parentDir = new DirectoryInfo(System.Environment.CurrentDirectory);
             //create folder
             var workingDir = parentDir.CreateSubdirectory(tempDirName);

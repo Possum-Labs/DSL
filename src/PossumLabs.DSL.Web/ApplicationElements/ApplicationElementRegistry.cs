@@ -4,7 +4,7 @@ using System.Text;
 
 namespace PossumLabs.DSL.Web.ApplicationElements
 {
-    public class ApplicationElementRegistry
+    public class ApplicationElementRegistry : IApplicationElementRegistry
     {
         public ApplicationElementRegistry()
         {

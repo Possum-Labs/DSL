@@ -7,13 +7,13 @@ using PossumLabs.DSL.Web.ApplicationElements;
 
 namespace PossumLabs.DSL.Web.Selectors
 {
-    public class ElementFactory
+    public class ElementFactory : IElementFactory
     {
-        public ElementFactory(ApplicationElementRegistry applicationElementRegistry)
+        public ElementFactory(IApplicationElementRegistry applicationElementRegistry)
         {
             ApplicationElementRegistry = applicationElementRegistry;
         }
-        public ApplicationElementRegistry ApplicationElementRegistry { get; }
+        private IApplicationElementRegistry ApplicationElementRegistry { get; }
 
         virtual public Element Create(IWebDriver driver, IWebElement e)
         {
@@ -73,7 +73,7 @@ namespace PossumLabs.DSL.Web.Selectors
                     return new ApplicationElement(e, driver, id, c);
                 }
             }
-            
+
             throw new Exception(
                 $"the application element is not supported with class {classAttribute}.");
         }

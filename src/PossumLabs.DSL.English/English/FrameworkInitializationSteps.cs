@@ -36,12 +36,12 @@ namespace PossumLabs.DSL.English
         public  virtual void SetupInfrastructureEnglish()
             => base.SetupInfrastructure();
 
-        [BeforeScenario(Order = 1)]
+        [BeforeScenario(Order = int.MinValue + 11)]
         public virtual void LoadTemplatesEnglish()
         => LoadTemplates();
         
 
-        [BeforeScenario(Order = 2)]
+        [BeforeScenario(Order = int.MinValue + 12)]
         public virtual void LoadExistingDataEnglish()
             => LoadExistingData();
 

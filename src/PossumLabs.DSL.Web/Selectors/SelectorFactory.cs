@@ -9,9 +9,11 @@ using System.Linq;
 
 namespace PossumLabs.DSL.Web.Selectors
 {
-    public class SelectorFactory
+    public class SelectorFactory : ISelectorFactory
     {
-        public SelectorFactory(ElementFactory elementFactory, XpathProvider xpathProvider)
+        public SelectorFactory(
+            IElementFactory elementFactory, 
+            IXpathProvider xpathProvider)
         {
             ElementFactory = elementFactory;
             XpathProvider = xpathProvider;
@@ -129,24 +131,24 @@ namespace PossumLabs.DSL.Web.Selectors
                 { PrefixNames.Error, new List<Func<string, IEnumerable<string>>> { } }
             };
 
-            
+
         }
 
-        protected ElementFactory ElementFactory { get; }
-        protected XpathProvider XpathProvider { get; }
+        protected IElementFactory ElementFactory { get; }
+        protected IXpathProvider XpathProvider { get; }
 
         protected static readonly Core.EqualityComparer<IWebElement> Comparer =
-            new Core.EqualityComparer<IWebElement>((x, y) => 
-            (x.Location == y.Location  && x.TagName == y.TagName));
+            new Core.EqualityComparer<IWebElement>((x, y) =>
+            (x.Location == y.Location && x.TagName == y.TagName));
 
         virtual protected bool Filter(IWebElement e)
-        => e is RemoteWebElement && 
+        => e is RemoteWebElement &&
             (
                 (e.Displayed && e.Enabled)
                 ||
-                (!e.Displayed && e.TagName=="textarea") //rich text editors hide textareas
+                (!e.Displayed && e.TagName == "textarea") //rich text editors hide textareas
             );
-            
+
         public T CreateSelector<T>(string constructor) where T : Selector, new()
         {
             var t = new T();
@@ -205,8 +207,8 @@ namespace PossumLabs.DSL.Web.Selectors
                     .Select(e => ElementFactory.Create(driver, e)).ToArray(),
                   result => result.Any()
                   )?.Item ?? new Element[] { };
-        
-           
+
+
 
         public Dictionary<string, List<Func<string, IEnumerable<SelectorPrefix>, IWebDriver, IEnumerable<Element>>>> Selectors { get; }
         public Dictionary<string, List<Func<string, IEnumerable<string>>>> Prefixes { get; }
@@ -240,7 +242,7 @@ namespace PossumLabs.DSL.Web.Selectors
         //<label>target<input type = "text" ></ label >
         //label[text()='{target}']/*[self::input or self::textarea or self::select]
         virtual protected Func<string, IEnumerable<SelectorPrefix>, IWebDriver, IEnumerable<Element>> ByNestedInLabel(string elementType) =>
-            (target, prefixes, driver) => Permutate(prefixes, driver, (prefix) => 
+            (target, prefixes, driver) => Permutate(prefixes, driver, (prefix) =>
                 $"{prefix}//*[(self::label or self::div) and {XpathProvider.TextMatch(target)}]/*[{elementType}]");
 
 
@@ -264,7 +266,7 @@ namespace PossumLabs.DSL.Web.Selectors
         //<input aria-label="target">
         //*[(self::a or self::button or @role='button' or @role='link' or @role='menuitem' or self::input or self::textarea or self::select) and @aria-label='{target}']
         virtual protected Func<string, IEnumerable<SelectorPrefix>, IWebDriver, IEnumerable<Element>> ByNested(string elementType) =>
-            (target, prefixes, driver) => Permutate(prefixes, driver, (prefix) => 
+            (target, prefixes, driver) => Permutate(prefixes, driver, (prefix) =>
                 $"{prefix}//*[{elementType} and (" +
                     $"{XpathProvider.TextMatch(target)} or " +
                     $"label[{XpathProvider.TextMatch(target)}] or " +
@@ -278,7 +280,7 @@ namespace PossumLabs.DSL.Web.Selectors
         //<a href = "https://www.w3schools.com/html/" >target</a>
         //*[(self::a or self::button or @role='button' or @role='link' or @role='menuitem') and text()='{target}']
         virtual protected Func<string, IEnumerable<SelectorPrefix>, IWebDriver, IEnumerable<Element>> ByText(string elementType) =>
-            (target, prefixes, driver) => Permutate(prefixes, driver, (prefix) => 
+            (target, prefixes, driver) => Permutate(prefixes, driver, (prefix) =>
                 $"{prefix}//*[{elementType} and {XpathProvider.TextMatch(target)}]");
 
         //<a href = "https://www.w3schools.com/html/" title="target">Visit our HTML Tutorial</a>
@@ -293,8 +295,8 @@ namespace PossumLabs.DSL.Web.Selectors
                 prefixes.CrossMultiply().ParallelFirstOrException(prefix =>
                 {
                     var elements = driver.FindElements(By.XPath($"{prefix}//input[@type='radio' and @name={target.XpathEncode()}]"));
-                        if (elements.Any())
-                            return new Element[] { new RadioElement(elements, driver) };
+                    if (elements.Any())
+                        return new Element[] { new RadioElement(elements, driver) };
                     return new Element[] { };
                 },
                result => result.Any()
@@ -307,18 +309,18 @@ namespace PossumLabs.DSL.Web.Selectors
                 prefixes.CrossMultiply().ParallelFirstOrException(prefix =>
                 {
                     var elements = driver.FindElements(By.XPath($"{prefix}//*[{XpathProvider.ActiveElements} and  @aria-labelledby]"));
-                        if (elements.Any())
+                    if (elements.Any())
+                    {
+                        return elements.Where(e =>
                         {
-                            return elements.Where(e =>
-                            {
-                                var ids = e.GetAttribute("aria-labelledby").Split(' ').Select(s => s.Trim()).Where(s => !String.IsNullOrEmpty(s));
-                                var labels = ids.SelectMany(id => driver.FindElements(By.Id(id))).Select(l => l.Text);
-                                var t = target;
-                                foreach (var l in labels.Where(s=>!string.IsNullOrWhiteSpace(s)))
-                                    t = t.Replace(l, string.Empty);
-                                return string.IsNullOrWhiteSpace(t);
-                            }).Select(e => ElementFactory.Create(driver, e));
-                        }
+                            var ids = e.GetAttribute("aria-labelledby").Split(' ').Select(s => s.Trim()).Where(s => !String.IsNullOrEmpty(s));
+                            var labels = ids.SelectMany(id => driver.FindElements(By.Id(id))).Select(l => l.Text);
+                            var t = target;
+                            foreach (var l in labels.Where(s => !string.IsNullOrWhiteSpace(s)))
+                                t = t.Replace(l, string.Empty);
+                            return string.IsNullOrWhiteSpace(t);
+                        }).Select(e => ElementFactory.Create(driver, e));
+                    }
                     return new Element[] { };
                 },
                result => result.Any()
@@ -326,13 +328,13 @@ namespace PossumLabs.DSL.Web.Selectors
 
         // //tr[*[self::td][*[( self::span ) and text()[normalize-space(.)='Add Clinic']]]]/following-sibling::tr[1]/td[1+count(//*[self::td][*[( self::span ) and text()[normalize-space(.)='Add Clinic']]]/preceding-sibling::*[self::td])]
         virtual protected Func<string, IEnumerable<SelectorPrefix>, IWebDriver, IEnumerable<Element>> ByCellBelow(string elementType) =>
-            (target, prefixes, driver) => Permutate(prefixes, driver, (prefix) => 
+            (target, prefixes, driver) => Permutate(prefixes, driver, (prefix) =>
                 $"{prefix}//tr[*[self::td or self::th][*[{XpathProvider.MarkerElements} and {XpathProvider.TextMatch(target)}]]]/following-sibling::tr[1]/td[1+count(//*[self::td or self::th][*[{XpathProvider.MarkerElements} and {XpathProvider.TextMatch(target)}]]/preceding-sibling::*[self::td or self::th])]/*[{elementType}]");
 
         //<a href = "https://www.w3schools.com/html/" title="target">Visit our HTML Tutorial</a>
         //a[@title='{target}']
         virtual protected Func<string, IEnumerable<SelectorPrefix>, IWebDriver, IEnumerable<Element>> ByFollowingMarker(string elementType) =>
-                (target, prefixes, driver) => Permutate(prefixes, driver, (prefix) => 
+                (target, prefixes, driver) => Permutate(prefixes, driver, (prefix) =>
                     $"{prefix}//*[{XpathProvider.MarkerElements} and {XpathProvider.TextMatch(target)}]/following-sibling::*[not(self::br or self::hr)][1][{elementType}]");
 
         #endregion
@@ -352,7 +354,7 @@ namespace PossumLabs.DSL.Web.Selectors
 
 
         virtual protected Func<string, IEnumerable<SelectorPrefix>, IWebDriver, IEnumerable<Element>> ByContent =>
-            (target, prefixes, driver) => Permutate(prefixes, driver, (prefix) => 
+            (target, prefixes, driver) => Permutate(prefixes, driver, (prefix) =>
                 $"{prefix}//*[{XpathProvider.ContentElements} and {XpathProvider.TextMatch(target)}]");
 
         #endregion
@@ -412,7 +414,7 @@ namespace PossumLabs.DSL.Web.Selectors
             };
         virtual protected Func<string, IEnumerable<string>> Legend =>
             (target) => new List<string>() { $"//*[legend[{XpathProvider.TextMatch(target)}]]" };
-        
+
         virtual protected Func<string, IEnumerable<string>> FollowingRow =>
             (target) => TableRow(target).Select(x => $"{x}/following-sibling::tr[1]").ToList();
         #endregion

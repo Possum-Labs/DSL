@@ -216,8 +216,14 @@ this.EnteringTextInputsCKEditor4("textarea aria-labelledby", "t1 t2", "Bob", "^<
         
         public virtual void EnteringTextInputsCKEditor5(string description, string target, string value, string result, string html, string[] exampleTags)
         {
-            string[] tagsOfScenario = exampleTags;
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("entering text inputs CKEditor 5", null, exampleTags);
+            string[] @__tags = new string[] {
+                    "ignore"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("entering text inputs CKEditor 5", "waiting on a framework change", @__tags);
 #line 20
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -242,13 +248,13 @@ this.ScenarioInitialize(scenarioInfo);
                             "CKEditor5"});
                 table36.AddRow(new string[] {
                             string.Format("{0}", html)});
-#line 21
+#line 22
  testRunner.Given("injecting browser content", ((string)(null)), table36, "Given ");
 #line hidden
-#line 24
+#line 25
  testRunner.When(string.Format("entering \'{0}\' into element \'{1}\'", value, target), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 25
+#line 26
  testRunner.Then(string.Format("the element \'{0}\' has the value \'{1}\'", target, result), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -258,6 +264,7 @@ this.ScenarioInitialize(scenarioInfo);
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("entering text inputs CKEditor 5: textarea for")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Rich Text Controls")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("ignore")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "textarea for")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:description", "textarea for")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:target", "target")]
@@ -274,6 +281,7 @@ this.EnteringTextInputsCKEditor5("textarea for", "target", "Bob", "Bob", "<label
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("entering text inputs CKEditor 5: textarea following")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Rich Text Controls")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("ignore")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "textarea following")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:description", "textarea following")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:target", "target")]
@@ -290,6 +298,7 @@ this.EnteringTextInputsCKEditor5("textarea following", "target", "Bob", "Bob", "
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("entering text inputs CKEditor 5: textarea nested")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Rich Text Controls")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("ignore")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "textarea nested")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:description", "textarea nested")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:target", "target")]
@@ -306,6 +315,7 @@ this.EnteringTextInputsCKEditor5("textarea nested", "target", "Bob", "Bob", "<la
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("entering text inputs CKEditor 5: textarea aria-label")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Rich Text Controls")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("ignore")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "textarea aria-label")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:description", "textarea aria-label")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:target", "target")]
@@ -322,6 +332,7 @@ this.EnteringTextInputsCKEditor5("textarea aria-label", "target", "Bob", "Bob", 
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("entering text inputs CKEditor 5: textarea aria-labelledby")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Rich Text Controls")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("ignore")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "textarea aria-labelledby")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:description", "textarea aria-labelledby")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:target", "t1 t2")]
@@ -341,7 +352,7 @@ this.EnteringTextInputsCKEditor5("textarea aria-labelledby", "t1 t2", "Bob", "Bo
         {
             string[] tagsOfScenario = exampleTags;
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("entering text inputs Tiny MCE 4.5.5", null, exampleTags);
-#line 34
+#line 35
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -365,13 +376,13 @@ this.ScenarioInitialize(scenarioInfo);
                             "TinyMCE4"});
                 table37.AddRow(new string[] {
                             string.Format("{0}", html)});
-#line 35
+#line 36
  testRunner.Given("injecting browser content", ((string)(null)), table37, "Given ");
 #line hidden
-#line 38
+#line 39
  testRunner.When(string.Format("entering \'{0}\' into element \'{1}\'", value, target), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 39
+#line 40
  testRunner.Then(string.Format("the element \'{0}\' has the value \'/{1}/\'", target, result), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -389,24 +400,8 @@ this.ScenarioInitialize(scenarioInfo);
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:html", "<label for=\"myeditor\">target</label><textarea id=\"myeditor\"></textarea>")]
         public virtual void EnteringTextInputsTinyMCE4_5_5_TextareaFor()
         {
-#line 34
+#line 35
 this.EnteringTextInputsTinyMCE4_5_5("textarea for", "target", "Bob", "^<p>Bob<\\/p>", "<label for=\"myeditor\">target</label><textarea id=\"myeditor\"></textarea>", ((string[])(null)));
-#line hidden
-        }
-        
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("entering text inputs Tiny MCE 4.5.5: textarea following")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Rich Text Controls")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "textarea following")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:description", "textarea following")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:target", "target")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:value", "Bob")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:result", "^<p>Bob<\\/p>")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:html", "<label>target</label><textarea id=\"myeditor\"></textarea>")]
-        public virtual void EnteringTextInputsTinyMCE4_5_5_TextareaFollowing()
-        {
-#line 34
-this.EnteringTextInputsTinyMCE4_5_5("textarea following", "target", "Bob", "^<p>Bob<\\/p>", "<label>target</label><textarea id=\"myeditor\"></textarea>", ((string[])(null)));
 #line hidden
         }
         
@@ -421,7 +416,7 @@ this.EnteringTextInputsTinyMCE4_5_5("textarea following", "target", "Bob", "^<p>
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:html", "<label>target<textarea id=\"myeditor\"></textarea></label>")]
         public virtual void EnteringTextInputsTinyMCE4_5_5_TextareaNested()
         {
-#line 34
+#line 35
 this.EnteringTextInputsTinyMCE4_5_5("textarea nested", "target", "Bob", "^<p>Bob<\\/p>", "<label>target<textarea id=\"myeditor\"></textarea></label>", ((string[])(null)));
 #line hidden
         }
@@ -437,7 +432,7 @@ this.EnteringTextInputsTinyMCE4_5_5("textarea nested", "target", "Bob", "^<p>Bob
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:html", "<textarea id=\"myeditor\" aria-label=\"target\"></textarea>")]
         public virtual void EnteringTextInputsTinyMCE4_5_5_TextareaAria_Label()
         {
-#line 34
+#line 35
 this.EnteringTextInputsTinyMCE4_5_5("textarea aria-label", "target", "Bob", "^<p>Bob<\\/p>", "<textarea id=\"myeditor\" aria-label=\"target\"></textarea>", ((string[])(null)));
 #line hidden
         }
@@ -454,7 +449,7 @@ this.EnteringTextInputsTinyMCE4_5_5("textarea aria-label", "target", "Bob", "^<p
             "bel><label id=\"l2\">t2</label>")]
         public virtual void EnteringTextInputsTinyMCE4_5_5_TextareaAria_Labelledby()
         {
-#line 34
+#line 35
 this.EnteringTextInputsTinyMCE4_5_5("textarea aria-labelledby", "t1 t2", "Bob", "^<p>Bob<\\/p>", "<textarea id=\"myeditor\" aria-labelledby= \"l1 l2\"></textarea><label id=\"l1\">t1</la" +
                     "bel><label id=\"l2\">t2</label>", ((string[])(null)));
 #line hidden
@@ -464,7 +459,7 @@ this.EnteringTextInputsTinyMCE4_5_5("textarea aria-labelledby", "t1 t2", "Bob", 
         {
             string[] tagsOfScenario = exampleTags;
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("entering text inputs Tiny MCE 5", null, exampleTags);
-#line 48
+#line 49
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -488,13 +483,13 @@ this.ScenarioInitialize(scenarioInfo);
                             "TinyMCE5"});
                 table38.AddRow(new string[] {
                             string.Format("{0}", html)});
-#line 49
+#line 50
  testRunner.Given("injecting browser content", ((string)(null)), table38, "Given ");
 #line hidden
-#line 52
+#line 53
  testRunner.When(string.Format("entering \'{0}\' into element \'{1}\'", value, target), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 53
+#line 54
  testRunner.Then(string.Format("the element \'{0}\' has the value \'/{1}/\'", target, result), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -512,7 +507,7 @@ this.ScenarioInitialize(scenarioInfo);
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:html", "<label for=\"myeditor\">target</label><textarea id=\"myeditor\"></textarea>")]
         public virtual void EnteringTextInputsTinyMCE5_TextareaFor()
         {
-#line 48
+#line 49
 this.EnteringTextInputsTinyMCE5("textarea for", "target", "Bob", "^<p>Bob<\\/p>", "<label for=\"myeditor\">target</label><textarea id=\"myeditor\"></textarea>", ((string[])(null)));
 #line hidden
         }
@@ -528,7 +523,7 @@ this.EnteringTextInputsTinyMCE5("textarea for", "target", "Bob", "^<p>Bob<\\/p>"
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:html", "<label>target</label><textarea id=\"myeditor\"></textarea>")]
         public virtual void EnteringTextInputsTinyMCE5_TextareaFollowing()
         {
-#line 48
+#line 49
 this.EnteringTextInputsTinyMCE5("textarea following", "target", "Bob", "^<p>Bob<\\/p>", "<label>target</label><textarea id=\"myeditor\"></textarea>", ((string[])(null)));
 #line hidden
         }
@@ -544,7 +539,7 @@ this.EnteringTextInputsTinyMCE5("textarea following", "target", "Bob", "^<p>Bob<
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:html", "<label>target<textarea id=\"myeditor\"></textarea></label>")]
         public virtual void EnteringTextInputsTinyMCE5_TextareaNested()
         {
-#line 48
+#line 49
 this.EnteringTextInputsTinyMCE5("textarea nested", "target", "Bob", "^<p>Bob<\\/p>", "<label>target<textarea id=\"myeditor\"></textarea></label>", ((string[])(null)));
 #line hidden
         }
@@ -560,7 +555,7 @@ this.EnteringTextInputsTinyMCE5("textarea nested", "target", "Bob", "^<p>Bob<\\/
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:html", "<textarea id=\"myeditor\" aria-label=\"target\"></textarea>")]
         public virtual void EnteringTextInputsTinyMCE5_TextareaAria_Label()
         {
-#line 48
+#line 49
 this.EnteringTextInputsTinyMCE5("textarea aria-label", "target", "Bob", "^<p>Bob<\\/p>", "<textarea id=\"myeditor\" aria-label=\"target\"></textarea>", ((string[])(null)));
 #line hidden
         }
@@ -577,7 +572,7 @@ this.EnteringTextInputsTinyMCE5("textarea aria-label", "target", "Bob", "^<p>Bob
             "bel><label id=\"l2\">t2</label>")]
         public virtual void EnteringTextInputsTinyMCE5_TextareaAria_Labelledby()
         {
-#line 48
+#line 49
 this.EnteringTextInputsTinyMCE5("textarea aria-labelledby", "t1 t2", "Bob", "^<p>Bob<\\/p>", "<textarea id=\"myeditor\" aria-labelledby= \"l1 l2\"></textarea><label id=\"l1\">t1</la" +
                     "bel><label id=\"l2\">t2</label>", ((string[])(null)));
 #line hidden

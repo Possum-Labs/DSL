@@ -9,7 +9,7 @@ using System.Text;
 
 namespace PossumLabs.DSL.Core.Variables
 {
-    public class ExistingDataManager
+    public class ExistingDataManager : IExistingDataManager
     {
         public ExistingDataManager(Interpeter interpeter, TemplateManager templateManager)
         {
@@ -28,7 +28,7 @@ namespace PossumLabs.DSL.Core.Variables
             var simplenames = types.Select(t => t.Name);
 
             var files = GetAllFiles(directoryInfo, "json")
-                .Where(f=> string.Equals(f.Name, "existing.json", StringComparison.InvariantCultureIgnoreCase));
+                .Where(f => string.Equals(f.Name, "existing.json", StringComparison.InvariantCultureIgnoreCase));
 
             foreach (var file in files)
             {
@@ -47,15 +47,15 @@ namespace PossumLabs.DSL.Core.Variables
                                 $"for assembly {assembly.FullName} " +
                                 $"in folder {directoryInfo.FullName}");
 
-                        
+
 
                         foreach (var keyValue in objectSet.values)
                         {
                             Interpeter.Add(
-                                type, 
-                                (keyValue.var ?? keyValue.Var).Value, 
+                                type,
+                                (keyValue.var ?? keyValue.Var).Value,
                                 ProcessVariable(
-                                    type, 
+                                    type,
                                     (keyValue.var ?? keyValue.Var).Value,
                                     (keyValue.template ?? keyValue.Template)?.Value,
                                     (keyValue.value ?? keyValue.Value)));
@@ -66,7 +66,7 @@ namespace PossumLabs.DSL.Core.Variables
         }
 
         public object ProcessVariable(
-            Type type, 
+            Type type,
             string name,
             string template,
             dynamic options)
@@ -107,8 +107,8 @@ namespace PossumLabs.DSL.Core.Variables
             => directoryInfo.GetFiles().Where(f => f.Extension == $".{extension}").Union(directoryInfo.GetDirectories().SelectMany(d => GetAllFiles(d, extension)));
 
 
-        private IEnumerable<Type> GetAllTypesOf<T>( Assembly assembly)
-            =>assembly.GetExportedTypes()
+        private IEnumerable<Type> GetAllTypesOf<T>(Assembly assembly)
+            => assembly.GetExportedTypes()
                 .Union(assembly.GetReferencedAssemblies().Select(Assembly.Load).Select(a => a.GetExportedTypes())
                 .SelectMany(ts => ts)
                 .Where(t => typeof(T).IsAssignableFrom(t)));

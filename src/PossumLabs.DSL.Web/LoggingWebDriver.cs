@@ -20,7 +20,9 @@ namespace PossumLabs.DSL.Web
     public class LoggingWebDriver : IWebDriver, ITakesScreenshot, IActionExecutor, IJavaScriptExecutor
 #pragma warning restore CS0618 // Type or member is obsolete
     {
-        public LoggingWebDriver(IWebDriver driver, MovieLogger movieLogger, WebElementSourceLog webElementSourceLog)
+        public LoggingWebDriver(IWebDriver driver, 
+            IMovieLogger movieLogger, 
+            IWebElementSourceLog webElementSourceLog)
         {
             SeleniumDriver = driver;
             Messages = new List<string>();
@@ -30,9 +32,9 @@ namespace PossumLabs.DSL.Web
         }
 
         private List<string> Messages { get; }
-        private MovieLogger MovieLogger { get; }
+        private IMovieLogger MovieLogger { get; }
         public List<Screenshot> Screenshots { get; }
-        public WebElementSourceLog WebElementSourceLog { get; set; }
+        public IWebElementSourceLog WebElementSourceLog { get; set; }
 
         public string Url { get => SeleniumDriver.Url; set => SeleniumDriver.Url = value; }
 

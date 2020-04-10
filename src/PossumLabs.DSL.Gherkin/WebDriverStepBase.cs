@@ -12,10 +12,10 @@ namespace PossumLabs.DSL
         protected WebDriver WebDriver => ObjectContainer.Resolve<WebDriverManager>().Current;
 
         protected WebDriverManager WebDriverManager => ObjectContainer.Resolve<WebDriverManager>();
-        protected WebValidationFactory WebValidationFactory => ObjectContainer.Resolve<WebValidationFactory>();
-        protected SelectorFactory SelectorFactory => ObjectContainer.Resolve<SelectorFactory>();
+        protected IWebValidationFactory WebValidationFactory => ObjectContainer.Resolve<IWebValidationFactory>();
+        protected ISelectorFactory SelectorFactory => ObjectContainer.Resolve<ISelectorFactory>();
 
-        protected ElementFactory ElementFactory => ObjectContainer.Resolve<ElementFactory>();
-        protected XpathProvider XpathProvider => ObjectContainer.Resolve<XpathProvider>();
+        protected IElementFactory ElementFactory => ObjectContainer.Resolve<IElementFactory>();
+        protected IXpathProvider XpathProvider => ObjectContainer.Resolve<IXpathProvider>();
     }
 }

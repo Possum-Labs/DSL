@@ -8,7 +8,7 @@ using System.Text;
 
 namespace PossumLabs.DSL.Web.Selectors
 {
-    public class WebElementSourceLog
+    public class WebElementSourceLog : IWebElementSourceLog
     {
         public WebElementSourceLog()
         {
@@ -22,14 +22,14 @@ namespace PossumLabs.DSL.Web.Selectors
             public WebElementSource(string page, By by, int order)
             {
                 Page = page;
-                By= by;
+                By = by;
                 Order = order;
             }
             public string Page { get; }
             public By By { get; }
             public string SelectorType { get; set; }
             public string SelectorConstructor { get; set; }
-            public int  Order { get; set; }
+            public int Order { get; set; }
         }
 
         public void Add(IWebElement e, string page, By by)
@@ -54,7 +54,7 @@ namespace PossumLabs.DSL.Web.Selectors
 
         public void Log(ILog logger)
         {
-            logger.Section(this.GetType().Name,  WebElementSources.Values
+            logger.Section(this.GetType().Name, WebElementSources.Values
                 .Where(x => x.By != null && x.SelectorType != null)
                 .OrderBy(x => x.Order)
                 .Select(x => new WebElementLogRecord(

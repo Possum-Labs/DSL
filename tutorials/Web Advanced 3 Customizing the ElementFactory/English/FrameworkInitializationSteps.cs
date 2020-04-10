@@ -49,7 +49,7 @@ namespace PossumLabs.DSL.English
             Register((PossumLabs.DSL.Core.Logging.ILog)Logger);
 
             //here is our override
-            Register<ElementFactory>(new CustomElementFactory());
+            Register<ElementFactory>(new CustomElementFactory(new Web.ApplicationElements.ApplicationElementRegistry()));
 
             Register<XpathProvider>(new XpathProvider());
             Register<SelectorFactory>(new SelectorFactory(ElementFactory, XpathProvider).UseBootstrap());

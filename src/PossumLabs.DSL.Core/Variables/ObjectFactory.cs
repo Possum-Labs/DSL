@@ -4,7 +4,7 @@ using System.Text;
 
 namespace PossumLabs.DSL.Core.Variables
 {
-    public class ObjectFactory
+    public class ObjectFactory : IObjectFactory
     {
         public ObjectFactory()
         {

@@ -10,7 +10,11 @@ namespace PossumLabs.DSL.Web
 {
     public class TableElement
     {
-        public TableElement(IWebElement table, IWebDriver driver, ElementFactory elementFactory, XpathProvider xpathProvider)
+        public TableElement(
+            IWebElement table, 
+            IWebDriver driver, 
+            IElementFactory elementFactory, 
+            IXpathProvider xpathProvider)
         {
             RootElement = table;
             Driver = driver;
@@ -20,9 +24,8 @@ namespace PossumLabs.DSL.Web
             XpathProvider = xpathProvider;
         }
 
-        private ElementFactory ElementFactory { get; }
-        private XpathProvider XpathProvider { get; }
-
+        private IElementFactory ElementFactory { get; }
+        private IXpathProvider XpathProvider { get; }
         private IWebElement RootElement { get; }
         private IWebDriver Driver { get; }
         public Dictionary<string, int> Header { get; }

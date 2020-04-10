@@ -21,6 +21,7 @@ using System.Text;
 using TechTalk.SpecFlow;
 using System.Linq;
 using PossumLabs.DSL.Core.Variables;
+using PossumLabs.DSL.Web.ApplicationElements;
 
 namespace PossumLabs.DSL
 {
@@ -28,13 +29,12 @@ namespace PossumLabs.DSL
     {
         public FrameworkInitializationStepsBase(IObjectContainer objectContainer) : base(objectContainer) { }
 
-        protected ScreenshotProcessor ScreenshotProcessor { get; set; }
-        protected ImageLogging ImageLogging { get; set; }
-        protected MovieLogger MovieLogger { get; set; }
-        protected WebElementSourceLog WebElementSourceLog { get; set; }
-        protected NetworkWatcher NetworkWatcher { get; set; }
-
-        protected DefaultLogger Logger { get; set; }
+        protected IScreenshotProcessor ScreenshotProcessor => ObjectContainer.Resolve<IScreenshotProcessor>();
+        protected IImageLogging ImageLogging => ObjectContainer.Resolve<IImageLogging>();
+        protected IMovieLogger MovieLogger => ObjectContainer.Resolve<IMovieLogger>();
+        protected IWebElementSourceLog WebElementSourceLog => ObjectContainer.Resolve<IWebElementSourceLog>();
+        protected INetworkWatcher NetworkWatcher => ObjectContainer.Resolve<INetworkWatcher>();
+        protected ILog Logger => ObjectContainer.Resolve<ILog>();
 
         protected virtual void LogStep()
         {
@@ -85,44 +85,59 @@ namespace PossumLabs.DSL
             WebDriver.AlertText.Should().BeNull($"An allert was left open at the end of the test with text:{WebDriver.AlertText}");
         }
 
+        protected virtual void IoCInitialialization()
+        {
+            ObjectContainer.RegisterTypeAs<ScreenshotProcessor,IScreenshotProcessor>();
+            ObjectContainer.RegisterTypeAs<NetworkWatcher,INetworkWatcher>();
+            ObjectContainer.RegisterTypeAs<ConfigurationFactory,IConfigurationFactory>();
+            ObjectContainer.RegisterTypeAs<Interpeter, IInterpeter>();
+            ObjectContainer.RegisterTypeAs<ActionExecutor, PossumLabs.DSL.Core.Exceptions.IActionExecutor>();
+            ObjectContainer.RegisterTypeAs<ObjectFactory, IObjectFactory>();
+            ObjectContainer.RegisterTypeAs<TemplateManager, ITemplateManager>();            
+            ObjectContainer.RegisterTypeAs<WebElementSourceLog,IWebElementSourceLog>();
+            ObjectContainer.RegisterTypeAs<ImageLogging,IImageLogging>();
+            ObjectContainer.RegisterTypeAs<FileManager,IFileManager>();
+            ObjectContainer.RegisterTypeAs<MovieLogger, IMovieLogger>();
+            ObjectContainer.RegisterTypeAs<YamlLogFormatter,ILogFormatter>();
+            ObjectContainer.RegisterTypeAs<DefaultLogger,ILog>();
+            ObjectContainer.RegisterTypeAs<ApplicationElementRegistry, IApplicationElementRegistry>();
+            ObjectContainer.RegisterTypeAs<ElementFactory, IElementFactory>();
+            ObjectContainer.RegisterTypeAs<XpathProvider, IXpathProvider>();
+            ObjectContainer.RegisterTypeAs<SelectorFactory, ISelectorFactory>();
+            ObjectContainer.RegisterTypeAs<DataGeneratorRepository, IDataGeneratorRepository>();
+            ObjectContainer.RegisterTypeAs<ExistingDataManager, IExistingDataManager>();
+            ObjectContainer.RegisterTypeAs<RetryExecutor, IRetryExecutor>();
+            ObjectContainer.RegisterTypeAs<WebValidationFactory, IWebValidationFactory>();
+        }
+
         protected virtual void SetupInfrastructure()
         {
             IConfiguration config = new ConfigurationBuilder()
               .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
               .AddEnvironmentVariables()
               .Build();
-
-            NetworkWatcher = new NetworkWatcher();
-
-            ScreenshotProcessor = ObjectContainer.Resolve<ScreenshotProcessor>();
-
-            var configFactory = new ConfigurationFactory(config);
-
+            ObjectContainer.RegisterInstanceAs(config);
+            ObjectContainer.RegisterInstanceAs(new DatetimeManager(() => DateTime.Now));
+            ObjectContainer.RegisterInstanceAs(new DirectoryInfo(Environment.CurrentDirectory));
             ObjectContainer.RegisterInstanceAs(new ScenarioMetadata(() => ScenarioContext.TestError != null));
+            
+            IoCInitialialization();
+
+            var configFactory = ObjectContainer.Resolve<IConfigurationFactory>();
             ObjectContainer.RegisterInstanceAs(configFactory.Create<MovieLoggerConfig>());
             ObjectContainer.RegisterInstanceAs(configFactory.Create<ImageLoggingConfig>());
-            WebElementSourceLog = new WebElementSourceLog();
+            ObjectContainer.RegisterInstanceAs(configFactory.Create<SeleniumGridConfiguration>());
 
-            ImageLogging = new ImageLogging(ObjectContainer.Resolve<ImageLoggingConfig>());
-            Register(new FileManager(new DatetimeManager(() => DateTime.Now)));
-            FileManager.Initialize(FeatureContext.FeatureInfo.Title, ScenarioContext.ScenarioInfo.Title, null /*Specflow limitation*/);
-            MovieLogger = new MovieLogger(FileManager, ObjectContainer.Resolve<MovieLoggerConfig>(), Metadata);
+            var dataGeneratorRepository = ObjectContainer.Resolve<IDataGeneratorRepository>();
+            ObjectContainer.RegisterInstanceAs(dataGeneratorRepository.BuildGenerator());
 
-            ObjectContainer.RegisterInstanceAs(ImageLogging);
-            ObjectContainer.RegisterInstanceAs(MovieLogger);
+            ObjectContainer.Resolve<ISelectorFactory>()
+                .UseBootstrap();
 
-            Logger = new DefaultLogger(new DirectoryInfo(Environment.CurrentDirectory), new YamlLogFormatter());
-            Register((PossumLabs.DSL.Core.Logging.ILog)Logger);
-            Register<ElementFactory>(new ElementFactory(new Web.ApplicationElements.ApplicationElementRegistry()));
-            Register<XpathProvider>(new XpathProvider());
-            Register<SelectorFactory>(new SelectorFactory(ElementFactory, XpathProvider).UseBootstrap());
-            Register(new PossumLabs.DSL.Web.WebDriverManager(
-                this.Interpeter,
-                this.ObjectFactory,
-                new SeleniumGridConfiguration()));
-
-            var dataGeneratorRepository = new DataGeneratorRepository(Interpeter, ObjectFactory);
-            Register<DataGenerator>(dataGeneratorRepository.BuildGenerator());
+            ObjectContainer.Resolve<IFileManager>()
+                .Initialize(FeatureContext.FeatureInfo.Title, 
+                ScenarioContext.ScenarioInfo.Title, 
+                null /*Specflow limitation*/);
 
             Log.Message($"Feature: {FeatureContext.FeatureInfo.Title} Scenario: {ScenarioContext.ScenarioInfo.Title} \n" +
                 $"Tags: {FeatureContext.FeatureInfo.Tags.LogFormat()} {ScenarioContext.ScenarioInfo.Tags.LogFormat()}");
@@ -135,19 +150,19 @@ namespace PossumLabs.DSL
 
         protected void LoadTemplates()
         {
-            var templateManager = new PossumLabs.DSL.Core.Variables.TemplateManager();
-            templateManager.Initialize(this.GetType().Assembly);
-            Register(templateManager);
+            ObjectContainer.Resolve<ITemplateManager>()
+                .Initialize(this.GetType().Assembly);
+        }
+        protected void LoadExistingData()
+        {
+            ObjectContainer.Resolve<IExistingDataManager>()
+                .Initialize(this.GetType().Assembly);
+
         }
 
         protected virtual Characteristics Transform(string id) => id;
 
-        protected void LoadExistingData()
-        {
-            new PossumLabs.DSL.Core.Variables.ExistingDataManager(this.Interpeter, this.TemplateManager)
-                .Initialize(this.GetType().Assembly);
-
-        }
+       
 
         protected virtual RemoteWebDriver WebdriverFactory()
         {
@@ -173,11 +188,11 @@ namespace PossumLabs.DSL
                 WebDriverManager.Create(),
                 () => WebDriverManager.BaseUrl,
                 ObjectContainer.Resolve<SeleniumGridConfiguration>(),
-                ObjectContainer.Resolve<RetryExecutor>(),
+                ObjectContainer.Resolve<IRetryExecutor>(),
                 SelectorFactory,
                 ElementFactory,
                 XpathProvider,
-                ObjectContainer.Resolve<MovieLogger>(), 
+                ObjectContainer.Resolve<IMovieLogger>(), 
                 WebElementSourceLog);
 
 

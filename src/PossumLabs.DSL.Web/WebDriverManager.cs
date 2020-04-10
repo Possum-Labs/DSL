@@ -14,8 +14,8 @@ namespace PossumLabs.DSL.Web
     public class WebDriverManager:RepositoryBase<WebDriver>, IDisposable
     {
         public WebDriverManager(
-            Interpeter interpeter, 
-            ObjectFactory objectFactory, 
+            IInterpeter interpeter, 
+            IObjectFactory objectFactory, 
             SeleniumGridConfiguration seleniumGridConfiguration) : 
             base(interpeter, objectFactory)
         {

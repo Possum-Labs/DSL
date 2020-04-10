@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using PossumLabs.DSL.Web;
+using PossumLabs.DSL.Web.ApplicationElements;
 using PossumLabs.DSL.Web.Selectors;
 using System;
 using System.Collections.Generic;
@@ -15,7 +16,8 @@ namespace DSL.Documentation.Example
     ///Please make sure to look at FrameworkInitializationSteps to see where we register this class
     public class CustomElementFactory : ElementFactory
     {
-        public CustomElementFactory()
+        public CustomElementFactory(ApplicationElementRegistry applicationElementRegistry)
+            :base(applicationElementRegistry)
         {
         }
 

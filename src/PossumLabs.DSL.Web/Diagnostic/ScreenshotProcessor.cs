@@ -7,7 +7,7 @@ using System.IO;
 
 namespace PossumLabs.DSL.Web.Diagnostic
 {
-    public class ScreenshotProcessor
+    public class ScreenshotProcessor : IScreenshotProcessor
     {
         public void CreateGif(string fileName, IEnumerable<byte[]> files)
         {

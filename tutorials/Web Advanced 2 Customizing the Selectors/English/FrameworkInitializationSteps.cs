@@ -47,7 +47,7 @@ namespace PossumLabs.DSL.English
 
             Logger = new DefaultLogger(new DirectoryInfo(Environment.CurrentDirectory), new YamlLogFormatter());
             Register((PossumLabs.DSL.Core.Logging.ILog)Logger);
-            Register<ElementFactory>(new ElementFactory());
+            Register<ElementFactory>(new ElementFactory(new Web.ApplicationElements.ApplicationElementRegistry()));
             Register<XpathProvider>(new XpathProvider());
 
             // here we do the injection of the custom selector factory

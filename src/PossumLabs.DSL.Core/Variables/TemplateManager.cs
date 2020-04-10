@@ -12,7 +12,7 @@ using System.Text;
 
 namespace PossumLabs.DSL.Core.Variables
 {
-    public class TemplateManager
+    public class TemplateManager : ITemplateManager
     {
         public TemplateManager()
         {
@@ -23,17 +23,17 @@ namespace PossumLabs.DSL.Core.Variables
         private Dictionary<Type, Dictionary<string, Action<object>>> Templates { get; }
         private string DefaultKey { get; }
 
-        public void Register<T>(Action<T> template, string name = null) where T:IValueObject
+        public void Register<T>(Action<T> template, string name = null) where T : IValueObject
         {
             var t = typeof(T);
-            Register(name, t, (o)=>template((T)o));
+            Register(name, t, (o) => template((T)o));
         }
 
         private void Register(string name, Type t, Action<object> template)
         {
             if (!Templates.ContainsKey(t))
                 Templates.Add(t, new Dictionary<string, Action<object>>());
-            Templates[t].Add(name?? DefaultKey, template);
+            Templates[t].Add(name ?? DefaultKey, template);
         }
 
         public T ApplyTemplate<T>(T item, string name = null) where T : IValueObject
@@ -44,11 +44,11 @@ namespace PossumLabs.DSL.Core.Variables
                 return item;
             if (!Templates.ContainsKey(t) && name != null)
                 throw new Exception($"There are no templates registered for {t.Name}. The template {name} does not exist for type {t.Name}");
-            if (!Templates[t].ContainsKey(name?? DefaultKey) && name != null)
-                throw new GherkinException($"The template {name??"null"} fores not exist for type {t.Name}, registered templates are {Templates[t].Keys.LogFormat()}");
-            if (!Templates.ContainsKey(t) || !Templates[t].ContainsKey(name?? DefaultKey))
+            if (!Templates[t].ContainsKey(name ?? DefaultKey) && name != null)
+                throw new GherkinException($"The template {name ?? "null"} fores not exist for type {t.Name}, registered templates are {Templates[t].Keys.LogFormat()}");
+            if (!Templates.ContainsKey(t) || !Templates[t].ContainsKey(name ?? DefaultKey))
                 return item;
-            Templates[t][name?? DefaultKey](item);
+            Templates[t][name ?? DefaultKey](item);
             return item;
         }
 
@@ -56,23 +56,23 @@ namespace PossumLabs.DSL.Core.Variables
         {
             var fileInfo = new FileInfo(assembly.Location);
             var directoryInfo = fileInfo.Directory;
-            var dlls = GetAllFiles(directoryInfo, "dll").Select(f=>f.Name).ToList();
-            var types = GetAllTypesOf<IValueObject>(dlls, assembly).Where(t=>!t.IsAbstract && !t.IsInterface).ToList();
+            var dlls = GetAllFiles(directoryInfo, "dll").Select(f => f.Name).ToList();
+            var types = GetAllTypesOf<IValueObject>(dlls, assembly).Where(t => !t.IsAbstract && !t.IsInterface).ToList();
             var simplenames = types.Select(t => t.Name);
 
             var files = GetAllFiles(directoryInfo, "json").Where(f => simplenames.Contains(Path.GetFileNameWithoutExtension(f.Name)));
 
-            foreach(var file in files)
+            foreach (var file in files)
             {
                 var type = types.First(t => t.Name == Path.GetFileNameWithoutExtension(file.Name));
-                var expectedMembers = type.GetValueMembers().Where(m=>!types.Contains(m.Type));
+                var expectedMembers = type.GetValueMembers().Where(m => !types.Contains(m.Type));
                 using (StreamReader r = new StreamReader(file.OpenRead()))
                 {
                     string json = r.ReadToEnd();
                     dynamic obj = JValue.Parse(json);
-                    if(obj is IEnumerable)
+                    if (obj is IEnumerable)
                     {
-                        foreach(var o in obj)
+                        foreach (var o in obj)
                             ProcessTemplate(file, type, expectedMembers, o);
                     }
                     else
@@ -85,7 +85,7 @@ namespace PossumLabs.DSL.Core.Variables
 
         private void ProcessTemplate(FileInfo file, Type type, IEnumerable<ValueMemberInfo> expectedMembers, dynamic options)
         {
-            string name = options.Name??options.name;
+            string name = options.Name ?? options.name;
 
             dynamic template = options.Template ?? options.template ?? options;
 
@@ -123,14 +123,14 @@ namespace PossumLabs.DSL.Core.Variables
         }
 
         private IEnumerable<FileInfo> GetAllFiles(DirectoryInfo directoryInfo, string extension)
-            => directoryInfo.GetFiles().Where(f=>f.Extension == $".{extension}").Union(directoryInfo.GetDirectories().SelectMany(d=>GetAllFiles(d, extension)));
+            => directoryInfo.GetFiles().Where(f => f.Extension == $".{extension}").Union(directoryInfo.GetDirectories().SelectMany(d => GetAllFiles(d, extension)));
 
         private IEnumerable<Type> GetAllTypesOf<T>(List<string> availableDlls, Assembly assembly)
         {
             var platform = Environment.OSVersion.Platform.ToString();
-          
 
-            return assembly.GetExportedTypes().Union(assembly.GetReferencedAssemblies().Select(Assembly.Load).Select(a=>a.GetExportedTypes()).SelectMany(ts=>ts)
+
+            return assembly.GetExportedTypes().Union(assembly.GetReferencedAssemblies().Select(Assembly.Load).Select(a => a.GetExportedTypes()).SelectMany(ts => ts)
                 .Where(t => typeof(T).IsAssignableFrom(t)));
         }
     }

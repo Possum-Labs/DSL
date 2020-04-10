@@ -2,7 +2,8 @@
 
 Scenario Outline: basic login
 	Given navigated to 'http://possumlabs.com/testsite/'
-	When entering 'possum' into element 'User Name'
+	When clicking the element 'Login'
+	And entering 'possum' into element 'User Name'
 	And entering 'possum' into element 'Password'
 	And clicking the element '<selector>'
 

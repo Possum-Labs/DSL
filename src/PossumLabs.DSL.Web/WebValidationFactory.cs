@@ -8,9 +8,9 @@ using System.Linq;
 
 namespace PossumLabs.DSL.Web
 {
-    public class WebValidationFactory:ValidationFactory
+    public class WebValidationFactory : ValidationFactory, IWebValidationFactory
     {
-        public WebValidationFactory(Interpeter interpeter) : base(interpeter)
+        public WebValidationFactory(IInterpeter interpeter) : base(interpeter)
         {
         }
 
@@ -20,25 +20,25 @@ namespace PossumLabs.DSL.Web
                 if (field != null)
                     o = o.Resolve(field);
                 if (MakePredicate(constructor).Invoke(o) != true)
-                    return $"the value was '{((Element)o).Values.Where(s=>!String.IsNullOrWhiteSpace(s)).LogFormat()}' which was not '{constructor}'";
+                    return $"the value was '{((Element)o).Values.Where(s => !String.IsNullOrWhiteSpace(s)).LogFormat()}' which was not '{constructor}'";
                 return null;
             }, constructor);
 
-        public TableValidation Create(List<Dictionary<string,WebValidation>> validation)
+        public TableValidation Create(List<Dictionary<string, WebValidation>> validation)
             => new TableValidation(validation);
 
         public override Predicate<object> MakePredicate(string predicate)
         {
             if (Parser.IsElement.IsMatch(predicate))
-                return BuildPredicate(predicate,(e)=>e.Tag == Parser.IsElement.Match(predicate).Groups[1].Value);
+                return BuildPredicate(predicate, (e) => e.Tag == Parser.IsElement.Match(predicate).Groups[1].Value);
             if (Parser.IsClass.IsMatch(predicate))
                 return BuildPredicate(predicate, (e) => e.Classes.Contains(Parser.IsClass.Match(predicate).Groups[1].Value));
             if (Parser.IsId.IsMatch(predicate))
                 return BuildPredicate(predicate, (e) => e.Id == Parser.IsId.Match(predicate).Groups[1].Value);
-            return BuildPredicate(predicate, (e) => e.Values.Any(value=> base.MakePredicate(predicate).Invoke(value)));
+            return BuildPredicate(predicate, (e) => e.Values.Any(value => base.MakePredicate(predicate).Invoke(value)));
         }
 
-        public Predicate<object> BuildPredicate(string predicate, Func<Element,bool> test)
+        public Predicate<object> BuildPredicate(string predicate, Func<Element, bool> test)
         {
             return v =>
             {

@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace PossumLabs.DSL.DataGeneration
 {
-    public class DataGeneratorRepository : RepositoryBase<DataGenerator>
+    public class DataGeneratorRepository : RepositoryBase<DataGenerator>, IDataGeneratorRepository
     {
         public DataGeneratorRepository(Interpeter interpeter, ObjectFactory objectFactory) : base(interpeter, objectFactory)
         {
@@ -28,7 +28,7 @@ namespace PossumLabs.DSL.DataGeneration
             DataGenerator.GenerateSeeds = stores.First(x => x.Name == DataTypes.Seeds);
             return new DataGenerator()
             {
-                Creatures = stores.First(x=>x.Name == DataTypes.Creatures),
+                Creatures = stores.First(x => x.Name == DataTypes.Creatures),
                 FemaleFirstNames = stores.First(x => x.Name == DataTypes.FemaleFirstNames),
                 LastNames = stores.First(x => x.Name == DataTypes.LastNames),
                 MaleFirstNames = stores.First(x => x.Name == DataTypes.MaleFirstNames),

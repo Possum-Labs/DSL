@@ -12,9 +12,9 @@ namespace PossumLabs.DSL.Core.Variables
         where T : IValueObject
     {
         public RepositoryBase(
-            Interpeter interpeter, 
-            ObjectFactory objectFactory, 
-            TemplateManager templateManager = null)
+            IInterpeter interpeter, 
+            IObjectFactory objectFactory, 
+            ITemplateManager templateManager = null)
         {
   
             Interpeter = interpeter;
@@ -31,9 +31,9 @@ namespace PossumLabs.DSL.Core.Variables
 
         public static string DefaultTemplateName => "default";
 
-        private Interpeter Interpeter { get; }
-        private ObjectFactory ObjectFactory { get; }
-        private TemplateManager TemplateManager { get; }
+        private IInterpeter Interpeter { get; }
+        private IObjectFactory ObjectFactory { get; }
+        private ITemplateManager TemplateManager { get; }
 
         private List<TypeConverter> Conversions { get; }
 

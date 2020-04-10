@@ -5,7 +5,7 @@ using System.Text;
 
 namespace PossumLabs.DSL.Core.Exceptions
 {
-    public class ActionExecutor
+    public class ActionExecutor : IActionExecutor
     {
         public ActionExecutor(ILog logger, ScenarioMetadata metadata)
         {

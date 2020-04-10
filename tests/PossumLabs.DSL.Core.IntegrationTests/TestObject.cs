@@ -40,7 +40,7 @@ namespace PossumLabs.DSL.Core.IntegrationTests
         {
         }
 
-        [BeforeScenario(Order = int.MinValue + 2)]
+        [BeforeScenario(Order = int.MinValue + 11)]
         public void InitializeDefault()
         { 
             Repository.InitializeDefault(() =>

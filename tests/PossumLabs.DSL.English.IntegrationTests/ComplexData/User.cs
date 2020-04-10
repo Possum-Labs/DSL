@@ -34,7 +34,7 @@ namespace DSL.Documentation.Example
         {
         }
 
-        [BeforeScenario(Order = int.MinValue + 2)]
+        [BeforeScenario(Order = int.MinValue + 11)]
         public void InitializeDefault()
         {
             Repository.InitializeDefault(() =>

@@ -26,12 +26,12 @@ namespace PossumLabs.DSL.Web
             IWebDriver seleniumDriver, 
             Func<Uri> rootUrl, 
             SeleniumGridConfiguration configuration, 
-            RetryExecutor retryExecutor, 
-            SelectorFactory selectorFactory,
-            ElementFactory elementFactory,
-            XpathProvider xpathProvider,
-            MovieLogger movieLogger,
-            WebElementSourceLog webElementSourceLog,
+            IRetryExecutor retryExecutor, 
+            ISelectorFactory selectorFactory,
+            IElementFactory elementFactory,
+            IXpathProvider xpathProvider,
+            IMovieLogger movieLogger,
+            IWebElementSourceLog webElementSourceLog,
             IEnumerable<SelectorPrefix> prefixes = null)
         {
             SeleniumDriver = seleniumDriver;
@@ -50,8 +50,8 @@ namespace PossumLabs.DSL.Web
             WebElementSourceLog = webElementSourceLog;
         }
 
-        private ElementFactory ElementFactory { get; }
-        private XpathProvider XpathProvider { get; }
+        private IElementFactory ElementFactory { get; }
+        private IXpathProvider XpathProvider { get; }
         private Func<Uri> RootUrl { get; set; }
         public IWebDriver SeleniumDriver { get; }
         public IJavaScriptExecutor ScriptExecutor
@@ -64,10 +64,10 @@ namespace PossumLabs.DSL.Web
                     return scriptExecutor;
             }
         }
-        private SelectorFactory SelectorFactory { get; }
+        private ISelectorFactory SelectorFactory { get; }
         private List<Searcher> SuccessfulSearchers { get; }
-        private MovieLogger MovieLogger { get; }
-        public WebElementSourceLog WebElementSourceLog { get; set; }
+        private IMovieLogger MovieLogger { get; }
+        public IWebElementSourceLog WebElementSourceLog { get; set; }
 
         public TableElement GetTables(IEnumerable<string> headers, StringComparison comparison = StringComparison.CurrentCulture, int? index = null )
         => RetryExecutor.RetryFor(() =>
@@ -155,7 +155,7 @@ namespace PossumLabs.DSL.Web
         }
 
         private SeleniumGridConfiguration SeleniumGridConfiguration { get; }
-        private RetryExecutor RetryExecutor { get; }
+        private IRetryExecutor RetryExecutor { get; }
         private List<SelectorPrefix> Prefixes { get; }
         private List<byte[]> Screenshots { get; set; }
         private List<WebDriver> Children { get; set; }
