@@ -11,14 +11,14 @@ namespace PossumLabs.DSL.Core.Variables
 {
     public class ExistingDataManager : IExistingDataManager
     {
-        public ExistingDataManager(Interpeter interpeter, TemplateManager templateManager)
+        public ExistingDataManager(IInterpeter interpeter, ITemplateManager templateManager)
         {
             Interpeter = interpeter;
             TemplateManager = templateManager;
         }
 
-        private Interpeter Interpeter { get; }
-        private TemplateManager TemplateManager { get; }
+        private IInterpeter Interpeter { get; }
+        private ITemplateManager TemplateManager { get; }
 
         public void Initialize(Assembly assembly)
         {

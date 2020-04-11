@@ -119,4 +119,8 @@
     <ProjectReference Include="..\PossumLabs.DSL.Gherkin\PossumLabs.DSL.Gherkin.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="English\" />
+  </ItemGroup>
+
 </Project>

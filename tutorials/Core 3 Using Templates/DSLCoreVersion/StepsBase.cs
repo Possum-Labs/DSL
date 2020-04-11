@@ -21,16 +21,14 @@ namespace DSL.Documentation.Example
         protected ScenarioContext ScenarioContext { get => ObjectContainer.Resolve<ScenarioContext>(); }
         protected FeatureContext FeatureContext { get => ObjectContainer.Resolve<FeatureContext>(); }
 
-        protected Interpeter Interpeter => ObjectContainer.Resolve<Interpeter>();
-        protected ActionExecutor Executor => ObjectContainer.Resolve<ActionExecutor>();
+        protected IInterpeter Interpeter => ObjectContainer.Resolve<IInterpeter>();
+        protected IActionExecutor Executor => ObjectContainer.Resolve<IActionExecutor>();
         protected ILog Log => ObjectContainer.Resolve<ILog>();
-        protected ObjectFactory ObjectFactory => ObjectContainer.Resolve<ObjectFactory>();
-        protected TemplateManager TemplateManager => ObjectContainer.Resolve<TemplateManager>();
-        protected FileManager FileManager => ObjectContainer.Resolve<FileManager>();
+        protected IObjectFactory ObjectFactory => ObjectContainer.Resolve<IObjectFactory>();
+        protected ITemplateManager TemplateManager => ObjectContainer.Resolve<ITemplateManager>();
+        protected IFileManager FileManager => ObjectContainer.Resolve<IFileManager>();
         protected DataGenerator DataGenerator => ObjectContainer.Resolve<DataGenerator>();
-
         protected ScenarioMetadata Metadata => ObjectContainer.Resolve<ScenarioMetadata>();
-
         internal void Register<T>(T item) where T : class
             => ObjectContainer.RegisterInstanceAs<T>(item, dispose: true);
     }

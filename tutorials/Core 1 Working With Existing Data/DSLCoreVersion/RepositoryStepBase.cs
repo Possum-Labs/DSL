@@ -34,7 +34,7 @@ namespace DSL.Documentation.Example
             throw new NotImplementedException("Create is not supported for this repository.");
         }
 
-        [BeforeScenario(Order = int.MinValue)]
+        [BeforeScenario(Order = int.MinValue + 10)]
         public void RegisterRepositoryWithInterpeter()
         {
             var r = new RepositoryBase<T>(base.Interpeter, base.ObjectFactory);

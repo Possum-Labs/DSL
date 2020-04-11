@@ -69,16 +69,13 @@ namespace PossumLabs.DSL.Core.IntegrationTests
 
         protected void LoadTemplates()
         {
-            var templateManager = new PossumLabs.DSL.Core.Variables.TemplateManager();
-            templateManager.Initialize(this.GetType().Assembly);
-            Register(templateManager);
+            ObjectContainer.Resolve<ITemplateManager>()
+                .Initialize(this.GetType().Assembly);
         }
-
         protected void LoadExistingData()
         {
-            new PossumLabs.DSL.Core.Variables.ExistingDataManager(this.Interpeter, this.TemplateManager)
+            ObjectContainer.Resolve<IExistingDataManager>()
                 .Initialize(this.GetType().Assembly);
-
         }
     }
 }

@@ -10,9 +10,9 @@ namespace PossumLabs.DSL.Core.FluidDataCreation
     {
         public SetupBase(
           IDataCreatorFactory dataCreatorFactory,
-          ObjectFactory objectFactory,
-          TemplateManager templateManager,
-          Interpeter interpeter)
+          IObjectFactory objectFactory,
+          ITemplateManager templateManager,
+          IInterpeter interpeter)
         {
             DataCreatorFactory = dataCreatorFactory;
             ObjectFactory = objectFactory;
@@ -20,10 +20,10 @@ namespace PossumLabs.DSL.Core.FluidDataCreation
             Interpeter = interpeter;
         }
 
-        protected ObjectFactory ObjectFactory { get; }
-        protected TemplateManager TemplateManager { get; }
+        protected IObjectFactory ObjectFactory { get; }
+        protected ITemplateManager TemplateManager { get; }
         protected IDataCreatorFactory DataCreatorFactory { get; }
-        public Interpeter Interpeter { get; }
+        public IInterpeter Interpeter { get; }
 
         protected C With<T, S, Tid>(
             RepositoryBase<T> repository,

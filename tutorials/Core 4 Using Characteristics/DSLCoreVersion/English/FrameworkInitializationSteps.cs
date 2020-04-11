@@ -15,5 +15,13 @@ namespace DSL.Documentation.Example
         [BeforeScenario(Order = int.MinValue + 1)]
         public void SetupInfrastructureEnglish()
             => base.SetupInfrastructure();
+
+        [BeforeScenario(Order = int.MinValue + 12)]
+        protected void LoadTemplatesEnglish()
+    => base.LoadTemplates();
+
+        [BeforeScenario(Order = int.MinValue + 13)]
+        protected void LoadExistingDataEnglish()
+            => base.LoadExistingData();
     }
 }

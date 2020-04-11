@@ -11,7 +11,7 @@ namespace PossumLabs.DSL.Core.FluidDataCreation
 {
     public class SetupDriver<C> where C : SetupBase<C>
     {
-        public SetupDriver(C setup, Interpeter interpeter)
+        public SetupDriver(C setup, IInterpeter interpeter)
         {
             Setup = setup;
             Interpeter = interpeter;
@@ -19,7 +19,7 @@ namespace PossumLabs.DSL.Core.FluidDataCreation
         }
 
         private C Setup { get; }
-        private Interpeter Interpeter { get; }
+        private IInterpeter Interpeter { get; }
         private IgnoreCaseEqualityComparer Comparer { get; }
 
         public void Processor(string fileContent)
