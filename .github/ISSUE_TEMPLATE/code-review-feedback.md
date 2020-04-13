@@ -1,5 +1,5 @@
 ---
-name: Core review feedback
+name: Code review feedback
 about: When you see things in the source that could be better.
 title: ''
 labels: code review
