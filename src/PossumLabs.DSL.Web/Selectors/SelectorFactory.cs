@@ -222,7 +222,7 @@ namespace PossumLabs.DSL.Web.Selectors
             (target, prefixes, driver) =>
                 prefixes.CrossMultiply().ParallelFirstOrException(prefix =>
                 {
-                    var elements = driver.FindElements(By.XPath($"{prefix}//label[@for and {XpathProvider.TextMatch(target)}]"));
+                    var elements = driver.FindElements(By.XPath($"{prefix}//*[{XpathProvider.MarkerElements} and {XpathProvider.TextMatch(target)}]/ancestor-or-self::label[@for]"));
                     if (elements.One())
                         return elements.SelectMany(e => driver.FindElements(By.Id(e.GetAttribute("for"))))
                         .Select(e => ElementFactory.Create(driver, e));

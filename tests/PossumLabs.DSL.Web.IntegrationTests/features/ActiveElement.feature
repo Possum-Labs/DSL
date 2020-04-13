@@ -108,14 +108,14 @@ Scenario Outline: checkboxes
 	When entering '<value>' into element '<target>'
 	Then the element '<target>' has the value '<value>'
 Examples: 
-	| description         | target | value     | html                                                                                          |
-	| value               | target | checked   | <input type="checkbox" id="i1" name="target" value="Bob"></input><label for="i1">noop</label> |
-	| label for           | target | checked   | <input type="checkbox" id="i1" name="target" value="noop"></input><label for="i1">Bob</label> |
-	| label nested        | target | checked   | <label>Bob<input type="checkbox" name="target" value="noop"></input></label>                  |
-	| no value            | target | checked   | <label>target<input type="checkbox"></input></label>                                          |
-	| checked             | target | checked   | <label>target<input type="checkbox" checked></input></label>                                  |
-	| unchecking          | target | unchecked | <label>target<input type="checkbox"></input></label>                                          |
-	| unchecking  checked | target | unchecked | <label>target<input type="checkbox" checked></input></label>                                  |
+	| description         | target | value     | html                                                                                            |
+	| value               | target | checked   | <input type="checkbox" id="i1" name="target" value="Bob"></input><label for="i1">noop</label>   |
+	| label for           | target | checked   | <input type="checkbox" id="i1" name="stuff" value="noop"></input><label for="i1">target</label> |
+	| label nested        | target | checked   | <label>Bob<input type="checkbox" name="target" value="noop"></input></label>                    |
+	| no value            | target | checked   | <label>target<input type="checkbox"></input></label>                                            |
+	| checked             | target | checked   | <label>target<input type="checkbox" checked></input></label>                                    |
+	| unchecking          | target | unchecked | <label>target<input type="checkbox"></input></label>                                            |
+	| unchecking  checked | target | unchecked | <label>target<input type="checkbox" checked></input></label>                                    |
 
 
 Scenario Outline: error messages

@@ -1270,13 +1270,13 @@ this.Checkboxes("value", "target", "checked", "<input type=\"checkbox\" id=\"i1\
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:description", "label for")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:target", "target")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:value", "checked")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:html", "<input type=\"checkbox\" id=\"i1\" name=\"target\" value=\"noop\"></input><label for=\"i1\"" +
-            ">Bob</label>")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:html", "<input type=\"checkbox\" id=\"i1\" name=\"stuff\" value=\"noop\"></input><label for=\"i1\">" +
+            "target</label>")]
         public virtual void Checkboxes_LabelFor()
         {
 #line 104
-this.Checkboxes("label for", "target", "checked", "<input type=\"checkbox\" id=\"i1\" name=\"target\" value=\"noop\"></input><label for=\"i1\"" +
-                    ">Bob</label>", ((string[])(null)));
+this.Checkboxes("label for", "target", "checked", "<input type=\"checkbox\" id=\"i1\" name=\"stuff\" value=\"noop\"></input><label for=\"i1\">" +
+                    "target</label>", ((string[])(null)));
 #line hidden
         }
         
