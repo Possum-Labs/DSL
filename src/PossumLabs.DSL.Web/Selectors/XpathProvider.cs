@@ -36,7 +36,7 @@ namespace PossumLabs.DSL.Web.Selectors
 
         virtual public string MarkerElements
             => "( self::label or self::b or self::h1 or self::h2 or self::h3 or self::h4 or self::h5 or self::h6 or " +
-            "self::span or self::em or self::strong or self::code or self::samp)";
+            "self::span or self::p or self::em or self::strong or self::code or self::samp)";
 
         virtual public string ContentElements
             => "( self::label or self::a or self::b or " +

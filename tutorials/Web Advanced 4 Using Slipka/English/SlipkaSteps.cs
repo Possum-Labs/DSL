@@ -5,11 +5,13 @@ using PossumLabs.DSL;
 using PossumLabs.DSL.Core;
 using PossumLabs.DSL.Core.Variables;
 using PossumLabs.DSL.Slipka;
+using PossumLabs.DSL.Web;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using TechTalk.SpecFlow;
 
 namespace DSL.Documentation.Example
@@ -19,18 +21,18 @@ namespace DSL.Documentation.Example
         public MemoryStream Stream { get; internal set; }
 
         public string LogFormat()
-        {
-            throw new NotImplementedException();
-        }
+        => "it's a file";
     }
 
     [Binding]
     public class SlipkaSteps : RepositoryStepBase<ProxyFile>
     {
-        public SlipkaSteps(IObjectContainer objectContainer, Pages pages) : base(objectContainer)
+        public SlipkaSteps(
+            IObjectContainer objectContainer, 
+            WebDriverManager webDriverManager) : base(objectContainer)
         {
-            Pages = pages;
-            var proxy = new Uri("slipka");
+            WebDriverManager = webDriverManager;
+            var proxy = new Uri("http://localhost:4445");
             var target = new Uri("http://possumlabs.com");
             Proxy = new Lazy<ProxyWrapper>(() => new ProxyWrapper(
                 new Uri($"http://{proxy.Host}:{proxy.Port}"),
@@ -38,12 +40,13 @@ namespace DSL.Documentation.Example
         }
 
         public Lazy<ProxyWrapper> Proxy { get; }
-        public Pages Pages { get; }
+        public WebDriverManager WebDriverManager { get; }
 
         [BeforeScenario("proxy", Order = -400)]
         [Given("using a Proxy")]
         public void GivenUsingAProxy()
-            => Pages.Override(Proxy.Value.ProxyUri);
+            => WebDriverManager.BaseUrl = 
+            new Uri($"http://slipka:{Proxy.Value.ProxyUri.Port}");
 
         [Given("proxy logs responses of type '(.*)' with value '(.*)'")]
         public void GivenProxyLogsResponsesOfType(string type, string value)
@@ -77,6 +80,10 @@ namespace DSL.Documentation.Example
             base.Repository.Add(name, file);
         }
 
+        [When("sleep for '(.*)' seconds")]
+        public void WhenSleepFor(int i)
+            => Thread.Sleep(i * 1000);
+
         [AfterScenario()]
         public void LogFilesAndCleanUp()
             => OnError.Continue(() =>
@@ -103,9 +110,12 @@ namespace DSL.Documentation.Example
         [Given("configure Proxy to look for reports")]
         public void ReportAttribute()
         {
+            //assuming you have a nice server
             GivenProxyLogsResponsesOfType("Content-Type", "application/pdf");
             GivenProxyLogsResponsesOfType("Content-Type", "application/vnd.ms-excel");
             GivenProxyLogsResponsesOfType("Content-Type", "application/vnd.openxml");
+            //the test server is dumb
+            GivenProxyLogsCallsTo(".*.pdf");
         }
     }
 

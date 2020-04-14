@@ -1,5 +1,9 @@
 ﻿using BoDi;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Remote;
 using PossumLabs.DSL.Core.Variables;
+using System;
 using TechTalk.SpecFlow;
 
 namespace PossumLabs.DSL.English
@@ -8,6 +12,23 @@ namespace PossumLabs.DSL.English
     public class FrameworkInitializationSteps : FrameworkInitializationStepsBase
     {
         public FrameworkInitializationSteps(IObjectContainer objectContainer) : base(objectContainer) { }
+
+        protected override RemoteWebDriver WebdriverFactory()
+        {
+            var options = new ChromeOptions();
+
+            var driver = new RemoteWebDriver(
+                new Uri(WebDriverManager.SeleniumGridConfiguration.Url), 
+                options.ToCapabilities(), TimeSpan.FromSeconds(180));
+            //do not change this, the site is a bloody nightmare with overlaying buttons etc.
+            driver.Manage().Window.Size = WebDriverManager.DefaultSize;
+            var allowsDetection = driver as IAllowsFileDetection;
+            if (allowsDetection != null)
+            {
+                allowsDetection.FileDetector = new LocalFileDetector();
+            }
+            return driver;
+        }
 
         [StepArgumentTransformation]
         public Characteristics TransformEnglish(string id) => base.Transform(id);
