@@ -1,0 +1,8 @@
+remote_theme: pmarsceill/just-the-docs
+title: Possum Labs DSL Documentation
+aux_links:
+  "Possum Labs DSL on GitHub":
+    - "https://github.com/Possum-Labs/DSL"
+aux_links_new_tab: true
+#url: "https://dsl.possumlabs.com"
+ga_tracking: UA-167781991-1
