@@ -1,7 +1,7 @@
-﻿using BoDi;
+﻿using Reqnroll.BoDi;
 using PossumLabs.DSL.Core.Validations;
 using System.Collections.Generic;
-using TechTalk.SpecFlow;
+using Reqnroll;
 
 namespace PossumLabs.DSL.Core.IntegrationTests
 {

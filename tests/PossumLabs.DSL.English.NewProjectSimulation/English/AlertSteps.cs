@@ -1,9 +1,9 @@
-﻿using BoDi;
+﻿using Reqnroll.BoDi;
 using PossumLabs.DSL;
 using PossumLabs.DSL.Core.Validations;
 using System;
 using System.Collections.Generic;
-using TechTalk.SpecFlow;
+using Reqnroll;
 
 namespace PossumLabs.DSL.English
 {

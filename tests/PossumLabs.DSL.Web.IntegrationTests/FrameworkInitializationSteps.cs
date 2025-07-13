@@ -1,4 +1,4 @@
-﻿using BoDi;
+﻿using Reqnroll.BoDi;
 using FluentAssertions;
 using Microsoft.Extensions.Configuration;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -23,7 +23,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using TechTalk.SpecFlow;
+using Reqnroll;
 
 namespace PossumLabs.DSL.Web.Integration
 {
@@ -171,8 +171,8 @@ namespace PossumLabs.DSL.Web.Integration
             var options = new ChromeOptions();
 
             //grid
-            options.AddAdditionalCapability("username", WebDriverManager.SeleniumGridConfiguration.Username, true);
-            options.AddAdditionalCapability("accessKey", WebDriverManager.SeleniumGridConfiguration.AccessKey, true);
+            options.AddAdditionalOption("username", WebDriverManager.SeleniumGridConfiguration.Username);
+            options.AddAdditionalOption("accessKey", WebDriverManager.SeleniumGridConfiguration.AccessKey);
 
             var driver = new RemoteWebDriver(new Uri(WebDriverManager.SeleniumGridConfiguration.Url), options.ToCapabilities(), TimeSpan.FromSeconds(180));
             //do not change this, the site is a bloody nightmare with overlaying buttons etc.

@@ -1,4 +1,4 @@
-﻿using BoDi;
+﻿using Reqnroll.BoDi;
 using PossumLabs.DSL.Core;
 
 namespace PossumLabs.DSL

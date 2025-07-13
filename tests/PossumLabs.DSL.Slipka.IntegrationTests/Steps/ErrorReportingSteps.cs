@@ -4,7 +4,7 @@
 //using System.Linq;
 //using System.Text;
 //using System.Threading.Tasks;
-//using TechTalk.SpecFlow;
+//using Reqnroll;
 
 //namespace PossumLabs.DSL.Slipka.IntegrationTests
 //{

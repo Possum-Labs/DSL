@@ -1,10 +1,10 @@
-﻿using BoDi;
+﻿using Reqnroll.BoDi;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TechTalk.SpecFlow;
+using Reqnroll;
 using PossumLabs.DSL.Core;
 using PossumLabs.DSL.Web;
 
@@ -24,7 +24,7 @@ namespace PossumLabs.DSL.Web.Integration
  
             foreach (var row in table.Rows)
             {
-                var rowId = tableElement.GetRowId(Interpeter.Get<string>(row[0]));
+                var rowId = tableElement.GetRowId(Interpeter.Get<string>(row[0]), table.Header.First());
 
                 for(int c = 1; c < table.Header.Count; c++)
                 {

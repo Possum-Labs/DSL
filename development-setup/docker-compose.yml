@@ -17,6 +17,8 @@ services:
   hub:
     image: selenium/hub
     ports:
+      - "4442:4442"
+      - "4443:4443"
       - "4444:4444"
   
   node-chrome:
@@ -28,6 +30,8 @@ services:
       - "hub:hub"
       - "slipka:slipka"
     environment:
-      HUB_PORT_4444_TCP_ADDR: hub
-      HUB_PORT_4444_TCP_PORT: 4444
+      - SE_EVENT_BUS_HOST=hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+
 

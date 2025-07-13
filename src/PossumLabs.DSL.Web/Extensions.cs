@@ -51,7 +51,7 @@ namespace PossumLabs.DSL.Web
         {
             try
             {
-                return webElement.GetProperty(name);
+                return webElement.SafeGetProperty(name);
             }
             catch
             {

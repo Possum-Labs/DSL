@@ -1,10 +1,10 @@
-﻿using BoDi;
-using PossumLabs.DSL.Core.IntegrationTests;
+﻿using PossumLabs.DSL.Core.IntegrationTests;
 using PossumLabs.DSL.Core.Variables;
+using Reqnroll;
+using Reqnroll.BoDi;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using TechTalk.SpecFlow;
 
 namespace DSL.Documentation.Example
 {

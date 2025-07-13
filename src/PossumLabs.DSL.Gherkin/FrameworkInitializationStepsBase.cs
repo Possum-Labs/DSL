@@ -1,4 +1,4 @@
-﻿using BoDi;
+﻿using Reqnroll.BoDi;
 using FluentAssertions;
 using Microsoft.Extensions.Configuration;
 using OpenQA.Selenium;
@@ -18,7 +18,7 @@ using System;
 using System.IO;
 using System.Reflection;
 using System.Text;
-using TechTalk.SpecFlow;
+using Reqnroll;
 using System.Linq;
 using PossumLabs.DSL.Core.Variables;
 using PossumLabs.DSL.Web.ApplicationElements;
@@ -169,8 +169,8 @@ namespace PossumLabs.DSL
             var options = new ChromeOptions();
 
             //grid
-            options.AddAdditionalCapability("username", WebDriverManager.SeleniumGridConfiguration.Username, true);
-            options.AddAdditionalCapability("accessKey", WebDriverManager.SeleniumGridConfiguration.AccessKey, true);
+            options.AddAdditionalOption("username", WebDriverManager.SeleniumGridConfiguration.Username);
+            options.AddAdditionalOption("accessKey", WebDriverManager.SeleniumGridConfiguration.AccessKey);
 
             var driver = new RemoteWebDriver(new Uri(WebDriverManager.SeleniumGridConfiguration.Url), options.ToCapabilities(), TimeSpan.FromSeconds(180));
             //do not change this, the site is a bloody nightmare with overlaying buttons etc.
@@ -183,8 +183,8 @@ namespace PossumLabs.DSL
             return driver;
         }
 
-        protected virtual WebDriver BuildDriver()
-            => new WebDriver(
+        protected virtual Web.WebDriver BuildDriver()
+            => new Web.WebDriver(
                 WebDriverManager.Create(),
                 () => WebDriverManager.BaseUrl,
                 ObjectContainer.Resolve<SeleniumGridConfiguration>(),

@@ -1,4 +1,4 @@
-﻿using BoDi;
+﻿using Reqnroll.BoDi;
 using Microsoft.Extensions.Configuration;
 using PossumLabs.DSL.Core;
 using PossumLabs.DSL.Core.Configuration;
@@ -9,7 +9,7 @@ using System;
 using System.IO;
 using System.Reflection;
 using System.Text;
-using TechTalk.SpecFlow;
+using Reqnroll;
 using System.Linq;
 using PossumLabs.DSL.Core.Variables;
 

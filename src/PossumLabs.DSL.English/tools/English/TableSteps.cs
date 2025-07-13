@@ -1,6 +1,6 @@
-﻿using BoDi;
+﻿using Reqnroll.BoDi;
 using PossumLabs.DSL;
-using TechTalk.SpecFlow;
+using Reqnroll;
 using PossumLabs.DSL.Web;
 
 namespace PossumLabs.DSL.English

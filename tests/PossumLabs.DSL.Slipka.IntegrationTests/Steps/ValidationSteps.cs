@@ -1,11 +1,11 @@
-﻿using BoDi;
+﻿using Reqnroll.BoDi;
 using FluentAssertions;
 using PossumLabs.DSL.Core;
 using PossumLabs.DSL.Core.Validations;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using TechTalk.SpecFlow;
+using Reqnroll;
 
 namespace PossumLabs.DSL.Slipka.IntegrationTests
 {

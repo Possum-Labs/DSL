@@ -1,10 +1,10 @@
-﻿using BoDi;
+﻿using Reqnroll.BoDi;
 using PossumLabs.DSL.Core;
 using PossumLabs.DSL.Core.Exceptions;
 using PossumLabs.DSL.Core.Files;
 using PossumLabs.DSL.Core.Logging;
 using PossumLabs.DSL.Core.Variables;
-using TechTalk.SpecFlow;
+using Reqnroll;
 
 namespace PossumLabs.DSL.Core.IntegrationTests
 {

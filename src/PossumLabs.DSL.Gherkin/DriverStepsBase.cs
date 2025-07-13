@@ -1,4 +1,4 @@
-﻿using BoDi;
+﻿using Reqnroll.BoDi;
 using PossumLabs.DSL.Core;
 using PossumLabs.DSL.Web;
 using PossumLabs.DSL.Web.Selectors;

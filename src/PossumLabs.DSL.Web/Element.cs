@@ -48,8 +48,10 @@ namespace PossumLabs.DSL.Web
         {
             if (!string.IsNullOrWhiteSpace(text))
             {
+                var tag = WebElement.TagName;
+                var type = WebElement.GetAttribute("type");
                 // optimisting setting
-                if (WebElement.GetAttribute("type") != "file")
+                if (type != "file")
                 {
                     WebElement.Click();
                     Thread.Sleep(100);

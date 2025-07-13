@@ -6,8 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TechTalk.SpecFlow;
-using BoDi;
+using Reqnroll;
+using Reqnroll.BoDi;
 
 namespace PossumLabs.DSL.Slipka.IntegrationTests
 {

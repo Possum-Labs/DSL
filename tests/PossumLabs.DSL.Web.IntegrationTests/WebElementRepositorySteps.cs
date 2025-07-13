@@ -1,4 +1,4 @@
-﻿using BoDi;
+﻿using Reqnroll.BoDi;
 using FluentAssertions;
 using OpenQA.Selenium;
 using PossumLabs.DSL.Core;
@@ -10,7 +10,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Drawing;
 using System.Text;
-using TechTalk.SpecFlow;
+using Reqnroll;
 
 namespace PossumLabs.DSL.Web.Integration
 {
@@ -36,9 +36,14 @@ namespace PossumLabs.DSL.Web.Integration
         public ReadOnlyCollection<IWebElement> FindElements(By by) => Element.FindElements(by);
         public string GetAttribute(string attributeName) => Element.GetAttribute(attributeName);
         public string GetCssValue(string propertyName) => Element.GetCssValue(propertyName);
-        public string GetProperty(string propertyName) => Element.GetProperty(propertyName);
         public void SendKeys(string text) => Element.SendKeys(text);
         public void Submit() => Element.Submit();
+
+        public string GetDomAttribute(string attributeName) => Element.GetDomAttribute(attributeName);
+
+        public string GetDomProperty(string propertyName) => Element.GetDomProperty(propertyName);
+
+        public ISearchContext GetShadowRoot() => Element.GetShadowRoot();
     }
 
     [Binding]

@@ -142,7 +142,7 @@ namespace PossumLabs.DSL.Web.Selectors
             (x.Location == y.Location && x.TagName == y.TagName));
 
         virtual protected bool Filter(IWebElement e)
-        => e is RemoteWebElement &&
+        => e is IWebElement &&
             (
                 (e.Displayed && e.Enabled)
                 ||

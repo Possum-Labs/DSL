@@ -1,5 +1,5 @@
 ﻿Feature: File Upload tests
-this test will fail nless you have a file at c:\temp\temp.txt
+this test will fail unless you have a file at c:\temp\temp.txt
 
 Scenario Outline: simple file control
 	Given injecting browser content

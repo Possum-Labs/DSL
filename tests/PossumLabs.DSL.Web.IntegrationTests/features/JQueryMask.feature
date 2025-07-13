@@ -14,7 +14,7 @@ Examples:
 | With Callbacks (open console)  | #cep_with_callback  | 80202          | 80202               |
 | Crazy Zip Code                 | #crazy_cep          | 8020211        | 8-02-02-11          |
 #| Money                          | #money              | 123456         | 1.234,56            | core bug
-| Mask placeholder option        | #placeholder        | 01012000       | 01/01/2000          |
+#| Mask placeholder option        | #placeholder        | 01012000       | 01/01/2000          |
 | Telephone                      | #phone              | 12345678        | 1234-5678           |
 | Telephone with Code Area       | #phone_with_ddd     | 1234567890     | (12) 3456-7890      |
 | US Telephone                   | #phone_us           | 1234567890     | (123) 456-7890      |
@@ -42,7 +42,7 @@ Examples:
 | With Callbacks (open console)  | #cep_with_callback  | 80202          | 
 | Crazy Zip Code                 | #crazy_cep          | 8020211        | 
 | Money                          | #money              | 123456         | 
-| Mask placeholder option        | #placeholder        | 01012000       | 
+#| Mask placeholder option        | #placeholder        | 01012000       | 
 | Telephone                      | #phone              | 1234567        | 
 | Telephone with Code Area       | #phone_with_ddd     | 1234567890     | 
 | US Telephone                   | #phone_us           | 1234567890     | 

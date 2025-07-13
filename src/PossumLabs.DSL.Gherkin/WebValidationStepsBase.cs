@@ -1,10 +1,10 @@
-﻿using BoDi;
+﻿using Reqnroll.BoDi;
 using FluentAssertions;
 using PossumLabs.DSL.Core.Validations;
 using PossumLabs.DSL.Web;
 using PossumLabs.DSL.Web.Selectors;
 using System.Linq;
-using TechTalk.SpecFlow;
+using Reqnroll;
 
 namespace PossumLabs.DSL
 {

@@ -18,7 +18,7 @@ namespace PossumLabs.DSL.Web.IntegrationTests.Features
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Reqnroll", "2.0.0.0")]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [Microsoft.VisualStudio.TestTools.UnitTesting.TestClassAttribute()]
-    public partial class FileUploadTestsFeature
+    public partial class SampleFeature
     {
         
         private global::Reqnroll.ITestRunner testRunner;
@@ -27,9 +27,9 @@ namespace PossumLabs.DSL.Web.IntegrationTests.Features
         
         private static string[] featureTags = ((string[])(null));
         
-        private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new global::System.Globalization.CultureInfo("en"), "features", "File Upload tests", "this test will fail unless you have a file at c:\\temp\\temp.txt", global::Reqnroll.ProgrammingLanguage.CSharp, featureTags);
+        private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new global::System.Globalization.CultureInfo("en"), "features", "Sample", null, global::Reqnroll.ProgrammingLanguage.CSharp, featureTags);
         
-#line 1 "FileUpload.feature"
+#line 1 "Sample.feature"
 #line hidden
         
         public virtual Microsoft.VisualStudio.TestTools.UnitTesting.TestContext TestContext
@@ -115,20 +115,14 @@ namespace PossumLabs.DSL.Web.IntegrationTests.Features
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("simple file control")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "File Upload tests")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DataRowAttribute("input for", "target", "c:\\temp\\temp.txt", "C:\\fakepath\\temp.txt", "<label for=\"linky\">target</label><input id=\"linky\" type=\"file\"></input>", null)]
-        public async global::System.Threading.Tasks.Task SimpleFileControl(string description, string target, string value, string newValue, string html, string[] exampleTags)
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Basic Login")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Sample")]
+        public async global::System.Threading.Tasks.Task BasicLogin()
         {
-            string[] tagsOfScenario = exampleTags;
+            string[] tagsOfScenario = ((string[])(null));
             global::System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new global::System.Collections.Specialized.OrderedDictionary();
-            argumentsOfScenario.Add("description", description);
-            argumentsOfScenario.Add("target", target);
-            argumentsOfScenario.Add("value", value);
-            argumentsOfScenario.Add("newValue", newValue);
-            argumentsOfScenario.Add("html", html);
-            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("simple file control", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 4
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Basic Login", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 3
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -138,18 +132,23 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 await this.ScenarioStartAsync();
-                global::Reqnroll.Table table25 = new global::Reqnroll.Table(new string[] {
-                            "Html"});
-                table25.AddRow(new string[] {
-                            string.Format("{0}", html)});
+#line 4
+ await testRunner.GivenAsync("navigated to \'http://possumlabs.com/testsite/\'", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+#line hidden
 #line 5
- await testRunner.GivenAsync("injecting browser content", ((string)(null)), table25, "Given ");
+ await testRunner.WhenAsync("clicking the element \'Login\'", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+#line hidden
+#line 6
+ await testRunner.AndAsync("entering \'possum\' into element \'User Name\'", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 7
+ await testRunner.AndAsync("entering \'possum\' into element \'Password\'", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
 #line 8
- await testRunner.WhenAsync(string.Format("entering \'{0}\' into element \'{1}\'", value, target), ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+ await testRunner.AndAsync("clicking the element \'Login\'", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 9
- await testRunner.ThenAsync(string.Format("the element \'{0}\' has the value \'{1}\'", target, newValue), ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+#line 10
+ await testRunner.ThenAsync("the page contains the element \'Add Dealer\'", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
             await this.ScenarioCleanupAsync();

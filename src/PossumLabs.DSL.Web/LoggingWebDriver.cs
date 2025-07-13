@@ -203,13 +203,13 @@ for (var i=0 ; i<nodesSnapshot.snapshotLength; i++ )
         /// <summary>
         /// Get the element at the viewport coordinates X, Y
         /// </summary>
-        public RemoteWebElement GetElementFromPoint(int X, int Y)
+        public IWebElement GetElementFromPoint(int X, int Y)
         {
             while (true)
             {
                 String s_Script = "return document.elementFromPoint(arguments[0], arguments[1]);";
 
-                RemoteWebElement i_Elem = ScriptExecutor.ExecuteScript(s_Script, X, Y) as RemoteWebElement;
+                IWebElement i_Elem = ScriptExecutor.ExecuteScript(s_Script, X, Y) as IWebElement;
                 if (i_Elem == null)
                     return null;
 
@@ -227,9 +227,9 @@ for (var i=0 ; i<nodesSnapshot.snapshotLength; i++ )
         //HACK: nested IFrames
         /// <summary>
         /// Get the position of the top/left corner of the Element in the document.
-        /// NOTE: RemoteWebElement.Location is always measured from the top of the document and ignores the scroll position.
+        /// NOTE: IWebElement.Location is always measured from the top of the document and ignores the scroll position.
         /// </summary>
-        public Point GetElementPosition(RemoteWebElement i_Elem)
+        public Point GetElementPosition(IWebElement i_Elem)
         {
             String s_Script = "var X, Y; "
                             + "if (window.pageYOffset) " // supported by most browsers 
@@ -273,6 +273,7 @@ for (var i=0 ; i<nodesSnapshot.snapshotLength; i++ )
         object IJavaScriptExecutor.ExecuteAsyncScript(string script, params object[] args)
             => ScriptExecutor.ExecuteAsyncScript(script, args);
 
-       
+        object IJavaScriptExecutor.ExecuteScript(PinnedScript script, params object[] args)
+            => ScriptExecutor.ExecuteScript(script, args);
     }
 }

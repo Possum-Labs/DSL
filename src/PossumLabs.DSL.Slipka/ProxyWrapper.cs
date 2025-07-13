@@ -1,5 +1,6 @@
-﻿using GraphQL.Client;
-using GraphQL.Common.Request;
+﻿using GraphQL;
+using GraphQL.Client;
+using GraphQL.Client.Http;
 using PossumLabs.DSL.Core;
 using PossumLabs.DSL.Core.Variables;
 using PossumLabs.DSL.Slipka.ValueObjects;
@@ -8,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using GraphQL.Client.Serializer.Newtonsoft;
 
 namespace PossumLabs.DSL.Slipka
 {
@@ -22,14 +24,14 @@ namespace PossumLabs.DSL.Slipka
         {
             AdministrationUri = host;
             AdministrationClient = new RestClient(host);
-            GraphQLClient = new GraphQLClient($"{host}graphql");
+            GraphQLHttpClient = new GraphQLHttpClient($"{host}graphql", new NewtonsoftJsonSerializer());
         }
 
         private Uri AdministrationUri { get; }
         private RestClient AdministrationClient { get; }
         private RestClient ProxyClient { get; set; }
         private SessionSummary ProxySession { get; set; }
-        private GraphQLClient GraphQLClient { get;}
+        private GraphQLHttpClient GraphQLHttpClient { get;}
 
         public Uri ProxyUri { get; private set; }
         public string Id { get => ProxySession.Id; }
@@ -44,7 +46,7 @@ namespace PossumLabs.DSL.Slipka
                 RetainedFor = retainedFor.HasValue ? retainedFor.ToString() : null
             };
 
-            var request = new RestRequest("/api/proxies", Method.POST)
+            var request = new RestRequest("/api/proxies", Method.Post)
             {
                 RequestFormat = DataFormat.Json
             };
@@ -59,7 +61,7 @@ namespace PossumLabs.DSL.Slipka
 
         public void LogsResponsesOfType(string type, string value)
         {
-            var request = new RestRequest($"/api/proxies/{ProxySession.Id}/record", Method.PUT);
+            var request = new RestRequest($"/api/proxies/{ProxySession.Id}/record", Method.Put);
             var call = new Call
             {
                 Response = new Message
@@ -82,7 +84,7 @@ namespace PossumLabs.DSL.Slipka
 
         public void LogsCallsTo(Uri uri)
         {
-            var request = new RestRequest($"/api/proxies/{ProxySession.Id}/record", Method.PUT);
+            var request = new RestRequest($"/api/proxies/{ProxySession.Id}/record", Method.Put);
             var call = new Call
             {
                 Uri = uri
@@ -94,7 +96,7 @@ namespace PossumLabs.DSL.Slipka
 
         public void RegisterTag(CallTemplate call)
         {
-            var request = new RestRequest($"/api/proxies/{ProxySession.Id}/tag", Method.PUT)
+            var request = new RestRequest($"/api/proxies/{ProxySession.Id}/tag", Method.Put)
             {
                 RequestFormat = DataFormat.Json
             };
@@ -104,7 +106,7 @@ namespace PossumLabs.DSL.Slipka
 
         public void RegisterRecording(CallTemplate call)
         {
-            var request = new RestRequest($"/api/proxies/{ProxySession.Id}/record", Method.PUT)
+            var request = new RestRequest($"/api/proxies/{ProxySession.Id}/record", Method.Put)
             {
                 RequestFormat = DataFormat.Json
             };
@@ -114,7 +116,7 @@ namespace PossumLabs.DSL.Slipka
 
         public void RegisterInject(CallTemplate call)
         {
-            var request = new RestRequest($"/api/proxies/{ProxySession.Id}/inject", Method.PUT)
+            var request = new RestRequest($"/api/proxies/{ProxySession.Id}/inject", Method.Put)
             {
                 RequestFormat = DataFormat.Json
             };
@@ -124,7 +126,7 @@ namespace PossumLabs.DSL.Slipka
 
         public void RegisterDecoration(Header header)
         {
-            var request = new RestRequest($"/api/proxies/{ProxySession.Id}/decorate", Method.PUT)
+            var request = new RestRequest($"/api/proxies/{ProxySession.Id}/decorate", Method.Put)
             {
                 RequestFormat = DataFormat.Json
             };
@@ -154,9 +156,9 @@ namespace PossumLabs.DSL.Slipka
 }
 "
             };
-            var task = GraphQLClient.PostAsync(queury);
+            var task = GraphQLHttpClient.SendQueryAsync<Session>(queury);
             var graphQLResponse = task.Result;
-            return graphQLResponse.GetDataFieldAs<Session>("session"); 
+            return graphQLResponse.Data; 
         }
 
         public CallCollection GetCalls(bool? recorded = null, string tag = null)
@@ -197,11 +199,12 @@ namespace PossumLabs.DSL.Slipka
 }
 "
             };
-            var task = GraphQLClient.PostAsync(queury);
+            var task = GraphQLHttpClient.SendQueryAsync<GetCallsRet>(queury);
             var graphQLResponse = task.Result;
-            var calls = graphQLResponse.GetDataFieldAs<CallRecord[]>("calls");
-            return new CallCollection(calls ?? new CallRecord[0] );
+            return new CallCollection(graphQLResponse.Data.Data ?? new CallRecord[0]);
         }
+
+        class GetCallsRet { public CallRecord[] Data; }
 
         public void CloseAsync()
         {
@@ -209,7 +212,7 @@ namespace PossumLabs.DSL.Slipka
                 return;
             AdministrationClient.ExecuteAsync(new RestRequest(
                 $"/api/proxies/{ProxySession.Id}",
-                Method.DELETE), (response, handle) => { });
+                Method.Delete));
         }
 
         public void Close()
@@ -218,10 +221,10 @@ namespace PossumLabs.DSL.Slipka
                 return;
             AdministrationClient.Execute(new RestRequest(
                 $"/api/proxies/{ProxySession.Id}",
-                Method.DELETE));
+                Method.Delete));
         }
 
-        public IRestResponse Call(string path, Method method)
+        public RestResponse Call(string path, Method method)
         {
             var request = new RestRequest(path, method)
             {
@@ -231,7 +234,7 @@ namespace PossumLabs.DSL.Slipka
             return AdministrationClient.Execute(request);
         }
 
-        public IRestResponse<T> Call<T>(string path, Method method) where T : new()
+        public RestResponse<T> Call<T>(string path, Method method) where T : new()
         {
             var request = new RestRequest(path, method)
             {

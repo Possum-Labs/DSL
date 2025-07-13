@@ -14,7 +14,7 @@ namespace PossumLabs.DSL.Web.Selectors
                 (prefix, row, column)=>$"{prefix}/tr[{row}]/td[{column}]/div/*[{ActiveElements}]",
                 (prefix, row, column)=>$"{prefix}/tr[{row}]/td[{column}]/div/div/*[{ActiveElements}]",
                 (prefix, row, column)=>$"{prefix}/tr[{row}]/td[{column}]//*[{ActiveElements}]",
-                (prefix, row, column)=>$"{prefix}/tr[{row}]/td[{column}]"
+                //(prefix, row, column)=>$"{prefix}/tr[{row}]/td[{column}]"
             };
 
         }
