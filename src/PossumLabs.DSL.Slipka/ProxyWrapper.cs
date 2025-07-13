@@ -201,7 +201,7 @@ namespace PossumLabs.DSL.Slipka
             };
             var task = GraphQLHttpClient.SendQueryAsync<GetCallsRet>(queury);
             var graphQLResponse = task.Result;
-            return new CallCollection(graphQLResponse.Data.Data ?? new CallRecord[0]);
+            return new CallCollection(graphQLResponse.Data?.Data ?? new CallRecord[0]);
         }
 
         class GetCallsRet { public CallRecord[] Data; }
