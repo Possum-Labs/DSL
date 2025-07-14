@@ -52,7 +52,8 @@ namespace DSL.Documentation.Example
             }, "special");
         }
 
-        [Given(@"the Stores?")]
+        [Given(@"the Store")]
+        [Given(@"the Stores")]
         public void GivenTheStores(Dictionary<string, Store> stores)
      => GivenTheStores(null, Characteristics.None, stores);
 

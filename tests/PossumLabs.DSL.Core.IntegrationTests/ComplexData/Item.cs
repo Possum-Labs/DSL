@@ -57,9 +57,10 @@ namespace DSL.Documentation.Example
             }, "damaged");
         }
 
-        [Given(@"the Items?")]
+        [Given(@"the Item")]
+        [Given(@"the Items")]
         public void GivenTheItems(Dictionary<string, Item> items)
-    => GivenTheItems(null, Characteristics.None, items);
+            => GivenTheItems(null, Characteristics.None, items);
 
         [Given(@"the Items? of type '([\w ]*)'")]
         public void GivenTheItems(string template, Dictionary<string, Item> items)

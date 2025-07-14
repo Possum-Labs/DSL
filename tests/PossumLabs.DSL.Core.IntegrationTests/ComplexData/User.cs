@@ -56,7 +56,8 @@ namespace DSL.Documentation.Example
             }, "special");
         }
 
-        [Given(@"the Users?")]
+        [Given(@"the User")]
+        [Given(@"the Users")]
         public void GivenTheUsers(Dictionary<string, User> users)
      => GivenTheUsers(null, Characteristics.None, users);
 

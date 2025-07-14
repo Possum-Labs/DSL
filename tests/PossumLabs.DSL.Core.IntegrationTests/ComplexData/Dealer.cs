@@ -49,9 +49,10 @@ namespace DSL.Documentation.Example
             }, "special");
         }
 
-        [Given(@"the Dealers?")]
+        [Given(@"the Dealer")]
+        [Given(@"the Dealers")]
         public void GivenTheDealers(Dictionary<string, Dealer> dealers)
-    => GivenTheDealers(null, Characteristics.None, dealers);
+            => GivenTheDealers(null, Characteristics.None, dealers);
 
         [Given(@"the Dealers? of type '([\w ]*)'")]
         public void GivenTheDealers(string template, Dictionary<string, Dealer> dealers)

@@ -52,9 +52,10 @@ namespace DSL.Documentation.Example
             }, "special");
         }
 
-        [Given(@"the Inventory Locations?")]
+        [Given(@"the Inventory Location")]
+        [Given(@"the Inventory Locations")]
         public void GivenTheInventoryLocations(Dictionary<string, InventoryLocation> inventoryLocations)
-     => GivenTheInventoryLocations(null, Characteristics.None, inventoryLocations);
+            => GivenTheInventoryLocations(null, Characteristics.None, inventoryLocations);
 
         [Given(@"the Inventory Locations? of type '([\w ]*)'")]
         public void GivenTheInventoryLocations(string template, Dictionary<string, InventoryLocation> inventoryLocations)

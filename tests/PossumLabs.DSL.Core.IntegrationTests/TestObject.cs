@@ -62,7 +62,8 @@ namespace PossumLabs.DSL.Core.IntegrationTests
             }, "special");
         }
 
-        [Given(@"the Test Objects?")]
+        [Given(@"the Test Object")]
+        [Given(@"the Test Objects")]
         public void GivenThetestObjects(Dictionary<string, TestObject> testObjects)
             => GivenThetestObjects(null, Characteristics.None, testObjects);
 

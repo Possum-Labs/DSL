@@ -26,7 +26,8 @@ namespace PossumLabs.DSL.Slipka.IntegrationTests
         private HttpClientHandler Handler { get; }
         private HttpClient Client { get; }
 
-        [Given(@"the Calls?")]
+        [Given(@"the Call")]
+        [Given(@"the Calls")]
         public void GivenTheCalls(Dictionary<string, Call> calls)
             => calls.Keys.ToList().ForEach(k => Add(k, calls[k]));
 

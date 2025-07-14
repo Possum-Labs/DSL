@@ -27,7 +27,8 @@ namespace PossumLabs.DSL.Slipka.IntegrationTests
         public void CloseAllProxies()
             => base.Repository.ToList().ForEach(w => w.Value.CloseAsync());
 
-        [Given(@"the Slipka Prox(?:y|ies)")]
+        [Given(@"the Slipka Proxy")]
+        [Given(@"the Slipka Proxies")]
         public void GivenTheSlipkaProxyFor(Dictionary<string, ProxyWrapper> proxies)
             => proxies.Keys.ToList().ForEach(k=> Add(k, proxies[k]));
 
