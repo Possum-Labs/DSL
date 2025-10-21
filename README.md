@@ -1,8 +1,7 @@
 # Test using a DSL (domain specific language)
 
-[![Build Status](https://dev.azure.com/Possum-Labs/DSL/_apis/build/status/Possum-Labs.DSL?branchName=master)](https://dev.azure.com/Possum-Labs/DSL/_build/latest?definitionId=1&branchName=master)
-
-[![Live Support](http://possumlabs.com/assets/Twitch-Support.png)](https://www.twitch.tv/possumlabs)
+documentation at 
+https://dsl.possumlabs.com/
 
 Effective Software test automation your organization can stick with.
 
